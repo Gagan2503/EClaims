@@ -1,0 +1,250 @@
+﻿@model IEnumerable<EClaimsWeb.Models.ExpenseClaimVM>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+@section Styles{
+    <environment names="Development">
+        <link rel="stylesheet" href="~/vendors/select2/select2.min.css" asp-append-version="true">
+        <link rel="stylesheet" href="~/vendors/select2-bootstrap-theme/select2-bootstrap.min.css" asp-append-version="true">
+        <link rel="stylesheet" href="~/vendors/datatables.net-bs4/dataTables.bootstrap4.css" asp-append-version="true" />
+    </environment>
+
+    <environment names="Staging,Production">
+        <link rel="stylesheet" href="~/vendors/select2/select2.min.css" asp-append-version="true">
+        <link rel="stylesheet" href="~/vendors/select2-bootstrap-theme/select2-bootstrap.min.css" asp-append-version="true">
+        <link rel="stylesheet" href="~/vendors/datatables.net-bs4/dataTables.bootstrap4.css" asp-append-version="true" />
+    </environment>
+}
+
+
+@*<div class="row" id="ViewDetails">*@
+<div class="accordion accordion-solid-header" id="accordion-4" role="tablist">
+    <div class="card border-bottom">
+        <div class="card-header" role="tab" id="heading-10">
+            <h6 class="mb-0">
+                <a data-toggle="collapse" href="#collapse-10" aria-expanded="false" aria-controls="collapse-10" class="collapsed">
+                    Filters
+                </a>
+            </h6>
+        </div>
+        <div id="collapse-10" class="collapse" role="tabpanel" aria-labelledby="heading-10" data-parent="#accordion-4" style="">
+            <div class="card-body">
+                <div class="row">
+                    <div class="form-group col-md-4">
+                        <label class="">Requester</label>
+                        <select class="form-control js-example-basic-single w-100" style="width: 100% !important;">
+                            <option value="0">Alina</option>
+                            <option value="1">Jason</option>
+                            <option value="2">Mohdfirdaus</option>
+                            <option value="3">Muhammad</option>
+                            <option value="4">Samantha</option>
+                            <option value="5">Steven</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label class="">Expense Type</label>
+                        <select class="js-example-basic-single w-100 select2-hidden-accessible" style="width: 100% !important;">
+                            <option value="0">Expense</option>
+                            <option value="1">Petty cash</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label class="">Facility</label>
+                        <select class="form-control js-example-basic-single w-100" style="width: 100% !important;">
+                            <option value="0">KKH</option>
+                            <option value="1">SKH-HSK</option>
+                            <option value="2">FES-Healthcare</option>
+                            <option value="3">HQ</option>
+                            <option value="4">HQ-Store</option>
+                            <option value="5">HQ-Tech Services</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-4">
+                        <label class="">Status</label>
+                        <select class="js-example-basic-single w-100 select2-hidden-accessible" style="width: 100% !important;">
+                            <option value="0">New</option>
+                            <option value="1">Approved</option>
+                            <option value="2">Awaiting approval</option>
+                            <option value="3">Awaiting Signatory approval</option>
+                            <option value="4">Verified</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="Code" class="">From Date</label>
+                        <div id="datepicker-popup" class="input-group date datepicker">
+                            <input type="text" class="form-control" placeholder="DD/MM/YYYY">
+                            <span class="input-group-addon input-group-append border-left">
+                                <span class="mdi mdi-calendar input-group-text"></span>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="Code" class="">To Date</label>
+                        <div id="datepicker-popup1" class="input-group date datepicker">
+                            <input type="text" class="form-control" placeholder="DD/MM/YYYY">
+                            <span class="input-group-addon input-group-append border-left">
+                                <span class="mdi mdi-calendar input-group-text"></span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class=" col-md-6">
+                    <button type="submit" class="btn btn-primary mr-2">Filter</button>
+                    <button class="btn btn-light">Reset</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    <div class="col-md-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="mb-0 font-weight-bold">View Expense Claims</h4>
+                <div class="col-md-12 summary-actions">
+                    <div class="text-align-right mb-4">
+                        <button type="button" class="btn btn-success btn-icon-text">
+                            Export to Excel
+                            <i class="mdi mdi-file-excel btn-icon-append"></i>
+                        </button>
+                        <button type="button" class="btn btn-secondary btn-icon-text">
+                            Print
+                            <i class="mdi mdi-printer btn-icon-append"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="row mt-4">
+                    <div class="col-12">
+                        <div class="table-responsive">
+                            <table id="order-listing" class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            Claim #
+                                        </th>
+                                        <th>
+                                            Requester
+                                        </th>
+                                        <th>
+                                            Date Created
+                                        </th>
+                                        <th>
+                                            Facility
+                                        </th>
+                                        <th>
+                                            Payee
+                                        </th>
+                                        <th>
+                                            Contact Number
+                                        </th>
+                                        <th>
+                                            Total Claim
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Approver)
+                                        </th>
+                                        <th>
+                                            Status
+                                        </th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <td>
+                                                @Html.ActionLink(item.ECNo, "Details", new { id = item.ECID }, new { @class = "" })
+                                                @*@Html.DisplayFor(modelItem => item.ECNo)*@
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Name)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.CreatedDate)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.FacilityName)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Name)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Phone)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.TotalAmount)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Approver)
+                                            </td>
+                                            <td>
+                                                @if (item.ApprovalStatus == 3)
+                                                {
+                                                <label class="badge badge-success">Approved</label>
+                                                }
+                                                else if (item.ApprovalStatus == 1)
+                                                {
+                                            <label class="badge badge-outline-info">Awaiting verification</label>
+                                                }
+                                                else if (item.ApprovalStatus == 2)
+                                                {
+                                                     <label class="badge badge-danger">Awaiting Signatory approval</label>
+                                                }
+                                                else if (item.ApprovalStatus == 4)
+                                                {
+                                                    <label class="badge badge-danger">Request to Amend</label>
+                                                }
+                                                else if (item.ApprovalStatus == -5)
+                                                {
+                                                    <label class="badge badge-danger">Requested for Void</label>
+                                                }
+                                                else if (item.ApprovalStatus == 5)
+                                                {
+                                                    <label class="badge badge-danger">Voided</label>
+                                                }
+                                            </td>
+                                            <td>
+                                                @Html.ActionLink("Approve", "Approve", new { id = item.ECID }, new { @class = "btn btn-outline-primary" })
+                                                @Html.ActionLink("Reject", "Reject", new { id = item.ECID }, new { @class = "btn btn-outline-primary" })
+                                                @*@Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                                        @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })*@
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+@*</div>*@
+@section scripts
+{
+    <environment names="Development">
+        <script src="~/vendors/typeahead.js/typeahead.bundle.min.js" asp-append-version="true"></script>
+        <script src="~/vendors/select2/select2.min.js" asp-append-version="true"></script>
+        <script src="~/vendors/datatables.net/jquery.dataTables.js" asp-append-version="true"></script>
+        <script src="~/vendors/datatables.net-bs4/dataTables.bootstrap4.js" asp-append-version="true"></script>
+        <script src="~/js/file-upload.js"></script>
+        <script src="~/js/typeahead.js"></script>
+        <script src="~/js/select2.js"></script>
+        <script src="~/js/data-table.js"></script>
+    </environment>
+
+    <environment names="Staging,Production">
+        <script src="~/vendors/typeahead.js/typeahead.bundle.min.js" asp-append-version="true"></script>
+        <script src="~/vendors/select2/select2.min.js" asp-append-version="true"></script>
+        <script src="~/vendors/datatables.net/jquery.dataTables.js" asp-append-version="true"></script>
+        <script src="~/vendors/datatables.net-bs4/dataTables.bootstrap4.js" asp-append-version="true"></script>
+        <script src="~/js/file-upload.js"></script>
+        <script src="~/js/typeahead.js"></script>
+        <script src="~/js/select2.js"></script>
+        <script src="~/js/data-table.js"></script>
+    </environment>
+}

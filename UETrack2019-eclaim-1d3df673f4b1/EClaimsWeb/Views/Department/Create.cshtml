@@ -1,0 +1,110 @@
+﻿@model EClaimsWeb.Models.DepartmentViewModel
+
+@{
+    var error = TempData["Error"] as string;
+    ViewData["Title"] = "Manage Department ";
+}
+
+<div class="col-md-12 grid-margin stretch-card" id="AddNew">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="mb-0 font-weight-bold">Add Department</h4>
+            <form id="deptForm" class="forms-sample mt-4" asp-action="Create" asp-controller="Department">
+                @if (!string.IsNullOrEmpty(error))
+                {
+                    <span class="alert-danger">@error</span>
+                }
+                <label id="msg" class="alert-danger"></label>
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class=" col-md-6">
+                    <div class="form-group col-md-12">
+                        <label asp-for="Code" class="control-label required"></label>
+                        <input asp-for="Code" class="form-control required" id="Code" ondrop='return false;' onkeypress='return isNumber(event)' onpaste='return false' />
+                        <span asp-validation-for="Code" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-12">
+                        <label asp-for="Department" class="control-label required"></label>
+                        <input asp-for="Department" class="form-control required" />
+                        <span asp-validation-for="Department" class="text-danger"></span>
+                    </div>
+                    <div class="form-group form-check col-md-12">
+                        <label class="form-check-label">
+                            <input class="form-check-input" asp-for="IsActive" checked="checked" />
+                            @Html.DisplayNameFor(model => model.IsActive)
+                        </label>
+                    </div>
+                    <button type="submit" value="Create" class="btn btn-primary mr-2">Add Department</button>
+                    <a class="btn btn-danger mr-2 cancel" asp-action="Index">Close</a>
+                    <input type="reset" value="Reset" class="btn btn-light" onclick="return ClearData();" />
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script>
+        $('#deptForm').submit(function () {
+            if ($(this).valid()) {
+                $(':submit', this).attr('disabled', 'disabled');
+            }
+        });
+
+        function ClearData() {
+            $('#Code').val = null;
+            $('#Department').val = null;
+            $('#IsActive').val = null;
+        }
+
+        $(document).ready(function () {
+            $('#btnSubmit').click(function () {
+                if ($("#deptForm").valid()) { //check if form is valid using model annotation
+                    $('#deptForm').submit();
+                }
+                else {
+                    return false;
+                }
+            });
+            $("#deptForm1").on("submit", function (event) {
+                event.preventDefault();
+                $('#btnSubmit').attr('disabled', 'disabled');
+                //var url = $(this).attr("action");
+                var formData = $(this).serialize();
+
+                $.ajax({
+                    url: "/Department/Create",
+                    type: "POST",
+                    data: formData,
+                    dataType: "json",
+                    success: function (response) {
+                        if (response.res == 'success') {
+                            $("#msg").html("Department added successfully").css("color", "green");
+                            window.location.href = "/Department/Index";
+                        }
+                        else {
+                            $("#msg").html(response.res).css("color", "green");
+                            $('#btnSubmit').removeAttr('disabled');
+                        }
+                        // alert('Success! ' + JSON.stringify(response));
+                    },
+                    error: function (response) {
+                        $("#msg").html("Error while Creating Department").css("color", "green");
+                    },
+                    complete: function () {
+                        $('#btnSubmit').removeAttr('disabled');
+                    }
+                })
+            });
+        });
+
+        function isNumber(evt) {
+            //alert("number");
+            evt = (evt) ? evt : window.event;
+            var charCode = (evt.which) ? evt.which : evt.keyCode;
+            if (charCode > 31 && (charCode < 47 || charCode > 57) && charCode != 44) {
+                return false;
+            }
+        }
+    </script>
+}

@@ -1,0 +1,238 @@
+﻿@model EClaimsWeb.Models.UserVM
+
+@{
+    var error = TempData["Error"] as string;
+    ViewData["Title"] = "Manage User ";
+}
+@section Styles{
+    <environment names="Development">
+        <link rel="stylesheet" href="~/css/select2.min.css" asp-append-version="true">
+        <link rel="stylesheet" href="~/css/select2-bootstrap.min.css" asp-append-version="true">
+        <link rel="stylesheet" href="~/vendors/datatables.net-bs4/dataTables.bootstrap4.css" asp-append-version="true" />
+        <link rel="stylesheet" href="~/vendors/bootstrap-datepicker/bootstrap-datepicker.min.css">
+    </environment>
+
+    <environment names="Staging,Production">
+        <link rel="stylesheet" href="~/css/select2.min.css" asp-append-version="true">
+        <link rel="stylesheet" href="~/css/select2-bootstrap.min.css" asp-append-version="true">
+        <link rel="stylesheet" href="~/vendors/datatables.net-bs4/dataTables.bootstrap4.css" asp-append-version="true" />
+        <link rel="stylesheet" href="~/vendors/bootstrap-datepicker/bootstrap-datepicker.min.css">
+    </environment>
+}
+<div class="col-md-12 grid-margin stretch-card" id="Update">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="mb-0 font-weight-bold">Update User</h4>
+            <form class="forms-sample mt-4" asp-action="Edit" asp-controller="User">
+                @if (!string.IsNullOrEmpty(error))
+                {
+                    <span class="alert-danger">@error</span>
+                }
+                <label id="msg" class="alert-danger"></label>
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="UserID" />
+                @*<div class="col-md-6">*@
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <label asp-for="Name" class="control-label required"></label>
+                        <input asp-for="Name" class="form-control required" maxlength="50" />
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label asp-for="EmployeeNo" class="control-label required"></label>
+                        <input asp-for="EmployeeNo" class="form-control required" maxlength="10" id="Description" />
+                        <span asp-validation-for="EmployeeNo" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <label asp-for="Phone" class="control-label required"></label>
+                        <input asp-for="Phone" class="form-control required" maxlength="10" ondrop='return false;' onkeypress='return isNumber(event)' onpaste='return false' />
+                        <span asp-validation-for="Phone" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label asp-for="EmailAddress" class="control-label required"></label>
+                        <input asp-for="EmailAddress" class="form-control required" maxlength="50" id="Description" />
+                        <span asp-validation-for="EmailAddress" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="row">
+                    @*<div class="form-group col-md-6">
+                <label asp-for="Phone" class="control-label required"></label>
+                <input asp-for="Phone" class="form-control required" />
+                <span asp-validation-for="Phone" class="text-danger"></span>
+            </div>*@
+                    <div class="form-group col-md-6">
+                        @{
+                            var roleIds = String.Join(",", Model.RoleIds);
+                            <input id="hiddenRoleIds" type="hidden" value="@roleIds" />
+                        }
+                        <label class="control-label" asp-for="RoleIds"></label>
+                        <select class="js-example-basic-single w-100" style="width: 100% !important;" asp-for="RoleIds" asp-items="Model.drpRoles" multiple>
+                        </select>
+                        <span asp-validation-for="RoleIds" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-6">
+                        @{
+                            var facilityIds = String.Join(",", Model.FacilityIDs);
+                            <input id="hiddenFacilityIds" type="hidden" value="@facilityIds" />
+                        }
+
+                        <label class="control-label" asp-for="FacilityIDs"></label>
+                        <select class="js-example-basic-single w-100" style="width: 100% !important;" asp-for="FacilityIDs" asp-items="Model.drpFacilities" multiple>
+                        </select>
+                        <span asp-validation-for="FacilityIDs" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <label asp-for="MileageLimit" class="control-label required"></label>
+                        <input asp-for="MileageLimit" class="form-control required" maxlength="10" ondrop='return false;' onkeypress='return isNumber(event)' onpaste='return false' />
+                        <span asp-validation-for="MileageLimit" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label asp-for="ExpenseLimit" class="control-label required"></label>
+                        <input asp-for="ExpenseLimit" class="form-control required" maxlength="10" ondrop='return false;' onkeypress='return isNumber(event)' onpaste='return false' />
+                        <span asp-validation-for="ExpenseLimit" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <label asp-for="TelephoneLimit" class="control-label required"></label>
+                        <input asp-for="TelephoneLimit" class="form-control required" maxlength="10" ondrop='return false;' onkeypress='return isNumber(event)' onpaste='return false' />
+                        <span asp-validation-for="TelephoneLimit" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-6 d-none">
+                        <label asp-for="EmailAddress" class="control-label required"></label>
+                        <input asp-for="EmailAddress" class="form-control required" maxlength="50" id="Description" />
+                        <span asp-validation-for="EmailAddress" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 form-group">
+                        <div class="form-check form-check-flat form-check-primary">
+                            <label class="form-check-label">
+                                <input class="form-check-input" asp-for="IsActive" />
+                                @Html.DisplayNameFor(model => model.IsActive)
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-md-6 form-group">
+                        <div class="form-check form-check-flat form-check-primary">
+                            <label class="form-check-label">
+                                <input class="form-check-input" asp-for="IsHOD" />
+                                @Html.DisplayNameFor(model => model.IsHOD)
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <button type="submit" value="Create" class="btn btn-primary mr-2">Update User</button>
+                    <a class="btn btn-danger mr-2 cancel" asp-action="Index">Close</a>
+                    <input type="reset" value="Reset" class="btn btn-light" onclick="return ClearData();" />
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section scripts
+{
+    <environment names="Development">
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+        <script src="~/vendors/typeahead.js/typeahead.bundle.min.js" asp-append-version="true"></script>
+        <script src="~/vendors/select2/select2.min.js" asp-append-version="true"></script>
+        <script src="~/vendors/moment/moment.min.js"></script>
+        <script src="~/vendors/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
+        <script src="~/vendors/jquery.repeater/jquery.repeater.min.js"></script>
+        <script src="~/vendors/datatables.net/jquery.dataTables.js" asp-append-version="true"></script>
+        <script src="~/vendors/datatables.net-bs4/dataTables.bootstrap4.js" asp-append-version="true"></script>
+        <script src="~/js/file-upload.js"></script>
+        <script src="~/js/typeahead.js"></script>
+        <script src="~/js/select2.js"></script>
+        <script src="~/js/data-table.js"></script>
+        
+    </environment>
+    <environment names="Staging,Production">
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+        <script src="~/vendors/typeahead.js/typeahead.bundle.min.js" asp-append-version="true"></script>
+        <script src="~/vendors/select2/select2.min.js" asp-append-version="true"></script>
+        <script src="~/vendors/moment/moment.min.js"></script>
+        <script src="~/vendors/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
+        <script src="~/vendors/jquery.repeater/jquery.repeater.min.js"></script>
+        <script src="~/vendors/datatables.net/jquery.dataTables.js" asp-append-version="true"></script>
+        <script src="~/vendors/datatables.net-bs4/dataTables.bootstrap4.js" asp-append-version="true"></script>
+        <script src="~/js/file-upload.js"></script>
+        <script src="~/js/typeahead.js"></script>
+        <script src="~/js/select2.js"></script>
+        <script src="~/js/data-table.js"></script>
+    </environment>
+    <script>
+        function ClearData() {
+            debugger;
+            var hiddenRoleIds = $("#hiddenRoleIds").val();
+            if (hiddenRoleIds) {
+                var result = hiddenRoleIds.split(",").map(x => +x);
+                $('#RoleIds').val(result).trigger("change");
+            }
+            var hiddenFacilityIds = $("#hiddenFacilityIds").val();
+            if (hiddenFacilityIds) {
+                var result = hiddenFacilityIds.split(",").map(x => +x);
+                $('#FacilityIDs').val(result).trigger("change");
+            }
+        }
+
+        function isNumber(evt) {
+            //alert("number");
+            evt = (evt) ? evt : window.event;
+            var charCode = (evt.which) ? evt.which : evt.keyCode;
+            if (charCode > 31 && (charCode < 47 || charCode > 57) && charCode != 44) {
+                return false;
+            }
+        }
+
+        $(document).ready(function () {
+
+            $('#btnSubmit').click(function () {
+
+                if ($("#usrForm").valid()) { //check if form is valid using model annotation
+                    $('#usrForm').submit();
+                }
+                else {
+                    return false;
+                }
+            });
+            $("#usrForm").on("submit", function (event) {
+                event.preventDefault();
+                $('#btnSubmit').attr('disabled', 'disabled');
+                //var url = $(this).attr("action");
+                var formData = $(this).serialize();
+
+                $.ajax({
+                    url: "/User/Edit",
+                    type: "POST",
+                    data: formData,
+                    dataType: "json",
+                    success: function (response) {
+                        if (response.res == 'success') {
+                            $("#msg").html("User updated successfully").css("color", "green");
+                            window.location.href = "/User/Index";
+                        }
+                        else {
+                            $("#msg").html(response.res).css("color", "green");
+                            $('#btnSubmit').removeAttr('disabled');
+                        }
+                        // alert('Success! ' + JSON.stringify(response));
+                    },
+                    error: function (response) {
+                        $("#msg").html("Error while Updating User ").css("color", "green");
+                    },
+                    complete: function () {
+                        $('#btnSubmit').removeAttr('disabled');
+
+                    }
+                })
+            });
+        });
+    </script>
+}

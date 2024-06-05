@@ -1,0 +1,208 @@
+﻿@using EClaimsWeb.Extensions;
+
+<nav class="sidebar sidebar-offcanvas" id="sidebar">
+    <ul class="nav">
+        @*@if (User.IsInRole("Finance") || User.IsInRole("Admin") || (User.IsInRole("HR") && @User.FindFirst("ishod").Value.ToString().ToLower() == "true" || (@User.FindFirst("issuperior") is null ? false : @User.FindFirst("issuperior").Value.ToString().ToLower() == "true")) || (User.IsInRole("User") && (@User.FindFirst("ishod").Value.ToString().ToLower() == "true" || (@User.FindFirst("issuperior") is null ? false : @User.FindFirst("issuperior").Value.ToString().ToLower() == "true"))))
+        {*@
+        @if (@User.FindFirst("delegateuserid") is null)
+        {
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#ui-basic-dashboard" aria-expanded="false"
+               aria-controls="ui-basic-dashboard">
+                <i class="mdi mdi-clipboard-text-outline menu-icon"></i>
+                <span class="menu-title">Dashboard</span>
+                <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="ui-basic-dashboard">
+                <ul class="nav flex-column sub-menu">
+                    @if (User.IsInRole("Finance"))
+                    {
+                        <li class="nav-item"><a id="DashboardFinance" class="nav-link" asp-controller="DashboardFinance" asp-action="Index">Dashboard (Finance/User)</a></li>
+                    }
+                    else if (User.IsInRole("HR"))
+                    {
+                        <li class="nav-item"><a id="DashboardHR" class="nav-link" asp-controller="DashboardHR" asp-action="Index">Dashboard (HR/User)</a></li>
+                    }
+                    else
+                    {
+                        <li class="nav-item"><a id="Dashboard" class="nav-link" asp-controller="Dashboard" asp-action="Index">Dashboard (User)</a></li>
+                    }
+
+                    @if (User.IsInRole("Finance") || User.IsInRole("Admin") || (User.IsInRole("HR") && @User.FindFirst("ishod").Value.ToString().ToLower() == "true" || (@User.FindFirst("issuperior") is null ? false : @User.FindFirst("issuperior").Value.ToString().ToLower() == "true")) || (User.IsInRole("User") && (@User.FindFirst("ishod").Value.ToString().ToLower() == "true" || (@User.FindFirst("issuperior") is null ? false : @User.FindFirst("issuperior").Value.ToString().ToLower() == "true"))))
+                    {
+                        <li class="nav-item"><a id="PendingApprovals" class="nav-link" asp-controller="PendingApprovals" asp-action="Index">Pending Approvals</a></li>
+                    }
+                </ul>
+            </div>
+        </li>
+        }
+        @*}*@
+        @*Need to uncomment once the dashboards are ready*@
+        @*@if (User.IsInRole("Finance") || User.IsInRole("Admin"))
+        {
+            <li class="nav-item d-none">
+                <a id="finance-dashboard" class="nav-link" href="../user/dashboard.html">
+                    <i class="mdi mdi-clipboard-text-outline menu-icon"></i>
+                    <span class="menu-title">Dashboard (User/Finance)</span>
+                </a>
+            </li>
+        }
+        @if (User.IsInRole("Finance") || User.IsInRole("Admin") || User.IsInRole("User") || User.IsInRole("HR"))
+        {
+            <li class="nav-item">
+                <a id="user-dashboard" class="nav-link" href="../user/dashboard-user.html">
+                    <i class="mdi mdi-clipboard-text-outline menu-icon"></i>
+                    <span class="menu-title">Dashboard (User)</span>
+                </a>
+            </li>
+        }
+        @if (User.IsInRole("HR"))
+        {
+            <li class="nav-item d-none">
+                <a id="hr-dashboard" class="nav-link" href="../user/dashboard-hr.html">
+                    <i class="mdi mdi-clipboard-text-outline menu-icon"></i>
+                    <span class="menu-title">Dashboard (HR/User)</span>
+                </a>
+            </li>
+        }*@
+        @if (User.IsInRole("Admin") && @User.FindFirst("delegateuserid") is null)
+        {
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="collapse" href="#ui-basic-admin" aria-expanded="false"
+                   aria-controls="ui-basic-admin">
+                    <i class="mdi mdi-settings menu-icon"></i>
+                    <span class="menu-title">Admin Settings</span>
+                    <i class="menu-arrow"></i>
+                </a>
+                <div class="collapse" id="ui-basic-admin">
+                    <ul class="nav flex-column sub-menu">
+                        <li class="nav-item"><a id="Department" class="nav-link" asp-controller="Department" asp-action="Index">Manage Department</a></li>
+                        <li class="nav-item"><a id="Facility" class="nav-link" asp-controller="Facility" asp-action="Index">Manage Facility</a></li>
+                        <li class="nav-item"><a id="TaxClass" class="nav-link" asp-controller="TaxClass" asp-action="Index">Manage Tax Class</a></li>
+                        <li class="nav-item"><a id="ExpenseCategory" class="nav-link" asp-controller="ExpenseCategory" asp-action="Index">Manage Expense Category</a></li>
+                        <li class="nav-item"><a id="User" class="nav-link" asp-controller="User" asp-action="Index">Manage User</a></li>
+                        <li class="nav-item"><a id="Approval" class="nav-link" asp-controller="Approval" asp-action="Index">Approval Matrix</a></li>
+                    </ul>
+                </div>
+            </li>
+        }
+        @if ((User.IsInRole("Finance") || User.IsInRole("Admin")) && @User.FindFirst("delegateuserid") is null)
+        {
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false"
+                   aria-controls="ui-basic">
+                    <i class="mdi mdi-currency-usd menu-icon"></i>
+                    <span class="menu-title">Finance User</span>
+                    <i class="menu-arrow"></i>
+                </a>
+                <div class="collapse" id="ui-basic">
+                    <ul class="nav flex-column sub-menu">
+                        <li class="nav-item"><a id="FinanceMileageClaim" class="nav-link" asp-controller="FinanceMileageClaim" asp-action="Index">View Mileage</a></li>
+                        <li class="nav-item"><a id="FinanceExpenseClaim" class="nav-link" asp-controller="FinanceExpenseClaim" asp-action="Index">View Expenses</a></li>
+                        <li class="nav-item"><a id="FinanceTBClaim" class="nav-link" asp-controller="FinanceTBClaim" asp-action="Index">View Telephone Bill</a></li>
+                        <li class="nav-item"><a id="FinancePVCClaim" class="nav-link" asp-controller="FinancePVCClaim" asp-action="Index">View PV-Cheque</a></li>
+                        <li class="nav-item"><a id="FinancePVGClaim" class="nav-link" asp-controller="FinancePVGClaim" asp-action="Index">View PV-GIRO</a></li>
+                        <li class="nav-item"><a id="FinanceHRPVCClaim" class="nav-link" asp-controller="FinanceHRPVCClaim" asp-action="Index">View HR PV-Cheque</a></li>
+                        <li class="nav-item"><a id="FinanceHRPVGClaim" class="nav-link" asp-controller="FinanceHRPVGClaim" asp-action="Index">View HR PV-GIRO</a></li>
+                        @if (User.IsInRole("Finance") && User.IsInRole("Admin") && User.IsInRole("User"))
+                        {
+                            <li class="nav-item"><a id="FinanceReports" class="nav-link" asp-controller="FinanceReports" asp-action="Index">Export To AccPac</a></li>
+                            <li class="nav-item"><a id="ExportToBank" class="nav-link" asp-controller="ExportToBank" asp-action="Index">Export To Bank</a></li>
+                        }
+                        <li class="nav-item"><a id="FinanceUserClaimsReport" class="nav-link" asp-controller="FinanceUserClaimsReport" asp-action="Index">User Claims Report</a></li>
+                        <li class="nav-item"><a id="FinanceUserPVCClaimsReport" class="nav-link" asp-controller="FinanceUserPVCClaimsReport" asp-action="Index">PV Cheque Report</a></li>
+                        <li class="nav-item"><a id="FinancePVGClaimsReport" class="nav-link" asp-controller="FinancePVGClaimsReport" asp-action="Index">PV GIRO Report</a></li>
+                        <li class="nav-item"><a id="FinanceHRPVCClaimsReport" class="nav-link" asp-controller="FinanceHRPVCClaimsReport" asp-action="Index">HR PV Cheque Report</a></li>
+                        <li class="nav-item"><a id="FinanceHRPVGClaimsReport" class="nav-link" asp-controller="FinanceHRPVGClaimsReport" asp-action="Index">HR PV GIRO Report</a></li>
+                        @*<li class="nav-item"><a id="FinancehrPVCheque" class="nav-link" href="../finance/finance-hr-view-pv-cheque.html">HR-PV-Cheque</a></li>
+                        <li class="nav-item"><a id="FinancehrPVGiro" class="nav-link" href="../finance/finance-hr-view-pv-giro.html">HR-PV-GIRO</a></li>
+                        <li class="nav-item"><a id="FinanceReports" class="nav-link" href="../finance/finance-reports.html">Reports</a></li>
+                        <li class="nav-item"><a id="FinanceAudit" class="nav-link" href="audit.html">Audit</a></li>*@
+                    </ul>
+                </div>
+            </li>
+        }
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#ui-advanced" aria-expanded="false"
+               aria-controls="ui-advanced">
+                <i class="mdi mdi mdi-account menu-icon"></i>
+                <span class="menu-title">User</span>
+                <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="ui-advanced">
+                <ul class="nav flex-column sub-menu">
+                    @if (User.IsInRole("Finance") || User.IsInRole("Admin") || User.IsInRole("User") || User.IsInRole("HR"))
+                    {
+                        <li class="nav-item"><a id="MileageClaim" class="nav-link" asp-controller="MileageClaim" asp-action="Index">Monthly Mileage</a></li>
+                    }
+                    @if (User.IsInRole("Finance") || User.IsInRole("Admin") || User.IsInRole("User") || User.IsInRole("HR"))
+                    {
+                        <li class="nav-item"><a id="ExpenseClaim" class="nav-link" asp-controller="ExpenseClaim" asp-action="Index">Monthly Expense</a></li>
+                    }
+                    @if (User.IsInRole("Finance") || User.IsInRole("Admin") || User.IsInRole("User") || User.IsInRole("HR"))
+                    {
+                        <li class="nav-item"><a id="TelephoneBillClaim" class="nav-link" asp-controller="TelephoneBillClaim" asp-action="Index">Monthly Telephone Bill</a></li>
+                    }
+                    @if (User.IsInRole("Finance") || User.IsInRole("Admin") || User.IsInRole("User") || User.IsInRole("HR"))
+                    {
+                        <li class="nav-item"><a id="PVChequeClaim" class="nav-link" asp-controller="PVChequeClaim" asp-action="Index">PV-Cheque</a></li>
+                    }
+                    @if (User.IsInRole("Finance") || User.IsInRole("Admin") || User.IsInRole("User") || User.IsInRole("HR"))
+                    {
+                        <li class="nav-item"><a id="PVGIROClaim" class="nav-link" asp-controller="PVGIROClaim" asp-action="Index">PV-GIRO</a></li>
+                    }
+                    @if (User.IsInRole("User") && (@User.FindFirst("ishod").Value.ToString().ToLower() == "true" || (@User.FindFirst("issuperior") is null ? false : @User.FindFirst("issuperior").Value.ToString().ToLower() == "true")) && @User.FindFirst("delegateuserid") is null)
+                    {
+                        <li class="nav-item"><a id="HodSummary" class="nav-link" asp-controller="HodSummary" asp-action="Index">Summary</a></li>
+                    }
+                    @if (User.IsInRole("Finance") || User.IsInRole("Admin"))
+                    {
+                        <li class="nav-item"><a id="UserClaimsReport" class="nav-link" asp-controller="UserClaimsReport" asp-action="Index">User Claims Report</a></li>
+                    }
+                    @if (User.IsInRole("Finance") || User.IsInRole("Admin"))
+                    {
+                        <li class="nav-item"><a id="UserPVCClaimsReport" class="nav-link" asp-controller="UserPVCClaimsReport" asp-action="Index">PV-Cheque Report</a></li>
+                    }
+                    @if (User.IsInRole("Finance") || User.IsInRole("Admin"))
+                    {
+                        <li class="nav-item"><a id="UserPVGClaimsReport" class="nav-link" asp-controller="UserPVGClaimsReport" asp-action="Index">PV GIRO Report</a></li>
+                    }
+                    @if ((User.IsInRole("Finance") || User.IsInRole("Admin") || User.IsInRole("User") || User.IsInRole("HR")) && @User.FindFirst("delegateuserid") is null)
+                    {
+                        <li class="nav-item"><a id="UserSettings" class="nav-link" asp-controller="UserSettings" asp-action="Index">Settings</a></li>
+                    }
+                </ul>
+            </div>
+        </li>
+        @if (User.IsInRole("HR") || User.IsInRole("Admin")) 
+        {
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="collapse" href="#form-elements" aria-expanded="false"
+                   aria-controls="form-elements">
+                    <i class="mdi mdi-account-box-outline menu-icon"></i>
+                    <span class="menu-title">HR User</span>
+                    <i class="menu-arrow"></i>
+                </a>
+                <div class="collapse" id="form-elements">
+                    <ul class="nav flex-column sub-menu">
+                        @if ((User.IsInRole("HR") && @User.FindFirst("ishod").Value.ToString().ToLower() == "true" || (@User.FindFirst("issuperior") is null ? false : @User.FindFirst("issuperior").Value.ToString().ToLower() == "true")) && @User.FindFirst("delegateuserid") is null)
+                        {
+                            <li class="nav-item"><a id="HRSummary" class="nav-link" asp-controller="HRSummary" asp-action="Index">View Summary</a></li>
+                        }
+                        @if (User.IsInRole("HR") || User.IsInRole("Admin"))
+                        {
+                            <li class="nav-item"><a id="HRPVChequeClaim" class="nav-link" asp-controller="HRPVChequeClaim" asp-action="Index">HR PV-Cheque</a></li>
+                            <li class="nav-item"><a id="HRPVGiroClaim" class="nav-link" asp-controller="HRPVGiroClaim" asp-action="Index">HR PV-GIRO</a></li>
+                        }
+                        @if (User.IsInRole("Finance") || User.IsInRole("Admin"))
+                        {
+                            <li class="nav-item"><a id="UserHRPVCClaimsReport" class="nav-link" asp-controller="UserHRPVCClaimsReport" asp-action="Index">HR PV Cheque Report</a></li>
+                            <li class="nav-item"><a id="UserHRPVGClaimsReport" class="nav-link" asp-controller="UserHRPVGClaimsReport" asp-action="Index">HR PV GIRO Report</a></li>
+                        }
+                        @*<li class="nav-item"><a id="hrReports" class="nav-link" href="../hr/hr-reports.html">Reports</a></li>*@
+                    </ul>
+                </div>
+            </li>
+        }
+    </ul>
+</nav>

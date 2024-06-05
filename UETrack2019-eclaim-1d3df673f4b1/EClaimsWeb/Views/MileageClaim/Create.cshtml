@@ -1,0 +1,1488 @@
+﻿@model EClaimsWeb.Models.MileageClaimDetailVM
+
+@{
+    ViewData["Title"] = "Mileage ";
+    int Counter = 1;
+}
+@section Styles{
+    <environment names="Development">
+        @*<link rel="stylesheet" href="~/css/select2.min.css" asp-append-version="true">
+            <link rel="stylesheet" href="~/css/select2-bootstrap.min.css" asp-append-version="true">*@
+        <link rel="stylesheet" href="~/vendors/datatables.net-bs4/dataTables.bootstrap4.css" asp-append-version="true" />
+        <link rel="stylesheet" href="~/vendors/bootstrap-datepicker/bootstrap-datepicker.min.css" />
+        <link rel="stylesheet" href="~/vendors/tempusdominus-bootstrap-4/tempusdominus-bootstrap-4.min.css" />
+        <link rel="stylesheet" href="~/vendors/font-awesome/css/font-awesome.min.css" />
+    </environment>
+
+    <environment names="Staging,Production">
+        @*<link rel="stylesheet" href="~/vendors/select2/select2.min.css" asp-append-version="true">
+            <link rel="stylesheet" href="~/vendors/select2-bootstrap-theme/select2-bootstrap.min.css" asp-append-version="true">*@
+        <link rel="stylesheet" href="~/vendors/datatables.net-bs4/dataTables.bootstrap4.css" asp-append-version="true" />
+        <link rel="stylesheet" href="~/vendors/bootstrap-datepicker/bootstrap-datepicker.min.css">
+        <link rel="stylesheet" href="~/vendors/tempusdominus-bootstrap-4/tempusdominus-bootstrap-4.min.css" />
+    </environment>
+}
+<label id="msg" class="alert-danger"></label>
+<div id="AddMileage" class="col-md-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            @if (@TempData["status"].ToString().Contains("Add") || @TempData["status"].ToString().Contains("Recreate"))
+            {
+                <h4 class="mb-0 font-weight-bold float-left">Add Mileage Claim</h4>
+            }
+            else
+            {
+                <h4 class="mb-0 font-weight-bold float-left">Update Mileage Claim</h4>
+            }
+            <div class="row mt-5">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Company</th>
+                            <th>Department</th>
+                            <th>Facility</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><label id="lblName">@ViewData["Name"]</label></td>
+                            <td><label id="lblCompany">UEMS</label></td>
+                            <td><label id="lblDepartment">@ViewData["Department"]</label></td>
+                            <td><label id="lblFacility">@ViewData["FacilityName"]</label></td>
+                            <td><label id="lblCurrentDate">@DateTime.Now.Date.ToString("dd/MM/yyyy")</label></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <form class="forms-sample" action="Create">
+                <div class="row">
+                    <div class="col-md-6 row form-group">
+                        <label class="col-sm-3 col-form-label">Travel Mode</label>
+                        @if (ViewBag.ClaimStatus == "Update" || ViewBag.ClaimStatus == "Recreate")
+                        {
+                            <div class="col-sm-4">
+                                <div class="form-check">
+                                    <label class="form-check-label">
+                                        <input type="radio" class="form-check-input"
+                                               name="radioTravelMode" id="radioprivateCar" onchange="TravelModeChange('Private Car')"
+                                               value="Private Car" @(Model.MileageClaimVM.TravelMode == "Private Car" ? "checked='true'" : "")>
+                                        Private Car
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="form-check">
+                                    <label class="form-check-label">
+                                        <input type="radio" class="form-check-input"
+                                               name="radioTravelMode" id="radiomotorBike" onchange="TravelModeChange('Motor Bike')"
+                                               value="Motor Bike" @(Model.MileageClaimVM.TravelMode == "Motor Bike" ? "checked='true'" : "")>
+                                        Motor Bike
+                                    </label>
+                                </div>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="col-sm-4">
+                                <div class="form-check">
+                                    <label class="form-check-label">
+                                        <input type="radio" class="form-check-input"
+                                               name="radioTravelMode" id="radioprivateCar" onchange="TravelModeChange('Private Car')"
+                                               value="Private Car" checked>
+                                        Private Car
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="form-check">
+                                    <label class="form-check-label">
+                                        <input type="radio" class="form-check-input"
+                                               name="radioTravelMode" id="radiomotorBike" onchange="TravelModeChange('Motor Bike')"
+                                               value="Motor Bike">
+                                        Motor Bike
+                                    </label>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </form>
+            @if (ViewBag.ClaimStatus == "Update")
+            {
+                if (Model.MileageClaimFileUploads.Count > 0)
+                {
+                    <hr />
+                    <table style="width:100%">
+                        <tr style="vertical-align: top;">
+                            <td style="width: 10%">
+                                <label class="field_name">
+                                    <b>File(s) : </b>
+                                </label>
+                            </td>
+                            <td>
+
+                                @foreach (var file in Model.MileageClaimFileUploads)
+                                {
+                                    <table border="0" cellspacing="2" cellpadding="2" width="90%">
+                                        <tr>
+                                            <td width="20%">
+
+                                                <label class="field_name">
+
+                                                    @file.FileName
+
+                                                </label>
+
+                                            </td>
+
+                                            <td width="30%">
+
+                                                <label class="field_name">
+                                                    <a href="@Url.Action("Download", new { id = @file.FilePath, name = @file.FileName })" title="Download" target="_blank">
+                                                        Download
+                                                    </a>
+
+                                                </label>
+                                                @if (!@TempData["status"].ToString().Contains("Recreate"))
+                                                {
+                                                    <label class="field_name">
+                                                        &nbsp; &nbsp;
+                                                        @if (@TempData["claimaddcondition"].ToString().Contains("claimDraft"))
+                                                        {
+                                                            <a href="@Url.Action("DeleteMileageClaimDraftFile", new { @file.FileID, @file.FilePath, @file.MCID })" onclick="return confirm('Are you sure to remove attached file?')">
+                                                                <span id="DeleteFile" class="mdi mdi-delete-outline">Delete</span>
+                                                                @*<img title="Remove File" alt="Delete" style="width:16px !important; height:16px !important;" />*@
+                                                            </a>
+                                                        }
+                                                        else
+                                                        {
+                                                            <a href="@Url.Action("DeleteMileageClaimFile", new { @file.FileID, @file.FilePath, @file.MCID })" onclick="return confirm('Are you sure to remove attached file?')">
+                                                                <span id="DeleteFile" class="mdi mdi-delete-outline">Delete</span>
+                                                                @*<img title="Remove File" alt="Delete" style="width:16px !important; height:16px !important;" />*@
+                                                            </a>
+                                                        }
+                                                    </label>
+                                                }
+                                                </td>
+                                           
+
+                                                <td width="30%"></td>
+                                            </tr>
+                                        </table>
+
+                                    }
+                            </td>
+
+                        </tr>
+                        @*<tr>
+                            <td colspan="2">
+                                @if (Model.MileageClaimFileUploads.Count >= 1 && @TempData["status"].ToString().Contains("Recreate"))
+                                {
+                                    <span style="color: Red">If any of the above file(s) needs to be attached for the claim, please download the file and re upload the file.</span>
+                                    <br /><br />
+                                }
+                            </td>
+                        </tr>*@
+                    </table>
+                }
+            }
+            <div class="row">
+                <h5 class="col-md-12 card-title table-summary">Claim Details</h5>
+                <div class="col-md-12">
+                    <div class="table-responsive">
+                        <table id="tblClaims" class="table table-sm table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Date of Journey</th>
+                                    <th>Facility</th>
+                                    <th>From</th>
+                                    <th>To</th>
+                                    <th>In Time</th>
+                                    <th>Out Time</th>
+                                    <th>Start Reading</th>
+                                    <th>End Reading</th>
+                                    <th>Kms</th>
+                                    <th>Remarks</th>
+                                    @*<th>Amount</th>*@
+                                    <th class="d-none">GST</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model.DtMileageClaimVMs)
+                                {
+                                    <tr>
+                                        <td align="center">
+                                            <label class="" id="lblItem">  @(Counter)</label>
+                                        </td>
+                                        <td>
+                                            <div id="datepicker-popup" class="input-group date datepicker">
+                                                <input id="dtClaimDate" type="text" autocomplete="off" class="form-control form-control-sm" placeholder="DD/MM/YYYY" style="width: 130px !important;">
+                                                <span class="input-group-addon input-group-append border-left">
+                                                </span>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <select id="FacilityID" asp-items="ViewBag.FacilityID" class="form-control form-control-sm" style="width: 150px !important;">
+                                                @*<option value="0">Select Facility</option>*@
+                                            </select>
+                                        </td>
+                                        <td>
+                                            @*<input type="text" class="form-control" id="OutTime" placeholder="Out Time"/>*@
+                                            <!--<select id="FromFacilityID" asp-items="ViewBag.FacilityID" class="form-control form-control-sm" style="width: 150px !important;">-->
+                                            @*<option value="0">Select Facility</option>*@
+                                            <!--</select>-->
+                                            <input type="text" class="form-control form-control-sm" id="FromFacilityID" maxlength="50" placeholder="From" style="width: 100px !important;">
+                                        </td>
+                                        <td>
+                                            @*<input type="text" class="form-control" id="OutTime" placeholder="Out Time"/>*@
+                                            <!--<select id="ToFacilityID" asp-items="ViewBag.FacilityID" class="form-control form-control-sm" style="width: 150px !important;">-->
+                                            @*<option value="0">Select Facility</option>*@
+                                            <!--</select>-->
+                                            <input type="text" class="form-control form-control-sm" id="ToFacilityID" maxlength="50" placeholder="To" style="width: 100px !important;">
+                                        </td>
+                                        <td>
+                                            <div style="width: 95px;">
+                                                <input type="text" id="dtInTime" class="form-control clockpicker form-control-sm" value="" placeholder="hh:mm aa">
+                                            </div>
+                                            @*<input type="text" id="dtInTime" name="dtInTime" class="timepicker" />*@
+                                            @*<div class="input-group date timePicker1" id="timepicker-example" data-target-input="nearest">
+                                                    <div class="input-group" data-target="#timepicker-example" data-toggle="datetimepicker">
+                                                        <input id="dtInTime" type="text" class="form-control datetimepicker-input" data-target="#timepicker-example" placeholder="HH:MM SS" style="width: 130px !important;" />
+                                                        <div class="input-group-addon input-group-append"><i class="mdi mdi-clock input-group-text"></i></div>
+                                                    </div>
+                                                </div>*@
+                                        </td>
+                                        <td>
+                                            <div style="width: 95px;">
+                                                <input type="text" id="dtOutTime" class="form-control clockpicker form-control-sm" value="" placeholder="hh:mm aa">
+                                            </div>
+
+                                            @*<div class="input-group date timePicker2" id="timepicker-example1" data-target-input="nearest">
+                                                    <div class="input-group" data-target="#timepicker-example1" data-toggle="datetimepicker">
+                                                        <input id="dtOutTime" type="text" class="form-control datetimepicker-input" data-target="#timepicker-example1" placeholder="HH:MM SS" style="width: 130px !important;" />
+                                                        <div class="input-group-addon input-group-append"><i class="mdi mdi-clock input-group-text"></i></div>
+                                                    </div>
+                                                </div>*@
+                                        </td>
+                                        <td>
+                                            <input type="text" class="form-control form-control-sm" id="txtStartReading" maxlength="10" placeholder="Start Reading" onchange="CalculationKms();" onkeypress="javascript:return isNumber (event)" style="width: 110px !important;" />
+                                        </td>
+                                        <td>
+                                            <input type="text" class="form-control form-control-sm" id="txtEndReading" maxlength="10" placeholder="End Reading" onchange="CalculationKms();" onkeypress="javascript:return isNumber (event)" style="width: 110px !important;" />
+                                        </td>
+                                        <td>
+                                            <input type="number" class="form-control form-control-sm" id="txtKMS" readonly="readonly" placeholder="Kms" style="width: 80px !important;" />
+                                        </td>
+                                        <td>
+                                            <input type="text" class="form-control form-control-sm" id="txtRemarks" placeholder="Remarks" maxlength="200" style="width: 95px !important;" />
+                                        </td>
+                                        @*<td>
+                                                <input type="text" class="form-control form-control-sm" id="txtSubTotal" onchange="Calculation();" data-inputmask="'alias': 'decimal', 'groupSeparator': ',', 'autoGroup': true,'autoUnmask': true, 'removeMaskOnSubmit': true, 'digits': 2, 'digitsOptional': false, 'prefix': '$ ', 'placeholder': '0'" maxlength="15" style="width: 150px !important;">
+                                            </td>*@
+                                        <td class="actions">
+                                            <span id="AddClaim" class="mdi mdi-plus-circle-outline"></span>
+                                            <span id="EditClaim" class="mdi mdi-border-color d-none"></span>
+                                            <span id="DeleteClaim" class="mdi mdi-delete-outline"></span>
+                                            <input type="text" class="input-large" name="MCItemID[]" value="0" id="txtMCItemID" style="width: 100% ; text-align:right; display:none;"
+                                                   onpaste="return false;" readonly="readonly" />
+                                            <input type="text" class="form-control form-control-sm" name="SubTotal[]" id="txtSubTotal" style="width: 100% ; text-align:right; display:none;" />
+                                        </td>
+                                    </tr>
+                                    Counter++;
+                                }
+                            </tbody>
+                        </table>
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr class="d-none">
+                                    <th></th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tr>
+                                <td width="70%" class="text-align-right">Total KM</td>
+                                <td width="30%">
+                                    <input type="text" id="txtTotalKm" class="form-control" readonly="readonly" value="@Model.MileageClaimVM.TotalKm" data-inputmask="'alias': 'decimal', 'groupSeparator': ',', 'autoGroup': true,'autoUnmask': true, 'removeMaskOnSubmit': true, 'digits': 2, 'digitsOptional': false, 'prefix': '', 'placeholder': '0'" style="width: 150px !important;">
+                                </td>
+                            </tr>
+                            <tr class="trhidePrivateCar">
+                                <td width="70%" class="text-align-right">Private Car Rate</td>
+                                <td width="30%">
+                                    <input type="text" id="txtPrivateCar" class="form-control" readonly="readonly" value="@Model.MileageClaimVM.TotalKm" data-inputmask="'alias': 'decimal', 'groupSeparator': ',', 'autoGroup': true,'autoUnmask': true, 'removeMaskOnSubmit': true, 'digits': 2, 'digitsOptional': false, 'prefix': '', 'placeholder': '0'" style="width: 150px !important;">
+                                </td>
+                            </tr>
+                            <tr class="trhideMotorBike">
+                                <td width="70%" class="text-align-right">Motor Bike Rate</td>
+                                <td width="30%">
+                                    <input type="text" id="txtMotorBike" class="form-control" readonly="readonly" value="@Model.MileageClaimVM.TotalKm" data-inputmask="'alias': 'decimal', 'groupSeparator': ',', 'autoGroup': true,'autoUnmask': true, 'removeMaskOnSubmit': true, 'digits': 2, 'digitsOptional': false, 'prefix': '', 'placeholder': '0'" style="width: 150px !important;">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="70%" class="text-align-right">Grand Total</td>
+                                <td width="30%">
+                                    <input type="text" id="txtGrandTotal" class="form-control" readonly="readonly" value="@Model.MileageClaimVM.GrandTotal" data-inputmask="'alias': 'decimal', 'groupSeparator': ',', 'autoGroup': true,'autoUnmask': true, 'removeMaskOnSubmit': true, 'digits': 2, 'digitsOptional': false, 'prefix': '$ ', 'placeholder': '0'" style="width: 150px !important;">
+                                </td>
+                            </tr>
+                            <tr class="d-none">
+                                <td width="70%" class="text-align-right">Total Amount with GST</td>
+                                <td width="30%">275$</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div class="col-md-12 mt-4">
+                    <div class="form-group col-md-4">
+                        <label>Upload</label>
+                        <input type="file" name="img[]" class="file-upload-default" multiple id="fileInput" accept=".gif,.jpg,.jpeg,.png,.doc,.docx,.csv,.xls,.pdf" onchange="ValidateSingleInput(this);">
+                        <div class="input-group col-xs-12">
+                            <input id="fileInputText" type="text" class="form-control file-upload-info" disabled
+                                   placeholder="Upload">
+                            <span class="input-group-append">
+                                <button class="file-upload-browse btn btn-sm btn-primary" type="button">Upload</button>
+                            </span>
+                        </div>
+                        <br />
+                        <span style="color: Red">(Supported File Types *.pdf;*.xls;*.csv;*.doc;*.docx;*.png;*.jpeg;*.jpg;*.gif)</span>
+                        <p id="selectedFilesText" style="margin-top: 10px;"></p>
+                        <div id="fileList"></div>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <div class="form-check form-check-flat form-check-primary">
+                            <label class="form-check-label">
+                                <input id="chkTC" type="checkbox" class="form-check-input">
+                                I certify that the claims are true and correct
+                                <i class="input-helper"></i>
+                            </label>
+                            <ul class="list-group">
+                                Note:
+                                <li class="list-group-item-warning">
+                                    1) All claims must be supported by receipts and with explanatory notes where necessary.
+                                </li>
+                                @*<li class="list-group-item-warning">
+                                        2) Details of Entertainment Form to be completed if entertainment expenses is claimed above.
+                                    </li>
+                                    <li class="list-group-item-warning">
+                                        3) Any advance received from Company to be indicated as a negative number.
+                                    </li>*@
+                                <li class="list-group-item-warning">
+                                    2) Any claimant found to be submitting fradulent claims shall be subject to disciplinary actions, including immediate termination.
+                                </li>
+                                <li class="list-group-item-warning">
+                                    3) Non compliance to the stated guidelines will result in the delay of processing of claims/ rejection of claims
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class=" col-md-6">
+                    @if (@TempData["status"].ToString().Contains("Add") || @TempData["status"].ToString().Contains("Recreate"))
+                    {
+                        <button type="submit" class="btn btn-primary mr-2" id="btnSave" onclick="return getdata(this.id);">Submit Claim</button>
+                        <button type="submit" class="btn btn-secondary mr-2" id="btnDraft" onclick="return getdata(this.id);">Save as Draft</button>
+                    }
+                    else
+                    {
+                        @if (@TempData["claimaddcondition"].ToString().Contains("claimDraft"))
+                        {
+                            <button type="submit" class="btn btn-primary mr-2" id="btnSave" onclick="return getdata(this.id);">Submit Claim</button>
+                        }
+                        else
+                        {
+                            <button type="submit" class="btn btn-primary mr-2" id="btnEdit" onclick="return getdata(this.id);">Update Claim</button>
+                        }
+                        <button type="submit" class="btn btn-secondary mr-2" id="btnDraftEdit" onclick="return getdata(this.id);">Update Draft</button>
+                    }
+                    <input type="hidden" id="hdfClaimID" name="hdfClaimID" value="0" />
+                    <input type="hidden" id="txtMCNO" name="txtMCNO" value="@Model.MileageClaimVM.MCNo" />
+                    @*<button type="submit" class="btn btn-primary mr-2" id="btnsaveupdate" onclick="return getdata('SendforApproval');">Submit Claim</button>*@
+                    <button class="btn btn-danger mr-2" onclick="RedirectView();">Close</button>
+                    <button class="btn btn-light" onclick="ClearData();">Reset</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+@section scripts
+{
+    <environment names="Development">
+        <script src="~/lib/jquery/dist/jquery.min.js"></script>
+        <script src="~/vendors/typeahead.js/typeahead.bundle.min.js" asp-append-version="true"></script>
+        @*<script src="~/vendors/select2/select2.min.js" asp-append-version="true"></script>*@
+        <script src="~/vendors/moment/moment.min.js"></script>
+        <script src="~/vendors/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
+        <script src="~/vendors/jquery.repeater/jquery.repeater.min.js"></script>
+        <script src="~/vendors/datatables.net/jquery.dataTables.js" asp-append-version="true"></script>
+        <script src="~/vendors/datatables.net-bs4/dataTables.bootstrap4.js" asp-append-version="true"></script>
+        <script src="~/js/file-upload.js"></script>
+        <script src="~/vendors/inputmask/jquery.inputmask.bundle.js"></script>
+        <script src="~/js/typeahead.js"></script>
+        @*<script src="~/js/select2.js"></script>*@
+        <script src="~/js/data-table.js"></script>
+        <script src="~/vendors/tempusdominus-bootstrap-4/tempusdominus-bootstrap-4.js"></script>
+        <script src="~/vendors/jquery-toast-plugin/jquery.toast.min.js"></script>
+        <script src="~/js/toastNotifications.js"></script>
+        <script src="~/js/bootstrap-clockpicker.js"></script>
+    </environment>
+
+    <environment names="Staging,Production">
+        <script src="~/lib/jquery/dist/jquery.min.js"></script>
+        <script src="~/vendors/typeahead.js/typeahead.bundle.min.js" asp-append-version="true"></script>
+        @*<script src="~/vendors/select2/select2.min.js" asp-append-version="true"></script>*@
+        <script src="~/vendors/moment/moment.min.js"></script>
+        <script src="~/vendors/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
+        <script src="~/vendors/jquery.repeater/jquery.repeater.min.js"></script>
+        <script src="~/vendors/datatables.net/jquery.dataTables.js" asp-append-version="true"></script>
+        <script src="~/vendors/datatables.net-bs4/dataTables.bootstrap4.js" asp-append-version="true"></script>
+        <script src="~/js/file-upload.js"></script>
+        <script src="~/vendors/inputmask/jquery.inputmask.bundle.js"></script>
+        <script src="~/js/typeahead.js"></script>
+        @*<script src="~/js/select2.js"></script>*@
+        <script src="~/js/data-table.js"></script>
+        <script src="~/vendors/tempusdominus-bootstrap-4/tempusdominus-bootstrap-4.js"></script>
+        <script src="~/vendors/jquery-toast-plugin/jquery.toast.min.js"></script>
+        <script src="~/js/toastNotifications.js"></script>
+        <script src="~/js/bootstrap-clockpicker.min.js"></script>
+    </environment>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#datepicker-popup').datepicker({
+                format: 'dd/mm/yyyy',
+                autoclose: true,
+                todayHighlight: true,
+                endDate: new Date()
+            });
+            //$('.clockpicker').clockpicker({
+            //    autoclose: true,
+            //    twelvehour: true
+            //});
+        });
+        //$('body').on('focus', ".clockpicker", function () {
+        //    $(this).clockpicker({
+        //        autoclose: true,
+        //        twelvehour: true
+        //    });
+        //});
+        $('body').on('change', ".clockpicker", function () {
+            var inTime = $(this).val();
+            if (inTime) {
+                $(this).val(checkValidTimeFormat(inTime));
+            }
+        });
+
+
+        $('body').on('focus', ".datepicker", function () {
+            $(this).datepicker({
+                format: 'dd/mm/yyyy',
+                autoclose: true,
+                todayHighlight: true,
+                endDate: new Date()
+            });
+        });
+
+        //$('body').on('focus', "#txtSubTotal", function () {
+        //    $(this).inputmask({
+        //        alias: 'decimal', groupSeparator: ',', removeMaskOnSubmit: true, digits: 2, digitsOptional: false,
+        //        autoGroup: true, autoUnmask: true, prefix: '$ ', placeholder: '0'
+        //    });
+        //});
+        var fileListArr = [];
+        var _validFileExtensions = [".jpg", ".jpeg", ".bmp", ".gif", ".png", ".doc", ".docx", ".csv", ".xls", ".pdf"];
+        function ValidateSingleInput(oInput) {
+            if (oInput.type == "file") {
+                for (var i = 0; i < oInput.files.length; ++i) {
+                    var blnValid = false;
+                    var sFileName = oInput.files[i].name;
+                    if (sFileName.length > 0) {
+                        for (var j = 0; j < _validFileExtensions.length; j++) {
+                            var sCurExtension = _validFileExtensions[j];
+                            if (sFileName.substr(sFileName.length - sCurExtension.length, sCurExtension.length).toLowerCase() == sCurExtension.toLowerCase()) {
+                                blnValid = true;
+                                break;
+                            }
+                        }
+                        if (!blnValid) {
+                            alert("Sorry, " + sFileName + " is invalid, allowed extensions are: " + _validFileExtensions.join(", "));
+                            oInput.value = "";
+                            return false;
+                        }
+                        else {
+                            fileListArr.push(oInput.files[i]);
+                        }
+                    }
+                }
+                displaySelectedFilesList();
+            }
+            return true;
+        }
+
+        function deleteFile(fileName) {
+            var newList = [];
+            for (var i = 0; i < fileListArr.length; ++i) {
+                var sFileName = fileListArr[i].name;
+                if (sFileName === fileName) {
+                    /*fileListArr.splice(i, 1);*/
+                }
+                else {
+                    newList.push(fileListArr[i]);
+                }
+            }
+            fileListArr = newList;
+            displaySelectedFilesList();
+        }
+
+        function displaySelectedFilesList() {
+            var output = document.getElementById('fileList');
+            var selectedFilesText = document.getElementById('selectedFilesText');
+            output.innerHTML = '';
+            var children = "";
+
+            for (var i = 0; i < fileListArr.length; ++i) {
+                var sFileName = fileListArr[i].name;
+                var file = URL.createObjectURL(fileListArr[i]);
+                children += '<li>' + '<a href="' + file + '" target="_blank">' + sFileName + '</a><button class="close" aria-label="Close" onclick="deleteFile(\'' + sFileName + '\')"><span aria-hidden="true">&times;</span ></button><br>' + '</li>';
+            }
+            output.innerHTML = '<ul>' + children + '</ul>';
+            selectedFilesText.innerHTML = "Selected files:";
+
+            var textMessage = "";
+            if (fileListArr.length > 0) {
+                textMessage = "Selected " + fileListArr.length + " File(s)";
+            }
+            else {
+                textMessage = "Upload";
+                selectedFilesText.innerHTML = '';
+            }
+
+            $("#fileInputText").val(textMessage);
+        }
+    </script>
+    <script>
+        var Params = [];
+        $(document).ready(function () {
+            $("input").inputmask();
+            //$('body').one('focus', ".date", function () {
+            //    $(this).datetimepicker();
+            //});
+
+
+            //$('.date').datetimepicker();
+
+            //$('body').one('focus', ".datetimepicker-input", function () {
+            //    $(this).datetimepicker();
+            //});
+            //$(function () {
+            //    $('#datetimepicker14').datetimepicker({
+            //        allowMultidate: true,
+            //        multidateSeparator: ','
+            //    });
+            //});
+            //$('#timepicker-example').datetimepicker({
+            //    format: 'LT'
+            //});
+            /*
+            $(document).on('click', '#DeleteClaim', function () {
+                debugger;
+                var rowsCount = $('#tblClaims tr').length - 5;
+                if (rowsCount === 0)
+                    return;
+
+                var newRowCount = rowsCount + 1;
+                $('#tblClaims > tbody > tr').eq(newRowCount).remove();
+            });
+            */
+            // var ProjectType = jQuery('input[name=project]:checked').val();
+            TravelModeChange('Private Car');
+            var CID = '@ViewBag.CID';
+            if (CID != 0) {
+                //alert(CID);
+                var status = '@TempData["status"]';
+                var isDraft = '@TempData["claimaddcondition"]';
+
+                var GetTextValuesSGUrl = "/MileageClaim/GetTextValuesSG";
+                if (isDraft.includes("claimDraft")) {
+                    GetTextValuesSGUrl = "/MileageClaim/GetTextValuesSGDraft";
+                }
+                var ClaimStatus = '@ViewBag.ClaimStatus';
+                //alert(ClaimStatus);
+                if (ClaimStatus == "Update" || ClaimStatus == "Recreate") {
+                    $("#hdfClaimID").val(@ViewBag.CID);
+
+                    var table1 = document.getElementById("tblClaims");
+                    var rowLength = table1.rows.length;
+                    var l = 0;
+
+                    var id = '@ViewBag.CID ';
+                    $.ajax({
+                        type: "POST",
+                        url: GetTextValuesSGUrl,
+                        data: { id: id },
+                        success: function (data) {
+                            //var result = JSON.stringify(data);
+                            /* alert(data);*/
+                            var table1 = document.getElementById("tblClaims");
+                            var rowLength = table1.rows.length;
+                            //alert(data.length);
+                            //alert(data.dtClaimsList.length);
+                            //for (var i = 0; i < data.length; ++i) {
+
+                            //}
+                            for (var l = 0; l < data.dtClaimsList.length; l++) {
+                                var DtMCItemID = data.dtClaimsList[l].mcItemID;
+                                var Description = data.dtClaimsList[l].description;
+                                var Amount = data.dtClaimsList[l].amount;
+                                var ExpenseCategory = data.dtClaimsList[l].expenseCategoryID;
+                                var TBCID = data.dtClaimsList[l].tbCID;
+                                var DateOfJourney = data.dtClaimsList[l].dateOfJourney;
+                                var date2 = new Date(DateOfJourney);
+                                var FacilityID = data.dtClaimsList[l].facilityID;
+                                var FromFacilityID = data.dtClaimsList[l].fromFacilityID;
+                                var ToFacilityID = data.dtClaimsList[l].toFacilityID;
+                                var InTimeTime = data.dtClaimsList[l].inTime;
+                                var OutTimeTime = data.dtClaimsList[l].outTime;
+                                var StartReading = data.dtClaimsList[l].startReading;
+                                var EndReading = data.dtClaimsList[l].endReading;
+                                var Kms = data.dtClaimsList[l].kms;
+                                var Remarks = data.dtClaimsList[l].remark;
+
+                                var row1 = table1.rows[l + 1];
+
+                                $(row1).find("#dtClaimDate").datepicker({
+                                    format: 'dd/mm/yyyy'
+                                }).datepicker();
+                                $(row1).find("#dtClaimDate").datepicker('setDate', date2).datepicker('fill');
+                                $(row1).find("#FacilityID").val(FacilityID);
+                                $(row1).find("#FromFacilityID").val(FromFacilityID);
+                                $(row1).find("#ToFacilityID").val(ToFacilityID);
+
+                                //$(row1).find("#dtInTime").datepicker({
+                                //    format: 'dd/mm/yyyy'
+                                //}).datepicker();
+
+                                //$(row1).find('#dtInTime').clockpicker({
+                                //    autoclose: true,
+                                //    twelvehour: true
+                                //});
+
+                                //$(row1).find('#dtOutTime').clockpicker({
+                                //    autoclose: true,
+                                //    twelvehour: true
+                                //});
+
+
+                                var timerInVal = moment().format('hh:mm A');
+                                timerInVal = moment(InTimeTime).format('hh:mm A');
+
+                                var timerOutVal = moment().format('hh:mm A');
+                                timerOutVal = moment(OutTimeTime).format('hh:mm A');
+
+                                $(row1).find("#dtInTime").val(timerInVal);
+                                $(row1).find("#dtOutTime").val(timerOutVal);
+                                $(row1).find("#txtStartReading").val(StartReading);
+                                $(row1).find("#txtEndReading").val(EndReading);
+                                $(row1).find("#txtSubTotal").val(Amount);
+                                $(row1).find("#txtKMS").val(Kms);
+                                $(row1).find("#txtMCItemID").val(DtMCItemID);
+                                $(row1).find("#txtRemarks").val(Remarks);
+
+                                // new lines of code to disable fields start
+                                if (ClaimStatus == "Update" && !isDraft.includes("claimDraft")) {
+                                    //$(row1).find('#AddClaim').click(function (e) { return false; });
+                                    //$(row1).find('#DeleteClaim').click(function (e) { return false; });
+                                }
+                                // new lines of code to disable fields end
+                            }
+
+                            CalculationKms();
+                        },
+                        error: function () {
+                            // $("#dialogVerified").modal('hide');
+                        }
+                    });
+
+                    @*$.getJSON("@Url.Content("~/ExpenseClaim/GetTextValuesSG/")" + CID, function (data) {
+                        var table1 = document.getElementById("tblClaims");
+                        var rowLength = table1.rows.length;
+                        for (var l = 0; l < data.DtClaimsList.length; l++) {
+                            var Description = data.DtClaimsList[l].Description;
+                            var Amount = data.DtClaimsList[l].Amount;
+                            var GST = data.DtClaimsList[l].GST;
+                            var AmountWithGST = data.DtClaimsList[l].AmountWithGST;
+                            var ExpenseCategory = data.DtClaimsList[l].ExpenseCategory;
+                            var ECID = data.DtClaimsList[l].ECID;
+                            var DateOfJourney = data.DtClaimsList[l].DateOfJourney;
+                            var ECItemID = data.DtClaimsList[l].ECItemID;
+
+                            var row1 = table1.rows[l + 1];
+                            $(row1).find('#dtClaimDate').val(DateOfJourney);
+                            $(row1).find("#txtDescription").val(Description);
+                            $(row1).find("#txtGST").val(GST);
+                            $(row1).find("#txtSubTotal").val(AmountWithGST);
+                            //$(row1).find("#txtSubTotal").val(Amount1);
+                            //$(row1).find("#txtGST").val(GST);
+                            //$(row1).find("#txtDTCBRID").val(DtCBRID);
+
+                            //$(this).find('#dtClaimDate').val('');
+                            //$(this).find('#ExpenseCategoryID option:first').attr('selected', true);
+                            //$(this).find('#txtDescription').val('');
+                            //$(this).find('#txtGST').val('');
+                            //$(this).find('#txtSubTotal').val('');
+
+                            // new lines of code to disable fields start
+                            if (CustomerBRstatus == "Update") {
+                                //$(row1).find('#txtQty').prop("readonly", true);
+                                //$(row1).find('#txtUnitPrice').prop("readonly", true);
+                                //$(row1).find('#ddlUnit').attr("disabled", true);
+                                //$(row1).find('#dllGST').attr("disabled", true);
+                                $(row1).find('.addCF').click(function (e) { return false; });
+                                $(row1).find('.remCF').click(function (e) { return false; });
+                            }
+                            // new lines of code to disable fields end
+                        }
+                    });*@
+                }
+            }
+
+            $("#tblClaims").on('click', '#DeleteClaim', function () {
+                var x = document.getElementById("tblClaims").rows.length;
+                //  alert(x)
+                if (x > 2) {
+                    var par = $(this).parent().parent(); //tr
+                    $(this).parent().parent().remove();
+                    $('#tblClaims').find('tr').each(function (i, el) {
+                        if (i != 0) {
+                            var tds = $(this).find('td');
+                            $(this).find('#lblItem').html(i);
+                        }
+                    });
+                }
+                CalculationKms();
+            });
+
+            $(document).on('click', '#AddClaim', function () {
+                var message = "";
+                var table = document.getElementById("tblClaims");
+                for (var i = 1; i < 2; i++) {
+                    var row = table.rows[i];
+                    for (var j = 0; j < row.cells.length; j++) {
+                        var cell = row.cells[j];
+                        //if (j == 5) {
+                        //    var new_datepicker = $('<input type="text">').datepicker();
+                        //    //$('#content').append('<br>a datepicker ').append(new_datepicker);
+                        //    cell = new_datepicker;
+                        //}
+
+                        //alert('cell value ' + cell.innerHTML);
+                        if (j == 0) {
+                            message += "<td align='center'>" + cell.innerHTML + "</td>";
+                        }
+                        else {
+                            message += "<td>" + cell.innerHTML + "</td>";
+                        }
+
+                    }
+                }
+
+                $(this).parent().parent().after('<tr>' + message + '</tr>');
+                message = "";
+                var DepartmentID = 0;
+                $('#tblClaims').find('tr').each(function (i, el) {
+                    var rowcount = table.rows.length;
+                    if (i != 0) {
+                        var tds = $(this).find('td');
+                        $(this).find('#lblItem').html(i);
+                    }
+                });
+                CalculationKms();
+
+                /*
+                           debugger;
+                           var date1 = $("#ClaimDate").val();
+                           var desc = $("#Description").val();
+                           var category = $("#Category option:selected").text();
+                           var amount = $("#Amount1").val();
+                           var gst = $("#GST1").val();
+
+                           //var table = document.getElementById("tblClaims");
+                           //var row = table.rows[1];
+                           //alert('row 1 value ' + row);
+                           //for (var i = 1; i < 2; i++) {
+                           //    row = table.rows[i];
+
+                           //    for (var j = 0; j < row.cells.length; j++) {
+                           //    }
+                           //}
+                           var rowsCount = $('#tblClaims tr').length - 4;
+                           alert(' rowsCoutn ' + rowsCount);
+                           var newRowCount = rowsCount + 1;
+
+                           var newRow = "<tr>";
+                           newRow += "<td>" + newRowCount + "</td>";
+                           newRow += "<td>" + date1 + "</td>";
+                           newRow += "<td>" + desc + "</td>";
+                           newRow += "<td>" + category + "</td>";
+                           newRow += "<td>" + amount + "</td>";
+                           newRow += "<td>" + gst + "</td>";
+                           newRow += "<td class=\"actions\">";
+                           newRow += "<span id=\"EditClaim1\" class=\"mdi mdi-border-color\"></span>";
+                           newRow += "<span id=\"DeleteClaim1\" class=\"mdi mdi-delete-outline\"></span>";
+                           newRow += "</td>";
+                           newRow += "</tr>";
+
+                           var clonedRow = $('#tblClaims tbody tr:first').clone();
+                           clonedRow.find('input').val('');
+                           //$('#tblClaims tbody').append(clonedRow);
+
+                           $('#tblClaims > tbody > tr').eq(rowsCount).after(clonedRow);
+
+                           //$('#tblClaims > tbody > tr:nth-child(2) td').html(11111);
+
+                           var dataTable = $("#tblClaims");
+                           var rowNumber = newRowCount;
+                           var columnNumber = 0;
+                           dataTable[0].rows[newRowCount + 1].cells[columnNumber].innerHTML = newRowCount;
+
+                           // Clear the data
+                           $("#ClaimDate").val('');
+                           $("#Description").val('');
+                           $("#Category").prop('selectedIndex', 0);
+                           $("#Amount1").val('');
+                           $("#GST1").val('');
+                             */
+            });
+
+            //$(document).on('click', '#AddClaim', function () {
+
+            //});
+
+        });
+
+        //setDatepickers = function () {
+        //    $('.datetimepicker-input').datetimepicker({
+        //        format: "YYYY-MM-DD",
+        //        ignoreReadonly: true
+        //    });
+        //}
+
+        function isNumber(evt) {
+            //alert("number");
+            evt = (evt) ? evt : window.event;
+            var charCode = (evt.which) ? evt.which : evt.keyCode;
+            if (charCode > 31 && (charCode < 47 || charCode > 57) && charCode != 44) {
+                return false;
+            }
+        }
+
+        function RedirectView() {
+            window.location.href = "/MileageClaim/Index";
+        }
+
+        function ClearData() {
+
+            var value = 'PrivateCar';
+            $("input[name=radioTravelMode][value=" + value + "]").prop('checked', 'checked');
+            //         $('#FileUpload')
+            $('#chkTC').prop('checked', false);
+            $('#tblClaims').find('tr').each(function (i, el) {
+                if (i != 0) {
+                    $(this).find('#dtClaimDate').val('');
+                    $(this).find('#FacilityID option:first').attr('selected', true);
+                    $(this).find('#FromFacilityID').val('');
+                    $(this).find('#ToFacilityID').val('');
+                    $(this).find('#dtInTime').val('');
+                    $(this).find('#dtOutTime').val('');
+                    $(this).find('#txtStartReading').val('');
+                    $(this).find('#txtEndReading').val('');
+                    $(this).find('#txtKMS').val('');
+                    $(this).find('#txtRemarks').val('');
+                    $(this).find('#txtSubTotal').val('');
+                }
+            });
+            $('#txtTotalKm').val('');
+            $('#txtGrandTotal').val('');
+        }
+
+        function Calculation() {
+            var GrandTotal = 0;
+            $('#tblClaims').find('tr').each(function (i, el) {
+                if (i != 0) {
+                    var txtSubTot = $(this).find('#txtSubTotal').val();
+                    if (txtSubTot == "NaN" || txtSubTot == "") {
+                        //  $('#GrandTotal').val(0.00);
+                        //$('#txtSubTotal').val(0.00);
+                        txtSubTot = 0.00;
+                    }
+                    GrandTotal = (parseFloat(GrandTotal) + parseFloat(txtSubTot)).toFixed(2);
+                }
+            });
+
+            // var textValue = $('#txtSubTotal').val();
+
+            //if (txtSubTot == "NaN") {
+            //    $('#GrandTotal').val(0.00);
+            //    $('#txtSubTotal').val(0.00);
+            //}
+
+            document.getElementById('txtGrandTotal').value = (parseFloat(GrandTotal)).toFixed(2);
+        }
+
+        function TravelModeChange(val) {
+            CalculationKms();
+        }
+
+        function CalculationKms() {
+            var PrivateCar = '@ViewBag.PrivateCar';
+            var MotorCycle = '@ViewBag.MotorCycle';
+            var KMS = 0;
+            var GrandKm = 0;
+            var GrandTotal = 0;
+            var SubTotal = 0;
+            var TravelMode = $('input[name=radioTravelMode]:checked').val();
+            $('#tblClaims').find('tr').each(function (i, el) {
+                if (i != 0) {
+                    var StartReading = $(this).find('#txtStartReading').val();
+                    var EndReading = $(this).find('#txtEndReading').val();
+
+                    //alert(StartReading);
+                    //if (!StartReading) {
+                    //    alert('Please Enter Start Reading at Row No ' + i);
+                    //    return false;
+                    //}
+
+                    //if (!EndReading) {
+                    //    alert('Please Enter End Reading at Row No ' + i);
+                    //    return false;
+                    //}
+
+                    //if (StartReading >= EndReading) {
+                    //    alert('End Reading cannot be less than or Equal to Start Reading at Row No ' + i);
+                    //    return false;
+                    //}
+
+                    KMS = EndReading - StartReading;
+                    $(this).find('#txtKMS').val(KMS);
+                    GrandKm = (parseFloat(GrandKm) + parseFloat(KMS)).toFixed(2);
+
+                    if (TravelMode == "Private Car") {
+                        SubTotal = (parseFloat(PrivateCar) * parseFloat(GrandKm)).toFixed(2);
+                    }
+                    else {
+                        SubTotal = (parseFloat(MotorCycle) * parseFloat(GrandKm)).toFixed(2);
+                    }
+                    $(this).find('#txtSubTotal').val(SubTotal);
+                }
+            });
+
+            if (TravelMode == "Private Car") {
+                $('.trhideMotorBike').hide();
+                $('.trhidePrivateCar').show();
+                document.getElementById('txtPrivateCar').value = (parseFloat(PrivateCar)).toFixed(2);
+                GrandTotal = (parseFloat(PrivateCar) * parseFloat(GrandKm)).toFixed(2);
+            }
+            else
+            {
+                $('.trhidePrivateCar').hide();
+                $('.trhideMotorBike').show();
+                document.getElementById('txtMotorBike').value = (parseFloat(MotorCycle)).toFixed(2);
+                GrandTotal = (parseFloat(MotorCycle) * parseFloat(GrandKm)).toFixed(2);
+            }
+            //alert(PrivateCar);
+            document.getElementById('txtTotalKm').value = (parseFloat(GrandKm)).toFixed(2);
+            document.getElementById('txtGrandTotal').value = (parseFloat(GrandTotal)).toFixed(2);
+        }
+
+        let getTime = (m) => {
+            return m.minutes() + m.hours() * 60;
+        }
+
+        function getdata(id) {
+            if (id == "btnSave" || id == "btnEdit") { }
+            param = "SendforApproval";
+            var res = param;
+            var ErrorStatus = "true";
+            var MileageClaimLimit = '@ViewBag.MileageClaimLimit';
+            var PrivateCar = '@ViewBag.PrivateCar';
+            var MotorCycle = '@ViewBag.MotorCycle';
+            var GrandTotal = $('#txtGrandTotal').val();
+            if (res == "SendforApproval") {
+
+                $('#tblClaims').find('tr').each(function (i, el) {
+                    if (i != 0) {
+                        var $tds = $(this).find('td');
+
+                        var ClaimDate = $(this).find("#dtClaimDate").val();
+                        var FacilityID = $(this).find('#FacilityID').val();
+                        var Facility = $(this).find('#FacilityID').val();
+                        var FromFacilityID = $(this).find('#FromFacilityID').val();
+                        var ToFacilityID = $(this).find('#ToFacilityID').val();
+                        var InTime = $(this).find('#dtInTime').val();
+                        var OutTime = $(this).find('#dtOutTime').val();
+                        var StartReading = $(this).find('#txtStartReading').val();
+                        var EndReading = $(this).find('#txtEndReading').val();
+                        var KMS = $(this).find('#txtKMS').val();
+                        //var SubTotal = $(this).find('#txtSubTotal').val();
+
+                        var convertedInTime = moment(InTime, 'hh:mm A').format('HH:mm')
+                        var convertedOutTime = moment(OutTime, 'hh:mm A').format('HH:mm')
+
+
+                        if (i == 1) {
+
+                            if (ClaimDate == "" || ClaimDate == null) {
+                                alert('Please select date of journey at Row No ' + i);
+                                ErrorStatus = "false";
+                                return false;
+                            }
+
+                            if (Facility == null) {
+                                alert('Please Select Facility Row No ' + i);
+                                ErrorStatus = "false";
+                                return false;
+                            }
+
+                            if (!FromFacilityID) {
+                                alert('Please Enter From Place at Row No ' + i);
+                                ErrorStatus = "false";
+                                return false;
+                            }
+
+                            if (!ToFacilityID) {
+                                alert('Please Enter To Place at Row No ' + i);
+                                ErrorStatus = "false";
+                                return false;
+                            }
+
+                            if (!InTime) {
+                                alert('Please Enter In Time at Row No ' + i);
+                                ErrorStatus = "false";
+                                return false;
+                            }
+
+                            if (!OutTime) {
+                                alert('Please Enter Out Time at Row No ' + i);
+                                ErrorStatus = "false";
+                                return false;
+                            }
+
+                            if (convertedInTime >= convertedOutTime) {
+                                alert('Out Time must be greater than In Time at Row No' + i);
+                                ErrorStatus = "false";
+                                return false;
+                            }
+
+                            if (!StartReading) {
+                                alert('Please Enter Start Reading at Row No ' + i);
+                                ErrorStatus = "false";
+                                return false;
+                            }
+
+                            if (!EndReading) {
+                                alert('Please Enter End Reading at Row No ' + i);
+                                ErrorStatus = "false";
+                                return false;
+                            }
+
+                            if (parseInt(StartReading) >= parseInt(EndReading)) {
+                                alert('End Reading cannot be less than or Equal to Start Reading at Row No ' + i);
+                                ErrorStatus = "false";
+                                return false;
+                            }
+
+
+
+                        }
+                        else {
+                            if (ClaimDate == "" || ClaimDate == null) {
+                                alert('Please select date of journey at Row No ' + i);
+                                ErrorStatus = "false";
+                                return false;
+                            }
+
+                            if (Facility == null) {
+                                alert('Please Select Facility Row No ' + i);
+                                ErrorStatus = "false";
+                                return false;
+                            }
+
+                            if (!FromFacilityID) {
+                                alert('Please Enter From Place at Row No ' + i);
+                                ErrorStatus = "false";
+                                return false;
+                            }
+
+                            if (!ToFacilityID) {
+                                alert('Please Enter To Place at Row No ' + i);
+                                ErrorStatus = "false";
+                                return false;
+                            }
+
+                            if (!InTime) {
+                                alert('Please Enter In Time at Row No ' + i);
+                                ErrorStatus = "false";
+                                return false;
+                            }
+
+                            if (!OutTime) {
+                                alert('Please Enter Out Time at Row No ' + i);
+                                ErrorStatus = "false";
+                                return false;
+                            }
+
+
+                            if (convertedInTime >= convertedOutTime) {
+                                alert('Out Time must be greater than In Time at Row No' + i);
+                                ErrorStatus = "false";
+                                return false;
+                            }
+
+                            if (!StartReading) {
+                                alert('Please Enter Start Reading at Row No ' + i);
+                                ErrorStatus = "false";
+                                return false;
+                            }
+
+                            if (!EndReading) {
+                                alert('Please Enter End Reading at Row No ' + i);
+                                ErrorStatus = "false";
+                                return false;
+                            }
+
+                            if (parseInt(StartReading) >= parseInt(EndReading)) {
+                                alert('End Reading cannot be less than or Equal to Start Reading at Row No ' + i);
+                                ErrorStatus = "false";
+                                return false;
+                            }
+
+                        }
+                    }
+                });
+
+                //alert(res);
+                var TravelMode = $('input[name=radioTravelMode]:checked').val();
+                if (parseFloat(GrandTotal) > parseFloat(MileageClaimLimit)) {
+                    alert('Grand total cannot exceed $' + MileageClaimLimit);
+                    ErrorStatus = "false";
+                    return false;
+                }
+
+                if (ErrorStatus == "false") {
+                    return false;
+                }
+
+                var Tnc = $('#chkTC').is(':checked');
+                if (Tnc == false) {
+                    alert('Please certify that the claims are true and correct to proceed');
+                    ErrorStatus = false;
+                    return false;
+                }
+
+                if (ErrorStatus == "false") {
+                    return false;
+                }
+            }
+
+            var formData = new FormData();
+            var dtClaimsArr = new Array();
+            dtClaimsArr.length = 0;
+
+            $('#tblClaims').find('tr').each(function (i, el) {
+                if (i != 0) {
+                    var TravelMode = $('input[name=radioTravelMode]:checked').val();
+                    //alert('Travel mode' + TravelMode);
+                    var ClaimDate = $(this).find('#dtClaimDate').val();
+
+                    var FacilityID = $(this).find('#FacilityID').val();
+                    //alert('FacilityID ' + FacilityID);
+
+                    var FromFacilityID = $(this).find('#FromFacilityID').val();
+                    //alert('FromFacilityID ' + FromFacilityID);
+
+                    var ToFacilityID = $(this).find('#ToFacilityID').val();
+                    //alert('ToFacilityID ' + ToFacilityID);
+
+                    var InTime = $(this).find('#dtInTime').val();
+                    var OutTime = $(this).find('#dtOutTime').val();
+                    var StartReading = $(this).find('#txtStartReading').val();
+                    var EndReading = $(this).find('#txtEndReading').val();
+                    var KMS = $(this).find('#txtKMS').val();
+                    var Remarks = $(this).find('#txtRemarks').val();
+                    var SubTotal = 0;
+                    var DtMCItemID = $(this).find('#txtMCItemID').val();
+
+                    if (TravelMode == "Private Car") {
+                        SubTotal = (parseFloat(PrivateCar) * parseFloat(KMS)).toFixed(2);
+                    }
+                    else {
+                        SubTotal = (parseFloat(MotorCycle) * parseFloat(KMS)).toFixed(2);
+                    }
+
+                    //alert('ClaimDate ' + ClaimDate);
+                    //alert('InTime' + InTime);
+
+                    var indate = new Date(ClaimDate + ' ' + InTime);
+                    //alert('indate' + indate);
+                    var date1 = moment(ClaimDate + ' ' + InTime, 'DD/MM/YYYY HH:mm A');
+                    //alert('date1 convert to date ' + new Date(date1));
+                    var date1 = date1.format('DD/MM/YYYY HH:mm A')
+                    //moment('Mon 03-Jul-2017, 11:00 PM', 'ddd DD-MMM-YYYY, hh:mm A').format('hh:mm A')
+                    //alert('date1 with A' + date1);
+                    var d = date1;
+                    var n = d.toLocaleString([], { hour: '2-digit', minute: '2-digit' });
+
+                    //alert(' to locale dt ' + n);
+
+                    var date3 = new Date(date1);
+                    //alert('InTime 1 ' + date1);
+                    //alert('formatedDateTime 1 ' + date1);
+                    //alert(' new date1 ' + date3);
+
+                    var date2 = moment(ClaimDate + ' ' + OutTime, 'DD/MM/YYYY HH:mm');
+                    var date2 = date2.format('DD/MM/YYYY HH:mm')
+
+                    //var date1 = new Date(ClaimDate);
+                    var nClaimDate = new Date(moment(ClaimDate, 'DD/MM/YYYY'));
+                    nClaimDate = nClaimDate.toLocaleDateString().slice(0, 10);
+                    //var date1 = new Date(moment(ClaimDate + ' ' + InTime, 'DD/MM/YYYY HH:mm'));
+                    //var date3 = moment((ClaimDate + ' ' + InTime)).utc().format('DD/MM/YYYY HH:mm')
+                    //    alert(date3);
+                    //var date2 = new Date(moment(ClaimDate + ' ' + OutTime, 'DD/MM/YYYY HH:mm'));
+                    //var date3 = date1.toLocaleDateString().slice(0, 10);
+                    //let date3 = new Date(date1.format("L"));
+                    //let date4 = new Date(date2.format("L"));
+
+                    //alert(date1);
+                    //alert(date2);
+
+                    //alert('dtInTime ' + InTime);
+                    //alert('dtOutTime ' + OutTime);
+                    //alert('txtStartReading ' + StartReading);
+                    //alert('txtEndReading ' + EndReading);
+                    //alert('txtKMS ' + KMS);
+                    //alert('txtRemarks ' + Remarks);
+                    //alert('txtSubTotal ' + SubTotal);
+                    var dtClaim = {}
+                    dtClaim.MCItemID = DtMCItemID;
+                    dtClaim.DateOfJourney = nClaimDate;
+                    dtClaim.FacilityID = FacilityID;
+                    dtClaim.FromFacilityID = FromFacilityID;
+                    dtClaim.ToFacilityID = ToFacilityID;
+                    dtClaim.InTimeTime = InTime;
+                    dtClaim.OutTimeTime = OutTime;
+                    dtClaim.StartReading = StartReading;
+                    dtClaim.EndReading = EndReading;
+                    dtClaim.Kms = KMS;
+                    dtClaim.Remark = Remarks;
+                    dtClaim.Amount = SubTotal;
+                    dtClaim.OrderBy = i;
+                    dtClaimsArr.push(dtClaim);
+
+                    //Params.push({
+                    //    TravelMode: TravelMode, ClaimDate: ClaimDate, DateOfJourney: ClaimDate, FacilityID: FacilityID,
+                    //    FromFacilityID: FromFacilityID, ToFacilityID: ToFacilityID, InTime: InTime, OutTime: OutTime, StartReading: StartReading,
+                    //    EndReading: EndReading, Kms: KMS, Remarks: Remarks, SubTotal: SubTotal, GrandTotal: $('#txtGrandTotal').val()
+                    //});
+
+
+                }
+
+            });
+
+            var mcIDValue = $('#hdfClaimID').val();
+            if (id == "btnSave") {
+                mcIDValue = 0;
+            }
+
+            var claimAddCondition = '@TempData["claimaddcondition"]';
+
+            formData.append('data', JSON.stringify(
+                {
+                    Company: $("#lblCompany").html(),
+                    TravelMode: $('input[name=radioTravelMode]:checked').val(),
+                    GrandTotal: $("#txtGrandTotal").val(),
+                    TotalKm: $("#txtTotalKm").val(),
+                    MCID: $('#hdfClaimID').val(),
+                    MCNo: $('#txtMCNO').val(),
+                    dtClaims: dtClaimsArr,
+                    ClaimAddCondition: claimAddCondition
+                }
+            ));
+            //{
+            //TravelMode: $('input[name=radioTravelMode]:checked').val(),
+            //GrandTotal: $("#txtGrandTotal").val(),
+            //dtClaims: dtClaimsArr}));
+            //var data = JSON.stringify({
+            //TravelMode: $('input[name=radioTravelMode]:checked').val(),
+            //GrandTotal: $("#txtGrandTotal").val(),
+            //order: dtClaimsArr
+            //});
+            //var GrandTotal = $('#txtGrandTotal').val();
+            //alert('GrandTotal  ' + GrandTotal);
+            //return false;
+            // var listdata = JSON.stringify({ 'listdata': Params });
+
+            var submitUrl = '/MileageClaim/SaveItems';
+            var uploadUrl = '/MileageClaim/UploadMCFiles';
+            if (id === 'btnDraft' || id === "btnDraftEdit") {
+                submitUrl = '/MileageClaim/SaveDraftItems';
+                uploadUrl = '/MileageClaim/UploadMCFilesDraft';
+            }
+
+            if (res == "SendforApproval") {
+                //alert('Before calling');
+                $('#btnSave').attr('disabled', 'disabled');
+                $('#btnEdit').attr('disabled', 'disabled');
+                $.ajax({
+                    type: "POST",
+                    url: submitUrl,
+                    data: formData,
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    processData: false,
+                    contentType: false,
+                    success: function (data) {
+                        //alert('Success');
+                        var myID = data.res;
+                        var files = fileListArr; // $('#fileInput').prop("files");
+                        var url = uploadUrl;
+                        var formData = new FormData();
+                        for (var i = 0; i < files.length; i++) {
+                            formData.append("files", files[i]);
+                        }
+                        //if (files.length > 0) {
+                            formData.append("FormFile", files);
+                            // Adding more keys/values here if need
+                            formData.append('Id', myID);
+                            formData.append('mcIDValue', $('#hdfClaimID').val());
+                            formData.append('claimAddCondition', claimAddCondition);
+                            //for (var x = 0; x < files.length; x++) {
+                            //    formData.append("file" + x, files[x]);
+                            //}
+                            //formData = new FormData();
+                            //formData.append("UploadPO", files[0]);
+                            jQuery.ajax({
+                                type: 'POST',
+                                url: url,
+                                data: formData,
+                                cache: false,
+                                contentType: false,
+                                processData: false,
+                                beforeSend: function (xhr) {
+                                    xhr.setRequestHeader("XSRF-TOKEN",
+                                        $('input:hidden[name="__RequestVerificationToken"]').val());
+                                },
+                                success: function (repo) {
+                                    if (repo == "success") {
+                                        fileListArr = [];
+                                        //alert("File : " + repo.filename + " is uploaded successfully");
+                                        //SuccessToast('Mileage Claim added successfully');
+                                        if (id == "btnSave") {
+                                            $("#msg").html("Mileage Claim added successfully").css("color", "green");
+                                        }
+                                        else {
+                                            $("#msg").html("Mileage Claim updated successfully").css("color", "green");
+                                        }
+                                        window.location.href = "/MileageClaim/Index";
+                                    }
+                                },
+                                error: function () {
+                                    //alert("Error occurs");
+                                    //FailureToast('Error while creating Mileage Claim');
+                                    $("#msg").html("Error while creating Mileage Claim").css("color", "green");
+                                    window.location.href = "/MileageClaim/Index";
+                                }
+                            });
+                        //}
+                        //else {
+                        //    //SuccessToast('Mileage Claim added successfully');
+                        //    $("#msg").html("Mileage Claim added successfully").css("color", "green");
+                        //    window.location.href = "/MileageClaim/Index";
+                        //}
+
+                    },
+                    failure: function (response) {
+                        //FailureToast('Error while creating Mileage Claim');
+                        $("#msg").html("Error while creating Mileage Claim").css("color", "green");
+                        //$('#result').html(response);
+                    }
+                });
+            }
+
+        }
+
+        function SuccessToast(message) {
+            $.toast({
+                text: message,
+                hideAfter: true,
+                position: 'top-right',
+                icon: 'success',
+                allowToastClose: true,
+                hideAfter: 5000,
+            });
+        }
+
+        function FailureToast(message) {
+            $.toast({
+                text: message,
+                hideAfter: true,
+                position: 'top-right',
+                icon: 'error',
+                allowToastClose: true,
+                hideAfter: 5000,
+            });
+        }
+
+        function getAsDate(day, time) {
+            var hours = Number(time.match(/^(\d+)/)[1]);
+            var minutes = Number(time.match(/:(\d+)/)[1]);
+            var AMPM = time.match(/\s(.*)$/)[1];
+            if (AMPM == "pm" && hours < 12) hours = hours + 12;
+            if (AMPM == "am" && hours == 12) hours = hours - 12;
+            var sHours = hours.toString();
+            var sMinutes = minutes.toString();
+            if (hours < 10) sHours = "0" + sHours;
+            if (minutes < 10) sMinutes = "0" + sMinutes;
+            time = sHours + ":" + sMinutes + ":00";
+            var d = new Date(day);
+            var n = d.toISOString().substring(0, 10);
+            var newDate = new Date(n + "T" + time);
+            return newDate;
+        }
+
+        function checkValidTimeFormat(timeExact) {
+            var amTimeSuffix = "am";
+            var pmTimeSuffix = "pm";
+            var timeValue = timeExact.toLowerCase().replace(amTimeSuffix, '').replace(/ /g, '')
+                .replace(pmTimeSuffix, '').replace(':', '').replace('.', '');
+
+            //check if timeValue is not a number
+            if (isNaN(timeValue)) { return null; }
+
+            var timeExactValue = null;
+            //check valid values with length of number supplied
+            switch (timeValue.length) {
+                case 1:
+                case 2:
+                    timeExactValue = moment(timeExact, "hA").format("hh:mm A");
+                    break;
+                case 3:
+                    var newTimeExact = timeValue[0] + '.' + timeValue[1] + timeValue[2] + (timeExact.toLowerCase().indexOf(pmTimeSuffix) > 0 ? pmTimeSuffix : amTimeSuffix);
+                    timeExactValue = moment(newTimeExact, "h.mmA").format("hh:mm A");
+                    break;
+                case 4:
+                    timeExactValue = moment(timeExact, "hhmmA").format("hh:mm A");
+                    break;
+            }
+            if (timeExactValue == "Invalid date") {
+                return null;
+            }
+            return timeExactValue;
+        }
+    </script>
+}
+

@@ -1,0 +1,699 @@
+﻿@model EClaimsWeb.Models.ExpenseClaimSearchViewModel
+
+@{
+    ViewData["Title"] = "View Expenses ";
+}
+
+@section Styles{
+    <environment names="Development">
+        <link rel="stylesheet" href="~/vendors/select2/select2.min.css" asp-append-version="true">
+        <link rel="stylesheet" href="~/vendors/select2-bootstrap-theme/select2-bootstrap.min.css" asp-append-version="true">
+        <link rel="stylesheet" href="~/vendors/datatables.net-bs4/dataTables.bootstrap4.css" asp-append-version="true" />
+        <link rel="stylesheet" href="~/vendors/bootstrap-datepicker/bootstrap-datepicker.min.css">
+        <link rel="stylesheet" href="~/css/style.css">
+        <link rel="stylesheet" href="~/css/site.css">
+
+    </environment>
+
+    <environment names="Staging,Production">
+        <link rel="stylesheet" href="~/vendors/select2/select2.min.css" asp-append-version="true">
+        <link rel="stylesheet" href="~/vendors/select2-bootstrap-theme/select2-bootstrap.min.css" asp-append-version="true">
+        <link rel="stylesheet" href="~/vendors/datatables.net-bs4/dataTables.bootstrap4.css" asp-append-version="true" />
+        <link rel="stylesheet" href="~/vendors/bootstrap-datepicker/bootstrap-datepicker.min.css">
+        <link rel="stylesheet" href="~/css/style.css">
+        <link rel="stylesheet" href="~/css/site.css">
+    </environment>
+    <style>
+        .HideBubble {
+            display: none;
+        }
+    </style>
+}
+
+
+@*<div class="row" id="ViewDetails">*@
+@if (TempData["IsAlternateApproverSet"].ToString() == "True")
+{
+    <div class="row" id="notification-row">
+        <div class="col-md-12 grid-margin stretch-card">
+            <div class="card card-inverse-info">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-sm-8">
+                            <div class="d-flex flex-row align-items-center">
+                                <i class="mdi mdi-alert icon-md text-info"></i>
+                                <div class="ml-3">
+                                    <h6 class="text-facebook">Alternate Approver</h6>
+                                    <p class="mt-2 text-muted card-text">You have delegated your approval authority.</p>
+                                    <p></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4 align-self-center">
+                            <a id="UserSettings" class="" asp-controller="UserSettings" asp-action="Index">Update Settings</a>
+                            <a href="#" class="text-dark pl-2" onclick="$('#notification-row').toggle();">Dismiss</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+<div class="accordion accordion-solid-header" id="accordion-4" role="tablist">
+    <div class="card border-bottom">
+        <div class="card-header" role="tab" id="heading-10">
+            <h6 class="mb-0">
+                <a data-toggle="collapse" href="#collapse-10" aria-expanded="false" aria-controls="collapse-10" class="collapsed">
+                    Filters
+                </a>
+            </h6>
+        </div>
+        <form class="forms-sample mt-4" id="filterform" asp-controller="FinanceExpenseClaim" asp-action="Index" method="get">
+            <div id="collapse-10" class="collapse" role="tabpanel" aria-labelledby="heading-10" data-parent="#accordion-4" style="">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="form-group col-md-4">
+                            <label class="">Requester</label>
+                            <select asp-for="UserID" asp-items="Model.Users" class="form-control js-example-basic-single w-100" style="width: 100% !important;">
+                                <option value="0">All</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label class="">Expense Type</label>
+                            <select asp-for="ExpenseID" asp-items="Model.ExpenseTypes" class="js-example-basic-single w-100 select2-hidden-accessible" style="width: 100% !important;">
+                                <option value="">All</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label class="">Facility</label>
+                            <select asp-for="FacilityID" asp-items="Model.Facilities" class="form-control js-example-basic-single w-100" style="width: 100% !important;">
+                                <option value="0">All</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-4">
+                            <label class="">Status</label>
+                            <select asp-for="StatusID" asp-items="Model.Statuses" class="form-control js-example-basic-single w-100" style="width: 100% !important;">
+                                <option value="0">All</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="Code" class="">From Date</label>
+                            <div id="datepicker-popup" class="input-group date datepicker" style="width: 100%;">
+                                <input asp-for="FromDate" type="text" class="form-control" placeholder="DD/MM/YYYY">
+                                <span class="input-group-addon input-group-append border-left">
+                                    <span class="mdi mdi-calendar input-group-text"></span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="Code" class="">To Date</label>
+                            <div id="datepicker-popup1" class="input-group date datepicker" style="width: 100%;">
+                                <input asp-for="ToDate" type="text" class="form-control" placeholder="DD/MM/YYYY">
+                                <span class="input-group-addon input-group-append border-left">
+                                    <span class="mdi mdi-calendar input-group-text"></span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class=" col-md-6">
+                        <button type="submit" class="btn btn-primary mr-2" style="background-color: #7571f9; border-color: #7571f9;">Filter</button>
+                        <button id="btnReset" class="btn btn-light" onclick="DtSearch_Clear();">Reset</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="mb-0 font-weight-bold">View Expense Claims</h4>
+                <div class="col-md-12 summary-actions">
+                    <div class="text-align-right mb-4">
+                        <a class="btn btn-success btn-icon-text" id="btnExport">
+                            Export to Excel
+                            <i class="mdi mdi-file-excel btn-icon-append"></i>
+                        </a>
+                        <a class="btn btn-secondary btn-icon-text" id="btnPrint">
+                            Print
+                            <i class="mdi mdi-printer btn-icon-append"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="row mt-4">
+                    <div class="col-12">
+                        <div class="table-responsive">
+                            <table id="order-listing2" class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            Claim #
+                                        </th>
+                                        <th>
+                                            Voucher No
+                                        </th>
+                                        <th>
+                                            Description
+                                        </th>
+                                        <th>
+                                            Requester
+                                        </th>
+                                        <th>
+                                            Date Created
+                                        </th>
+                                        <th>
+                                            Facility
+                                        </th>
+                                        <th>
+                                            Payee
+                                        </th>
+                                        <th>
+                                            Contact Number
+                                        </th>
+                                        <th>
+                                            Total Claim
+                                        </th>
+                                        <th>
+                                            Approver
+                                        </th>
+                                        <th>
+                                            Status
+                                        </th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model.expenseClaimVMs)
+                                    {
+                                        <tr>
+                                            <td>
+                                                @Html.ActionLink(item.ECNo, "Details", new { id = item.ECID }, new { @class = "", @target = "_blank" })
+                                                @*<a href="#" class="btn btn-outline-primary" target="_blank" onclick="ViewDetails('@item.ECID')">@item.ECNo</a>*@
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.VoucherNo)
+                                            </td>
+                                            <td class="text-justify" style="padding:5px; white-space: pre-wrap">
+                                                @Html.DisplayFor(modelItem => item.Description)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Name)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.CreatedDate)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.FacilityName)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Name)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Phone)
+                                            </td>
+                                            <td class="text-align-right">
+                                                $@Math.Round((decimal)item.TotalAmount, (int)2).ToString("###,##,##0.00")
+                                            </td>
+                                            <td>
+                                                @if (item.ApprovalStatus != 3 && item.ApprovalStatus != 4 && item.ApprovalStatus != -5 && item.ApprovalStatus != 5)
+                                                {
+                                                    @Html.DisplayFor(modelItem => item.Approver)
+                                                }
+                                            </td>
+                                            <td>
+                                                @if (item.ApprovalStatus == 3)
+                                                {
+                                                    <label class="badge badge-success">Approved</label>
+                                                }
+                                                else if (item.ApprovalStatus == 1)
+                                                {
+                                                    <label class="badge badge-outline-info">Awaiting verification</label>
+                                                }
+                                                else if (item.ApprovalStatus == 2)
+                                                {
+                                                    <label class="badge badge-danger">Awaiting Signatory approval</label>
+                                                }
+                                                else if (item.ApprovalStatus == 4)
+                                                {
+                                                    <label class="badge badge-danger">Request to Amend</label>
+                                                }
+                                                else if (item.ApprovalStatus == -5)
+                                                {
+                                                    <label class="badge badge-danger">Requested for Void</label>
+                                                }
+                                                else if (item.ApprovalStatus == 5)
+                                                {
+                                                    <label class="badge badge-danger">Voided</label>
+                                                }
+                                                else if (item.ApprovalStatus == 6)
+                                                {
+                                                    <label class="badge badge-danger">Awaiting approval</label>
+                                                }
+                                                else if (item.ApprovalStatus == 7)
+                                                {
+                                                    <label class="badge badge-danger">Awaiting HOD approval</label>
+                                                }
+                                                else if (item.ApprovalStatus == 9)
+                                                {
+                                                    <label class="badge badge-danger">Exported to AccPac</label>
+                                                }
+                                                else if (item.ApprovalStatus == 10)
+                                                {
+                                                    <label class="badge badge-danger">Exported to Bank</label>
+                                                }
+                                            </td>
+                                            <td>
+                                                @Html.ActionLink("Edit", "Create", new { id = item.ECID, Updatestatus = "Edit" }, new { @class = "btn btn-outline-primary" })
+                                                @if (item.IsActionAllowed == true)
+                                                {
+                                                    @if (item.ApprovalStatus == 1)
+                                                    {
+                                                        <a href="#" class="btn btn-outline-primary" onclick="verifyConfirm(@item.ECID)">Verify</a>
+                                                    }
+                                                    else
+                                                    {
+                                                        <a href="#" class="btn btn-outline-primary" onclick="approvedConfirm(@item.ECID)">Approve</a>
+                                                    }
+                                                    <a href="#" class="btn btn-outline-primary" onclick="rejectConfirm(@item.ECID)">Request to Amend</a>
+                                                    @*@Html.ActionLink("Approve", "Approve", new { id = item.ECID }, new { @class = "btn btn-outline-primary" })*@
+                                                    @*@Html.ActionLink("Reject", "Reject", new { id = item.ECID }, new { @class = "btn btn-outline-primary" })*@
+                                                    @*@Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                                            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })*@
+                                                }
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="dialogVerified" tabindex="-1" role="dialog" data-backdrop="static" aria-labelledby="verifiedconformation" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header" style="background:#d9534f;color:white;">
+                <h5 class="modal-title" id="dialogVerifiedLabel">Verify</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="form-group">
+                        <div class="col-sm-12">
+                            <span>
+                                Do you want to verify?
+                            </span>
+                            @Html.Hidden("itemid", "", new { id = "itemid" })
+                            <strong id="deletedValueName">
+
+                            </strong>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <input type="submit" id="btnVerifysave" class="btn btn-primary mr-2" value="Yes" onclick="verifyData()" />
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="dialogApproved" tabindex="-1" role="dialog" data-backdrop="static" aria-labelledby="Approvedconformation" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header" style="background:#d9534f;color:white;">
+                <h5 class="modal-title" id="dialogApprovedLabel">Approve</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="form-group">
+                        <div class="col-sm-12">
+                            <span>
+                                Do you want to Approve?
+                            </span>
+                            @Html.Hidden("itemid", "", new { id = "itemid" })
+                            <strong id="deletedValueName">
+
+                            </strong>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <input type="submit" id="btnApprovesave" class="btn btn-primary mr-2" value="Yes" onclick="approveData()" />
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<input type="hidden" id="hiddenECId" />
+<div class="modal fade" id="dialogReject" tabindex="-1" role="dialog" data-backdrop="static" aria-labelledby="Rejectconformation" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header" style="background:#d9534f;color:white;">
+                <h5 class="modal-title" id="dialogRejectLabel">Request to Amend</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="form-group">
+                        <div class="col-sm-12">
+                            <span>
+                                <label>Reason : </label>
+                                <input type="text" name="txtRejectReason" id="txtRejectReason" maxlength="140" class="form-control" style="width: 450px !important;" onfocus="HideError('sptxtRejectReason')" />
+                                <span id="sptxtRejectReason" style="display: none"></span>
+                            </span>
+                            <strong id="deletedValueName">
+
+                            </strong>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <input type="submit" id="btnRejectsave" class="btn btn-primary mr-2" value="Save" onclick="rejectData()" />
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@*</div>*@
+@section scripts
+    {
+    <environment names="Development">
+        <script src="~/vendors/typeahead.js/typeahead.bundle.min.js" asp-append-version="true"></script>
+        <script src="~/vendors/moment/moment.min.js"></script>
+        <script src="~/vendors/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
+        <script src="~/vendors/select2/select2.min.js" asp-append-version="true"></script>
+        <script src="~/vendors/datatables.net/jquery.dataTables.js" asp-append-version="true"></script>
+        <script src="~/vendors/datatables.net-bs4/dataTables.bootstrap4.js" asp-append-version="true"></script>
+        <script src="~/js/file-upload.js"></script>
+        <script src="~/js/typeahead.js"></script>
+        <script src="~/js/select2.js"></script>
+        <script src="~/js/data-table.js"></script>
+        <script src="~/vendors/jquery-toast-plugin/jquery.toast.min.js"></script>
+        <script src="~/js/toastNotifications.js"></script>
+    </environment>
+
+    <environment names="Staging,Production">
+        <script src="~/vendors/typeahead.js/typeahead.bundle.min.js" asp-append-version="true"></script>
+        <script src="~/vendors/moment/moment.min.js"></script>
+        <script src="~/vendors/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
+        <script src="~/vendors/select2/select2.min.js" asp-append-version="true"></script>
+        <script src="~/vendors/datatables.net/jquery.dataTables.js" asp-append-version="true"></script>
+        <script src="~/vendors/datatables.net-bs4/dataTables.bootstrap4.js" asp-append-version="true"></script>
+        <script src="~/js/file-upload.js"></script>
+        <script src="~/js/typeahead.js"></script>
+        <script src="~/js/select2.js"></script>
+        <script src="~/js/data-table.js"></script>
+        <script src="~/vendors/jquery-toast-plugin/jquery.toast.min.js"></script>
+        <script src="~/js/toastNotifications.js"></script>
+    </environment>
+    @if (TempData["Message"] != null)
+    {
+        <script type="text/javascript">
+            $.toast({
+                text: "@TempData["Message"]",
+                hideAfter: true,
+                position: 'top-right',
+                icon: 'success',
+                allowToastClose: false,
+                hideAfter: 10000,
+            });</script>
+    }
+    <script>
+        $(document).ready(function () {
+            $("#btnExport").click(function (e) {
+                var formData = new FormData();
+                formData.append('data', JSON.stringify(
+                    {
+                        expenseID: $("#ExpenseID").val(),
+                        userID: $("#UserID").val(),
+                        facilityID: $("#FacilityID").val(),
+                        statusID: $("#StatusID").val(),
+                        FromDate: $("#FromDate").val(),
+                        ToDate: $("#ToDate").val(),
+                    }
+                ));
+                $.ajax({
+                    url: "/FinanceExpenseClaim/ExporttoExcel",
+                    type: "POST",
+                    dataType: 'json',
+                    contentType: 'application/json; charset=utf-8',
+                    data: formData,
+                    processData: false,
+                    contentType: false,
+                    success: function (result) {
+                        //alert('suc result ' + result);
+                        //get the file name for download
+                        if (result.fileName != "") {
+                            //alert(' file name ' + result.fileName);
+                            //use window.location.href for redirect to download action for download the file
+                            window.location.href = "@Url.Content("~/FinanceExpenseClaim/DownloadFile/?fileName=")" + result.fileName;
+                        }
+                    },
+                    error: function (result) {
+                        alert('fail result ' + result);
+                    }
+                });
+            });
+
+            $("#btnPrint").click(function (e) {
+                var formData = new FormData();
+                formData.append('data', JSON.stringify(
+                    {
+                        expenseID: $("#ExpenseID").val(),
+                        userID: $("#UserID").val(),
+                        facilityID: $("#FacilityID").val(),
+                        statusID: $("#StatusID").val(),
+                        FromDate: $("#FromDate").val(),
+                        ToDate: $("#ToDate").val(),
+                    }
+                ));
+                $.ajax({
+                    url: "/FinanceExpenseClaim/GetPrint",
+                    type: "POST",
+                    dataType: 'html',
+                    contentType: 'application/json; charset=utf-8',
+                    data: formData,
+                    processData: false,
+                    contentType: false,
+                    success: function (data) {
+                        var headstr = "<html><head><title>Mileage Claim Details</title></head><body>";
+                        var footstr = "</body>";
+                        var oldstr = document.body.innerHTML;
+                        document.body.innerHTML = headstr + data + footstr;
+                        window.print();
+                        document.body.innerHTML = oldstr;
+                        location.reload(true);
+                        return false;
+                    },
+                    error: function (result) {
+                        alert('fail result ' + result);
+                    }
+                });
+            });
+        });
+
+        $(document).ready(function () {
+            $('#datepicker-popup').datepicker({
+                format: 'dd/mm/yyyy',
+                autoclose: true,
+                todayHighlight: true,
+                endDate: new Date()
+            });
+            $('#datepicker-popup1').datepicker({
+                format: 'dd/mm/yyyy',
+                autoclose: true,
+                todayHighlight: true,
+                endDate: new Date()
+            });
+        });
+
+        $('body').on('focus', ".datepicker", function () {
+            $(this).datepicker({
+                format: 'dd/mm/yyyy',
+                autoclose: true,
+                todayHighlight: true,
+                endDate: new Date()
+            });
+        });
+
+        var verifyConfirm = function (Ecid) {
+            $("#hiddenECId").val(Ecid);
+            $('#dialogVerified').modal('show');
+        }
+        var approvedConfirm = function (Ecid) {
+            //$('#deletedValueName').text(val);
+            $("#hiddenECId").val(Ecid);
+            $('#dialogApproved').modal('show');
+        }
+
+        var rejectConfirm = function (Ecid) {
+            //$('#deletedValueName').text(val);
+            $("#hiddenECId").val(Ecid);
+            $('#dialogReject').modal('show');
+        }
+
+        //call this function after click on confirm delete button
+        var verifyData = function () {
+            var ecId = $("#hiddenECId").val();
+            //alert('val ' + ecId);
+            $('#btnVerifysave').attr('disabled', 'disabled');
+            $.ajax({
+                type: "POST",
+                url: "/FinanceExpenseClaim/UpdateStatus",
+                data: { id: ecId },
+                success: function (result) {
+                    $("#dialogVerified").modal('hide');
+                    if (result.res == '0') {
+                        window.location.href = "@Url.Content("~/FinanceExpenseClaim/Details/")" + ecId;
+                    }
+                    else {
+                        window.location.href = "@Url.Content("~/FinanceExpenseClaim/Index")";
+                    }
+                },
+                error: function () {
+                    $("#dialogVerified").modal('hide');
+                }
+            });
+        }
+
+        //call this function after click on confirm delete button
+        var approveData = function () {
+            var ecId = $("#hiddenECId").val();
+            //alert('val ' + ecId);
+            $('#btnApprovesave').attr('disabled', 'disabled');
+            $.ajax({
+                type: "POST",
+                url: "/FinanceExpenseClaim/UpdateStatus",
+                data: { id: ecId },
+                success: function (result) {
+                    $("#dialogApproved").modal('hide');
+                    if (result.res == '0') {
+                        window.location.href = "@Url.Content("~/FinanceExpenseClaim/Details/")" + ecId;
+                    }
+                    else {
+                        window.location.href = "@Url.Content("~/FinanceExpenseClaim/Index")";
+                    }
+                },
+                error: function () {
+                    $("#dialogApproved").modal('hide');
+                }
+            });
+        }
+
+        //call this function after click on confirm delete button
+        var rejectData = function () {
+            var ecId = $("#hiddenECId").val();
+            var reason = $('#txtRejectReason').val();
+            if (!reason) {
+                $('#sptxtRejectReason').html("Please Enter Request to Amend Reason");
+                $('#sptxtRejectReason').css('color', 'red');
+                $('#sptxtRejectReason').show();
+                $('#txtRejectReason').css('border-color', 'red');
+                return false;
+            }
+            $('#btnRejectsave').attr('disabled', 'disabled');
+            $.ajax({
+                type: "POST",
+                url: "/FinanceExpenseClaim/UpdateRejectedStatus",
+                data: { id: ecId, reason: reason },
+                success: function (result) {
+                    $("#dialogReject").modal('hide');
+                    if (result.res == '0') {
+                        window.location.href = "@Url.Content("~/FinanceExpenseClaim/Details/")" + ecId;
+                    }
+                    else {
+                        window.location.href = "@Url.Content("~/FinanceExpenseClaim/Index")";
+                    }
+                },
+                error: function () {
+                    $("#dialogReject").modal('hide');
+                }
+            });
+        }
+        function HideError(SpanID) {
+            //alert('Hi');
+            var ErrorMsgID = document.getElementById(SpanID);
+            ErrorMsgID.className = "HideBubble";
+            return false;
+        }
+
+        function DtSearch_Clear() {
+            var d = new Date();
+            var FromDate = d.setDate(d.getDate() - 30);
+            var ToDate = new Date();
+            var BindFromDate = d.getDate().toString().padStart(2, "0") + "/" + (d.getMonth() + 1).toString().padStart(2, "0") + "/" + d.getFullYear();
+            var BindToDate = ToDate.getDate().toString().padStart(2, "0") + "/" + (ToDate.getMonth() + 1).toString().padStart(2, "0") + "/" + ToDate.getFullYear();
+            $('#UserID').val('0').change();
+            $('#FacilityID').val('0').change();
+            $('#StatusID').val('0').change();
+            $('#ExpenseID').val('0').change();
+            $('#FromDate').val('');
+            $('#ToDate').val('');
+            $('#FromDate').val(BindFromDate);
+            $('#ToDate').val(BindToDate);
+            $('#datepicker-popup').datepicker({
+                format: 'dd/mm/yyyy',
+                autoclose: true,
+                defaultDate: BindFromDate
+            });
+            $('#datepicker-popup1').datepicker({
+                format: 'dd/mm/yyyy',
+                autoclose: true,
+                defaultDate: BindToDate,
+                todayHighlight: true
+            });
+            $("#datepicker-popup").datepicker("setDate", BindFromDate);
+            $("#datepicker-popup1").datepicker("setDate", BindToDate);
+
+        }
+
+        function ViewDetails(ECID) {
+            var expenseID = $("#ExpenseID").val()
+            var userID = $("#UserID").val()
+            var facilityID = $("#FacilityID").val()
+            var statusID = $("#StatusID").val()
+            var FromDate = $("#FromDate").val()
+            var ToDate = $("#ToDate").val()
+            window.location.href = "/FinanceExpenseClaim/Details?expenseID=" + expenseID + "&userID=" + userID + "&facilityID=" + facilityID +
+                "&statusId=" + statusID + "&FromDate=" + FromDate + "&ToDate=" + ToDate + "&id=" + ECID;
+
+        }
+
+        function Print_button() {
+            $.ajax({
+                contentType: 'application/json; charset=utf-8',
+                dataType: "html",
+                type: 'POST',
+                url: "/FinanceExpenseClaim/GetPrint",
+                data: JSON.stringify({}),
+                success: function (data) {
+                    var headstr = "<html><head><title>Expense Claim Details</title></head><body>";
+                    var footstr = "</body>";
+                    var oldstr = document.body.innerHTML;
+                    document.body.innerHTML = headstr + data + footstr;
+                    window.print();
+                    document.body.innerHTML = oldstr;
+                    location.reload(true);
+                    return false;
+                }
+            });
+        }
+    </script>
+}

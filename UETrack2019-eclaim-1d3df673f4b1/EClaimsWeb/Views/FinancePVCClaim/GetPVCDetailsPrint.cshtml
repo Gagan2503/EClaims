@@ -1,0 +1,310 @@
+﻿
+@model EClaimsWeb.Models.PVCClaimDetailVM
+
+@{
+    ViewBag.Title = "GetPVCPrint";
+    Layout = null;
+    int Counter = 1;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <style type="text/css" media="print">
+        @@media print {
+
+            @@page {
+                size: auto !important;
+                max-height: 100%;
+                max-width: 100%
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div style="width:100%; text-align:center;"><h4>PV-Cheque Claim Details</h4></div>
+    <br />
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Company</th>
+                <th>Department</th>
+                <th>Facility</th>
+                <th>Date</th>
+                <th>Voucher No</th>
+                <th>Claim #</th>
+                @*<th>Account Code</th>*@
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><label id="lblName">@Model.PVCClaimVM.Name</label></td>
+                <td><label id="lblCompany">@Model.PVCClaimVM.Company</label></td>
+                <td><label id="lblDepartment">@Model.PVCClaimVM.DepartmentName</label></td>
+                <td><label id="lblFacility">@Model.PVCClaimVM.FacilityName</label></td>
+                <td><label id="lblCurrentDate">@Model.PVCClaimVM.CreatedDate</label></td>
+                <td><label id="lblVoucherNo">@Model.PVCClaimVM.VoucherNo</label></td>
+                <td><label id="lblECClaimNo">@Model.PVCClaimVM.PVCCNo</label></td>
+                @*<td class="tableAccountCode">
+                        000111-50001-0040000
+                    </td>*@
+            </tr>
+        </tbody>
+    </table>
+    <div class="row mt-4">
+        <h5 class="col-md-12 card-title table-summary">Claim Details</h5>
+        <div class="col-md-12">
+            <div class="table-responsive">
+                <table id="order-listing" class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Item #</th>
+                            <th>Payee Name</th>
+                            <th>Facility</th>
+                            <th>Particulars of payment</th>
+                            <th>Cheque No</th>
+                            <th>Invoice no</th>
+                            <th>Expense Category</th>
+                            <th>Amount</th>
+                            <th>GST</th>
+                            <th>Total Amount With GST</th>
+                            <th>Account Code</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.DtPVCClaimVMs)
+                        {
+                            <tr>
+                                <td>@Counter</td>
+                                <td>@item.Payee</td>
+                                <td>@item.Facility</td>
+                                <td>@item.Particulars</td>
+                                <td>@item.ChequeNo</td>
+                                <td>@item.InvoiceNo</td>
+                                <td>@item.ExpenseCategory</td>
+                                <td class="text-align-right">$@Math.Round((decimal)item.Amount, (int)2).ToString("###,##,##0.00")</td>
+                                <td class="text-align-right">$@Math.Round((decimal)item.GST, (int)2).ToString("###,##,##0.00")</td>
+                                <td class="text-align-right">$@Math.Round((decimal)item.AmountWithGST, (int)2).ToString("###,##,##0.00")</td>
+                                <td class="tableAccountCode">@item.AccountCode</td>
+                            </tr>
+                            Counter++;
+                        }
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <th>Grand Total</th>
+                            <td class="text-align-right">$@Math.Round((decimal)@Model.PVCClaimVM.GrandTotal, (int)3).ToString("#,##0.00")</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <th>Grand GST</th>
+                            <td class="text-align-right">$@Math.Round((decimal)@Model.PVCClaimVM.GrandGST, (int)3).ToString("#,##0.00")</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <th>Total Amount with GST</th>
+                            <td class="text-align-right">$@Math.Round((decimal)@Model.PVCClaimVM.TotalAmount, (int)3).ToString("#,##0.00")</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-5">
+        <h5 class="col-md-12 card-title table-summary">Summary of Accounts Allocation</h5>
+        <div class="col-md-10">
+            <div class="table-responsive">
+                <table id="order-listing" class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Account Code</th>
+                            <th>Facility</th>
+                            <th>Expense Type</th>
+                            <th>Description</th>
+                            <th>Tax Class</th>
+                            <th>Amount (Excluding GST)</th>
+                            <th>GST</th>
+                            <th>Amount (Including GST)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.DtPVCClaimSummaries)
+                        {
+                            if (item.ExpenseCategory != "DBS")
+                            {
+                                <tr>
+                                    <td>@item.AccountCode</td>
+                                    <td>@item.Facility</td>
+                                    <td>@item.ExpenseCategory</td>
+                                    <td>@item.Description</td>
+                                    <td>@item.TaxClass</td>
+                                    <td class="text-align-right">$@Math.Round((decimal)item.Amount, (int)2).ToString("###,##,##0.00")</td>
+                                    <td class="text-align-right">$@Math.Round((decimal)item.GST, (int)2).ToString("###,##,##0.00")</td>
+                                    <td class="text-align-right">$@Math.Round((decimal)item.AmountWithGST, (int)2).ToString("###,##,##0.00")</td>
+                                </tr>
+                            }
+                            else
+                            {
+                                <tr>
+                                    <td>@item.AccountCode</td>
+                                    <td></td>
+                                    <td>@item.ExpenseCategory</td>
+                                    <td>@item.Description</td>
+                                    <td></td>
+                                    <td class="text-align-right">$@Math.Round((decimal)item.Amount, (int)2).ToString("###,##,##0.00")</td>
+                                    <td class="text-align-right">$@Math.Round((decimal)item.GST, (int)2).ToString("###,##,##0.00")</td>
+                                    <td class="text-align-right">$@Math.Round((decimal)item.AmountWithGST, (int)2).ToString("###,##,##0.00")</td>
+                                </tr>
+                            }
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-4">
+        <h5 class="col-md-12 card-title table-summary"></h5>
+        <div class="col-md-12 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">
+                        Audit Trail
+                    </h4>
+                    <ul class="bullet-line-list pt-2 mb-0">
+                        @foreach (var itemAudit in Model.PVCClaimAudits)
+                        {
+                            <p>
+                                @itemAudit.Description
+                            </p>
+                            <!--<li>
+                                @if (itemAudit.Action.ToString() == "1" && @itemAudit.Description.ToString().ToLower().Contains("created"))
+                                {
+                                    <h6>
+                                        New
+                                    </h6>
+                                }
+                                else if ((itemAudit.Action.ToString() == "1" || itemAudit.Action.ToString() == "2") && @itemAudit.Description.ToString().ToLower().Contains("verification"))
+                                {
+                                    <h6>
+                                        Awaiting verification
+                                    </h6>
+                                }
+                                else if ((itemAudit.Action.ToString() == "2" || itemAudit.Action.ToString() == "3") && @itemAudit.Description.ToString().ToLower().Contains("approval"))
+                                {
+                                    <h6>
+                                        Awaiting Signatory approval
+                                    </h6>
+                                }
+                                else if ((itemAudit.Action.ToString() == "3") && @itemAudit.Description.ToString().ToLower().Contains("notification"))
+                                {
+                                    <h6>
+                                        Approved
+                                    </h6>
+                                }
+                                else if ((itemAudit.Action.ToString() == "3") && @itemAudit.Description.ToString().ToLower().Contains("approved"))
+                                {
+                                    <h6>
+                                        Approved
+                                    </h6>
+                                }
+                                else if ((itemAudit.Action.ToString() == "4") && @itemAudit.Description.ToString().ToLower().Contains("reject"))
+                                {
+                                    <h6>
+                                        Rejected
+                                    </h6>
+                                }
+                                else if ((itemAudit.Action.ToString() == "4") && @itemAudit.Description.ToString().ToLower().Contains("notification"))
+                                {
+                                    <h6>
+                                        Rejected
+                                    </h6>
+                                }
+                                else if ((itemAudit.Action.ToString() == "-5") && @itemAudit.Description.ToString().ToLower().Contains("void"))
+                                {
+                                    <h6>
+                                        Requested to Void
+                                    </h6>
+                                }
+                                else if ((itemAudit.Action.ToString() == "-5") && @itemAudit.Description.ToString().ToLower().Contains("void"))
+                                {
+                                    <h6>
+                                        Requested to Void
+                                    </h6>
+                                }
+                                else if ((itemAudit.Action.ToString() == "5") && @itemAudit.Description.ToString().ToLower().Contains("void"))
+                                {
+                                    <h6>
+                                        Voided
+                                    </h6>
+                                }
+                                else if ((itemAudit.Action.ToString() == "5") && @itemAudit.Description.ToString().ToLower().Contains("void"))
+                                {
+                                    <h6>
+                                        Voided
+                                    </h6>
+                                }
+                                else if ((itemAudit.Action.ToString() == "5") && @itemAudit.Description.ToString().ToLower().Contains("notification"))
+                                {
+                                    <h6>
+                                        Voided
+                                    </h6>
+                                }
+                                else if ((itemAudit.Action.ToString() == "0") && @itemAudit.Description.ToString().ToLower().Contains("query"))
+                                {
+                                    <h6>
+                                        Query
+                                    </h6>
+                                }
+                                else if ((itemAudit.Action.ToString() == "1" || itemAudit.Action.ToString() == "2") && @itemAudit.Description.ToString().ToLower().Contains("amended by"))
+                                {
+                                    <h6>
+                                        Amended
+                                    </h6>
+                                }
+                                <p>
+                                    @itemAudit.Description
+                                </p>
+                                <p class="text-muted mb-3 tx-12">
+                                    <i class="mdi mdi-clock-outline"></i>
+                                    @itemAudit.AuditDateTickle-->
+                                    @*1 day ago.*@
+                                <!--</p>
+                            </li>-->
+                        }
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 grid-margin stretch-card">
+
+        </div>
+    </div>
+</body>
+</html>

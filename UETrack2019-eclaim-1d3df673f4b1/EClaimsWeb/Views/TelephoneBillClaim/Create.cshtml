@@ -1,0 +1,1110 @@
+﻿@model EClaimsWeb.Models.TBClaimDetailVM
+
+@{
+    ViewData["Title"] = "Telephone Bill ";
+    int Counter = 1;
+}
+
+@section Styles{
+    <environment names="Development">
+        @*<link rel="stylesheet" href="~/vendors/select2/select2.min.css" asp-append-version="true">
+            <link rel="stylesheet" href="~/vendors/select2-bootstrap-theme/select2-bootstrap.min.css" asp-append-version="true">*@
+        <link rel="stylesheet" href="~/vendors/datatables.net-bs4/dataTables.bootstrap4.css" asp-append-version="true" />
+        <link rel="stylesheet" href="~/vendors/bootstrap-datepicker/bootstrap-datepicker.min.css">
+    </environment>
+
+    <environment names="Staging,Production">
+        @*<link rel="stylesheet" href="~/vendors/select2/select2.min.css" asp-append-version="true">
+            <link rel="stylesheet" href="~/vendors/select2-bootstrap-theme/select2-bootstrap.min.css" asp-append-version="true">*@
+        <link rel="stylesheet" href="~/vendors/datatables.net-bs4/dataTables.bootstrap4.css" asp-append-version="true" />
+        <link rel="stylesheet" href="~/vendors/bootstrap-datepicker/bootstrap-datepicker.min.css">
+    </environment>
+}
+<label id="msg" class="alert-danger"></label>
+<div id="AddTelephoneBill" class="col-md-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            @if (@TempData["status"].ToString().Contains("Add") || @TempData["status"].ToString().Contains("Recreate"))
+            {
+                <h4 class="mb-0 font-weight-bold">Add Telephone Bill Claim</h4>
+            }
+            else
+            {
+                <h4 class="mb-0 font-weight-bold">Update Telephone Bill Claim</h4>
+            }
+
+            <div class="row mt-4">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Company</th>
+                            <th>Department</th>
+                            <th>Facility</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><label id="lblName">@ViewData["Name"]</label></td>
+                            <td><label id="lblCompany">UEMS</label></td>
+                            <td><label id="lblDepartment">@ViewData["Department"]</label></td>
+                            <td><label id="lblFacility">@ViewData["FacilityName"]</label></td>
+                            <td><label id="lblCurrentDate">@DateTime.Now.Date.ToString("dd/MM/yyyy")</label></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            @*<form class="forms-sample mt-4">
+                    <div class="form-group row">
+                        <label class="col-form-label required">Month</label>
+                        <div class="col-sm-3">
+                            <div id="datepicker" class="input-group date datepicker">
+                                <input id="datepickerMonth" type="text" class="form-control" placeholder="MM/YYYY">
+                                <span class="input-group-addon input-group-append border-left">
+                                    <span class="mdi mdi-calendar input-group-text"></span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </form>*@
+            @*<div class="row d-none">
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="form-group col-md-4">
+                                <label for="Code" class="required">Date</label>
+                                <div id="datepicker-popup" class="input-group date datepicker">
+                                    <input type="text" class="form-control" placeholder="DD/MM/YYYY">
+                                    <span class="input-group-addon input-group-append border-left">
+                                        <span class="mdi mdi-calendar input-group-text"></span>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="Description" class="required">Description of Expense</label>
+                                <input type="text" class="form-control" id="To" placeholder="Description of Expense">
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="Code" class="required">Expense Category</label>
+                                <select class="form-control js-example-basic-single w-100" style="width: 100% !important;">
+                                    <option value="0">Entertainment</option>
+                                    <option value="1">Printing & Stationary</option>
+                                    <option value="2">Repair & Maintenance</option>
+                                    <option value="3">Travel expense local</option>
+                                    <option value="4">Travel expense ERP/Carpark</option>
+                                    <option value="5">Travel Expense-Overseas</option>
+                                    <option value="6">Accomodation expense</option>
+                                    <option value="7">Durable Asset</option>
+                                    <option value="8">Employee Recreation Welfare</option>
+                                    <option value="9">Medical</option>
+                                    <option value="10">Recruitment</option>
+                                    <option value="11">Training & Education</option>
+                                    <option value="12">Uniforms</option>
+                                    <option value="13">Supplies</option>
+                                    <option value="14">Contract Labour</option>
+                                    <option value="15">HQ-Employee Recreation Welfare</option>
+                                    <option value="16">HQ-Medical</option>
+                                    <option value="17">HQ-Recruitment</option>
+                                    <option value="18">HQ-Training & Education</option>
+                                    <option value="19">HQ-Uniforms</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-md-4">
+                                <label for="Code" class="required">Amount</label>
+                                <input type="number" class="form-control" id="Amount" placeholder="Amount" />
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="Code" class="required">GST</label>
+                                <input type="number" class="form-control" id="GST" placeholder="GST" />
+                            </div>
+                            <div class="form-group col-md-4">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-md-6">
+                                <button type="submit" class="btn btn-primary mr-2">Add</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>*@
+            @if (ViewBag.ClaimStatus == "Update")
+            {
+                if (Model.TBClaimFileUploads.Count > 0)
+                {
+                    <hr />
+                    <table style="width:100%">
+                        <tr style="vertical-align: top;">
+                            <td style="width: 10%">
+                                <label class="field_name">
+                                    <b>File(s) : </b>
+                                </label>
+                            </td>
+                            <td>
+
+                                @foreach (var file in Model.TBClaimFileUploads)
+                                {
+                                    <table border="0" cellspacing="2" cellpadding="2" width="90%">
+                                        <tr>
+                                            <td width="20%">
+
+                                                <label class="field_name">
+
+                                                    @file.FileName
+
+                                                </label>
+
+                                            </td>
+
+                                            <td width="30%">
+
+                                                <label class="field_name">
+                                                    <a href="@Url.Action("Download", new { id = @file.FilePath, name = @file.FileName })" title="Download" target="_blank">
+                                                        Download
+                                                    </a>
+
+                                                </label>
+                                                @if (!@TempData["status"].ToString().Contains("Recreate"))
+                                                {
+                                                    <label class="field_name">
+                                                        &nbsp; &nbsp;
+                                                        @if (@TempData["claimaddcondition"].ToString().Contains("claimDraft"))
+                                                        {
+                                                            <a href="@Url.Action("DeleteTBClaimDraftFile", new { @file.FileID, @file.FilePath, @file.TBCID })" onclick="return confirm('Are you sure to remove attached file?')">
+                                                                <span id="DeleteFile" class="mdi mdi-delete-outline">Delete</span>
+                                                                @*<img title="Remove File" alt="Delete" style="width:16px !important; height:16px !important;" />*@
+                                                            </a>
+                                                        }
+                                                        else
+                                                        {
+                                                            <a href="@Url.Action("DeleteTBClaimFile", new { @file.FileID, @file.FilePath, @file.TBCID })" onclick="return confirm('Are you sure to remove attached file?')">
+                                                                <span id="DeleteFile" class="mdi mdi-delete-outline">Delete</span>
+                                                                @*<img title="Remove File" alt="Delete" style="width:16px !important; height:16px !important;" />*@
+                                                            </a>
+                                                        }
+                                                    </label>
+                                                }
+                                            </td>
+
+
+                                            <td width="30%"></td>
+                                        </tr>
+                                    </table>
+
+                                }
+                            </td>
+
+                        </tr>
+                        @*<tr>
+                            <td colspan="2">
+                                @if (Model.TBClaimFileUploads.Count >= 1 && @TempData["status"].ToString().Contains("Recreate"))
+                                {
+                                    <span style="color: Red">If any of the above file(s) needs to be attached for the claim, please download the file and re upload the file.</span>
+                                    <br /><br />
+                                }
+                            </td>
+                        </tr>*@
+                    </table>
+                }
+            }
+            <div class="row">
+                <h5 class="col-md-12 card-title table-summary">Claim Details</h5>
+                <div class="col-md-12">
+                    <div class="table-responsive">
+                        <table id="tblClaims" class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Telephone Bill Date</th>
+                                    <th>Facility</th>
+                                    <th>Description of Expense</th>
+                                    <th>Expense Category</th>
+                                    <th>Amount</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model.DtTBClaimVMs)
+                                {
+                                    <tr>
+                                        <td align="center">
+                                            <label id="lblItem">
+                                                @(Counter)
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <div id="datepicker-popup" class="input-group date datepicker">
+                                                <input id="dtClaimDate" type="text" autocomplete="off" class="form-control form-control-sm" placeholder="DD/MM/YYYY" style="width: 160px !important;">
+                                                <span class="input-group-addon input-group-append border-left">
+                                                </span>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <select id="FacilityID" asp-items="ViewBag.FacilityID" class="form-control form-control-sm" style="width: 150px !important;">
+                                                @*<option value="0">Select Facility</option>*@
+                                            </select>
+                                        </td>
+                                        <td>
+                                            <input type="text" class="form-control form-control-sm" id="txtDescription" placeholder="Description of Expense" style="width: 410px !important;">
+                                        </td>
+                                        <td>
+                                            <select id="ExpenseCategoryID" asp-items="ViewBag.ExpenseCategoryID" class="form-control w-100 form-control-sm" style="width: 150px !important;">
+                                                @*<option value="0">Select Facility</option>*@
+                                            </select>
+                                        </td>
+                                        <td>
+                                            <input type="text" class="form-control form-control-sm" id="txtSubTotal" onchange="Calculation();" data-inputmask="'alias': 'decimal', 'groupSeparator': ',', 'autoGroup': true,'autoUnmask': true, 'removeMaskOnSubmit': true, 'digits': 2, 'digitsOptional': false, 'prefix': '$ ', 'placeholder': '0'" maxlength="15" style="width: 150px !important;">
+                                        </td>
+                                        <td class="actions">
+                                            <span id="AddClaim" class="mdi mdi-plus-circle-outline"></span>
+                                            <span id="EditClaim" class="mdi mdi-border-color d-none"></span>
+                                            <span id="DeleteClaim" class="mdi mdi-delete-outline"></span>
+                                            <input type="text" class="input-large" name="TBCItemID[]" value="0" id="txtTBCItemID" style="width: 100% ; text-align:right; display:none;"
+                                                   onpaste="return false;" readonly="readonly" />
+                                        </td>
+                                    </tr>
+                                    Counter++;
+                                }
+                            </tbody>
+                        </table>
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr class="d-none">
+                                    <th></th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tr>
+                                <td width="70%" class="text-align-right">Grand Total</td>
+                                <td width="30%"><input type="text" id="txtGrandTotal" class="form-control" readonly="readonly" value="@Model.TBClaimVM.GrandTotal" data-inputmask="'alias': 'decimal', 'groupSeparator': ',', 'autoGroup': true,'autoUnmask': true, 'removeMaskOnSubmit': true, 'digits': 2, 'digitsOptional': false, 'prefix': '$ ', 'placeholder': '0'" style="width: 150px !important;"></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div class="col-md-12 mt-4">
+                    <div class="form-group col-md-4">
+                        <label>Upload</label>
+                        <input type="file" name="img[]" class="file-upload-default" multiple id="fileInput" accept=".gif,.jpg,.jpeg,.png,.doc,.docx,.csv,.xls,.pdf" onchange="ValidateSingleInput(this);">
+                        <div class="input-group col-xs-12">
+                            <input id="fileInputText" type="text" class="form-control file-upload-info" disabled
+                                   placeholder="Upload">
+                            <span class="input-group-append">
+                                <button class="file-upload-browse btn btn-sm btn-primary" type="button">Upload</button>
+                            </span>
+                        </div>
+                        <br />
+                        <span style="color: Red">(Supported File Types *.pdf;*.xls;*.csv;*.doc;*.docx;*.png;*.jpeg;*.jpg;*.gif)</span>
+                        <p id="selectedFilesText" style="margin-top: 10px;"></p>
+                        <div id="fileList"></div>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <div class="form-check form-check-flat form-check-primary">
+                            <label class="form-check-label">
+                                <input id="chkTC" type="checkbox" class="form-check-input">
+                                I certify that the claims are true and correct
+                                <i class="input-helper"></i>
+                            </label>
+                            <ul class="list-group">
+                                Note:
+                                <li class="list-group-item-warning">
+                                    1) All claims must be supported by receipts and with explanatory notes where necessary.
+                                </li>
+                                @*<li class="list-group-item-warning">
+                                        2) Details of Entertainment Form to be completed if entertainment expenses is claimed above.
+                                    </li>
+                                    <li class="list-group-item-warning">
+                                        3) Any advance received from Company to be indicated as a negative number.
+                                    </li>*@
+                                <li class="list-group-item-warning">
+                                    2) Any claimant found to be submitting fradulent claims shall be subject to disciplinary actions, including immediate termination.
+                                </li>
+                                <li class="list-group-item-warning">
+                                    3) Non compliance to the stated guidelines will result in the delay of processing of claims/ rejection of claims
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class=" col-md-6">
+                    @if (@TempData["status"].ToString().Contains("Add") || @TempData["status"].ToString().Contains("Recreate"))
+                    {
+                        <button type="submit" class="btn btn-primary mr-2" id="btnSave" onclick="return getdata(this.id);">Submit Claim</button>
+                        <button type="submit" class="btn btn-secondary mr-2" id="btnDraft" onclick="return getdata(this.id);">Save as Draft</button>
+                    }
+                    else
+                    {
+                        @if (@TempData["claimaddcondition"].ToString().Contains("claimDraft"))
+                        {
+                            <button type="submit" class="btn btn-primary mr-2" id="btnSave" onclick="return getdata(this.id);">Submit Claim</button>
+                        }
+                        else
+                        {
+                            <button type="submit" class="btn btn-primary mr-2" id="btnEdit" onclick="return getdata(this.id);">Update Claim</button>
+                        }
+                        <button type="submit" class="btn btn-secondary mr-2" id="btnDraftEdit" onclick="return getdata(this.id);">Update Draft</button>
+                    }
+                    <input type="hidden" id="hdfClaimID" name="hdfClaimID" value="0" />
+                    <input type="hidden" id="txtTBCNO" name="txtTBCNO" value="@Model.TBClaimVM.TBCNo" />
+                    @*<button type="submit" class="btn btn-primary mr-2" id="btnsaveupdate" onclick="return getdata('SendforApproval');">Submit Claim</button>*@
+                    <button class="btn btn-danger mr-2" onclick="RedirectView();">Close</button>
+                    <button class="btn btn-light" onclick="ClearData();">Reset</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section scripts
+        {
+    <environment names="Development">
+        <script src="~/lib/jquery/dist/jquery.min.js"></script>
+        <script src="~/vendors/typeahead.js/typeahead.bundle.min.js" asp-append-version="true"></script>
+        @*<script src="~/vendors/select2/select2.min.js" asp-append-version="true"></script>*@
+        <script src="~/vendors/moment/moment.min.js"></script>
+        <script src="~/vendors/datatables.net/jquery.dataTables.js" asp-append-version="true"></script>
+        <script src="~/vendors/datatables.net-bs4/dataTables.bootstrap4.js" asp-append-version="true"></script>
+        <script src="~/js/file-upload.js"></script>
+        <script src="~/js/typeahead.js"></script>
+        @*<script src="~/js/select2.js"></script>*@
+        <script src="~/js/data-table.js"></script>
+        <script src="~/vendors/inputmask/jquery.inputmask.bundle.js"></script>
+        <!-- plugin js for this page -->
+        <script src="~/vendors/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
+        <script src="~/vendors/jquery.repeater/jquery.repeater.min.js"></script>
+
+
+    </environment>
+
+    <environment names="Staging,Production">
+        <script src="~/lib/jquery/dist/jquery.min.js"></script>
+        <script src="~/vendors/typeahead.js/typeahead.bundle.min.js" asp-append-version="true"></script>
+        @*<script src="~/vendors/select2/select2.min.js" asp-append-version="true"></script>*@
+        <script src="~/vendors/moment/moment.min.js"></script>
+        <script src="~/vendors/datatables.net/jquery.dataTables.js" asp-append-version="true"></script>
+        <script src="~/vendors/datatables.net-bs4/dataTables.bootstrap4.js" asp-append-version="true"></script>
+        <script src="~/js/file-upload.js"></script>
+        <script src="~/js/typeahead.js"></script>
+        @*<script src="~/js/select2.js"></script>*@
+        <script src="~/js/data-table.js"></script>
+        <script src="~/vendors/inputmask/jquery.inputmask.bundle.js"></script>
+        <!-- plugin js for this page -->
+        <script src="~/vendors/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
+        <script src="~/vendors/jquery.repeater/jquery.repeater.min.js"></script>
+
+
+    </environment>
+    <script>
+        $("#datepicker").datepicker({
+            format: "mm-yyyy",
+            viewMode: "months",
+            minViewMode: "months",
+            autoclose: true,
+            endDate: new Date()
+        });
+        $(document).ready(function () {
+            $('#datepicker-popup').datepicker({
+                format: 'dd/mm/yyyy',
+                autoclose: true,
+                currentText: "Now",
+                todayHighlight: true,
+                endDate: new Date()
+            });
+
+        });
+        $('body').on('focus', ".datepicker", function () {
+            $(this).datepicker({
+                format: 'dd/mm/yyyy',
+                autoclose: true,
+                currentText: "Now",
+                todayHighlight: true,
+                endDate: new Date()
+            });
+        });
+        $('body').on('focus', "#txtSubTotal", function () {
+            $(this).inputmask({
+                alias: 'decimal', groupSeparator: ',', removeMaskOnSubmit: true, digits: 2, digitsOptional: false,
+                autoGroup: true, autoUnmask: true, prefix: '$ ', placeholder: '0'
+            });
+        });
+    </script>
+    <script>
+        var Params = [];
+
+        var fileListArr = [];
+        var _validFileExtensions = [".jpg", ".jpeg", ".bmp", ".gif", ".png", ".doc", ".docx", ".csv", ".xls", ".pdf"];
+        function ValidateSingleInput(oInput) {
+            if (oInput.type == "file") {
+                for (var i = 0; i < oInput.files.length; ++i) {
+                    var blnValid = false;
+                    var sFileName = oInput.files[i].name;
+                    if (sFileName.length > 0) {
+                        for (var j = 0; j < _validFileExtensions.length; j++) {
+                            var sCurExtension = _validFileExtensions[j];
+                            if (sFileName.substr(sFileName.length - sCurExtension.length, sCurExtension.length).toLowerCase() == sCurExtension.toLowerCase()) {
+                                blnValid = true;
+                                break;
+                            }
+                        }
+                        if (!blnValid) {
+                            alert("Sorry, " + sFileName + " is invalid, allowed extensions are: " + _validFileExtensions.join(", "));
+                            oInput.value = "";
+                            return false;
+                        }
+                        else {
+                            fileListArr.push(oInput.files[i]);
+                        }
+                    }
+                }
+                displaySelectedFilesList();
+            }
+            return true;
+        }
+
+        function deleteFile(fileName) {
+            var newList = [];
+            for (var i = 0; i < fileListArr.length; ++i) {
+                var sFileName = fileListArr[i].name;
+                if (sFileName === fileName) {
+                    /*fileListArr.splice(i, 1);*/
+                }
+                else {
+                    newList.push(fileListArr[i]);
+                }
+            }
+            fileListArr = newList;
+            displaySelectedFilesList();
+        }
+
+        function displaySelectedFilesList() {
+            var output = document.getElementById('fileList');
+            var selectedFilesText = document.getElementById('selectedFilesText');
+            output.innerHTML = '';
+            var children = "";
+
+            for (var i = 0; i < fileListArr.length; ++i) {
+                var sFileName = fileListArr[i].name;
+                var file = URL.createObjectURL(fileListArr[i]);
+                children += '<li>' + '<a href="' + file + '" target="_blank">' + sFileName + '</a><button class="close" aria-label="Close" onclick="deleteFile(\'' + sFileName + '\')"><span aria-hidden="true">&times;</span ></button><br>' + '</li>';
+            }
+            output.innerHTML = '<ul>' + children + '</ul>';
+            selectedFilesText.innerHTML = "Selected files:";
+
+            var textMessage = "";
+            if (fileListArr.length > 0) {
+                textMessage = "Selected " + fileListArr.length + " File(s)";
+            }
+            else {
+                textMessage = "Upload";
+                selectedFilesText.innerHTML = '';
+            }
+
+            $("#fileInputText").val(textMessage);
+        }
+
+        $(document).ready(function () {
+            $("input").inputmask();
+            /*
+            $(document).on('click', '#DeleteClaim', function () {
+                debugger;
+                var rowsCount = $('#tblClaims tr').length - 5;
+                if (rowsCount === 0)
+                    return;
+
+                var newRowCount = rowsCount + 1;
+                $('#tblClaims > tbody > tr').eq(newRowCount).remove();
+            });
+            */
+            // var ProjectType = jQuery('input[name=project]:checked').val();
+
+            var CID = '@ViewBag.CID';
+            if (CID != 0) {
+
+                //alert(CID);
+                var status = '@TempData["status"]';
+                var isDraft = '@TempData["claimaddcondition"]';
+                debugger;
+                var GetTextValuesSGUrl = "/TelephoneBillClaim/GetTextValuesSG";
+                if (isDraft.includes("claimDraft")) {
+                    GetTextValuesSGUrl = "/TelephoneBillClaim/GetTextValuesSGDraft";
+                }
+
+                var ClaimStatus = '@ViewBag.ClaimStatus';
+                //alert(ClaimStatus);
+                if (ClaimStatus == "Update" || ClaimStatus == "Recreate") {
+                    $("#hdfClaimID").val(@ViewBag.CID);
+
+                    var table1 = document.getElementById("tblClaims");
+                    var rowLength = table1.rows.length;
+                    var l = 0;
+
+                    var id = '@ViewBag.CID ';
+                    $.ajax({
+                        type: "POST",
+                        url: GetTextValuesSGUrl,
+                        data:{id: id},
+                        success: function (data) {
+                            //var result = JSON.stringify(data);
+                           /* alert(data);*/
+                            var table1 = document.getElementById("tblClaims");
+                            var rowLength = table1.rows.length;
+                            //alert(data.length);
+                            //alert(data.dtClaimsList.length);
+                            //for (var i = 0; i < data.length; ++i) {
+
+                            //}
+
+                            for (var l = 0; l < data.dtClaimsList.length; l++) {
+                                var DtTBCItemID = data.dtClaimsList[l].tbcItemID;
+                                var Description = data.dtClaimsList[l].description;
+                                var Amount = data.dtClaimsList[l].amount;
+                               // var GST = data.dtClaimsList[l].gst;
+                                //var AmountWithGST = data.dtClaimsList[l].amountWithGST;
+                                var ExpenseCategory = data.dtClaimsList[l].expenseCategoryID;
+                                var TBCID = data.dtClaimsList[l].tbCID;
+                                var FacilityID = data.dtClaimsList[l].facilityID;
+                                //alert('GST ' + GST);
+                                var DateOfJourney = data.dtClaimsList[l].dateOfJourney;
+                               // var dateMomentObject = moment(data.dtClaimsList[l].dateOfJourney, "DD/MM/YYYY"); // 1st argument - string, 2nd argument - format
+                               // var dateObject = dateMomentObject.toDate();
+                                var date2 = new Date(DateOfJourney);
+                                //alert("DateOfJourney " + DateOfJourney);
+                                //alert("date2 " + date2);
+                                //$(row1).find("#dtClaimDate").datepicker({
+                                //    format: 'dd/mm/yyyy'
+                                //}).datepicker('setDate', date2)
+
+
+
+                               // var ECItemID = data.dtClaimsList[l].eCItemID;
+                                //$(row1).find('#dtClaimDate').val(DateOfJourney);
+
+                                var row1 = table1.rows[l + 1];
+                                //alert("row1  " + row1);
+                                //alert("dateObject " + dateObject);
+
+                                //alert("Description " + Description);
+                                //alert("GST " + GST);
+                               // var startDate = new Date();
+                               // alert(startDate);
+
+                               // $('#dtClaimDate').data({ date: startDate }).datepicker('update').children("input").val(startDate);
+                                //$("#dtClaimDate").datepicker({
+                                //    format: 'dd/mm/yyyy',
+                                //    autoclose: true
+                                //}).datepicker("update", "10/10/2016");
+                                //$("#dtClaimDate").datepicker("setDate", startDate);
+                                //$('#dtClaimDate').datepicker('setValue', '09/21/2021').datepicker('update');
+
+                                //$(row1).find("#dtClaimDate").datepicker("update", new Date());
+                                //$(row1).find('#dtClaimDate').val(DateOfJourney);
+                                $(row1).find("#dtClaimDate").datepicker({
+                                    format: 'dd/mm/yyyy'
+                                }).datepicker();
+                                $(row1).find("#dtClaimDate").datepicker('setDate', date2).datepicker('fill');
+
+                                $("#datepicker").datepicker({
+                                    format: "mm-yyyy",
+                                    viewMode: "months",
+                                    minViewMode: "months",
+                                    autoclose: true
+                                });
+                                $("#datepicker").datepicker('setDate', date2).datepicker('fill');
+                                $(row1).find("#FacilityID").val(FacilityID);
+                                $(row1).find("#txtDescription").val(Description);
+                                //$(row1).find("#txtGST").val(GST);
+                                $(row1).find("#txtSubTotal").val(Amount);
+                                $(row1).find("#ExpenseCategoryID").val(ExpenseCategory);
+                                $(row1).find("#txtTBCItemID").val(DtTBCItemID);
+                                //$(row1).find("#txtGST").val(GST);
+                                //$(row1).find("#txtDTCBRID").val(DtCBRID);
+
+                                //$(this).find('#dtClaimDate').val('');
+                                //$(this).find('#ExpenseCategoryID option:first').attr('selected', true);
+                                //$(this).find('#txtDescription').val('');
+                                //$(this).find('#txtGST').val('');
+                                //$(this).find('#txtSubTotal').val('');
+
+                                // new lines of code to disable fields start
+                                if (ClaimStatus == "Update" && !isDraft.includes("claimDraft")) {
+                                    //$(row1).find('#txtQty').prop("readonly", true);
+                                    //$(row1).find('#txtUnitPrice').prop("readonly", true);
+                                    //$(row1).find('#ddlUnit').attr("disabled", true);
+                                    //$(row1).find('#dllGST').attr("disabled", true);
+                                    //$(row1).find('#AddClaim').click(function (e) { return false; });
+                                    //$(row1).find('#DeleteClaim').click(function (e) { return false; });
+                                }
+                                // new lines of code to disable fields end
+                            }
+
+                            Calculation();
+                        },
+                        error: function () {
+                           // $("#dialogVerified").modal('hide');
+                        }
+                    });
+
+                    @*$.getJSON("@Url.Content("~/ExpenseClaim/GetTextValuesSG/")" + CID, function (data) {
+                        var table1 = document.getElementById("tblClaims");
+                        var rowLength = table1.rows.length;
+                        for (var l = 0; l < data.DtClaimsList.length; l++) {
+                            var Description = data.DtClaimsList[l].Description;
+                            var Amount = data.DtClaimsList[l].Amount;
+                            var GST = data.DtClaimsList[l].GST;
+                            var AmountWithGST = data.DtClaimsList[l].AmountWithGST;
+                            var ExpenseCategory = data.DtClaimsList[l].ExpenseCategory;
+                            var ECID = data.DtClaimsList[l].ECID;
+                            var DateOfJourney = data.DtClaimsList[l].DateOfJourney;
+                            var ECItemID = data.DtClaimsList[l].ECItemID;
+
+                            var row1 = table1.rows[l + 1];
+                            $(row1).find('#dtClaimDate').val(DateOfJourney);
+                            $(row1).find("#txtDescription").val(Description);
+                            $(row1).find("#txtGST").val(GST);
+                            $(row1).find("#txtSubTotal").val(AmountWithGST);
+                            //$(row1).find("#txtSubTotal").val(Amount1);
+                            //$(row1).find("#txtGST").val(GST);
+                            //$(row1).find("#txtDTCBRID").val(DtCBRID);
+
+                            //$(this).find('#dtClaimDate').val('');
+                            //$(this).find('#ExpenseCategoryID option:first').attr('selected', true);
+                            //$(this).find('#txtDescription').val('');
+                            //$(this).find('#txtGST').val('');
+                            //$(this).find('#txtSubTotal').val('');
+
+                            // new lines of code to disable fields start
+                            if (CustomerBRstatus == "Update") {
+                                //$(row1).find('#txtQty').prop("readonly", true);
+                                //$(row1).find('#txtUnitPrice').prop("readonly", true);
+                                //$(row1).find('#ddlUnit').attr("disabled", true);
+                                //$(row1).find('#dllGST').attr("disabled", true);
+                                $(row1).find('.addCF').click(function (e) { return false; });
+                                $(row1).find('.remCF').click(function (e) { return false; });
+                            }
+                            // new lines of code to disable fields end
+                        }
+                    });*@
+
+
+                }
+            }
+
+            $("#tblClaims").on('click', '#DeleteClaim', function () {
+                var x = document.getElementById("tblClaims").rows.length;
+                //  alert(x)
+                if (x > 2) {
+                    var par = $(this).parent().parent(); //tr
+                    $(this).parent().parent().remove();
+                    $('#tblClaims').find('tr').each(function (i, el) {
+                        if (i != 0) {
+                            var tds = $(this).find('td');
+                            $(this).find('#lblItem').html(i);
+                        }
+                    });
+                }
+                Calculation();
+            });
+
+            $(document).on('click', '#AddClaim', function () {
+                var message = "";
+                var table = document.getElementById("tblClaims");
+                for (var i = 1; i < 2; i++) {
+                    var row = table.rows[i];
+                    for (var j = 0; j < row.cells.length; j++) {
+                        var cell = row.cells[j];
+                        if (j == 0) {
+                            message += "<td align='center'>" + cell.innerHTML + "</td>";
+                        }
+                        else {
+                            message += "<td>" + cell.innerHTML + "</td>";
+                        }
+                    }
+                }
+                $(this).parent().parent().after('<tr>' + message + '</tr>');
+
+                message = "";
+                var DepartmentID = 0;
+                $('#tblClaims').find('tr').each(function (i, el) {
+                    var rowcount = table.rows.length;
+                    if (i != 0) {
+                        var tds = $(this).find('td');
+                        $(this).find('#lblItem').html(i);
+                    }
+                });
+                Calculation();
+            });
+        });
+
+        function isNumber(evt) {
+            //alert("number");
+            evt = (evt) ? evt : window.event;
+            var charCode = (evt.which) ? evt.which : evt.keyCode;
+            if (charCode > 31 && (charCode < 47 || charCode > 57) && charCode != 44) {
+                return false;
+            }
+        }
+
+        function RedirectView() {
+            window.location.href = "/TelephoneBillClaim/Index";
+        }
+
+        function ClearData() {
+
+            //$('#datepickerMonth').val('');
+            //         $('#FileUpload')
+            $('#chkTC').prop('checked', false);
+            $('#tblClaims').find('tr').each(function (i, el) {
+                if (i != 0) {
+                    $(this).find('#dtClaimDate').val('');
+                    $(this).find('#ExpenseCategoryID option:first').attr('selected', true);
+                    $(this).find('#txtDescription').val('');
+                    $(this).find('#txtSubTotal').val('');
+                }
+            });
+            $('#txtGrandTotal').val('');
+        }
+
+
+        function Calculation() {
+            var GrandTotal = 0;
+            $('#tblClaims').find('tr').each(function (i, el) {
+                if (i != 0) {
+                    var txtSubTot = $(this).find('#txtSubTotal').val();
+                    if (txtSubTot == "NaN" || txtSubTot == "") {
+                        //  $('#GrandTotal').val(0.00);
+                        //$('#txtSubTotal').val(0.00);
+                        txtSubTot = 0.00;
+                    }
+
+                    GrandTotal = (parseFloat(GrandTotal) + parseFloat(txtSubTot)).toFixed(2);
+                }
+            });
+
+            // var textValue = $('#txtSubTotal').val();
+
+            //if (txtSubTot == "NaN") {
+            //    $('#GrandTotal').val(0.00);
+            //    $('#txtSubTotal').val(0.00);
+            //}
+            document.getElementById('txtGrandTotal').value = (parseFloat(GrandTotal)).toFixed(2);
+        }
+
+        function getdata(id) {
+            if (id == "btnSave" || id == "btnEdit") { }
+            param = "SendforApproval";
+            var res = param;
+            var ErrorStatus = "true";
+            var TelephoneClaimLimit = '@ViewBag.TelephoneClaimLimit';
+            if (res == "SendforApproval") {
+
+                //var Month = $('#datepickerMonth').val();
+                //if (Month == "" || Month == null) {
+                //    alert('Please Select Month');
+                //    ErrorStatus = "false";
+                //    return false;
+                //}
+
+                //var selectedMonth = "";
+                //if (Month) {
+                //    var splitMonth = Month.split('-');
+                //    selectedMonth = splitMonth[0];
+                //}
+
+                $('#tblClaims').find('tr').each(function (i, el) {
+                    if (i != 0) {
+                        var $tds = $(this).find('td');
+
+                        var ClaimDate = $(this).find('#dtClaimDate').val();
+                        var Description = $(this).find('#txtDescription').val();
+                        var ExpenseCategoryID = $(this).find('#ExpenseCategoryID').val();
+                        var SubTotal = $(this).find('#txtSubTotal').val();
+                        var Facility = $(this).find('#FacilityID').val();
+                        if (i == 1) {
+                            if (ClaimDate == "" || ClaimDate == null) {
+                                alert('Please Select Claim Date at Row No ' + i);
+                                ErrorStatus = "false";
+                                return false;
+                            }
+                            if (Facility == null) {
+                                alert('Please Select Facility Row No ' + i);
+                                ErrorStatus = "false";
+                                return false;
+                            }
+                            if (!Description) {
+                                alert('Please Enter Description at Row No ' + i);
+                                ErrorStatus = "false";
+                                return false;
+                            }
+
+                            if (!SubTotal || SubTotal == 0) {
+                                alert('Please Enter Amount at Row No ' + i);
+                                ErrorStatus = "false";
+                                return false;
+                            }
+
+                            if (parseFloat(SubTotal) > parseFloat(TelephoneClaimLimit)) {
+                                alert('Claim amount cannot exceed Telephone Claim Limit $' + TelephoneClaimLimit + ' at Row No ' + i);
+                                ErrorStatus = "false";
+                                return false;
+                            }
+                        }
+                        else {
+                            if (ClaimDate == "" || ClaimDate == null) {
+                                alert('Please Select Claim Date at Row No ' + i);
+                                ErrorStatus = "false";
+                                return false;
+                            }
+                            if (Facility == null) {
+                                alert('Please Select Facility Row No ' + i);
+                                ErrorStatus = "false";
+                                return false;
+                            }
+                            if (!Description) {
+                                alert('Please Enter Description at Row No ' + i);
+                                ErrorStatus = "false";
+                                return false;
+                            }
+
+                            if (!SubTotal || SubTotal == 0) {
+                                alert('Please Enter Amount at Row No ' + i);
+                                ErrorStatus = "false";
+                                return false;
+                            }
+
+                            if (parseFloat(SubTotal) > parseFloat(TelephoneClaimLimit)) {
+                                alert('Claim amount cannot exceed Telephone Claim Limit $' + TelephoneClaimLimit + ' at Row No ' + i);
+                                ErrorStatus = "false";
+                                return false;
+                            }
+                        }
+
+                        // Check record month
+                        //const split = ClaimDate.split('/');
+                        //let month = split[1];
+                        //if (month != selectedMonth) {
+                        //    alert('Please select the date for the selected month at Row no  ' + i);
+                        //    ErrorStatus = "false";
+                        //    return false;
+                        //}
+                    }
+
+                });
+                //    alert(res);
+                //   var ClaimType = $('input[name=radioClaimType]:checked').val();
+                //    alert('Claim Type' + ClaimType);
+
+                if (ErrorStatus == "false") {
+                    return false;
+                }
+
+                var Tnc = $('#chkTC').is(':checked');
+                if (Tnc == false) {
+                    alert('Please certify that the claims are true and correct to proceed');
+                    ErrorStatus = false;
+                    return false;
+                }
+
+                if (ErrorStatus == "false") {
+                    return false;
+                }
+
+            }
+
+
+            var formData = new FormData();
+            var dtClaimsArr = new Array();
+            dtClaimsArr.length = 0;
+
+            $('#tblClaims').find('tr').each(function (i, el) {
+                if (i != 0) {
+                    //var Month = $(this).find('#datepickerMonth').val();
+                    // alert('Claim Month' + Month);
+                    //var dp = document.getElementById("datepicker");
+                    //alert('Claim Month dp ' + dp.value);
+                    var ClaimDate = $(this).find('#dtClaimDate').val();
+                    var FacilityID = $(this).find('#FacilityID').val();
+                    var Description = $(this).find('#txtDescription').val();
+
+                    var ExpenseCategoryID = $(this).find('#ExpenseCategoryID').val();
+                    // alert('ExpenseCategoryID ' + ExpenseCategoryID);
+
+
+                    var SubTotal = $(this).find('#txtSubTotal').val();
+                    var DtTBCItemID = $(this).find('#txtTBCItemID').val();
+                    var nClaimDate = new Date(moment(ClaimDate, 'DD/MM/YYYY'));
+                    nClaimDate = nClaimDate.toLocaleDateString().slice(0, 10);
+
+                    //alert('dtInTime ' + InTime);
+                    //alert('dtOutTime ' + OutTime);
+                    //alert('txtStartReading ' + StartReading);
+                    //alert('txtEndReading ' + EndReading);
+                    //alert('txtKMS ' + KMS);
+                    //alert('txtRemarks ' + Remarks);
+                    //alert('txtSubTotal ' + SubTotal);
+                    var dtClaim = {}
+                    dtClaim.TBCItemID = DtTBCItemID;
+                    dtClaim.Date = nClaimDate;
+                    dtClaim.Description = Description;
+                    dtClaim.ExpenseCategoryID = ExpenseCategoryID;
+                    dtClaim.FacilityID = FacilityID;
+                    dtClaim.Amount = SubTotal;
+                    dtClaim.OrderBy = i;
+                    dtClaimsArr.push(dtClaim);
+
+                    //Params.push({
+                    //    TravelMode: TravelMode, ClaimDate: ClaimDate, DateOfJourney: ClaimDate, FacilityID: FacilityID,
+                    //    FromFacilityID: FromFacilityID, ToFacilityID: ToFacilityID, InTime: InTime, OutTime: OutTime, StartReading: StartReading,
+                    //    EndReading: EndReading, Kms: KMS, Remarks: Remarks, SubTotal: SubTotal, GrandTotal: $('#txtGrandTotal').val()
+                    //});
+
+
+                }
+
+            });
+            //formData.append('data', JSON.stringify(dtClaimsArr));
+            //alert($('#datepickerMonth').val());
+            var claimId = $('#hdfClaimID').val();
+            if (id == "btnSave") {
+                claimId = 0;
+            }
+
+            var claimAddCondition = '@TempData["claimaddcondition"]';
+
+            var claimAddCondition = '@TempData["claimaddcondition"]';
+            formData.append('data', JSON.stringify(
+                {
+                    Company: $("#lblCompany").html(),
+                    //Month: '',
+                    GrandTotal: $("#txtGrandTotal").val(),
+                    TBCID: $('#hdfClaimID').val(),
+                    TBCNo: $('#txtTBCNO').val(),
+                    dtClaims: dtClaimsArr,
+                    ClaimAddCondition: claimAddCondition
+                }
+            ));
+            //{
+            //TravelMode: $('input[name=radioTravelMode]:checked').val(),
+            //GrandTotal: $("#txtGrandTotal").val(),
+            //dtClaims: dtClaimsArr}));
+            //var data = JSON.stringify({
+            //TravelMode: $('input[name=radioTravelMode]:checked').val(),
+            //GrandTotal: $("#txtGrandTotal").val(),
+            //order: dtClaimsArr
+            //});
+            //var GrandTotal = $('#txtGrandTotal').val();
+            //alert('GrandTotal  ' + GrandTotal);
+            //return false;
+            // var listdata = JSON.stringify({ 'listdata': Params });
+
+            debugger;
+            var submitUrl = '/TelephoneBillClaim/SaveItems';
+            var uploadUrl = '/TelephoneBillClaim/UploadTBFiles';
+            if (id === 'btnDraft' || id === "btnDraftEdit") {
+                submitUrl = '/TelephoneBillClaim/SaveDraftItems';
+                uploadUrl = '/TelephoneBillClaim/UploadTBFilesDraft';
+            }
+            if (res == "SendforApproval") {
+                //alert('Before calling');
+                $('#btnsaveupdate').attr('disabled', 'disabled');
+                $.ajax({
+                    type: "POST",
+                    url: submitUrl,
+                    data: formData,
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    processData: false,
+                    contentType: false,
+                    success: function (data) {
+                        // alert('Success');
+                        var myID = data.res;
+                        var files = fileListArr; // $('#fileInput').prop("files");
+                        var url = uploadUrl;
+                        var formData = new FormData();
+                        for (var i = 0; i < files.length; i++) {
+                            formData.append("files", files[i]);
+                        }
+                        //if (files.length > 0) {
+
+                            formData.append("FormFile", files);
+                            // Adding more keys/values here if need
+                            formData.append('Id', myID);
+                            formData.append('tbIDValue', $('#hdfClaimID').val());
+                            formData.append('claimAddCondition', claimAddCondition);
+
+                            //for (var x = 0; x < files.length; x++) {
+                            //    formData.append("file" + x, files[x]);
+                            //}
+                            //formData = new FormData();
+                            //formData.append("UploadPO", files[0]);
+                            jQuery.ajax({
+                                type: 'POST',
+                                url: url,
+                                data: formData,
+                                cache: false,
+                                contentType: false,
+                                processData: false,
+                                beforeSend: function (xhr) {
+                                    xhr.setRequestHeader("XSRF-TOKEN",
+                                        $('input:hidden[name="__RequestVerificationToken"]').val());
+                                },
+                                success: function (repo) {
+                                    if (repo == "success") {
+                                        fileListArr = [];
+                                        //alert("File : " + repo.filename + " is uploaded successfully");
+                                        //SuccessToast('Telephone Bill Claim added successfully');
+                                        if (id == "btnSave") {
+                                            $("#msg").html("Telephone Bill Claim added successfully").css("color", "green");
+                                        }
+                                        else {
+                                            $("#msg").html("Telephone Bill Claim updated successfully").css("color", "green");
+                                        }
+
+                                        window.location.href = "/TelephoneBillClaim/Index";
+                                    }
+                                },
+                                error: function () {
+                                    //alert("Error occurs");
+                                    //FailureToast('Error while creating Telephone Bill Claim');
+                                    $("#msg").html("Error while creating Telephone Bill Claim").css("color", "green");
+                                    window.location.href = "/TelephoneBillClaim/Index";
+                                }
+                            });
+                        //}
+                        //else {
+                        //    //SuccessToast('Telephone Bill Claim added successfully');
+                        //    $("#msg").html("Telephone Bill Claim added successfully").css("color", "green");
+                        //    window.location.href = "/TelephoneBillClaim/Index";
+                        //}
+                    },
+                    failure: function (response) {
+                        alert('Failure');
+                        $('#result').html(response);
+                    }
+                });
+            }
+        }
+        function SuccessToast(message) {
+            $.toast({
+                text: message,
+                hideAfter: true,
+                position: 'top-right',
+                icon: 'success',
+                allowToastClose: true,
+                hideAfter: 5000,
+            });
+        }
+
+        function FailureToast(message) {
+            $.toast({
+                text: message,
+                hideAfter: true,
+                position: 'top-right',
+                icon: 'error',
+                allowToastClose: true,
+                hideAfter: 5000,
+            });
+        }
+
+    </script>
+}

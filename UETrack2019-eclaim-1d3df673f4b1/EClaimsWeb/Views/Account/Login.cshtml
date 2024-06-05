@@ -1,0 +1,105 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model EClaimsWeb.Models.LoginViewModel;
+@{
+    //Layout = null;
+    string returnUrl = ViewData["ReturnUrl"] as string;
+    string loginFailedValue = ViewData["LoginFailed"] as string;
+    bool loginFailed = false;
+    if (!string.IsNullOrEmpty(loginFailedValue))
+    {
+        loginFailed = loginFailedValue == "True";
+    }
+
+    string username = ViewData["Username"] as string;
+    var error = TempData["Error"] as string;
+    Layout = "~/Views/Shared/_login.cshtml";
+}
+<div class="container-scroller">
+    <div class="container-fluid page-body-wrapper full-page-wrapper">
+        <div class="content-wrapper d-flex align-items-stretch auth auth-img-bg">
+            <div class="row flex-grow">
+                <div class="col-lg-7 login-half-bg d-flex flex-row">
+                    <p class="text-muted font-weight-medium text-center flex-grow align-self-end text-sm-left">
+                        Copyright &copy; 2021 <a href="https://www.bootstrapdash.com/" target="_blank" class="text-muted">UEMS SOLUTIONS</a>
+                        All rights reserved.
+                    </p>
+                </div>
+                <div class="col-lg-5 d-flex align-items-center justify-content-center">
+                    <div class="auth-form-transparent text-left p-3">
+                        <div class="brand-logo">
+                            <img src="~/images/logo.png" alt="logo">
+                        </div>
+                        <h4>Welcome back!</h4>
+                        <h6 class="font-weight-light">Happy to see you again!</h6>
+                        <form method="post" asp-action="/account/validate?returnUrl=@System.Net.WebUtility.UrlEncode(returnUrl)" role="form" class="pt-3">
+                            @*@ViewBag.Error*@
+                            @if (!string.IsNullOrEmpty(error))
+                            {
+                                <span class="alert-danger">@error</span>
+                            }
+                            @if (loginFailed)
+                            {
+                                <div class="login-failed">Error: username or password incorrect</div>
+                            }
+                            @Html.AntiForgeryToken()
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.UserName)
+                                <div class="input-group">
+                                    <div class="input-group-prepend bg-transparent">
+                                        <span class="input-group-text bg-transparent border-right-0">
+                                            <i class="mdi mdi-account-outline text-primary"></i>
+                                        </span>
+                                    </div>
+                                    @*<input type="text" class="form-control form-control-lg border-left-0"
+                                        id="exampleInputEmail" placeholder="Username">*@
+                                    @Html.TextBoxFor(m => m.UserName, new { @class = "form-control form-control-lg border-left-0", @placeholder = "Username" })
+                                </div>
+                                @Html.ValidationMessageFor(m => m.UserName, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group">
+                                @*<label for="exampleInputPassword">Password</label>*@
+                                @Html.LabelFor(m => m.Password)
+                                <div class="input-group">
+                                    <div class="input-group-prepend bg-transparent">
+                                        <span class="input-group-text bg-transparent border-right-0">
+                                            <i class="mdi mdi-lock-outline text-primary"></i>
+                                        </span>
+                                    </div>
+                                    @Html.PasswordFor(m => m.Password, new { @class = "form-control form-control-lg border-left-0", @placeholder = "Password" })
+                                    @*<input type="password" class="form-control form-control-lg border-left-0"
+                                        id="exampleInputPassword" placeholder="Password">*@
+                                </div>
+                                @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="my-2 d-flex justify-content-between align-items-center">
+                                <a href="#" class="auth-link text-black">Forgot password?</a>
+                            </div>
+                            <div class="my-3">
+                                @*<a class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn"
+                                    href="../pages/user/dashboard.html">LOGIN</a>*@
+                                <button asp-controller="Account" asp-action="Validate" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn">LOGIN</button>
+                                <input type="hidden" name="returnUrl" value="@returnUrl" />
+                            </div>
+                            @*<div class="mb-2 d-flex">
+                                <a class="btn btn-google auth-form-btn flex-grow"
+                                href="/login/google?returnUrl=@returnUrl">
+                                <i class="mdi mdi-google mr-2"></i>Google
+                                </a>
+                                </div>*@
+                            <div class="mb-2 d-flex">
+                                <a class="btn btn-google auth-form-btn flex-grow"
+                                   href="/login/microsoft?returnUrl=@returnUrl">
+                                    <i class="mdi mdi-office mr-2"></i>Sign in with Microsoft
+                                </a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- content-wrapper ends -->
+    </div>
+    <!-- page-body-wrapper ends -->
+</div>

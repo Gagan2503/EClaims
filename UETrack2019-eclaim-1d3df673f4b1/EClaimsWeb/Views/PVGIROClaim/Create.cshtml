@@ -1,0 +1,1577 @@
+﻿@model EClaimsWeb.Models.PVGClaimDetailVM
+
+@{
+    ViewData["Title"] = "PV-Giro ";
+    int Counter = 1;
+}
+@section Styles{
+    <environment names="Development">
+        @*<link rel="stylesheet" href="~/css/select2.min.css" asp-append-version="true">
+            <link rel="stylesheet" href="~/css/select2-bootstrap.min.css" asp-append-version="true">*@
+        <link rel="stylesheet" href="~/vendors/datatables.net-bs4/dataTables.bootstrap4.css" asp-append-version="true" />
+        <link rel="stylesheet" href="~/vendors/bootstrap-datepicker/bootstrap-datepicker.min.css">
+    </environment>
+
+    <environment names="Staging,Production">
+        @*<link rel="stylesheet" href="~/vendors/select2/select2.min.css" asp-append-version="true">
+            <link rel="stylesheet" href="~/vendors/select2-bootstrap-theme/select2-bootstrap.min.css" asp-append-version="true">*@
+        <link rel="stylesheet" href="~/vendors/datatables.net-bs4/dataTables.bootstrap4.css" asp-append-version="true" />
+        <link rel="stylesheet" href="~/vendors/bootstrap-datepicker/bootstrap-datepicker.min.css">
+    </environment>
+}
+<label id="msg" class="alert-danger"></label>
+<div id="AddExpense" class="col-md-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            @if (@TempData["status"].ToString().Contains("Add") || @TempData["status"].ToString().Contains("Recreate"))
+            {
+                <h4 class="mb-0 font-weight-bold">Add PV-Giro Claim</h4>
+            }
+            else
+            {
+                <h4 class="mb-0 font-weight-bold">Update PV-Giro Claim</h4>
+            }
+            <div class="row mt-4">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Company</th>
+                            <th>Department</th>
+                            <th>Facility</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><label id="lblName">@ViewData["Name"]</label></td>
+                            <td><label id="lblCompany">UEMS</label></td>
+                            <td><label id="lblDepartment">@ViewData["Department"]</label></td>
+                            <td><label id="lblFacility">@ViewData["FacilityName"]</label></td>
+                            <td><label id="lblCurrentDate">@DateTime.Now.Date.ToString("dd/MM/yyyy")</label></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <form class="forms-sample" action="Create">
+                <div class="row">
+                    <div class="col-md-12 row form-group">
+                        <label class="col-sm-3 col-form-label">Payment Mode</label>
+                        @if (ViewBag.ClaimStatus == "Update" || ViewBag.ClaimStatus == "Recreate")
+                        {
+                            <div class="col-sm-2">
+                                <div class="form-check">
+                                    <label class="form-check-label">
+                                        <input type="radio" class="form-check-input"
+                                               name="radioPaymentMode" id="radiofastpayment" onchange="PaymentModeChange('Fast Payment')"
+                                               value="Fast Payment" @(Model.PVGClaimVM.PaymentMode == "Fast Payment" ? "checked='true'" : "")>
+                                        Fast Payment
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-sm-2">
+                                <div class="form-check">
+                                    <label class="form-check-label">
+                                        <input type="radio" class="form-check-input"
+                                               name="radioPaymentMode" id="radiopaynow" onchange="PaymentModeChange('PayNow')"
+                                               value="PayNow" @(Model.PVGClaimVM.PaymentMode == "PayNow" ? "checked='true'" : "")>
+                                        PayNow
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-sm-2">
+                                <div class="form-check">
+                                    <label class="form-check-label">
+                                        <input type="radio" class="form-check-input"
+                                               name="radioPaymentMode" id="radiogiro" onchange="PaymentModeChange('GIRO')"
+                                               value="GIRO" @(Model.PVGClaimVM.PaymentMode == "GIRO" ? "checked='true'" : "")>
+                                        GIRO
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-sm-2">
+                                <div class="form-check">
+                                    <label class="form-check-label">
+                                        <input type="radio" class="form-check-input"
+                                               name="radioPaymentMode" id="radiott" onchange="PaymentModeChange('TT')"
+                                               value="TT" @(Model.PVGClaimVM.PaymentMode == "TT" ? "checked='true'" : "")>
+                                        TT(Telegraphic Transfer)
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-sm-2">
+                                <div class="form-check">
+                                    <label class="form-check-label">
+                                        <input type="radio" class="form-check-input"
+                                               name="radioPaymentMode" id="radiortgs" onchange="PaymentModeChange('RTGS')"
+                                               value="RTGS" @(Model.PVGClaimVM.PaymentMode == "RTGS" ? "checked='true'" : "")>
+                                        MEPS/RTGS
+                                    </label>
+                                </div>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="col-sm-2">
+                                <div class="form-check">
+                                    <label class="form-check-label">
+                                        <input type="radio" class="form-check-input"
+                                               name="radioPaymentMode" id="radiofastpayment" onchange="PaymentModeChange('Fast Payment')"
+                                               value="Fast Payment" checked>
+                                        Fast Payment
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-sm-2">
+                                <div class="form-check">
+                                    <label class="form-check-label">
+                                        <input type="radio" class="form-check-input"
+                                               name="radioPaymentMode" id="radiopaynow" onchange="PaymentModeChange('PayNow')"
+                                               value="PayNow">
+                                        PayNow
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-sm-2">
+                                <div class="form-check">
+                                    <label class="form-check-label">
+                                        <input type="radio" class="form-check-input"
+                                               name="radioPaymentMode" id="radiogiro" onchange="PaymentModeChange('GIRO')"
+                                               value="GIRO">
+                                        GIRO
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-sm-2">
+                                <div class="form-check">
+                                    <label class="form-check-label">
+                                        <input type="radio" class="form-check-input"
+                                               name="radioPaymentMode" id="radiott" onchange="PaymentModeChange('TT')"
+                                               value="TT">
+                                        TT(Telegraphic Transfer)
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-sm-2">
+                                <div class="form-check">
+                                    <label class="form-check-label">
+                                        <input type="radio" class="form-check-input"
+                                               name="radioPaymentMode" id="radiortgs" onchange="PaymentModeChange('RTGS')"
+                                               value="RTGS">
+                                        MEPS/RTGS
+                                    </label>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </form>
+            @if (ViewBag.ClaimStatus == "Update")
+            {
+                if (Model.PVGClaimFileUploads.Count > 0)
+                {
+                    <hr />
+                    <table style="width:100%">
+                        <tr style="vertical-align: top;">
+                            <td style="width: 10%">
+                                <label class="field_name">
+                                    <b>File(s) : </b>
+                                </label>
+                            </td>
+                            <td>
+
+                                @foreach (var file in Model.PVGClaimFileUploads)
+                                {
+                                    <table border="0" cellspacing="2" cellpadding="2" width="90%">
+                                        <tr>
+                                            <td width="20%">
+
+                                                <label class="field_name">
+
+                                                    @file.FileName
+
+                                                </label>
+
+                                            </td>
+
+                                            <td width="30%">
+
+                                                <label class="field_name">
+                                                    <a href="@Url.Action("Download", new { id = @file.FilePath, name = @file.FileName })" title="Download" target="_blank">
+                                                        Download
+                                                    </a>
+
+                                                </label>
+                                                @if (!@TempData["status"].ToString().Contains("Recreate"))
+                                                {
+                                                    <label class="field_name">
+                                                        &nbsp; &nbsp;
+                                                        @if (@TempData["claimaddcondition"].ToString().Contains("claimDraft"))
+                                                        {
+                                                            <a href="@Url.Action("DeletePVGClaimDraftFile", new { @file.FileID, @file.FilePath, @file.PVGCID })" onclick="return confirm('Are you sure to remove attached file?')">
+                                                                <span id="DeleteFile" class="mdi mdi-delete-outline">Delete</span>
+                                                                @*<img title="Remove File" alt="Delete" style="width:16px !important; height:16px !important;" />*@
+                                                            </a>
+                                                        }
+                                                        else
+                                                        {
+                                                            <a href="@Url.Action("DeletePVGClaimFile", new { @file.FileID, @file.FilePath, @file.PVGCID })" onclick="return confirm('Are you sure to remove attached file?')">
+                                                                <span id="DeleteFile" class="mdi mdi-delete-outline">Delete</span>
+                                                                @*<img title="Remove File" alt="Delete" style="width:16px !important; height:16px !important;" />*@
+                                                            </a>
+                                                        }
+                                                    </label>
+                                                }
+                                            </td>
+
+
+                                            <td width="30%"></td>
+                                        </tr>
+                                    </table>
+
+                                }
+                            </td>
+
+                        </tr>
+                        @*<tr>
+                            <td colspan="2">
+                                @if (Model.PVGClaimFileUploads.Count >= 1 && @TempData["status"].ToString().Contains("Recreate"))
+                                {
+                                    <span style="color: Red">If any of the above file(s) needs to be attached for the claim, please download the file and re upload the file.</span>
+                                    <br /><br />
+                                }
+                            </td>
+                        </tr>*@
+                    </table>
+                }
+            }
+            <div class="row mt-4">
+                <h5 class="col-md-12 card-title table-summary">Particulars Of Payment</h5>
+                <div class="col-md-12">
+                    <div class="table-responsive">
+                        <table id="tblClaims" class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    @*<th>Date</th>*@
+                                    <th>Payee Name</th>
+                                    <th>Particulars of Payment</th>
+                                    <th>Facility</th>
+                                    <th>Expense Category</th>
+                                    <th>Invoice No</th>
+                                    <th>Amount</th>
+                                    <th>GST Percentage</th>
+                                    <th>GST</th>
+                                    <th>Total Amount with GST</th>
+                                    <th>Bank</th>
+                                    <th>Bank Code</th>
+                                    <th>Bank SWIFT BIC</th>
+                                    <th>Branch Code</th>
+                                    <th>Bank Account</th>
+                                    <th>Mobile/UEN No</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model.DtPVGClaimVMs)
+                                {
+                                <tr>
+                                    <td>
+                                        <label class="" id="lblItem">  @(Counter)</label>
+                                    </td>
+                                    @*<td>
+            <div id="datepicker-popup" class="input-group date datepicker">
+                <input id="dtClaimDate" type="text" autocomplete="off" class="form-control form-control-sm" placeholder="DD/MM/YYYY" style="width: 130px !important;">
+                <span class="input-group-addon input-group-append border-left">
+                </span>
+            </div>
+        </td>*@
+                                    <td>
+                                        <input type="text" class="form-control form-control-sm" id="txtPayeeName" placeholder="Payee Name" style="width: 230px !important;">
+                                    </td>
+                                    <td>
+                                        <input type="text" class="form-control form-control-sm" id="txtPoP" placeholder="Particulars of Payment" style="width: 270px !important;">
+                                    </td>
+                                    <td>
+                                        <select id="FacilityID" asp-items="ViewBag.FacilityID" class="form-control form-control-sm" style="width: 150px !important;">
+                                            @*<option value="0">Select Facility</option>*@
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <select id="ExpenseCategoryID" asp-items="ViewBag.ExpenseCategoryID" onclick="hideGST(event)" class="form-control w-100 form-control-sm" style="width: 150px !important;">
+                                            <option value="0">Select Category</option>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <input type="text" class="form-control form-control-sm" id="txtInvoiceNo" placeholder="Invoice No" style="width: 150px !important;">
+                                    </td>
+                                    <td>
+                                        @*<input type="text" class="form-control" id="txtSubTotal" onchange="Calculation();" onkeypress="javascript:return isNumber (event)" placeholder="Amount" style="width: 95px !important;" />*@
+                                        <input type="text" class="form-control form-control-sm" id="txtSubTotal" onchange="Calculation();" data-inputmask="'alias': 'decimal', 'groupSeparator': ',', 'autoGroup': true,'autoUnmask': true, 'removeMaskOnSubmit': true, 'digits': 2, 'digitsOptional': false, 'prefix': '$ ', 'placeholder': '0'" maxlength="15" style="width: 120px !important;">
+                                    </td>
+                                    <td>
+                                        @*<input type="text" class="form-control" id="txtGST" onchange="Calculation();" onkeypress="javascript:return isNumber (event)" placeholder="GST" style="width: 80px !important;" />*@
+
+                                        <select id="dllGST" name="dllGST" onchange="CalculationPercentage()" class="form-control dllGST form-control-sm" style="width: 150px !important;text-align:center !important;">
+                                            <option value="99">
+                                                Select
+                                            </option>
+                                            @{
+                                                // For new records
+                                                if (item.GST == 0 && item.PVGCID == 0)
+                                                {
+                                                    foreach (var items in ViewBag.dllGST)
+                                                    {
+                                                        if (items.Selected)
+                                                        {
+                                                            <option value="@items.Value" selected="selected">
+                                                                @items.Text
+                                                            </option>
+                                                        }
+                                                        else
+                                                        {
+                                                            <option value="@items.Value">
+                                                                @items.Text
+                                                            </option>
+                                                        }
+                                                    }
+                                                }
+                                                // For amendment / recreate
+                                                else
+                                                {
+                                                    foreach (var items in ViewBag.dllGST)
+                                                    {
+                                                        if (item.GSTPercentage.ToString() == items.Value)
+                                                        {
+                                                            <option value="@items.Value" selected="selected">
+                                                                @items.Text
+                                                            </option>
+                                                        }
+                                                        else
+                                                        {
+                                                            <option value="@items.Value">
+                                                                @items.Text
+                                                            </option>
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        </select>
+
+                                    </td>
+                                    <td>
+                                        @*<input type="text" class="form-control" id="txtGST" onchange="Calculation();" onkeypress="javascript:return isNumber (event)" placeholder="GST" style="width: 80px !important;" />*@
+                                        <input type="text" class="form-control txtGST form-control-sm" id="txtGST" name="txtGST" onchange="CalculationGSTAmountChange();" data-inputmask="'alias': 'decimal', 'groupSeparator': ',', 'autoGroup': true,'autoUnmask': true, 'removeMaskOnSubmit': true, 'digits': 2, 'digitsOptional': false, 'prefix': '$ ', 'placeholder': '0'" maxlength="15" style="width: 100px !important;">
+                                        <span id="errorMsg" style="display:none;" class="text-danger">please check the value</span>
+                                        <input type="text" class="input-large hdnGST" name="hdnGST[]" value="true" id="hdnGST" style="width: 100% ; text-align:right; display:none;"
+                                               onpaste="return false;" readonly="readonly" />
+                                    </td>
+                                    <td>
+                                        <input type="text" class="form-control form-control-sm" id="txtTotGST" readonly="readonly" data-inputmask="'alias': 'decimal', 'groupSeparator': ',', 'autoGroup': true,'autoUnmask': true, 'removeMaskOnSubmit': true, 'digits': 2, 'digitsOptional': false, 'prefix': '$ ', 'placeholder': '0'" maxlength="15" style="width: 120px !important;">
+                                    </td>
+                                    <td>
+                                        <input type="hidden" class="form-control txtBankName form-control-sm" id="txtBankName" placeholder="Bank" style="width: 300px !important;">
+                                        <select onchange="FetchBankSwiftBIC(event)" class="form-control" asp-items="ViewBag.BankSwiftBICs" id="BankSwiftBIC" style="width: 300px !important;">
+                                            <option value="0">Select Bank Name</option>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <input type="text" class="form-control form-control-sm" id="txtBankCode" onchange="FetchBankSwiftBIC(event)" placeholder="Bank Code" style="width: 300px !important;">
+                                    </td>
+                                    <td>
+                                        <input type="text" class="form-control txtBankSWIFTBIC form-control-sm" id="txtBankSWIFTBIC" readonly="readonly" placeholder="Bank SWIFT BIC" style="width: 300px !important;">
+                                    </td>
+                                    <td>
+                                        <input type="text" class="form-control form-control-sm" id="txtBranchCode" placeholder="Branch Code" style="width: 300px !important;">
+                                    </td>
+                                    <td>
+                                        <input type="text" class="form-control form-control-sm" id="txtBankAccount" placeholder="Bank Account" style="width: 300px !important;">
+                                    </td>
+                                    <td>
+                                        <input type="text" class="form-control form-control-sm" id="txtMobile" placeholder="Mobile/UEN No" style="width: 300px !important;">
+                                    </td>
+                                    <td class="actions">
+                                        <span id="AddClaim" class="mdi mdi-plus-circle-outline"></span>
+                                        <span id="EditClaim" class="mdi mdi-border-color d-none"></span>
+                                        <span id="DeleteClaim" class="mdi mdi-delete-outline"></span>
+                                        <input type="text" class="input-large" name="PVGCItemID[]" value="0" id="txtPVGCItemID" style="width: 100% ; text-align:right; display:none;"
+                                               onpaste="return false;" readonly="readonly" />
+                                    </td>
+                                </tr>
+                                    Counter++;
+                                }
+                            </tbody>
+                        </table>
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr class="d-none">
+                                    <th></th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tr>
+                                <td width="70%" class="text-align-right">Grand Total</td>
+                                <td width="30%"><input type="text" id="txtGrandTotal" class="form-control" readonly="readonly" value="@Model.PVGClaimVM.GrandTotal" data-inputmask="'alias': 'decimal', 'groupSeparator': ',', 'autoGroup': true,'autoUnmask': true, 'removeMaskOnSubmit': true, 'digits': 2, 'digitsOptional': false, 'prefix': '$ ', 'placeholder': '0'" style="width: 150px !important;"></td>
+                            </tr>
+                            <tr>
+                                <td width="70%" class="text-align-right">Grand GST</td>
+                                <td width="30%"><input type="text" id="txtGrandGST" class="form-control" readonly="readonly" value="@Model.PVGClaimVM.GrandGST" data-inputmask="'alias': 'decimal', 'groupSeparator': ',', 'autoGroup': true,'autoUnmask': true, 'removeMaskOnSubmit': true, 'digits': 2, 'digitsOptional': false, 'prefix': '$ ', 'placeholder': '0'" style="width: 150px !important;"></td>
+                            </tr>
+                            <tr>
+                                <td width="70%" class="text-align-right">Total Amount with GST</td>
+                                <td width="30%"><input type="text" id="txtGrandTotalWithGST" class="form-control" readonly="readonly" value="@Model.PVGClaimVM.TotalAmount" data-inputmask="'alias': 'decimal', 'groupSeparator': ',', 'autoGroup': true,'autoUnmask': true, 'removeMaskOnSubmit': true, 'digits': 2, 'digitsOptional': false, 'prefix': '$ ', 'placeholder': '0'" style="width: 150px !important;"></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div class="col-md-12 mt-4">
+                    <div class="form-group col-md-4">
+                        <label>Upload</label>
+                        <input type="file" name="img[]" class="file-upload-default" multiple id="fileInput" accept=".gif,.jpg,.jpeg,.png,.doc,.docx,.csv,.xls,.pdf" onchange="ValidateSingleInput(this);">
+                        <div class="input-group col-xs-12">
+                            <input id="fileInputText" type="text" class="form-control file-upload-info" disabled
+                                   placeholder="Upload">
+                            <span class="input-group-append">
+                                <button class="file-upload-browse btn btn-sm btn-primary" type="button">Upload</button>
+                            </span>
+                            @*<span class="fileupload-exists">Change</span>
+                                <a href="#" class="btn fileupload-exists"
+                                   data-dismiss="fileupload">Remove</a>*@
+                        </div>
+                        <br />
+                        <span style="color: Red">(Supported File Types *.pdf;*.xls;*.csv;*.doc;*.docx;*.png;*.jpeg;*.jpg;*.gif)</span>
+                        <p id="selectedFilesText" style="margin-top: 10px;"></p>
+                        <div id="fileList"></div>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <div class="form-check form-check-flat form-check-primary">
+                            <label class="form-check-label">
+                                <input type="checkbox" id="chkTC" class="form-check-input">
+                                I certify that the payment requests are true and correct
+                                <i class="input-helper"></i>
+                            </label>
+                            @*<ul class="list-group">
+                                    Note:
+                                    <li class="list-group-item-warning">
+                                        1) All claims must be supported by receipts and with explanatory notes where necessary.
+                                    </li>
+                                    <li class="list-group-item-warning">
+                                        2) Details of Entertainment Form to be completed if entertainment expenses is claimed above.
+                                    </li>
+                                    <li class="list-group-item-warning">
+                                        3) Any advance received from Company to be indicated as a negative number.
+                                    </li>
+                                    <li class="list-group-item-warning">
+                                        4) Any claimant found to be submitting fradulent claims shall be subject to disciplinary actions, including immediate termination.
+                                    </li>
+                                    <li class="list-group-item-warning">
+                                        5) Non compliance to the stated guidelines will result in the delay of processing of claims/ rejection of claims
+                                    </li>
+                                </ul>*@
+                        </div>
+                    </div>
+                </div>
+                <div class=" col-md-6">
+                    @if (@TempData["status"].ToString().Contains("Add") || @TempData["status"].ToString().Contains("Recreate"))
+                    {
+                        <button type="submit" class="btn btn-primary mr-2" id="btnSave" onclick="return getdata(this.id);">Submit Claim</button>
+                        <button type="submit" class="btn btn-secondary mr-2" id="btnDraft" onclick="return getdata(this.id);">Save as Draft</button>
+                    }
+                    else
+                    {
+                        @if (@TempData["claimaddcondition"].ToString().Contains("claimDraft"))
+                        {
+                            <button type="submit" class="btn btn-primary mr-2" id="btnSave" onclick="return getdata(this.id);">Submit Claim</button>
+                        }
+                        else
+                        {
+                            <button type="submit" class="btn btn-primary mr-2" id="btnEdit" onclick="return getdata(this.id);">Update Claim</button>
+                        }
+                        <button type="submit" class="btn btn-secondary mr-2" id="btnDraftEdit" onclick="return getdata(this.id);">Update Draft</button>
+                    }
+                    @*else
+                        {
+                            <button type="submit" class="btn btn-primary mr-2" id="btnEdit" onclick="return getdata(this.id);">Update Claim</button>
+                        }*@
+                    <input type="hidden" id="hdfClaimID" name="hdfClaimID" value="0" />
+                    <input type="hidden" id="txtPVGCNO" name="txtPVGCNO" value="@Model.PVGClaimVM.PVGCNo" />
+                    <button class="btn btn-danger mr-2" onclick="RedirectView();">Close</button>
+                    <button class="btn btn-light" onclick="ClearData();">Reset</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section scripts
+        {
+    <environment names="Development">
+        <script src="~/lib/jquery/dist/jquery.min.js"></script>
+        <script src="~/vendors/typeahead.js/typeahead.bundle.min.js" asp-append-version="true"></script>
+        @*<script src="~/vendors/select2/select2.min.js" asp-append-version="true"></script>*@
+        <script src="~/vendors/moment/moment.min.js"></script>
+        <script src="~/vendors/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
+        <script src="~/vendors/jquery.repeater/jquery.repeater.min.js"></script>
+        <script src="~/vendors/datatables.net/jquery.dataTables.js" asp-append-version="true"></script>
+        <script src="~/vendors/datatables.net-bs4/dataTables.bootstrap4.js" asp-append-version="true"></script>
+        <script src="~/vendors/inputmask/jquery.inputmask.bundle.js"></script>
+        <script src="~/js/file-upload.js"></script>
+        <script src="~/js/typeahead.js"></script>
+        @*<script src="~/js/select2.js"></script>*@
+        <script src="~/js/data-table.js"></script>
+
+    </environment>
+
+    <environment names="Staging,Production">
+        <script src="~/lib/jquery/dist/jquery.min.js"></script>
+        <script src="~/vendors/typeahead.js/typeahead.bundle.min.js" asp-append-version="true"></script>
+        @*<script src="~/vendors/select2/select2.min.js" asp-append-version="true"></script>*@
+        <script src="~/vendors/moment/moment.min.js"></script>
+        <script src="~/vendors/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
+        <script src="~/vendors/jquery.repeater/jquery.repeater.min.js"></script>
+        <script src="~/vendors/datatables.net/jquery.dataTables.js" asp-append-version="true"></script>
+        <script src="~/vendors/datatables.net-bs4/dataTables.bootstrap4.js" asp-append-version="true"></script>
+        <script src="~/vendors/inputmask/jquery.inputmask.bundle.js"></script>
+        <script src="~/js/file-upload.js"></script>
+        <script src="~/js/typeahead.js"></script>
+        @*<script src="~/js/select2.js"></script>*@
+        <script src="~/js/data-table.js"></script>
+
+    </environment>
+    <script>
+        var Params = [];
+
+        var fileListArr = [];
+        var _validFileExtensions = [".jpg", ".jpeg", ".bmp", ".gif", ".png", ".doc", ".docx", ".csv", ".xls", ".pdf"];
+        function ValidateSingleInput(oInput) {
+            if (oInput.type == "file") {
+                for (var i = 0; i < oInput.files.length; ++i) {
+                    var blnValid = false;
+                    var sFileName = oInput.files[i].name;
+                    if (sFileName.length > 0) {
+                        for (var j = 0; j < _validFileExtensions.length; j++) {
+                            var sCurExtension = _validFileExtensions[j];
+                            if (sFileName.substr(sFileName.length - sCurExtension.length, sCurExtension.length).toLowerCase() == sCurExtension.toLowerCase()) {
+                                blnValid = true;
+                                break;
+                            }
+                        }
+                        if (!blnValid) {
+                            alert("Sorry, " + sFileName + " is invalid, allowed extensions are: " + _validFileExtensions.join(", "));
+                            oInput.value = "";
+                            return false;
+                        }
+                        else {
+                            fileListArr.push(oInput.files[i]);
+                        }
+                    }
+                }
+                displaySelectedFilesList();
+            }
+            return true;
+        }
+
+           function FetchBankSwiftBIC(e) {
+            var bankName = $('#BankSwiftBIC option:selected').text();
+            var selectedValue = e.target.value;
+            if (selectedValue == '0') {
+                return;
+            } else {
+                 var el = e.target.closest("tr").querySelector("#txtBankCode");
+                 el.value = selectedValue;
+                $('#txtBankName').val(bankName);
+            }
+
+            $.ajax({
+                url: '@Url.Action("GetBankSwiftBIC", "PVGIROClaim")',
+                type: 'GET',
+                data: {
+                    BankCode: selectedValue,
+                },
+                success: function (data) {
+                    //$(".txtBankSWIFTBIC").val(data);
+                    var el = e.target.closest("tr").querySelector(".txtBankSWIFTBIC");
+                    el.value = data;
+                },
+                error: function () {
+                }
+            });
+        }
+
+        function CalculationGSTAmountChange() {
+            var grandtotal = 0;
+            var grandgst = 0;
+            var totalpriceexcgst = 0;
+            var calpergst = 0;
+            var calperdivbyhungst = 0;
+            $('#tblClaims').find('tr').each(function (i, el) {
+                if (i != 0) {
+                    var txtsubtot = $(this).find('#txtSubTotal').val();
+                    if (txtsubtot == "nan" || txtsubtot == "") {
+                        //  $('#grandtotal').val(0.00);
+                        //$('#txtsubtotal').val(0.00);
+                        txtsubtot = 0.00;
+                    }
+                    var txtgsttot = $(this).find('#txtGST').val();
+                    if (txtgsttot == "nan" || txtgsttot == "") {
+                        //  $('#grandtotal').val(0.00);
+                        //$('#txtsubtotal').val(0.00);
+                        txtgsttot = 0.00;
+                    }
+
+                    totalpriceexcgst = (parseFloat(txtsubtot)).toFixed(3);
+                    calpergst = (parseFloat(txtgsttot)).toFixed(3);
+                    //calpergst = (totalpriceexcgst + txtgsttot).toFixed(3);
+                    //calpergst = (Math.round(calpergst * 100) / 100);
+                    //calperdivbyhungst = (calpergst / 100).toFixed(4).slice(0, -1);
+                    //calperdivbyhungst = (Math.round(calperdivbyhungst * 100) / 100);
+                    grandgst = (parseFloat(grandgst) + parseFloat(calpergst)).toFixed(3);
+                    grandtotal = (parseFloat(grandtotal) + parseFloat(txtsubtot)).toFixed(2);
+                    totamtgst = (parseFloat(txtsubtot) + parseFloat(calpergst)).toFixed(2);
+                    $(this).find('#txtGST').val(calpergst);
+                    $(this).find('#txtTotGST').val(totamtgst);
+                }
+            });
+
+            document.getElementById('txtGrandTotal').value = (parseFloat(grandtotal)).toFixed(2);
+            document.getElementById('txtGrandGST').value = (parseFloat(grandgst)).toFixed(2);
+            document.getElementById('txtGrandTotalWithGST').value = (parseFloat(grandtotal) + parseFloat(grandgst)).toFixed(2);
+        }
+
+        function deleteFile(fileName) {
+            var newList = [];
+            for (var i = 0; i < fileListArr.length; ++i) {
+                var sFileName = fileListArr[i].name;
+                if (sFileName === fileName) {
+                    /*fileListArr.splice(i, 1);*/
+                }
+                else {
+                    newList.push(fileListArr[i]);
+                }
+            }
+            fileListArr = newList;
+            displaySelectedFilesList();
+        }
+
+        function displaySelectedFilesList() {
+            var output = document.getElementById('fileList');
+            var selectedFilesText = document.getElementById('selectedFilesText');
+            output.innerHTML = '';
+            var children = "";
+
+            for (var i = 0; i < fileListArr.length; ++i) {
+                var sFileName = fileListArr[i].name;
+                var file = URL.createObjectURL(fileListArr[i]);
+                children += '<li>' + '<a href="' + file + '" target="_blank">' + sFileName + '</a><button class="close" aria-label="Close" onclick="deleteFile(\'' + sFileName + '\')"><span aria-hidden="true">&times;</span ></button><br>' + '</li>';
+            }
+            output.innerHTML = '<ul>' + children + '</ul>';
+            selectedFilesText.innerHTML = "Selected files:";
+
+            var textMessage = "";
+            if (fileListArr.length > 0) {
+                textMessage = "Selected " + fileListArr.length + " File(s)";
+            }
+            else {
+                textMessage = "Upload";
+                selectedFilesText.innerHTML = '';
+            }
+
+            $("#fileInputText").val(textMessage);
+        }
+
+        function PaymentModeChange(val) {
+            //CalculationKms();
+            var PaymentMode = $('input[name=radioPaymentMode]:checked').val();
+            //alert(' Payment mode  ' + PaymentMode);
+            $('#tblClaims').find('tr').each(function (i, el) {
+                if (i != 0) {
+                    if (PaymentMode == 'GIRO' || PaymentMode == 'TT' || PaymentMode == 'Fast Payment' || PaymentMode == 'RTGS') {
+                        //$(this).find('#txtMobile').val('');
+
+                        $('th:nth-child(16), tr td:nth-child(16)').hide();
+
+                        $('th:nth-child(10), tr td:nth-child(10)').show();
+                        $('th:nth-child(11), tr td:nth-child(11)').show();
+                        $('th:nth-child(12), tr td:nth-child(12)').show();
+                        $('th:nth-child(13), tr td:nth-child(13)').show();
+                        $('th:nth-child(14), tr td:nth-child(14)').show();
+                        $('th:nth-child(15), tr td:nth-child(15)').show();
+                        //$(this).find('#txtBankName').val('');
+                        //$(this).find('#txtBankCode').val('');
+                        //$(this).find('#txtBranchCode').val('');
+                        //$(this).find('#txtBankAccount').val('');
+                    }
+                    else {
+                        $('th:nth-child(10), tr td:nth-child(10)').hide();
+                        $('th:nth-child(11), tr td:nth-child(11)').hide();
+                        $('th:nth-child(12), tr td:nth-child(12)').hide();
+                        $('th:nth-child(13), tr td:nth-child(13)').hide();
+                        $('th:nth-child(14), tr td:nth-child(14)').hide();
+                        $('th:nth-child(15), tr td:nth-child(15)').hide();
+                        $('th:nth-child(16), tr td:nth-child(16)').show();
+
+                        //$(this).find('#txtMobile').val('');
+                        //$(this).find('#txtBankName').val('');
+                        //$(this).find('#txtBankCode').val('');
+                        //$(this).find('#txtBranchCode').val('');
+                        //$(this).find('#txtBankAccount').val('');
+                    }
+                }
+            });
+        }
+
+        $(document).ready(function () {
+            $("input").inputmask();
+            $(document).ready(function () {
+                $('#datepicker-popup').datepicker({
+                    format: 'dd/mm/yyyy',
+                    autoclose: true,
+                    todayHighlight: true,
+                    endDate: new Date()
+                });
+
+            });
+
+            var CID = '@ViewBag.CID';
+            PaymentModeChange('Fast Payment');
+            if (CID != 0) {
+
+                //alert(CID);
+                debugger;
+                var status = '@TempData["status"]';
+                  var isDraft = '@TempData["claimaddcondition"]';
+                var ClaimStatus = '@ViewBag.ClaimStatus';
+                var GetTextValuesSGUrl = "/PVGIROClaim/GetTextValuesSG";
+                if (isDraft.includes("claimDraft")) {
+                    GetTextValuesSGUrl = "/PVGIROClaim/GetTextValuesSGDraft";
+                }
+
+                //alert(ClaimStatus);
+                if (ClaimStatus == "Update" || ClaimStatus == "Recreate") {
+                    $("#hdfClaimID").val(@ViewBag.CID);
+
+                    var table1 = document.getElementById("tblClaims");
+                    var rowLength = table1.rows.length;
+                    var l = 0;
+
+                    var id = '@ViewBag.CID ';
+                    $.ajax({
+                        type: "POST",
+                        url: GetTextValuesSGUrl,
+                        data:{id: id},
+                        success: function (data) {
+                            //var result = JSON.stringify(data);
+                           /* alert(data);*/
+                            var table1 = document.getElementById("tblClaims");
+                            var rowLength = table1.rows.length;
+                            //alert(data.length);
+                            //alert(data.dtClaimsList.length);
+                            //for (var i = 0; i < data.length; ++i) {
+
+                            //}
+                            for (var l = 0; l < data.dtClaimsList.length; l++) {
+                                debugger;
+                                var DtPvgcItemID = data.dtClaimsList[l].pvgcItemID;
+                                var ChequeNo = data.dtClaimsList[l].chequeNo;
+                                var Particulars = data.dtClaimsList[l].particulars;
+                                var Payee = data.dtClaimsList[l].payee;
+                                var InvoiceNo = data.dtClaimsList[l].invoiceNo;
+                                var FacilityID = data.dtClaimsList[l].facilityID;
+                                var Amount = data.dtClaimsList[l].amount;
+                                var GST = data.dtClaimsList[l].gst;
+                                var AmountWithGST = data.dtClaimsList[l].amountWithGST;
+                                var ExpenseCategory = data.dtClaimsList[l].expenseCategoryID;
+                                var PVGID = data.dtClaimsList[l].pvgcid;
+                                var Bank = data.dtClaimsList[l].bank;
+                                var BankCode = data.dtClaimsList[l].bankCode;
+                                var BankSwiftBIC = data.dtClaimsList[l].bankSWIFTBIC;
+                                var BranchCode = data.dtClaimsList[l].branchCode;
+                                var BankAccount = data.dtClaimsList[l].bankAccount;
+                                var Mobile = data.dtClaimsList[l].mobile;
+
+                                var DateOfJourney = data.dtClaimsList[l].date;
+                                var date2 = new Date(DateOfJourney);
+                                var row1 = table1.rows[l + 1];
+                                $(row1).find("#dtClaimDate").datepicker({
+                                    format: 'dd/mm/yyyy'
+                                }).datepicker();
+                                $(row1).find("#dtClaimDate").datepicker('setDate', date2).datepicker('fill');
+                                $(row1).find("#FacilityID").val(FacilityID);
+                                $(row1).find("#txtChequeNo").val(ChequeNo);
+                                $(row1).find('#txtPoP').val(Particulars);
+                                $(row1).find("#txtPayeeName").val(Payee);
+                                $(row1).find("#txtInvoiceNo").val(InvoiceNo);
+                                $(row1).find("#txtGST").val(GST);
+                                $(row1).find("#txtSubTotal").val(Amount);
+                                $(row1).find("#ExpenseCategoryID").val(ExpenseCategory);
+                                $(row1).find("#txtPVGCItemID").val(DtPvgcItemID);
+                                $(row1).find("#txtTotGST").val(AmountWithGST);
+                                $(row1).find("#BankSwiftBIC").val(BankCode);
+                                
+                                $(row1).find("#txtBankName").val(Bank);
+                                $(row1).find("#txtBankCode").val(BankCode);
+                                $(row1).find("#txtBankSWIFTBIC").val(BankSwiftBIC);
+                                $(row1).find("#txtBranchCode").val(BranchCode);
+                                $(row1).find("#txtBankAccount").val(BankAccount);
+                                $(row1).find("#txtMobile").val(Mobile);
+
+                                // new lines of code to disable fields start
+                                if (ClaimStatus == "Update" && !isDraft.includes("claimDraft")) {
+                                    //    $(row1).find('#AddClaim').click(function (e) { return false; });
+                                    //$(row1).find('#DeleteClaim').click(function (e) { return false; });
+                                }
+                                // new lines of code to disable fields end
+                            }
+                        },
+                        error: function () {
+                           // $("#dialogVerified").modal('hide');
+                        }
+                    });
+                }
+            }
+
+            $("#tblClaims").on('click', '#DeleteClaim', function () {
+                debugger;
+                var x = document.getElementById("tblClaims").rows.length;
+                //  alert(x)
+                if (x > 2) {
+                    var par = $(this).parent().parent(); //tr
+                    $(this).parent().parent().remove();
+                    $('#tblClaims').find('tr').each(function (i, el) {
+                        if (i != 0) {
+                            var tds = $(this).find('td');
+                            $(this).find('#lblItem').html(i);
+                        }
+                    });
+                }
+                Calculation();
+            });
+
+            $(document).on('click', '#AddClaim', function () {
+                var message = "";
+                var table = document.getElementById("tblClaims");
+                for (var i = 1; i < 2; i++) {
+                    var row = table.rows[i];
+                    for (var j = 0; j < row.cells.length; j++) {
+                        var cell = row.cells[j];
+                        if (j == 0) {
+                            message += "<td align='center'>" + cell.innerHTML + "</td>";
+                        }
+                        else {
+                            message += "<td>" + cell.innerHTML + "</td>";
+                        }
+                    }
+                }
+                $(this).parent().parent().after('<tr>' + message + '</tr>');
+
+                message = "";
+                var DepartmentID = 0;
+                $('#tblClaims').find('tr').each(function (i, el) {
+                    debugger;
+                    var rowcount = table.rows.length;
+                    if (i != 0) {
+                        var tds = $(this).find('td');
+                        $(this).find('#lblItem').html(i);
+                    }
+                });
+                Calculation();
+                PaymentModeChange('Fast Payment');
+            });
+        });
+        $('body').on('focus', ".datepicker", function () {
+            $(this).datepicker({
+                format: 'dd/mm/yyyy',
+                autoclose: true,
+                todayHighlight: true,
+                endDate: new Date()
+            });
+        });
+
+        $('body').on('focus', "#txtSubTotal", function () {
+            $(this).inputmask({
+                alias: 'decimal', groupSeparator: ',', removeMaskOnSubmit: true, digits: 2, digitsOptional: false,
+                autoGroup: true, autoUnmask: true, prefix: '$ ', placeholder: '0'
+            });
+        });
+        $('body').on('focus', "#txtTotGST", function () {
+            $(this).inputmask({
+                alias: 'decimal', groupSeparator: ',', removeMaskOnSubmit: true, digits: 2, digitsOptional: false,
+                autoGroup: true, autoUnmask: true, prefix: '$ ', placeholder: '0'
+            });
+        });
+        $('body').on('focus', "#txtGST", function () {
+            $(this).inputmask({
+                alias: 'decimal', groupSeparator: ',', removeMaskOnSubmit: true, digits: 2, digitsOptional: false,
+                autoGroup: true, autoUnmask: true, prefix: ' ', placeholder: '0'
+            });
+        });
+
+        function isNumber(evt) {
+            //alert("number");
+            var iKeyCode = (evt.which) ? evt.which : evt.keyCode
+            if (iKeyCode != 46 && iKeyCode > 31 && (iKeyCode < 48 || iKeyCode > 57))
+                return false;
+            return true;
+        }
+
+         function RedirectView() {
+             window.location.href = "/PVGIROClaim/Index";
+        }
+
+        function ClearData()
+        {
+            $('#chkTC').prop('checked', false);
+            $('#tblClaims').find('tr').each(function (i, el) {
+                if (i != 0) {
+                    $(this).find('#dtClaimDate').val('');
+                    $(this).find('#ExpenseCategoryID option:first').attr('selected', true);
+                    $(this).find('#txtChequeNo').val('');
+                    $(this).find('#txtPoP').val('');
+                    $(this).find('#txtPayeeName').val('');
+                    $(this).find('#txtInvoiceNo').val('');
+                    $(this).find('#txtSubTotal').val('');
+                    $(this).find('#txtGST').val('');
+                    $(this).find('#txtTotGST').val('');
+                }
+            });
+            $('#txtGrandTotal').val('');
+            $('#txtGrandGST').val('');
+            $('#txtGrandTotalWithGST').val('');
+        }
+
+        function hideGST(e) {
+            debugger;
+            var selectedValue = e.target.value;
+            if (selectedValue == '0') {
+                return;
+            }
+            //alert('hide quant ' + e.target.value);
+            $.ajax({
+                url: '@Url.Action("IsGSTRequired", "ExpenseClaim")',
+                type: 'GET',
+                data: {
+                    ExpenseCategoryID: selectedValue,
+                },
+                success: function (data) {
+                    // alert(data);
+                    //$("#hdnGST").val(data);
+                    if (data) {
+                        e.target.closest("tr").querySelector(".dllGST").removeAttribute("disabled", "disabled");
+                        e.target.closest("tr").querySelector(".txtGST").removeAttribute("disabled", "disabled");
+                        var el = e.target.closest("tr").querySelector(".txtGST");
+                        var eld = e.target.closest("tr").querySelector(".hdnGST");
+                        //el.value = 0;
+                        eld.value = data;
+                        var elddl = e.target.closest("tr").querySelector(".dllGST");
+                        //Need to set this value from the default selected value
+                        elddl.value = "9.00";
+                        Calculation();
+                    } else {
+                        e.target.closest("tr").querySelector(".dllGST").setAttribute("disabled", "disabled");
+                        e.target.closest("tr").querySelector(".txtGST").setAttribute("disabled", "disabled");
+                        var el = e.target.closest("tr").querySelector(".txtGST");
+                        var eld = e.target.closest("tr").querySelector(".hdnGST");
+                        el.value = 0;
+                        eld.value = data;
+                        var elddl = e.target.closest("tr").querySelector(".dllGST");
+                        elddl.value = "0.00";
+                        //e.target.closest("tr").find(".tdGST").val(0);
+                        //$(this).parents("tr").find("td:eq(5) input.txtGST").val(0);
+                        //$(this).closest('tr').find('td .txtGST').val(0);
+                        //$("#txtGST").val(0);
+                        Calculation();
+                    }
+                },
+                error: function () {
+                }
+            });
+        }
+
+        //function Calculation() {
+        //    var GrandTotal = 0;
+        //    var GrandGST = 0;
+        //    debugger;
+        //    $('#tblClaims').find('tr').each(function (i, el) {
+        //        if (i != 0) {
+        //            var txtSubTot = $(this).find('#txtSubTotal').val();
+        //            if (txtSubTot == "NaN" || txtSubTot == "") {
+        //                //  $('#GrandTotal').val(0.00);
+        //                //$('#txtSubTotal').val(0.00);
+        //                txtSubTot = 0.00;
+        //            }
+        //            var txtGstTot = $(this).find('#txtGST').val();
+        //            if (txtGstTot == "NaN" || txtGstTot == "") {
+        //                //  $('#GrandTotal').val(0.00);
+        //                //$('#txtSubTotal').val(0.00);
+        //                txtGstTot = 0.00;
+        //            }
+        //            TotAmtGST = (parseFloat(txtSubTot) + parseFloat(txtGstTot)).toFixed(2);
+        //            GrandTotal = (parseFloat(GrandTotal) + parseFloat(txtSubTot)).toFixed(2);
+        //            //GrandGST = (parseFloat(GrandGST) + parseFloat(txtGstTot)).toFixed(2);
+        //            GrandGST = (parseFloat(GrandGST) + parseFloat(txtGstTot)).toFixed(3);
+        //            $(this).find('#txtTotGST').val(TotAmtGST);
+        //        }
+        //    });
+
+        //    // var textValue = $('#txtSubTotal').val();
+
+        //    //if (txtSubTot == "NaN") {
+        //    //    $('#GrandTotal').val(0.00);
+        //    //    $('#txtSubTotal').val(0.00);
+        //    //}
+
+        //    document.getElementById('txtGrandTotal').value = (parseFloat(GrandTotal)).toFixed(2);
+        //    document.getElementById('txtGrandGST').value = (parseFloat(GrandGST)).toFixed(2);
+        //    document.getElementById('txtGrandTotalWithGST').value = (parseFloat(GrandTotal) + parseFloat(GrandGST)).toFixed(2);
+
+
+        //}
+
+        function CalculationPercentage() {
+            var grandtotal = 0;
+            var grandgst = 0;
+            var totalpriceexcgst = 0;
+            var calpergst = 0;
+            var calperdivbyhungst = 0;
+            $('#tblClaims').find('tr').each(function (i, el) {
+                if (i != 0) {
+                    var txtsubtot = $(this).find('#txtSubTotal').val();
+                    if (txtsubtot == "nan" || txtsubtot == "") {
+                        //  $('#grandtotal').val(0.00);
+                        //$('#txtsubtotal').val(0.00);
+                        txtsubtot = 0.00;
+                    }
+                    var txtgsttot = $(this).find('#dllGST').val();
+                    if (txtgsttot == "nan" || txtgsttot == "") {
+                        //  $('#grandtotal').val(0.00);
+                        //$('#txtsubtotal').val(0.00);
+                        txtgsttot = 0.00;
+                    }
+
+                    totalpriceexcgst = (parseFloat(txtsubtot)).toFixed(3);
+                    totalpriceexcgst = (Math.round(totalpriceexcgst * 100) / 100);
+                    calpergst = (totalpriceexcgst * txtgsttot).toFixed(3);
+                    calpergst = (Math.round(calpergst * 100) / 100);
+                    calperdivbyhungst = (calpergst / 100).toFixed(4).slice(0, -1);
+                    calperdivbyhungst = (Math.round(calperdivbyhungst * 100) / 100);
+                    grandgst = (parseFloat(grandgst) + parseFloat(calperdivbyhungst)).toFixed(3);
+                    grandtotal = (parseFloat(grandtotal) + parseFloat(txtsubtot)).toFixed(2);
+                    totamtgst = (parseFloat(txtsubtot) + parseFloat(calperdivbyhungst)).toFixed(2);
+                    $(this).find('#txtGST').val(calperdivbyhungst);
+                    $(this).find('#txtTotGST').val(totamtgst);
+                }
+            });
+
+            // var textValue = $('#txtSubTotal').val();
+
+            //if (txtSubTot == "NaN") {
+            //    $('#GrandTotal').val(0.00);
+            //    $('#txtSubTotal').val(0.00);
+            //}
+
+            document.getElementById('txtGrandTotal').value = (parseFloat(grandtotal)).toFixed(2);
+            document.getElementById('txtGrandGST').value = (parseFloat(grandgst)).toFixed(2);
+            document.getElementById('txtGrandTotalWithGST').value = (parseFloat(grandtotal) + parseFloat(grandgst)).toFixed(2);
+
+
+        }
+
+
+        function Calculation() {
+            var grandtotal = 0;
+            var grandgst = 0;
+            var totalpriceexcgst = 0;
+            var calpergst = 0;
+            var calperdivbyhungst = 0;
+            $('#tblClaims').find('tr').each(function (i, el) {
+                if (i != 0) {
+                    var txtsubtot = $(this).find('#txtSubTotal').val();
+                    if (txtsubtot == "nan" || txtsubtot == "") {
+                        //  $('#grandtotal').val(0.00);
+                        //$('#txtsubtotal').val(0.00);
+                        txtsubtot = 0.00;
+                    }
+                    var txtgsttot = $(this).find('#dllGST').val();
+                    if (txtgsttot == "nan" || txtgsttot == "") {
+                        //  $('#grandtotal').val(0.00);
+                        //$('#txtsubtotal').val(0.00);
+                        txtgsttot = 0.00;
+                    }
+
+                    var txtgst = $(this).find('#txtGST').val();
+                    if (txtgst == "nan" || txtgst == "") {
+                        //  $('#grandtotal').val(0.00);
+                        //$('#txtsubtotal').val(0.00);
+                        txtgst = 0.00;
+                        txtgst = txtgst.toFixed(2);
+                    }
+
+                    totalpriceexcgst = (parseFloat(txtsubtot)).toFixed(3);
+                    totalpriceexcgst = (Math.round(totalpriceexcgst * 100) / 100);
+                    calpergst = (totalpriceexcgst * txtgsttot).toFixed(3);
+                    calpergst = (Math.round(calpergst * 100) / 100);
+                    calperdivbyhungst = (calpergst / 100).toFixed(4).slice(0, -1);
+                    calperdivbyhungst = (Math.round(calperdivbyhungst * 100) / 100).toFixed(2);
+
+                    if (txtgst != calperdivbyhungst && (txtgst != "0.00")) {
+                        //calperdivbyhungst = txtgst;
+                        $(this).find('#txtGST').val(calperdivbyhungst);
+                    }
+                    else {
+                        $(this).find('#txtGST').val(calperdivbyhungst);
+                    }
+                    if (txtgst == "0.00" || txtgst == "0")
+                        $(this).find('#txtGST').val(calperdivbyhungst);
+                    grandgst = (parseFloat(grandgst) + parseFloat(calperdivbyhungst)).toFixed(3);
+                    grandtotal = (parseFloat(grandtotal) + parseFloat(txtsubtot)).toFixed(2);
+                    totamtgst = (parseFloat(txtsubtot) + parseFloat(calperdivbyhungst)).toFixed(2);
+
+                    $(this).find('#txtTotGST').val(totamtgst);
+                }
+            });
+
+            // var textValue = $('#txtSubTotal').val();
+
+            //if (txtSubTot == "NaN") {
+            //    $('#GrandTotal').val(0.00);
+            //    $('#txtSubTotal').val(0.00);
+            //}
+
+            document.getElementById('txtGrandTotal').value = (parseFloat(grandtotal)).toFixed(2);
+            document.getElementById('txtGrandGST').value = (parseFloat(grandgst)).toFixed(2);
+            document.getElementById('txtGrandTotalWithGST').value = (parseFloat(grandtotal) + parseFloat(grandgst)).toFixed(2);
+
+
+        }
+
+
+        function getdata(id) {
+            if (id == "btnSave" || id == "btnEdit") { }
+            param = "SendforApproval";
+            var res = param;
+            var ErrorStatus = "true";
+            if (res == "SendforApproval") {
+
+                //var ErrorStatus = "true";
+                //var checkBox = document.getElementById("chkTC");
+                //var Tnc = $('input[name=chkTC]:checked').val()
+
+
+                var PaymentMode = $('input[name=radioPaymentMode]:checked').val();
+
+                $('#tblClaims').find('tr').each(function (i, el) {
+                    if (i != 0) {
+                        var $tds = $(this).find('td');
+
+                        //var ClaimDate = $(this).find("#dtClaimDate").val();
+                        var ExpenseCategory = $(this).find('#ExpenseCategoryID').val();
+                        var ChequeNo = $(this).find("#txtChequeNo").val();
+                        var Facility = $(this).find('#FacilityID').val();
+                        var Particulars = $(this).find('#txtPoP').val();
+                        var Payee = $(this).find("#txtPayeeName").val();
+                        var InvoiceNo = $(this).find("#txtInvoiceNo").val();
+                        var SubTotal = $(this).find('#txtSubTotal').val();
+                        var GST = $(this).find('#txtGST').val();
+                        var hdnGST = $(this).find("#hdnGST").val();
+                        var BankName = $(this).find('#txtBankName').val();
+                        var BankCode = $(this).find('#txtBankCode').val();
+                        var BankSwiftBIC = $(this).find('#txtBankSWIFTBIC').val();
+                        var BranchCode = $(this).find('#txtBranchCode').val();
+                        var BankAccount = $(this).find('#txtBankAccount').val();
+                        var Mobile = $(this).find('#txtMobile').val();
+                        //alert('hdnGST ' + hdnGST);
+                        if (i == 1) {
+
+                            //if (ClaimDate == "" || ClaimDate == null) {
+                            //    alert('Please Select Claim Date at Row No ' + i);
+                            //    ErrorStatus = "false";
+                            //    return false;
+                            //}
+
+                            //if (!ChequeNo) {
+                            //    alert('Please Enter ChequeNo at Row No ' + i);
+                            //    ErrorStatus = "false";
+                            //    return false;
+                            //}
+                            if (!Payee) {
+                                alert('Please Enter Payee at Row No ' + i);
+                                ErrorStatus = "false";
+                                return false;
+                            }
+
+                            if (!Particulars) {
+                                alert('Please Enter Particulars at Row No ' + i);
+                                ErrorStatus = "false";
+                                return false;
+                            }
+
+                            if (Facility == null) {
+                                alert('Please Select Facility Row No ' + i);
+                                ErrorStatus = "false";
+                                return false;
+                            }
+
+                            if (ExpenseCategory == "0") {
+                                alert('Please Select Expense Category at Row No ' + i);
+                                ErrorStatus = "false";
+                                return false;
+                            }
+
+                            //if (!InvoiceNo) {
+                            //    alert('Please Enter InvoiceNo at Row No ' + i);
+                            //    ErrorStatus = "false";
+                            //    return false;
+                            //}
+
+                            if (!SubTotal || SubTotal == 0) {
+                                alert('Please Enter Amount at Row No ' + i);
+                                ErrorStatus = "false";
+                                return false;
+                            }
+
+                            if (PaymentMode == 'GIRO' || PaymentMode == 'TT' || PaymentMode == 'Fast Payment' || PaymentMode == 'RTGS') {
+                                //if (!BankName) {
+                                //    alert('Please Enter Bank Name at Row No ' + i);
+                                //    ErrorStatus = "false";
+                                //    return false;
+                                //}
+                                if (!BankCode) {
+                                    alert('Please Enter Bank Code at Row No ' + i);
+                                    ErrorStatus = "false";
+                                    return false;
+                                }
+                                if (!BankSwiftBIC) {
+                                    alert('Please Enter Bank Swift BIC at Row No ' + i);
+                                    ErrorStatus = "false";
+                                    return false;
+                                }
+                                if (!BranchCode) {
+                                    alert('Please Enter Branch Code at Row No ' + i);
+                                    ErrorStatus = "false";
+                                    return false;
+                                }
+                                if (!BankAccount) {
+                                    alert('Please Enter Bank Account at Row No ' + i);
+                                    ErrorStatus = "false";
+                                    return false;
+                                }
+                            }
+                            else {
+                                if (!Mobile) {
+                                    alert('Please Enter PayNow Mobile number at Row No ' + i);
+                                    ErrorStatus = "false";
+                                    return false;
+                                }
+                            }
+
+                            //alert('GST ' + GST);
+                            //if (hdnGST == "true" && GST == 0) {
+                            //    alert('Please Enter GST at Row No ' + i);
+                            //    ErrorStatus = "false";
+                            //    return false;
+                            //}
+                        }
+                        else {
+                            //if (ClaimDate == "" || ClaimDate == null) {
+                            //    alert('Please Select Claim Date at Row No ' + i);
+                            //    ErrorStatus = "false";
+                            //    return false;
+                            //}
+
+                            //if (!ChequeNo) {
+                            //    alert('Please Enter ChequeNo at Row No ' + i);
+                            //    ErrorStatus = "false";
+                            //    return false;
+                            //}
+                            if (!Payee) {
+                                alert('Please Enter Payee at Row No ' + i);
+                                ErrorStatus = "false";
+                                return false;
+                            }
+
+                            if (!Particulars) {
+                                alert('Please Enter Particulars at Row No ' + i);
+                                ErrorStatus = "false";
+                                return false;
+                            }
+
+                            if (Facility == null) {
+                                alert('Please Select Facility Row No ' + i);
+                                ErrorStatus = "false";
+                                return false;
+                            }
+
+                            if (ExpenseCategory == "0") {
+                                alert('Please Select Expense Category at Row No ' + i);
+                                ErrorStatus = "false";
+                                return false;
+                            }
+
+                            //if (!InvoiceNo) {
+                            //    alert('Please Enter InvoiceNo at Row No ' + i);
+                            //    ErrorStatus = "false";
+                            //    return false;
+                            //}
+
+                            if (!SubTotal || SubTotal==0) {
+                                alert('Please Enter Amount at Row No ' + i);
+                                ErrorStatus = "false";
+                                return false;
+                            }
+
+                            //alert('GST ' + GST);
+                            //if (hdnGST == "true" && GST == 0) {
+                            //    alert('Please Enter GST at Row No ' + i);
+                            //    ErrorStatus = "false";
+                            //    return false;
+                            //}
+                            if (PaymentMode == 'GIRO' || PaymentMode == 'TT' || PaymentMode == 'Fast Payment' || PaymentMode == 'RTGS') {
+                                //if (!BankName) {
+                                //    alert('Please Enter Bank Name at Row No ' + i);
+                                //    ErrorStatus = "false";
+                                //    return false;
+                                //}
+                                if (!BankCode) {
+                                    alert('Please Enter Bank Code at Row No ' + i);
+                                    ErrorStatus = "false";
+                                    return false;
+                                }
+                                if (!BankSwiftBIC) {
+                                    alert('Please Enter Bank Swift BIC at Row No ' + i);
+                                    ErrorStatus = "false";
+                                    return false;
+                                }
+                                if (!BranchCode) {
+                                    alert('Please Enter Branch Code at Row No ' + i);
+                                    ErrorStatus = "false";
+                                    return false;
+                                }
+                                if (!BankAccount) {
+                                    alert('Please Enter Bank Account at Row No ' + i);
+                                    ErrorStatus = "false";
+                                    return false;
+                                }
+                            }
+                            else {
+                                if (!Mobile) {
+                                    alert('Please Enter PayNow Mobile number at Row No ' + i);
+                                    ErrorStatus = "false";
+                                    return false;
+                                }
+                            }
+                        }
+                    }
+                });
+
+
+
+                //  alert(res);
+
+                var ClaimType = $('input[name=radioClaimType]:checked').val();
+                //    alert('Claim Type' + ClaimType);
+                if (ErrorStatus == "false") {
+                    return false;
+                }
+
+                var Tnc = $('#chkTC').is(':checked');
+                if (Tnc == false) {
+                    alert('Please certify that the claims are true and correct to proceed');
+                    ErrorStatus = false;
+                    return false;
+                }
+
+                if (ErrorStatus == "false") {
+                    return false;
+                }
+            }
+
+
+
+            var formData = new FormData();
+            var dtClaimsArr = new Array();
+            dtClaimsArr.length = 0;
+
+            $('#tblClaims').find('tr').each(function (i, el) {
+                if (i != 0) {
+                    var ClaimType = $('input[name=radioClaimType]:checked').val();
+                    //  alert('Claim Type' + ClaimType);
+                    //var ClaimDate = $(this).find('#dtClaimDate').val();
+                    var FacilityID = $(this).find('#FacilityID').val();
+                    var ClaimDate = new Date();
+                    var Description = $(this).find('#txtDescription').val();
+                    var ChequeNo = '';
+                    var Particulars = $(this).find('#txtPoP').val();
+                    var Payee = $(this).find("#txtPayeeName").val();
+                    var InvoiceNo = $(this).find("#txtInvoiceNo").val();
+
+                    var Bank = $(this).find("#txtBankName").val();
+                    var BankCode = $(this).find("#txtBankCode").val();
+                    var BankSwiftBIC = $(this).find("#txtBankSWIFTBIC").val();
+                    var BranchCode = $(this).find("#txtBranchCode").val();
+                    var BankAccount = $(this).find("#txtBankAccount").val();
+                    var Mobile = $(this).find("#txtMobile").val();
+
+                    var ExpenseCategoryID = $(this).find('#ExpenseCategoryID').val();
+                    // alert('ExpenseCategoryID ' + ExpenseCategoryID);
+                    var nClaimDate = new Date(moment(ClaimDate, 'DD/MM/YYYY'));
+                    nClaimDate = nClaimDate.toLocaleDateString().slice(0, 10);
+                    var DtPVGCItemID = $(this).find('#txtPVGCItemID').val();
+                    //var DtECItemID = $(this).find('#txtECItemID').val();
+                    var SubTotal = $(this).find('#txtSubTotal').val();
+                    var GST = $(this).find('#txtGST').val();
+                    var GSTPercentage = $(this).find('#dllGST').val();
+                    if (GST == "") { GST = 0; }
+                    var dtClaim = {}
+                    dtClaim.PVGCItemID = DtPVGCItemID;
+                    dtClaim.FacilityID = FacilityID;
+                    //dtClaim.ECItemID = DtECItemID;
+                    dtClaim.Date = nClaimDate;
+                    dtClaim.Description = Description;
+                    dtClaim.ExpenseCategoryID = ExpenseCategoryID;
+                    dtClaim.ChequeNo = ChequeNo;
+                    dtClaim.Particulars = Particulars;
+                    dtClaim.Payee = Payee;
+                    dtClaim.InvoiceNo = InvoiceNo;
+                    dtClaim.Amount = SubTotal;
+                    dtClaim.GST = GST;
+                    dtClaim.GSTPercentage = GSTPercentage;
+                    dtClaim.Bank = Bank;
+                    dtClaim.BankCode = BankCode;
+                    dtClaim.BankSwiftBIC = BankSwiftBIC;
+                    dtClaim.BranchCode = BranchCode;
+                    dtClaim.BankAccount = BankAccount;
+                    dtClaim.Mobile = Mobile;
+                    dtClaim.OrderBy = i;
+                    dtClaimsArr.push(dtClaim);
+                }
+
+            });
+            //alert($("#txtGrandTotal").val());
+            var claimAddCondition = '@TempData["claimaddcondition"]';
+            var updateStatus='@ViewBag.UpdateStatus';
+            formData.append('data', JSON.stringify(
+                {
+                    Company: $("#lblCompany").html(),
+                    PaymentMode: $('input[name=radioPaymentMode]:checked').val(),
+                    GrandTotal: $("#txtGrandTotal").val(),
+                    PVGCID: $('#hdfClaimID').val(),
+                    PVGCNo: $('#txtPVGCNO').val(),
+                    //GrandTotal: $("#txtGrandTotal").val($("#txtGrandTotal").mask()),
+                    TotalAmount: $("#txtGrandTotalWithGST").val(),
+                    //GrandTotal: $("#txtGrandTotalWithGST").val($("#txtGrandTotalWithGST").mask()),
+                    dtClaims: dtClaimsArr,
+                    ClaimAddCondition: claimAddCondition,
+                    UpdateStatus: updateStatus
+                }
+            ));
+            var submitUrl = '/PVGIROClaim/SaveItems';
+            var uploadUrl = '/PVGIROClaim/UploadECFiles';
+            if (id === 'btnDraft' || id === "btnDraftEdit") {
+                submitUrl = '/PVGIROClaim/SaveDraftItems';
+                uploadUrl = '/PVGIROClaim/UploadECFilesDraft';
+            }
+            if (res == "SendforApproval") {
+                //alert('Before calling');
+                //$('#btnsaveupdate').attr('disabled', 'disabled');
+                $('#btnSave').attr('disabled', 'disabled');
+                $('#btnEdit').attr('disabled', 'disabled');
+                $.ajax({
+                    type: "POST",
+                    url: submitUrl,
+                    data: formData,
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    processData: false,
+                    contentType: false,
+                    success: function (data) {
+                        debugger;
+                        //alert('Success');
+                        var myID = data.res;
+                        var files = fileListArr; // $('#fileInput').prop("files");
+                        var url = uploadUrl
+                        var formData = new FormData();
+                        for (var i = 0; i < files.length; i++) {
+                            formData.append("files", files[i]);
+                        }
+                       // if (files.length > 0) {
+
+                            formData.append("FormFile", files);
+                            // Adding more keys/values here if need
+                            formData.append('Id', myID);
+                            formData.append('ecIDValue', $('#hdfClaimID').val());
+                            formData.append('claimAddCondition', claimAddCondition);
+                            jQuery.ajax({
+                                type: 'POST',
+                                url: url,
+                                data: formData,
+                                cache: false,
+                                contentType: false,
+                                processData: false,
+                                beforeSend: function (xhr) {
+                                    xhr.setRequestHeader("XSRF-TOKEN",
+                                        $('input:hidden[name="__RequestVerificationToken"]').val());
+                                },
+                                success: function (repo) {
+                                    if (repo == "success") {
+                                       // fileListArr = [];
+                                        //alert("File : " + repo.filename + " is uploaded successfully");
+                                        //SuccessToast('Expense Claim added successfully');
+                                        if (id == "btnSave") {
+                                            $("#msg").html("Expense Claim added successfully").css("color", "green");
+                                        }
+                                        else
+                                        {
+                                            $("#msg").html("Expense Claim updated successfully").css("color", "green");
+                                        }
+
+                                        window.location.href = "/PVGIROClaim/Index";
+                                    }
+                                },
+                                error: function () {
+                                    //FailureToast('Error while creating Expense Claim');
+                                    $("#msg").html("Error while creating Expense Claim").css("color", "green");
+                                    window.location.href = "/PVGIROClaim/Index";
+                                }
+                            });
+                        //}
+                        //else {
+                        //    //SuccessToast('Expense Claim added successfully');
+                        //    $("#msg").html("Expense Claim added successfully").css("color", "green");
+                        //    window.location.href = "/PVGIROClaim/Index";
+                        //}
+
+                    },
+                    failure: function (response) {
+                        //FailureToast('Error while creating Expense Claim');
+                        $("#msg").html("Error while creating Expense Claim").css("color", "green");
+                        $('#result').html(response);
+                    }
+                });
+            }
+        }
+
+        function SuccessToast(message) {
+            $.toast({
+                text: message,
+                hideAfter: true,
+                position: 'top-right',
+                icon: 'success',
+                allowToastClose: true,
+                hideAfter: 5000,
+            });
+        }
+
+        function FailureToast(message) {
+            $.toast({
+                text: message,
+                hideAfter: true,
+                position: 'top-right',
+                icon: 'error',
+                allowToastClose: true,
+                hideAfter: 5000,
+            });
+        }
+
+    </script>
+}

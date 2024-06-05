@@ -1,0 +1,591 @@
+﻿@model UserSettingsViewModel
+@{
+    ViewData["Title"] = "User Settings ";
+}
+
+@section Styles{
+    <environment names="Development">
+        <link rel="stylesheet" href="~/vendors/select2/select2.min.css" asp-append-version="true">
+        <link rel="stylesheet" href="~/vendors/select2-bootstrap-theme/select2-bootstrap.min.css" asp-append-version="true">
+        <link rel="stylesheet" href="~/vendors/datatables.net-bs4/dataTables.bootstrap4.css" asp-append-version="true" />
+        <script src="~/vendors/moment/moment.min.js"></script>
+        <link rel="stylesheet" href="~/vendors/bootstrap-datepicker/bootstrap-datepicker.min.css">
+    </environment>
+
+    <environment names="Staging,Production">
+        <link rel="stylesheet" href="~/vendors/select2/select2.min.css" asp-append-version="true">
+        <link rel="stylesheet" href="~/vendors/select2-bootstrap-theme/select2-bootstrap.min.css" asp-append-version="true">
+        <link rel="stylesheet" href="~/vendors/datatables.net-bs4/dataTables.bootstrap4.css" asp-append-version="true" />
+        <script src="~/vendors/moment/moment.min.js"></script>
+        <link rel="stylesheet" href="~/vendors/bootstrap-datepicker/bootstrap-datepicker.min.css">
+    </environment>
+}
+
+@if (Model.AlternateApprover != null && Model.AlternateApprover.IsEnabled)
+{
+    <div class="row" id="notification-row">
+        <div class="col-md-12 grid-margin stretch-card">
+            <div class="card card-inverse-info">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-sm-8">
+                            <div class="d-flex flex-row align-items-center">
+                                <i class="mdi mdi-alert icon-md text-info"></i>
+                                <div class="ml-3">
+                                    <h6 class="text-facebook">Alternate Approver</h6>
+                                    <p class="mt-2 text-muted card-text">You have delegated your approval authority to <b>@Model.AlternateApprover.AlternateUserName</b></p>
+                                    <p></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4 align-self-center" style="display: none;">
+                            <a id="UserSettings" class="" asp-controller="UserSettings" asp-action="Index">Update Settings</a>
+                            <a href="#" class="text-dark pl-2" onclick="$('#notification-row').toggle();">Dismiss</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+<div class="row">
+    <div class="col-md-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="mb-0 font-weight-bold">User Settings</h4>
+                <p class="card-description mt-2">Please fill in your details</p>
+                <form class="forms-sample mt-1" asp-action="Index" id="frmFirstTimeUserSetting" method="post" enctype="multipart/form-data">
+                    <input type="hidden" asp-for="UserDetails.UserID" id="hdnuserid" />
+                    <input type="hidden" value="@ViewBag.IsEditForLoggedInUser" id="hdnIsEditForLoggedInUser" />
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div id="example-basic">
+                        <h3>Personal Details</h3>
+                        <section>
+                            <div class="row">
+                                <div class="form-group col-md-6">
+                                    <label asp-for="UserDetails.FacilityID" class="control-label"></label>
+                                    <select asp-for="UserDetails.FacilityID" class="form-control" asp-items="@Model.Facilities">
+                                    </select>
+                                </div>
+                                <div class="form-group col-md-6 d-none">
+                                    <label asp-for="UserDetails.Password" class="control-label required"></label>
+                                    <input asp-for="UserDetails.Password" class="form-control required" id="Code" type="password" />
+                                    <span asp-validation-for="UserDetails.Password" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-md-6">
+                                    <label asp-for="UserDetails.Name" class="control-label required"></label>
+                                    <input asp-for="UserDetails.Name" class="form-control required" id="Code" />
+                                    <span asp-validation-for="UserDetails.Name" class="text-danger"></span>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label asp-for="UserDetails.Phone" class="control-label required"></label>
+                                    <input asp-for="UserDetails.Phone" class="form-control required" id="Code" />
+                                    <span asp-validation-for="UserDetails.Phone" class="text-danger"></span>
+                                </div>
+                            </div>
+                        </section>
+                        <h3>Approvers</h3>
+                        <section>
+                            <div class="row">
+                                @{
+                                    for (var cnt = 0; cnt < Model.ApproverDetails.Count; cnt++)
+                                    {
+                                        <input type="hidden" asp-for="ApproverDetails[cnt].ID" />
+                                        <input type="hidden" asp-for="ApproverDetails[cnt].SortOrder" />
+                                        <div class="form-group col-md-3 mt-4">
+                                            <div class="form-check float-right">
+                                                <label class="@(cnt == 0 ? "form-check-label approver-label" : "form-check-label approver-label")">
+                                                    <input class="form-check-input" asp-for="ApproverDetails[cnt].IsApproverActive" />
+                                                    @Html.DisplayName("Verifier " + (cnt + 1).ToString())
+                                                </label>
+                                                @*@if (cnt == 0)
+                                {
+                                    <br />
+                                    <span asp-validation-for="ApproverDetails[cnt].IsApproverActive" class="text-danger"></span>
+                                }*@
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 form-group">
+                                            <label class="control-label">User</label>
+                                            <select asp-for="ApproverDetails[cnt].ApproverId" class="form-control" asp-items="@Model.Approvers">
+                                                <option></option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-3"></div>
+                                    }
+                                }
+                            </div>
+                            @*<input type="hidden" asp-for="ApproverDetails.ID" />
+            <div class="form-group col-md-2">
+                <div class="form-check">
+                    <label class="form-check-label required">
+                        <input class="form-check-input chkboxrequired " asp-for="ApproverDetails.IsApprover1Active" />
+                        @Html.DisplayNameFor(model => model.ApproverDetails.IsApprover1Active)
+                    </label>
+                </div>
+                <span asp-validation-for="ApproverDetails.IsApprover1Active" class="text-danger"></span>
+            </div>
+            <div class="col-md-6 form-group">
+                <label asp-for="ApproverDetails.ApproverId1" class="control-label"></label>
+                <select asp-for="ApproverDetails.ApproverId1" class="form-control" asp-items="@Model.Approvers"></select>
+            </div>
+            <div class="col-md-4"></div>
+            <div class="form-group col-md-2">
+                <div class="form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input" asp-for="ApproverDetails.IsApprover2Active" />
+                        @Html.DisplayNameFor(model => model.ApproverDetails.IsApprover2Active)
+                    </label>
+                </div>
+            </div>
+            <div class="col-md-6 form-group">
+                <label asp-for="ApproverDetails.ApproverId2" class="control-label"></label>
+                <select asp-for="ApproverDetails.ApproverId2" class="form-control" asp-items="@Model.Approvers"></select>
+            </div>
+            <div class="col-md-4"></div>
+            <div class="form-group col-md-2">
+                <div class="form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input" asp-for="ApproverDetails.IsApprover3Active" />
+                        @Html.DisplayNameFor(model => model.ApproverDetails.IsApprover3Active)
+                    </label>
+                </div>
+            </div>
+            <div class="col-md-6 form-group">
+                <label asp-for="ApproverDetails.ApproverId3" class="control-label"></label>
+                <select asp-for="ApproverDetails.ApproverId3" class="form-control" asp-items="@Model.Approvers"></select>
+            </div>
+            <div class="col-md-4"></div>*@
+
+                        </section>
+                        <h3>Bank Account Details</h3>
+                        <section>
+                            <input type="hidden" asp-for="BankDetials.ID" />
+                            <div class="row">
+                                <div class="form-group col-md-6">
+                                    <label asp-for="BankDetials.NameAsInBank" class="control-label required"></label>
+                                    <input asp-for="BankDetials.NameAsInBank" class="form-control required" id="Code" />
+                                    <span asp-validation-for="BankDetials.NameAsInBank" class="text-danger"></span>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label asp-for="BankDetials.AccountNumber" class="control-label required"></label>
+                                    <input asp-for="BankDetials.AccountNumber" class="form-control required" id="Code" ondrop='return false;' onkeypress='return isNumber(event)' onpaste='return false'/>
+                                    <span asp-validation-for="BankDetials.AccountNumber" class="text-danger"></span>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label asp-for="BankDetials.ConfirmAccountnumber" class="control-label required"></label>
+                                    <input asp-for="BankDetials.ConfirmAccountnumber" class="form-control required" id="Code" ondrop='return false;' onkeypress='return isNumber(event)' onpaste='return false'/>
+                                    <span asp-validation-for="BankDetials.ConfirmAccountnumber" class="text-danger"></span>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label asp-for="BankDetials.BankName" class="control-label required"></label>
+                                  @*  <input asp-for="BankDetials.BankName" class="form-control required" id="Code" />*@
+                                    <input type="hidden" asp-for="BankDetials.BankName" class="form-control txtBankName required" id="Code" />
+                                    <select asp-for="BankDetials.BankCode" onchange="FetchBankSwiftBIC(event)" class="form-control" asp-items="@Model.BankSwiftBICs" id="txtBankName"></select>
+
+                                    <span asp-validation-for="BankDetials.BankName" class="text-danger"></span>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label asp-for="BankDetials.BankCode" class="control-label required"></label>
+                                    <input asp-for="BankDetials.BankCode" class="form-control txtBankCode required" id="Code" />
+                                    <span asp-validation-for="BankDetials.BankCode" class="text-danger"></span>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label asp-for="BankDetials.BankSWIFTBIC" class="control-label required"></label>
+                                    <input asp-for="BankDetials.BankSWIFTBIC" readonly="readonly" class="form-control txtBankSWIFTBIC required" id="Code" />
+                                    <span asp-validation-for="BankDetials.BankSWIFTBIC" class="text-danger"></span>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label asp-for="BankDetials.Branch" class="control-label required"></label>
+                                    <input asp-for="BankDetials.Branch" class="form-control required" id="Code" />
+                                    <span asp-validation-for="BankDetials.Branch" class="text-danger"></span>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label asp-for="BankDetials.BranchCode" class="control-label required"></label>
+                                    <input asp-for="BankDetials.BranchCode" class="form-control required" id="Code" />
+                                    <span asp-validation-for="BankDetials.BranchCode" class="text-danger"></span>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label asp-for="BankDetials.PayNow" class="control-label required"></label>
+                                    <input asp-for="BankDetials.PayNow" class="form-control required" id="Code" />
+                                    <span asp-validation-for="BankDetials.PayNow" class="text-danger"></span>
+                                </div>
+                                @*<div class="form-group col-md-6">
+                    <label asp-for="BankDetials.BankStatement" class="control-label required"></label>
+                    <input type="file" class="custom-file-input form-control" asp-for="BankDetials.BankStatement">
+                    <span asp-validation-for="BankDetials.BankStatement" class="text-danger"></span>
+                </div>*@
+                                <div class="form-group col-md-6">
+                                    <label asp-for="BankDetials.BankStatementFileName" class="control-label"></label>
+                                    @*<input type="file" name="img[]" class="file-upload-default" asp-for="BankDetials.BankStatementCode">*@
+
+
+                                    <div class="input-group col-xs-12">
+                                        <input asp-for="BankDetials.BankStatementFileName" id="filename" type="text" class="form-control file-upload-info" disabled
+                                               placeholder="Upload">
+                                        <span class="input-group-append">
+                                            <button id="bankStatementUpload" class="file-upload-browse btn btn-sm btn-primary" type="button">Upload</button>
+                                        </span>
+                                    </div>
+                                    <input type="file" id="bankStatementUploadControl" class="custom-file-input form-control" asp-for="BankDetials.BankStatement" accept=".gif,.jpg,.jpeg,.png,.doc,.docx,.csv,.xls,.pdf" onchange="ValidateSingleInput(this);">
+                                    <input id="BankStatementName" asp-for="BankDetials.BankStatementFileName" type="hidden" class="form-control required" />
+                                    <span asp-validation-for="BankDetials.BankStatementFileName" class="text-danger excludeinclientvalidation"></span>
+                                    <span style="color: Red">(Supported File Types *.pdf;*.xls;*.csv;*.doc;*.docx;*.png;*.jpeg;*.jpg;*.gif)</span>
+                                </div>
+                            </div>
+                        </section>
+                        <h3>Alternate Approver/Verifier</h3>
+                        <section>
+                            <div class="row float-right">
+                                <div class="form-group col-md-12">
+                                    <div class="col">
+                                        Enable/Disable
+                                        <label class="toggle-switch">
+                                            <input asp-for="AlternateApprover.IsEnabled" type="checkbox">
+                                            <span class="toggle-slider round"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-md-6">
+                                    <label class="control-label">Select Alternate User</label>
+                                    <select asp-for="AlternateApprover.UserID" class="form-control" id="appverOptions" asp-items="@Model.Approvers">
+                                        <option value="0">None</option>
+                                    </select>
+                                </div>
+                                <div class="form-group col-md-6"></div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-md-6">
+                                    <label asp-for="AlternateApprover.FromDate" class="control-label">From Date</label>
+                                    <div id="datepicker-popup-from" class="input-group date datepicker" style="width: 100% !important;">
+                                        <input asp-for="AlternateApprover.FromDate" id="apFromDate" type="text" autocomplete="off" class="form-control" placeholder="DD/MM/YYYY" />
+                                        <span class="input-group-addon input-group-append border-left">
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label asp-for="AlternateApprover.ToDate" class="control-label">To Date</label>
+                                    <div id="datepicker-popup-to" class="input-group date datepicker" style="width: 100% !important;">
+                                        <input asp-for="AlternateApprover.ToDate" id="apToDate" type="text" autocomplete="off" class="form-control" placeholder="DD/MM/YYYY" />
+                                        <span class="input-group-addon input-group-append border-left">
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-md-6">
+                                    <label asp-for="AlternateApprover.FromTime" class="control-label">Start Time</label>
+                                    <input asp-for="AlternateApprover.FromTime" type="text" id="apFromTime" class="form-control clockpicker form-control-sm" placeholder="hh:mm aa" />
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label asp-for="AlternateApprover.ToTime" class="control-label">End Time</label>
+                                    <input asp-for="AlternateApprover.ToTime" type="text" id="apToTime" class="form-control clockpicker form-control-sm" placeholder="hh:mm aa" />
+                                </div>
+                            </div>
+                        </section>
+                        @if (@User.FindFirst("ishod").Value.ToString().ToLower() == "true")
+                        {
+                        <h3>Delegate User</h3>
+                        <section>
+                            <div class="row float-right">
+                                <div class="form-group col-md-12">
+                                    <div class="col">
+                                        Enable/Disable
+                                        <label class="toggle-switch">
+                                            <input asp-for="DelegateUser.IsEnabled" type="checkbox">
+                                            <span class="toggle-slider round"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-md-6">
+                                    <label class="control-label">Select Delegate User</label>
+                                    <select asp-for="DelegateUser.UserID" class="form-control" id="appverOptions" asp-items="@Model.Approvers">
+                                        <option value="0">None</option>
+                                    </select>
+                                </div>
+                                <div class="form-group col-md-6"></div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-md-6">
+                                    <label asp-for="DelegateUser.FromDate" class="control-label">From Date</label>
+                                    <div id="datepicker-popup-from" class="input-group date datepicker" style="width: 100% !important;">
+                                        <input asp-for="DelegateUser.FromDate" id="apFromDate" type="text" autocomplete="off" class="form-control" placeholder="DD/MM/YYYY" />
+                                        <span class="input-group-addon input-group-append border-left">
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label asp-for="DelegateUser.ToDate" class="control-label">To Date</label>
+                                    <div id="datepicker-popup-to" class="input-group date datepicker" style="width: 100% !important;">
+                                        <input asp-for="DelegateUser.ToDate" id="apToDate" type="text" autocomplete="off" class="form-control" placeholder="DD/MM/YYYY" />
+                                        <span class="input-group-addon input-group-append border-left">
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-md-6">
+                                    <label asp-for="DelegateUser.FromTime" class="control-label">Start Time</label>
+                                    <input asp-for="DelegateUser.FromTime" type="text" id="apFromTime" class="form-control clockpicker form-control-sm" placeholder="hh:mm aa" />
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label asp-for="DelegateUser.ToTime" class="control-label">End Time</label>
+                                    <input asp-for="DelegateUser.ToTime" type="text" id="apToTime" class="form-control clockpicker form-control-sm" placeholder="hh:mm aa" />
+                                </div>
+                            </div>
+                        </section>
+                        }
+                        <h3>Finish</h3>
+                        <section>
+                            <h3>Finish</h3>
+                            <div class="form-check">
+                                <label class="form-check-label">
+                                    <input asp-for="UserConfirmation" class="checkbox chkboxrequired" type="checkbox">
+                                    I confirm that the details entered are valid.
+                                    <i class="input-helper"></i>
+                                </label>
+                            </div>
+                            <span asp-validation-for="UserConfirmation" class="text-danger"></span>
+
+                        </section>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts
+{
+    <environment names="Development">
+        <script src="~/vendors/typeahead.js/typeahead.bundle.min.js" asp-append-version="true"></script>
+        <script src="~/vendors/select2/select2.min.js" asp-append-version="true"></script>
+        <script src="~/js/file-upload.js"></script>
+        <script src="~/vendors/moment/moment.min.js"></script>
+        <script src="~/vendors/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
+        <script src="~/js/typeahead.js"></script>
+        <script src="~/js/select2.js"></script>
+        <script src="~/js/data-table.js"></script>
+        <script src="~/vendors/datatables.net/jquery.dataTables.js" asp-append-version="true"></script>
+        <script src="~/vendors/datatables.net-bs4/dataTables.bootstrap4.js" asp-append-version="true"></script>
+        <script src="~/vendors/jquery-steps/jquery.steps.min.js" asp-append-version="true"></script>
+        <script src="~/vendors/jquery-validation/jquery.validate.min.js" asp-append-version="true"></script>
+        <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js" asp-append-version="true"></script>
+        <script src="~/vendors/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
+        <script src="~/js/wizard.js"></script>
+        <script src="~/js/bootstrap-clockpicker.min.js"></script>
+        <script src="~/vendors/inputmask/jquery.inputmask.bundle.js"></script>
+    </environment>
+
+    <environment names="Staging,Production">
+        <script src="~/vendors/typeahead.js/typeahead.bundle.min.js" asp-append-version="true"></script>
+        <script src="~/vendors/select2/select2.min.js" asp-append-version="true"></script>
+        <script src="~/js/file-upload.js"></script>
+        <script src="~/vendors/moment/moment.min.js"></script>
+        <script src="~/vendors/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
+        <script src="~/js/typeahead.js"></script>
+        <script src="~/js/select2.js"></script>
+        <script src="~/js/data-table.js"></script>
+        <script src="~/vendors/datatables.net/jquery.dataTables.js" asp-append-version="true"></script>
+        <script src="~/vendors/datatables.net-bs4/dataTables.bootstrap4.js" asp-append-version="true"></script>
+        <script src="~/vendors/jquery-steps/jquery.steps.min.js" asp-append-version="true"></script>
+        <script src="~/vendors/jquery-validation/jquery.validate.min.js" asp-append-version="true"></script>
+        <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js" asp-append-version="true"></script>
+        <script src="~/vendors/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
+        <script src="~/js/wizard.js"></script>
+        <script src="~/js/bootstrap-clockpicker.min.js"></script>
+        <script src="~/vendors/inputmask/jquery.inputmask.bundle.js"></script>
+    </environment>
+    <script>
+        $(document).ready(function () {
+            $("input").inputmask();
+            $(document).ready(function () {
+                $('#datepicker-popup-from').datepicker({
+                    format: 'dd/mm/yyyy',
+                    autoclose: true,
+                    todayHighlight: true
+                });
+
+                $('#datepicker-popup-to').datepicker({
+                    format: 'dd/mm/yyyy',
+                    autoclose: true,
+                    todayHighlight: true
+                });
+            });
+        });
+
+        function isNumber(evt) {
+            //alert("number");
+            evt = (evt) ? evt : window.event;
+            var charCode = (evt.which) ? evt.which : evt.keyCode;
+            if (charCode > 31 && (charCode < 47 || charCode > 57) && charCode != 44) {
+                return false;
+            }
+        }
+
+        $('body').on('change', ".clockpicker", function () {
+            var inTime = $(this).val();
+            if (inTime) {
+                $(this).val(checkValidTimeFormat(inTime));
+            }
+        });
+
+        $('body').on('focus', ".datepicker", function () {
+            $(this).datepicker({
+                format: 'dd/mm/yyyy',
+                autoclose: true,
+                todayHighlight: true
+            });
+        });
+
+        function checkValidTimeFormat(timeExact) {
+            var amTimeSuffix = "am";
+            var pmTimeSuffix = "pm";
+            var timeValue = timeExact.toLowerCase().replace(amTimeSuffix, '').replace(/ /g, '')
+                .replace(pmTimeSuffix, '').replace(':', '').replace('.', '');
+
+            //check if timeValue is not a number
+            if (isNaN(timeValue)) { return null; }
+
+            var timeExactValue = null;
+            //check valid values with length of number supplied
+            switch (timeValue.length) {
+                case 1:
+                case 2:
+                    timeExactValue = moment(timeExact, "hA").format("hh:mm A");
+                    break;
+                case 3:
+                    var newTimeExact = timeValue[0] + '.' + timeValue[1] + timeValue[2] + (timeExact.toLowerCase().indexOf(pmTimeSuffix) > 0 ? pmTimeSuffix : amTimeSuffix);
+                    timeExactValue = moment(newTimeExact, "h.mmA").format("hh:mm A");
+                    break;
+                case 4:
+                    timeExactValue = moment(timeExact, "hhmmA").format("hh:mm A");
+                    break;
+            }
+            if (timeExactValue == "Invalid date") {
+                return null;
+            }
+            return timeExactValue;
+        }
+
+        function FetchBankSwiftBIC(e) {
+            var bankName = $("#txtBankName option:selected").text();
+            var selectedValue = e.target.value;
+            if (selectedValue == '0') {
+                return;
+            } else {
+                $('.txtBankCode').val(selectedValue);
+                $('.txtBankName').val(bankName);
+            }
+
+            $.ajax({
+                url: '@Url.Action("GetBankSwiftBIC", "UserSettings")',
+                type: 'GET',
+                data: {
+                    BankCode: selectedValue,
+                },
+                success: function (data) {
+                    $(".txtBankSWIFTBIC").val(data);
+                },
+                error: function () {
+                }
+            });
+        }
+
+        //$(document).ready(function () { $.fn.modal.Constructor.prototype.enforceFocus = function () { }; });
+        var _validFileExtensions = [".jpg", ".jpeg", ".bmp", ".gif", ".png", ".doc", ".docx", ".csv", ".xls", ".pdf"];
+        function ValidateSingleInput(oInput) {
+            if (oInput.type == "file") {
+                var sFileName = oInput.value;
+                if (sFileName.length > 0) {
+                    var blnValid = false;
+                    for (var j = 0; j < _validFileExtensions.length; j++) {
+                        var sCurExtension = _validFileExtensions[j];
+                        if (sFileName.substr(sFileName.length - sCurExtension.length, sCurExtension.length).toLowerCase() == sCurExtension.toLowerCase()) {
+                            blnValid = true;
+                            break;
+                        }
+                    }
+
+                    if (!blnValid) {
+                        alert("Sorry, " + sFileName + " is invalid, allowed extensions are: " + _validFileExtensions.join(", "));
+                        oInput.value = "";
+                        return false;
+                    }
+                }
+            }
+            return true;
+        }
+
+        var form = $("#example-basic");
+        $("#example-basic").steps({
+            headerTag: "h3",
+            bodyTag: "section",
+            transitionEffect: "slideLeft",
+            stepsOrientation: 'vertical',
+            autoFocus: true,
+            onStepChanging: function (event, currentIndex, newIndex) {
+                if (newIndex < currentIndex) {
+                    $('#frmFirstTimeUserSetting').valid();
+                    $('span[data-valmsg-for="' + $(this).attr('name') + '"')
+                        .removeClass('field-validation-error')
+                        .addClass('field-validation-valid')
+                        .empty();
+                    return true;
+                }
+                $('#frmFirstTimeUserSetting').valid();
+                $('.chkboxrequired[data-val="true"]:visible').each(function () {
+                    if (!$(this).is(':checked')) {
+                        $('span[data-valmsg-for="' + $(this).attr('name') + '"')
+                            .removeClass('field-validation-valid')
+                            .addClass('field-validation-error')
+                            .append('<span id="Code-error" class="">' + $(this).attr('data-val-required') + '</span>');
+                        //data-val-required//data-valmsg-for
+                    } else {
+                        $('span[data-valmsg-for="' + $(this).attr('name') + '"')
+                            .removeClass('field-validation-error')
+                            .addClass('field-validation-valid')
+                            .empty();
+                    }
+                });
+                return $('#frmFirstTimeUserSetting .field-validation-error:not(.excludeinclientvalidation):visible').length == 0;
+            },
+            onFinishing: function (event, currentIndex) {
+                $('#frmFirstTimeUserSetting').valid();
+                $('.chkboxrequired[data-val="true"]:visible').each(function () {
+                    if (!$(this).is(':checked')) {
+                        $('span[data-valmsg-for="' + $(this).attr('name') + '"')
+                            .removeClass('field-validation-valid')
+                            .addClass('field-validation-error')
+                            .append('<span id="Code-error" class="">' + $(this).attr('data-val-required') + '</span>');
+                        //data-val-required//data-valmsg-for
+                    } else {
+                        if ($('#frmFirstTimeUserSetting .field-validation-error:not(.excludeinclientvalidation):visible').length == 0) {
+                            $('#frmFirstTimeUserSetting').submit();
+                        } else {
+                            return false;
+                        }
+                    }
+                });
+
+            }
+        });
+        $('.custom-file-input').on('change', function () {
+            var fileName = $(this).val().split("\\").pop();
+            $(this).next('.custom-file-label').html(fileName);
+            $('#filename').val(fileName);
+            $('#BankStatementName').val(fileName);
+        });
+        $('#bankStatementUpload').on('click', function () {
+            $('#bankStatementUploadControl').click();
+        });
+    </script>
+
+
+}
