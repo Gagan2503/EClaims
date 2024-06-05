@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <_PublishTargetUrl>D:\EClaims\SourceCode\EClaims\EClaimsWeb\bin\Release\net5.0\publish\</_PublishTargetUrl>
+    <History>True|2021-10-24T18:41:25.5877016Z;True|2021-10-21T10:49:18.6081065+05:30;True|2021-10-21T10:25:47.1990001+05:30;</History>
+  </PropertyGroup>
+</Project>

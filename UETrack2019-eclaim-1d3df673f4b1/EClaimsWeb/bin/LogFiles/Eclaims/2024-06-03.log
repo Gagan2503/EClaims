@@ -1,0 +1,612 @@
+2024-06-03 22:38:02.2640 INFO Start installing Hangfire SQL objects...
+2024-06-03 22:38:50.5262 WARN An exception occurred while trying to perform the migration. Retrying...
+2024-06-03 22:38:50.6893 WARN An exception occurred while trying to perform the migration. Retrying...
+2024-06-03 22:38:50.6893 WARN An exception occurred while trying to perform the migration.
+2024-06-03 22:38:50.7024 WARN Was unable to perform the Hangfire schema migration due to an exception. Ignore this message unless you've just installed or upgraded Hangfire.
+2024-06-03 22:45:10.2617 INFO Start installing Hangfire SQL objects...
+2024-06-03 22:45:13.3386 WARN An exception occurred while trying to perform the migration. Retrying...
+2024-06-03 22:45:14.3461 WARN An exception occurred while trying to perform the migration. Retrying...
+2024-06-03 22:45:15.1482 WARN An exception occurred while trying to perform the migration.
+2024-06-03 22:45:15.1552 WARN Was unable to perform the Hangfire schema migration due to an exception. Ignore this message unless you've just installed or upgraded Hangfire.
+2024-06-03 22:45:38.9007 INFO Inside EMailTemplate
+2024-06-03 22:45:38.9205 INFO Inside SendEmail before calling SendEmailAsync
+2024-06-03 22:45:40.7051 INFO Inside SendEmailAsync: Mail has been sent successfully
+2024-06-03 22:45:40.7051 INFO chen.siewlean@uemsgroup.com,<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <table>
+
+        <tr>
+            <td>
+                <div style="border-top:3px solid #22BCE5"> </div><br />
+                <span style="font-family:Arial;font-size:10pt">
+                    Dear <b>Chen Siew Lean</b>,<br /><br />
+                    <!--<p style="color:#22BCE5">ApprovalType - ClaimType</p>-->
+                    <!--<a style="color:#22BCE5" href="{Url}">ClaimType ApprovalType</a>--><!--<br /><br />-->
+                    Below are the claims which are pending for your verification/approvals<br /><br />
+                    Kindly click on the below links to Approve/Reject the claims
+                    <br />
+                    <a style="color:#22BCE5" href="<br /><br /><a href=https://uemseclaims.azurewebsites.net/FinanceExpenseClaim/Details/3126>https://uemseclaims.azurewebsites.net/FinanceExpenseClaim/Details/3126</a>"><br /><br /><a href=https://uemseclaims.azurewebsites.net/FinanceExpenseClaim/Details/3126>https://uemseclaims.azurewebsites.net/FinanceExpenseClaim/Details/3126</a></a><br /><br />
+                    Thanks<br />
+                </span>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>,Claims which are pending for your verification/approvals as on Today 03-06-2024,03-06-2024 22:45:40
+2024-06-03 22:45:41.1858 INFO Inside EMailTemplate
+2024-06-03 22:45:41.1858 INFO Inside SendEmail before calling SendEmailAsync
+2024-06-03 22:45:42.0894 INFO Inside SendEmailAsync: Mail has been sent successfully
+2024-06-03 22:45:42.0894 INFO Kaitlynn.Tan@uemsgroup.com,<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <table>
+
+        <tr>
+            <td>
+                <div style="border-top:3px solid #22BCE5"> </div><br />
+                <span style="font-family:Arial;font-size:10pt">
+                    Dear <b>Kaitlynn Tan Wei Ni</b>,<br /><br />
+                    <!--<p style="color:#22BCE5">ApprovalType - ClaimType</p>-->
+                    <!--<a style="color:#22BCE5" href="{Url}">ClaimType ApprovalType</a>--><!--<br /><br />-->
+                    Below are the claims which are pending for your verification/approvals<br /><br />
+                    Kindly click on the below links to Approve/Reject the claims
+                    <br />
+                    <a style="color:#22BCE5" href="<br /><br /><a href=https://uemseclaims.azurewebsites.net/FinanceExpenseClaim/Details/3128>https://uemseclaims.azurewebsites.net/FinanceExpenseClaim/Details/3128</a><br /><br /><a href=https://uemseclaims.azurewebsites.net/FinanceExpenseClaim/Details/3130>https://uemseclaims.azurewebsites.net/FinanceExpenseClaim/Details/3130</a><br /><br /><a href=https://uemseclaims.azurewebsites.net/FinancePVGClaim/Details/2235>https://uemseclaims.azurewebsites.net/FinancePVGClaim/Details/2235</a><br /><br /><a href=https://uemseclaims.azurewebsites.net/FinancePVGClaim/Details/2331>https://uemseclaims.azurewebsites.net/FinancePVGClaim/Details/2331</a><br /><br /><a href=https://uemseclaims.azurewebsites.net/FinancePVGClaim/Details/2339>https://uemseclaims.azurewebsites.net/FinancePVGClaim/Details/2339</a><br /><br /><a href=https://uemseclaims.azurewebsites.net/FinancePVGClaim/Details/2340>https://uemseclaims.azurewebsites.net/FinancePVGClaim/Details/2340</a><br /><br /><a href=https://uemseclaims.azurewebsites.net/FinancePVGClaim/Details/2341>https://uemseclaims.azurewebsites.net/FinancePVGClaim/Details/2341</a><br /><br /><a href=https://uemseclaims.azurewebsites.net/FinancePVGClaim/Details/2342>https://uemseclaims.azurewebsites.net/FinancePVGClaim/Details/2342</a><br /><br /><a href=https://uemseclaims.azurewebsites.net/FinancePVGClaim/Details/2343>https://uemseclaims.azurewebsites.net/FinancePVGClaim/Details/2343</a><br /><br /><a href=https://uemseclaims.azurewebsites.net/FinancePVGClaim/Details/2344>https://uemseclaims.azurewebsites.net/FinancePVGClaim/Details/2344</a><br /><br /><a href=https://uemseclaims.azurewebsites.net/FinancePVGClaim/Details/2345>https://uemseclaims.azurewebsites.net/FinancePVGClaim/Details/2345</a><br /><br /><a href=https://uemseclaims.azurewebsites.net/FinancePVGClaim/Details/2346>https://uemseclaims.azurewebsites.net/FinancePVGClaim/Details/2346</a><br /><br /><a href=https://uemseclaims.azurewebsites.net/FinancePVGClaim/Details/2347>https://uemseclaims.azurewebsites.net/FinancePVGClaim/Details/2347</a><br /><br /><a href=https://uemseclaims.azurewebsites.net/FinancePVGClaim/Details/2348>https://uemseclaims.azurewebsites.net/FinancePVGClaim/Details/2348</a><br /><br /><a href=https://uemseclaims.azurewebsites.net/FinancePVGClaim/Details/2349>https://uemseclaims.azurewebsites.net/FinancePVGClaim/Details/2349</a><br /><br /><a href=https://uemseclaims.azurewebsites.net/FinancePVGClaim/Details/2350>https://uemseclaims.azurewebsites.net/FinancePVGClaim/Details/2350</a><br /><br /><a href=https://uemseclaims.azurewebsites.net/FinancePVGClaim/Details/2354>https://uemseclaims.azurewebsites.net/FinancePVGClaim/Details/2354</a><br /><br /><a href=https://uemseclaims.azurewebsites.net/FinancePVGClaim/Details/2355>https://uemseclaims.azurewebsites.net/FinancePVGClaim/Details/2355</a><br /><br /><a href=https://uemseclaims.azurewebsites.net/FinancePVGClaim/Details/2357>https://uemseclaims.azurewebsites.net/FinancePVGClaim/Details/2357</a><br /><br /><a href=https://uemseclaims.azurewebsites.net/FinancePVGClaim/Details/2358>https://uemseclaims.azurewebsites.net/FinancePVGClaim/Details/2358</a><br /><br /><a href=https://uemseclaims.azurewebsites.net/FinancePVGClaim/Details/2359>https://uemseclaims.azurewebsites.net/FinancePVGClaim/Details/2359</a><br /><br /><a href=https://uemseclaims.azurewebsites.net/FinancePVGClaim/Details/2360>https://uemseclaims.azurewebsites.net/FinancePVGClaim/Details/2360</a><br /><br /><a href=https://uemseclaims.azurewebsites.net/FinancePVGClaim/Details/2361>https://uemseclaims.azurewebsites.net/FinancePVGClaim/Details/2361</a><br /><br /><a href=https://uemseclaims.azurewebsites.net/FinancePVGClaim/Details/2362>https://uemseclaims.azurewebsites.net/FinancePVGClaim/Details/2362</a><br /><br /><a href=https://uemseclaims.azurewebsites.net/FinancePVGClaim/Details/2363>https://uemseclaims.azurewebsites.net/FinancePVGClaim/Details/2363</a><br /><br /><a href=https://uemseclaims.azurewebsites.net/FinancePVGClaim/Details/2364>https://uemseclaims.azurewebsites.net/FinancePVGClaim/Details/2364</a><br /><br /><a href=https://uemseclaims.azurewebsites.net/FinancePVGClaim/Details/2365>https://uemseclaims.azurewebsites.net/FinancePVGClaim/Details/2365</a><br /><br /><a href=https://uemseclaims.azurewebsites.net/FinancePVGClaim/Details/2366>https://uemseclaims.azurewebsites.net/FinancePVGClaim/Details/2366</a><br /><br /><a href=https://uemseclaims.azurewebsites.net/FinancePVGClaim/Details/2367>https://uemseclaims.azurewebsites.net/FinancePVGClaim/Details/2367</a><br /><br /><a href=https://uemseclaims.azurewebsites.net/FinancePVGClaim/Details/2368>https://uemseclaims.azurewebsites.net/FinancePVGClaim/Details/2368</a><br /><br /><a href=https://uemseclaims.azurewebsites.net/FinancePVGClaim/Details/2369>https://uemseclaims.azurewebsites.net/FinancePVGClaim/Details/2369</a><br /><br /><a href=https://uemseclaims.azurewebsites.net/FinancePVGClaim/Details/2370>https://uemseclaims.azurewebsites.net/FinancePVGClaim/Details/2370</a><br /><br /><a href=https://uemseclaims.azurewebsites.net/FinancePVGClaim/Details/2371>https://uemseclaims.azurewebsites.net/FinancePVGClaim/Details/2371</a><br /><br /><a href=https://uemseclaims.azurewebsites.net/FinancePVGClaim/Details/2372>https://uemseclaims.azurewebsites.net/FinancePVGClaim/Details/2372</a><br /><br /><a href=https://uemseclaims.azurewebsites.net/FinancePVGClaim/Details/2373>https://uemseclaims.azurewebsites.net/FinancePVGClaim/Details/2373</a><br /><br /><a href=https://uemseclaims.azurewebsites.net/FinanceHRPVGClaim/Details/2333>https://uemseclaims.azurewebsites.net/FinanceHRPVGClaim/Details/2333</a><br /><br /><a href=https://uemseclaims.azurewebsites.net/FinanceHRPVGClaim/Details/2334>https://uemseclaims.azurewebsites.net/FinanceHRPVGClaim/Details/2334</a>"><br /><br /><a href=https://uemseclaims.azurewebsites.net/FinanceExpenseClaim/Details/3128>https://uemseclaims.azurewebsites.net/FinanceExpenseClaim/Details/3128</a><br /><br /><a href=https://uemseclaims.azurewebsites.net/FinanceExpenseClaim/Details/3130>https://uemseclaims.azurewebsites.net/FinanceExpenseClaim/Details/3130</a><br /><br /><a href=https://uemseclaims.azurewebsites.net/FinancePVGClaim/Details/2235>https://uemseclaims.azurewebsites.net/FinancePVGClaim/Details/2235</a><br /><br /><a href=https://uemseclaims.azurewebsites.net/FinancePVGClaim/Details/2331>https://uemseclaims.azurewebsites.net/FinancePVGClaim/Details/2331</a><br /><br /><a href=https://uemseclaims.azurewebsites.net/FinancePVGClaim/Details/2339>https://uemseclaims.azurewebsites.net/FinancePVGClaim/Details/2339</a><br /><br /><a href=https://uemseclaims.azurewebsites.net/FinancePVGClaim/Details/2340>https://uemseclaims.azurewebsites.net/FinancePVGClaim/Details/2340</a><br /><br /><a href=https://uemseclaims.azurewebsites.net/FinancePVGClaim/Details/2341>https://uemseclaims.azurewebsites.net/FinancePVGClaim/Details/2341</a><br /><br /><a href=https://uemseclaims.azurewebsites.net/FinancePVGClaim/Details/2342>https://uemseclaims.azurewebsites.net/FinancePVGClaim/Details/2342</a><br /><br /><a href=https://uemseclaims.azurewebsites.net/FinancePVGClaim/Details/2343>https://uemseclaims.azurewebsites.net/FinancePVGClaim/Details/2343</a><br /><br /><a href=https://uemseclaims.azurewebsites.net/FinancePVGClaim/Details/2344>https://uemseclaims.azurewebsites.net/FinancePVGClaim/Details/2344</a><br /><br /><a href=https://uemseclaims.azurewebsites.net/FinancePVGClaim/Details/2345>https://uemseclaims.azurewebsites.net/FinancePVGClaim/Details/2345</a><br /><br /><a href=https://uemseclaims.azurewebsites.net/FinancePVGClaim/Details/2346>https://uemseclaims.azurewebsites.net/FinancePVGClaim/Details/2346</a><br /><br /><a href=https://uemseclaims.azurewebsites.net/FinancePVGClaim/Details/2347>https://uemseclaims.azurewebsites.net/FinancePVGClaim/Details/2347</a><br /><br /><a href=https://uemseclaims.azurewebsites.net/FinancePVGClaim/Details/2348>https://uemseclaims.azurewebsites.net/FinancePVGClaim/Details/2348</a><br /><br /><a href=https://uemseclaims.azurewebsites.net/FinancePVGClaim/Details/2349>https://uemseclaims.azurewebsites.net/FinancePVGClaim/Details/2349</a><br /><br /><a href=https://uemseclaims.azurewebsites.net/FinancePVGClaim/Details/2350>https://uemseclaims.azurewebsites.net/FinancePVGClaim/Details/2350</a><br /><br /><a href=https://uemseclaims.azurewebsites.net/FinancePVGClaim/Details/2354>https://uemseclaims.azurewebsites.net/FinancePVGClaim/Details/2354</a><br /><br /><a href=https://uemseclaims.azurewebsites.net/FinancePVGClaim/Details/2355>https://uemseclaims.azurewebsites.net/FinancePVGClaim/Details/2355</a><br /><br /><a href=https://uemseclaims.azurewebsites.net/FinancePVGClaim/Details/2357>https://uemseclaims.azurewebsites.net/FinancePVGClaim/Details/2357</a><br /><br /><a href=https://uemseclaims.azurewebsites.net/FinancePVGClaim/Details/2358>https://uemseclaims.azurewebsites.net/FinancePVGClaim/Details/2358</a><br /><br /><a href=https://uemseclaims.azurewebsites.net/FinancePVGClaim/Details/2359>https://uemseclaims.azurewebsites.net/FinancePVGClaim/Details/2359</a><br /><br /><a href=https://uemseclaims.azurewebsites.net/FinancePVGClaim/Details/2360>https://uemseclaims.azurewebsites.net/FinancePVGClaim/Details/2360</a><br /><br /><a href=https://uemseclaims.azurewebsites.net/FinancePVGClaim/Details/2361>https://uemseclaims.azurewebsites.net/FinancePVGClaim/Details/2361</a><br /><br /><a href=https://uemseclaims.azurewebsites.net/FinancePVGClaim/Details/2362>https://uemseclaims.azurewebsites.net/FinancePVGClaim/Details/2362</a><br /><br /><a href=https://uemseclaims.azurewebsites.net/FinancePVGClaim/Details/2363>https://uemseclaims.azurewebsites.net/FinancePVGClaim/Details/2363</a><br /><br /><a href=https://uemseclaims.azurewebsites.net/FinancePVGClaim/Details/2364>https://uemseclaims.azurewebsites.net/FinancePVGClaim/Details/2364</a><br /><br /><a href=https://uemseclaims.azurewebsites.net/FinancePVGClaim/Details/2365>https://uemseclaims.azurewebsites.net/FinancePVGClaim/Details/2365</a><br /><br /><a href=https://uemseclaims.azurewebsites.net/FinancePVGClaim/Details/2366>https://uemseclaims.azurewebsites.net/FinancePVGClaim/Details/2366</a><br /><br /><a href=https://uemseclaims.azurewebsites.net/FinancePVGClaim/Details/2367>https://uemseclaims.azurewebsites.net/FinancePVGClaim/Details/2367</a><br /><br /><a href=https://uemseclaims.azurewebsites.net/FinancePVGClaim/Details/2368>https://uemseclaims.azurewebsites.net/FinancePVGClaim/Details/2368</a><br /><br /><a href=https://uemseclaims.azurewebsites.net/FinancePVGClaim/Details/2369>https://uemseclaims.azurewebsites.net/FinancePVGClaim/Details/2369</a><br /><br /><a href=https://uemseclaims.azurewebsites.net/FinancePVGClaim/Details/2370>https://uemseclaims.azurewebsites.net/FinancePVGClaim/Details/2370</a><br /><br /><a href=https://uemseclaims.azurewebsites.net/FinancePVGClaim/Details/2371>https://uemseclaims.azurewebsites.net/FinancePVGClaim/Details/2371</a><br /><br /><a href=https://uemseclaims.azurewebsites.net/FinancePVGClaim/Details/2372>https://uemseclaims.azurewebsites.net/FinancePVGClaim/Details/2372</a><br /><br /><a href=https://uemseclaims.azurewebsites.net/FinancePVGClaim/Details/2373>https://uemseclaims.azurewebsites.net/FinancePVGClaim/Details/2373</a><br /><br /><a href=https://uemseclaims.azurewebsites.net/FinanceHRPVGClaim/Details/2333>https://uemseclaims.azurewebsites.net/FinanceHRPVGClaim/Details/2333</a><br /><br /><a href=https://uemseclaims.azurewebsites.net/FinanceHRPVGClaim/Details/2334>https://uemseclaims.azurewebsites.net/FinanceHRPVGClaim/Details/2334</a></a><br /><br />
+                    Thanks<br />
+                </span>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>,Claims which are pending for your verification/approvals as on Today 03-06-2024,03-06-2024 22:45:42
+2024-06-03 22:45:42.6836 INFO Inside EMailTemplate
+2024-06-03 22:45:42.6836 INFO Inside SendEmail before calling SendEmailAsync
+2024-06-03 22:45:43.4215 INFO Inside SendEmailAsync: Mail has been sent successfully
+2024-06-03 22:45:43.4215 INFO steven.chew@uemsgroup.com,<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <table>
+
+        <tr>
+            <td>
+                <div style="border-top:3px solid #22BCE5"> </div><br />
+                <span style="font-family:Arial;font-size:10pt">
+                    Dear <b>Chew Chun Meng</b>,<br /><br />
+                    <!--<p style="color:#22BCE5">ApprovalType - ClaimType</p>-->
+                    <!--<a style="color:#22BCE5" href="{Url}">ClaimType ApprovalType</a>--><!--<br /><br />-->
+                    Below are the claims which are pending for your verification/approvals<br /><br />
+                    Kindly click on the below links to Approve/Reject the claims
+                    <br />
+                    <a style="color:#22BCE5" href="<br /><br /><a href=https://uemseclaims.azurewebsites.net/HodSummary/ECDetails/121>https://uemseclaims.azurewebsites.net/HodSummary/ECDetails/121</a>"><br /><br /><a href=https://uemseclaims.azurewebsites.net/HodSummary/ECDetails/121>https://uemseclaims.azurewebsites.net/HodSummary/ECDetails/121</a></a><br /><br />
+                    Thanks<br />
+                </span>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>,Claims which are pending for your verification/approvals as on Today 03-06-2024,03-06-2024 22:45:43
+2024-06-03 22:45:43.7095 INFO Inside EMailTemplate
+2024-06-03 22:45:43.7174 INFO Inside SendEmail before calling SendEmailAsync
+2024-06-03 22:45:44.4328 INFO Inside SendEmailAsync: Mail has been sent successfully
+2024-06-03 22:45:44.4328 INFO norman.mohddon@uemsgroup.com,<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <table>
+
+        <tr>
+            <td>
+                <div style="border-top:3px solid #22BCE5"> </div><br />
+                <span style="font-family:Arial;font-size:10pt">
+                    Dear <b>Norman Bin Mohd Don</b>,<br /><br />
+                    <!--<p style="color:#22BCE5">ApprovalType - ClaimType</p>-->
+                    <!--<a style="color:#22BCE5" href="{Url}">ClaimType ApprovalType</a>--><!--<br /><br />-->
+                    Below are the claims which are pending for your verification/approvals<br /><br />
+                    Kindly click on the below links to Approve/Reject the claims
+                    <br />
+                    <a style="color:#22BCE5" href="<br /><br /><a href=https://uemseclaims.azurewebsites.net/HodSummary/ECDetails/776>https://uemseclaims.azurewebsites.net/HodSummary/ECDetails/776</a>"><br /><br /><a href=https://uemseclaims.azurewebsites.net/HodSummary/ECDetails/776>https://uemseclaims.azurewebsites.net/HodSummary/ECDetails/776</a></a><br /><br />
+                    Thanks<br />
+                </span>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>,Claims which are pending for your verification/approvals as on Today 03-06-2024,03-06-2024 22:45:44
+2024-06-03 22:45:44.6119 INFO Inside EMailTemplate
+2024-06-03 22:45:44.6119 INFO Inside SendEmail before calling SendEmailAsync
+2024-06-03 22:45:45.3267 INFO Inside SendEmailAsync: Mail has been sent successfully
+2024-06-03 22:45:45.3267 INFO liting.teo@uemsgroup.com,<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <table>
+
+        <tr>
+            <td>
+                <div style="border-top:3px solid #22BCE5"> </div><br />
+                <span style="font-family:Arial;font-size:10pt">
+                    Dear <b>Teo Li Ting</b>,<br /><br />
+                    <!--<p style="color:#22BCE5">ApprovalType - ClaimType</p>-->
+                    <!--<a style="color:#22BCE5" href="{Url}">ClaimType ApprovalType</a>--><!--<br /><br />-->
+                    Below are the claims which are pending for your verification/approvals<br /><br />
+                    Kindly click on the below links to Approve/Reject the claims
+                    <br />
+                    <a style="color:#22BCE5" href="<br /><br /><a href=https://uemseclaims.azurewebsites.net/HodSummary/ECDetails/2714>https://uemseclaims.azurewebsites.net/HodSummary/ECDetails/2714</a>"><br /><br /><a href=https://uemseclaims.azurewebsites.net/HodSummary/ECDetails/2714>https://uemseclaims.azurewebsites.net/HodSummary/ECDetails/2714</a></a><br /><br />
+                    Thanks<br />
+                </span>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>,Claims which are pending for your verification/approvals as on Today 03-06-2024,03-06-2024 22:45:45
+2024-06-03 22:45:45.5000 INFO Inside EMailTemplate
+2024-06-03 22:45:45.5000 INFO Inside SendEmail before calling SendEmailAsync
+2024-06-03 22:45:46.2118 INFO Inside SendEmailAsync: Mail has been sent successfully
+2024-06-03 22:45:46.2168 INFO Norbadariah.sabarrudin@uemsgroup.com,<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <table>
+
+        <tr>
+            <td>
+                <div style="border-top:3px solid #22BCE5"> </div><br />
+                <span style="font-family:Arial;font-size:10pt">
+                    Dear <b>Norbadariah Binte Sabarrudin</b>,<br /><br />
+                    <!--<p style="color:#22BCE5">ApprovalType - ClaimType</p>-->
+                    <!--<a style="color:#22BCE5" href="{Url}">ClaimType ApprovalType</a>--><!--<br /><br />-->
+                    Below are the claims which are pending for your verification/approvals<br /><br />
+                    Kindly click on the below links to Approve/Reject the claims
+                    <br />
+                    <a style="color:#22BCE5" href="<br /><br /><a href=https://uemseclaims.azurewebsites.net/HodSummary/ECDetails/3042>https://uemseclaims.azurewebsites.net/HodSummary/ECDetails/3042</a>"><br /><br /><a href=https://uemseclaims.azurewebsites.net/HodSummary/ECDetails/3042>https://uemseclaims.azurewebsites.net/HodSummary/ECDetails/3042</a></a><br /><br />
+                    Thanks<br />
+                </span>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>,Claims which are pending for your verification/approvals as on Today 03-06-2024,03-06-2024 22:45:46
+2024-06-03 22:45:46.8052 INFO Inside EMailTemplate
+2024-06-03 22:45:46.8074 INFO Inside SendEmail before calling SendEmailAsync
+2024-06-03 22:45:47.6334 INFO Inside SendEmailAsync: Mail has been sent successfully
+2024-06-03 22:45:47.6334 INFO keefe.tan@uemsgroup.com,<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <table>
+
+        <tr>
+            <td>
+                <div style="border-top:3px solid #22BCE5"> </div><br />
+                <span style="font-family:Arial;font-size:10pt">
+                    Dear <b>Keefe Tan</b>,<br /><br />
+                    <!--<p style="color:#22BCE5">ApprovalType - ClaimType</p>-->
+                    <!--<a style="color:#22BCE5" href="{Url}">ClaimType ApprovalType</a>--><!--<br /><br />-->
+                    Below are the claims which are pending for your verification/approvals<br /><br />
+                    Kindly click on the below links to Approve/Reject the claims
+                    <br />
+                    <a style="color:#22BCE5" href="<br /><br /><a href=https://uemseclaims.azurewebsites.net/HodSummary/ECDetails/3122>https://uemseclaims.azurewebsites.net/HodSummary/ECDetails/3122</a><br /><br /><a href=https://uemseclaims.azurewebsites.net/HodSummary/ECDetails/3134>https://uemseclaims.azurewebsites.net/HodSummary/ECDetails/3134</a>"><br /><br /><a href=https://uemseclaims.azurewebsites.net/HodSummary/ECDetails/3122>https://uemseclaims.azurewebsites.net/HodSummary/ECDetails/3122</a><br /><br /><a href=https://uemseclaims.azurewebsites.net/HodSummary/ECDetails/3134>https://uemseclaims.azurewebsites.net/HodSummary/ECDetails/3134</a></a><br /><br />
+                    Thanks<br />
+                </span>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>,Claims which are pending for your verification/approvals as on Today 03-06-2024,03-06-2024 22:45:47
+2024-06-03 22:45:47.9437 INFO Inside EMailTemplate
+2024-06-03 22:45:47.9437 INFO Inside SendEmail before calling SendEmailAsync
+2024-06-03 22:45:48.7670 INFO Inside SendEmailAsync: Mail has been sent successfully
+2024-06-03 22:45:48.7670 INFO jeremy.ong@uemsgroup.com,<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <table>
+
+        <tr>
+            <td>
+                <div style="border-top:3px solid #22BCE5"> </div><br />
+                <span style="font-family:Arial;font-size:10pt">
+                    Dear <b>Ong Sing Huat</b>,<br /><br />
+                    <!--<p style="color:#22BCE5">ApprovalType - ClaimType</p>-->
+                    <!--<a style="color:#22BCE5" href="{Url}">ClaimType ApprovalType</a>--><!--<br /><br />-->
+                    Below are the claims which are pending for your verification/approvals<br /><br />
+                    Kindly click on the below links to Approve/Reject the claims
+                    <br />
+                    <a style="color:#22BCE5" href="<br /><br /><a href=https://uemseclaims.azurewebsites.net/HodSummary/ECDetails/3129>https://uemseclaims.azurewebsites.net/HodSummary/ECDetails/3129</a><br /><br /><a href=https://uemseclaims.azurewebsites.net/HodSummary/ECDetails/3132>https://uemseclaims.azurewebsites.net/HodSummary/ECDetails/3132</a><br /><br /><a href=https://uemseclaims.azurewebsites.net/HodSummary/ECDetails/3140>https://uemseclaims.azurewebsites.net/HodSummary/ECDetails/3140</a>"><br /><br /><a href=https://uemseclaims.azurewebsites.net/HodSummary/ECDetails/3129>https://uemseclaims.azurewebsites.net/HodSummary/ECDetails/3129</a><br /><br /><a href=https://uemseclaims.azurewebsites.net/HodSummary/ECDetails/3132>https://uemseclaims.azurewebsites.net/HodSummary/ECDetails/3132</a><br /><br /><a href=https://uemseclaims.azurewebsites.net/HodSummary/ECDetails/3140>https://uemseclaims.azurewebsites.net/HodSummary/ECDetails/3140</a></a><br /><br />
+                    Thanks<br />
+                </span>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>,Claims which are pending for your verification/approvals as on Today 03-06-2024,03-06-2024 22:45:48
+2024-06-03 22:45:49.0758 INFO Inside EMailTemplate
+2024-06-03 22:45:49.0758 INFO Inside SendEmail before calling SendEmailAsync
+2024-06-03 22:45:49.7586 INFO Inside SendEmailAsync: Mail has been sent successfully
+2024-06-03 22:45:49.7586 INFO mengyew.see@uemsgroup.com,<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <table>
+
+        <tr>
+            <td>
+                <div style="border-top:3px solid #22BCE5"> </div><br />
+                <span style="font-family:Arial;font-size:10pt">
+                    Dear <b>See Meng Yew</b>,<br /><br />
+                    <!--<p style="color:#22BCE5">ApprovalType - ClaimType</p>-->
+                    <!--<a style="color:#22BCE5" href="{Url}">ClaimType ApprovalType</a>--><!--<br /><br />-->
+                    Below are the claims which are pending for your verification/approvals<br /><br />
+                    Kindly click on the below links to Approve/Reject the claims
+                    <br />
+                    <a style="color:#22BCE5" href="<br /><br /><a href=https://uemseclaims.azurewebsites.net/HodSummary/ECDetails/3133>https://uemseclaims.azurewebsites.net/HodSummary/ECDetails/3133</a>"><br /><br /><a href=https://uemseclaims.azurewebsites.net/HodSummary/ECDetails/3133>https://uemseclaims.azurewebsites.net/HodSummary/ECDetails/3133</a></a><br /><br />
+                    Thanks<br />
+                </span>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>,Claims which are pending for your verification/approvals as on Today 03-06-2024,03-06-2024 22:45:49
+2024-06-03 22:45:50.0713 INFO Inside EMailTemplate
+2024-06-03 22:45:50.0730 INFO Inside SendEmail before calling SendEmailAsync
+2024-06-03 22:45:50.8094 INFO Inside SendEmailAsync: Mail has been sent successfully
+2024-06-03 22:45:50.8094 INFO wilfred.lee@uemsgroup.com,<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <table>
+
+        <tr>
+            <td>
+                <div style="border-top:3px solid #22BCE5"> </div><br />
+                <span style="font-family:Arial;font-size:10pt">
+                    Dear <b>Wilfred Lee Wei Ta</b>,<br /><br />
+                    <!--<p style="color:#22BCE5">ApprovalType - ClaimType</p>-->
+                    <!--<a style="color:#22BCE5" href="{Url}">ClaimType ApprovalType</a>--><!--<br /><br />-->
+                    Below are the claims which are pending for your verification/approvals<br /><br />
+                    Kindly click on the below links to Approve/Reject the claims
+                    <br />
+                    <a style="color:#22BCE5" href="<br /><br /><a href=https://uemseclaims.azurewebsites.net/HodSummary/ECDetails/1298>https://uemseclaims.azurewebsites.net/HodSummary/ECDetails/1298</a>"><br /><br /><a href=https://uemseclaims.azurewebsites.net/HodSummary/ECDetails/1298>https://uemseclaims.azurewebsites.net/HodSummary/ECDetails/1298</a></a><br /><br />
+                    Thanks<br />
+                </span>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>,Claims which are pending for your verification/approvals as on Today 03-06-2024,03-06-2024 22:45:50
+2024-06-03 22:45:50.9669 INFO Inside EMailTemplate
+2024-06-03 22:45:50.9669 INFO Inside SendEmail before calling SendEmailAsync
+2024-06-03 22:45:51.6814 INFO Inside SendEmailAsync: Mail has been sent successfully
+2024-06-03 22:45:51.6870 INFO Joe.Ngyt@uemsgroup.com,<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <table>
+
+        <tr>
+            <td>
+                <div style="border-top:3px solid #22BCE5"> </div><br />
+                <span style="font-family:Arial;font-size:10pt">
+                    Dear <b>Ng Yao Tuan</b>,<br /><br />
+                    <!--<p style="color:#22BCE5">ApprovalType - ClaimType</p>-->
+                    <!--<a style="color:#22BCE5" href="{Url}">ClaimType ApprovalType</a>--><!--<br /><br />-->
+                    Below are the claims which are pending for your verification/approvals<br /><br />
+                    Kindly click on the below links to Approve/Reject the claims
+                    <br />
+                    <a style="color:#22BCE5" href="<br /><br /><a href=https://uemseclaims.azurewebsites.net/HodSummary/ECDetails/3125>https://uemseclaims.azurewebsites.net/HodSummary/ECDetails/3125</a><br /><br /><a href=https://uemseclaims.azurewebsites.net/HodSummary/ECDetails/3127>https://uemseclaims.azurewebsites.net/HodSummary/ECDetails/3127</a><br /><br /><a href=https://uemseclaims.azurewebsites.net/HodSummary/ECDetails/3135>https://uemseclaims.azurewebsites.net/HodSummary/ECDetails/3135</a><br /><br /><a href=https://uemseclaims.azurewebsites.net/HodSummary/ECDetails/3139>https://uemseclaims.azurewebsites.net/HodSummary/ECDetails/3139</a><br /><br /><a href=https://uemseclaims.azurewebsites.net/HodSummary/TBCDetails/902>https://uemseclaims.azurewebsites.net/HodSummary/TBCDetails/902</a>"><br /><br /><a href=https://uemseclaims.azurewebsites.net/HodSummary/ECDetails/3125>https://uemseclaims.azurewebsites.net/HodSummary/ECDetails/3125</a><br /><br /><a href=https://uemseclaims.azurewebsites.net/HodSummary/ECDetails/3127>https://uemseclaims.azurewebsites.net/HodSummary/ECDetails/3127</a><br /><br /><a href=https://uemseclaims.azurewebsites.net/HodSummary/ECDetails/3135>https://uemseclaims.azurewebsites.net/HodSummary/ECDetails/3135</a><br /><br /><a href=https://uemseclaims.azurewebsites.net/HodSummary/ECDetails/3139>https://uemseclaims.azurewebsites.net/HodSummary/ECDetails/3139</a><br /><br /><a href=https://uemseclaims.azurewebsites.net/HodSummary/TBCDetails/902>https://uemseclaims.azurewebsites.net/HodSummary/TBCDetails/902</a></a><br /><br />
+                    Thanks<br />
+                </span>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>,Claims which are pending for your verification/approvals as on Today 03-06-2024,03-06-2024 22:45:51
+2024-06-03 22:45:51.8653 INFO Inside EMailTemplate
+2024-06-03 22:45:51.8712 INFO Inside SendEmail before calling SendEmailAsync
+2024-06-03 22:45:52.6628 INFO Inside SendEmailAsync: Mail has been sent successfully
+2024-06-03 22:45:52.6679 INFO eileen.koh@uemsgroup.com,<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <table>
+
+        <tr>
+            <td>
+                <div style="border-top:3px solid #22BCE5"> </div><br />
+                <span style="font-family:Arial;font-size:10pt">
+                    Dear <b>Eileen Koh</b>,<br /><br />
+                    <!--<p style="color:#22BCE5">ApprovalType - ClaimType</p>-->
+                    <!--<a style="color:#22BCE5" href="{Url}">ClaimType ApprovalType</a>--><!--<br /><br />-->
+                    Below are the claims which are pending for your verification/approvals<br /><br />
+                    Kindly click on the below links to Approve/Reject the claims
+                    <br />
+                    <a style="color:#22BCE5" href="<br /><br /><a href=https://uemseclaims.azurewebsites.net/HodSummary/ECDetails/3136>https://uemseclaims.azurewebsites.net/HodSummary/ECDetails/3136</a><br /><br /><a href=https://uemseclaims.azurewebsites.net/HodSummary/ECDetails/3137>https://uemseclaims.azurewebsites.net/HodSummary/ECDetails/3137</a><br /><br /><a href=https://uemseclaims.azurewebsites.net/HodSummary/ECDetails/3138>https://uemseclaims.azurewebsites.net/HodSummary/ECDetails/3138</a><br /><br /><a href=https://uemseclaims.azurewebsites.net/HodSummary/PVGCDetails/2382>https://uemseclaims.azurewebsites.net/HodSummary/PVGCDetails/2382</a><br /><br /><a href=https://uemseclaims.azurewebsites.net/HodSummary/PVGCDetails/2383>https://uemseclaims.azurewebsites.net/HodSummary/PVGCDetails/2383</a><br /><br /><a href=https://uemseclaims.azurewebsites.net/HodSummary/PVGCDetails/2384>https://uemseclaims.azurewebsites.net/HodSummary/PVGCDetails/2384</a>"><br /><br /><a href=https://uemseclaims.azurewebsites.net/HodSummary/ECDetails/3136>https://uemseclaims.azurewebsites.net/HodSummary/ECDetails/3136</a><br /><br /><a href=https://uemseclaims.azurewebsites.net/HodSummary/ECDetails/3137>https://uemseclaims.azurewebsites.net/HodSummary/ECDetails/3137</a><br /><br /><a href=https://uemseclaims.azurewebsites.net/HodSummary/ECDetails/3138>https://uemseclaims.azurewebsites.net/HodSummary/ECDetails/3138</a><br /><br /><a href=https://uemseclaims.azurewebsites.net/HodSummary/PVGCDetails/2382>https://uemseclaims.azurewebsites.net/HodSummary/PVGCDetails/2382</a><br /><br /><a href=https://uemseclaims.azurewebsites.net/HodSummary/PVGCDetails/2383>https://uemseclaims.azurewebsites.net/HodSummary/PVGCDetails/2383</a><br /><br /><a href=https://uemseclaims.azurewebsites.net/HodSummary/PVGCDetails/2384>https://uemseclaims.azurewebsites.net/HodSummary/PVGCDetails/2384</a></a><br /><br />
+                    Thanks<br />
+                </span>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>,Claims which are pending for your verification/approvals as on Today 03-06-2024,03-06-2024 22:45:52
+2024-06-03 22:45:52.8380 INFO Inside EMailTemplate
+2024-06-03 22:45:52.8401 INFO Inside SendEmail before calling SendEmailAsync
+2024-06-03 22:45:53.6056 INFO Inside SendEmailAsync: Mail has been sent successfully
+2024-06-03 22:45:53.6056 INFO bernard.teo@uemsgroup.com,<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <table>
+
+        <tr>
+            <td>
+                <div style="border-top:3px solid #22BCE5"> </div><br />
+                <span style="font-family:Arial;font-size:10pt">
+                    Dear <b>Teo Yi Min, Bernard</b>,<br /><br />
+                    <!--<p style="color:#22BCE5">ApprovalType - ClaimType</p>-->
+                    <!--<a style="color:#22BCE5" href="{Url}">ClaimType ApprovalType</a>--><!--<br /><br />-->
+                    Below are the claims which are pending for your verification/approvals<br /><br />
+                    Kindly click on the below links to Approve/Reject the claims
+                    <br />
+                    <a style="color:#22BCE5" href="<br /><br /><a href=https://uemseclaims.azurewebsites.net/HodSummary/PVGCDetails/2381>https://uemseclaims.azurewebsites.net/HodSummary/PVGCDetails/2381</a>"><br /><br /><a href=https://uemseclaims.azurewebsites.net/HodSummary/PVGCDetails/2381>https://uemseclaims.azurewebsites.net/HodSummary/PVGCDetails/2381</a></a><br /><br />
+                    Thanks<br />
+                </span>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>,Claims which are pending for your verification/approvals as on Today 03-06-2024,03-06-2024 22:45:53
+2024-06-03 22:45:53.7792 INFO Inside EMailTemplate
+2024-06-03 22:45:53.7792 INFO Inside SendEmail before calling SendEmailAsync
+2024-06-03 22:45:54.5198 INFO Inside SendEmailAsync: Mail has been sent successfully
+2024-06-03 22:45:54.5198 INFO julius.fam@uemsgroup.com,<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <table>
+
+        <tr>
+            <td>
+                <div style="border-top:3px solid #22BCE5"> </div><br />
+                <span style="font-family:Arial;font-size:10pt">
+                    Dear <b>Fam Jun Yong</b>,<br /><br />
+                    <!--<p style="color:#22BCE5">ApprovalType - ClaimType</p>-->
+                    <!--<a style="color:#22BCE5" href="{Url}">ClaimType ApprovalType</a>--><!--<br /><br />-->
+                    Below are the claims which are pending for your verification/approvals<br /><br />
+                    Kindly click on the below links to Approve/Reject the claims
+                    <br />
+                    <a style="color:#22BCE5" href="<br /><br /><a href=https://uemseclaims.azurewebsites.net/HodSummary/PVGCDetails/2385>https://uemseclaims.azurewebsites.net/HodSummary/PVGCDetails/2385</a>"><br /><br /><a href=https://uemseclaims.azurewebsites.net/HodSummary/PVGCDetails/2385>https://uemseclaims.azurewebsites.net/HodSummary/PVGCDetails/2385</a></a><br /><br />
+                    Thanks<br />
+                </span>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>,Claims which are pending for your verification/approvals as on Today 03-06-2024,03-06-2024 22:45:54
+2024-06-03 22:45:54.8932 INFO Inside EMailTemplate
+2024-06-03 22:45:54.8932 INFO Inside SendEmail before calling SendEmailAsync
+2024-06-03 22:45:55.8013 INFO Inside SendEmailAsync: Mail has been sent successfully
+2024-06-03 22:45:55.8013 INFO liv.liew@uemsgroup.com,<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <table>
+
+        <tr>
+            <td>
+                <div style="border-top:3px solid #22BCE5"> </div><br />
+                <span style="font-family:Arial;font-size:10pt">
+                    Dear <b>Liew Fong Ting @Liv Liew</b>,<br /><br />
+                    <!--<p style="color:#22BCE5">ApprovalType - ClaimType</p>-->
+                    <!--<a style="color:#22BCE5" href="{Url}">ClaimType ApprovalType</a>--><!--<br /><br />-->
+                    Below are the claims which are pending for your verification/approvals<br /><br />
+                    Kindly click on the below links to Approve/Reject the claims
+                    <br />
+                    <a style="color:#22BCE5" href="<br /><br /><a href=https://uemseclaims.azurewebsites.net/HodSummary/PVGCDetails/2386>https://uemseclaims.azurewebsites.net/HodSummary/PVGCDetails/2386</a><br /><br /><a href=https://uemseclaims.azurewebsites.net/HodSummary/PVGCDetails/2387>https://uemseclaims.azurewebsites.net/HodSummary/PVGCDetails/2387</a>"><br /><br /><a href=https://uemseclaims.azurewebsites.net/HodSummary/PVGCDetails/2386>https://uemseclaims.azurewebsites.net/HodSummary/PVGCDetails/2386</a><br /><br /><a href=https://uemseclaims.azurewebsites.net/HodSummary/PVGCDetails/2387>https://uemseclaims.azurewebsites.net/HodSummary/PVGCDetails/2387</a></a><br /><br />
+                    Thanks<br />
+                </span>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>,Claims which are pending for your verification/approvals as on Today 03-06-2024,03-06-2024 22:45:55
+2024-06-03 22:49:28.6947 INFO Returned all Expense Categories with types from database.
+2024-06-03 23:00:24.8760 INFO Returned all HRPVG Claims with details from database.
+2024-06-03 23:00:24.9390 ERROR Something went wrong inside GetAllHRPVGClaimWithDetailsAsync action: String '05/28/2024 17:49:57' was not recognized as a valid DateTime.
+2024-06-03 23:00:27.3597 ERROR Something went wrong: System.NullReferenceException: Object reference not set to an instance of an object.
+   at AspNetCore.Views_FinanceHRPVGClaim_Index.<ExecuteAsync>b__51_2() in C:\Users\Dell\Desktop\UETrack2019-eclaim-1d3df673f4b1\EClaimsWeb\Views\FinanceHRPVGClaim\Index.cshtml:line 77
+   at Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperExecutionContext.GetChildContentAsync(Boolean useCachedResult, HtmlEncoder encoder)
+   at Microsoft.AspNetCore.Mvc.TagHelpers.RenderAtEndOfFormTagHelper.ProcessAsync(TagHelperContext context, TagHelperOutput output)
+   at Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperRunner.<RunAsync>g__Awaited|0_0(Task task, TagHelperExecutionContext executionContext, Int32 i, Int32 count)
+   at AspNetCore.Views_FinanceHRPVGClaim_Index.ExecuteAsync() in C:\Users\Dell\Desktop\UETrack2019-eclaim-1d3df673f4b1\EClaimsWeb\Views\FinanceHRPVGClaim\Index.cshtml:line 61
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageCoreAsync(IRazorPage page, ViewContext context)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageAsync(IRazorPage page, ViewContext context, Boolean invokeViewStarts)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderAsync(ViewContext context)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ActionContext actionContext, IView view, ViewDataDictionary viewData, ITempDataDictionary tempData, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.ExecuteAsync(ActionContext context, ViewResult result)
+   at Microsoft.AspNetCore.Mvc.ViewResult.ExecuteResultAsync(ActionContext context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|29_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|19_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Builder.Extensions.MapMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authorization.Policy.AuthorizationMiddlewareResultHandler.HandleAsync(RequestDelegate next, HttpContext context, AuthorizationPolicy policy, PolicyAuthorizationResult authorizeResult)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at EClaimsWeb.CustomExceptionMiddleware.ExceptionMiddleware.InvokeAsync(HttpContext httpContext) in C:\Users\Dell\Desktop\UETrack2019-eclaim-1d3df673f4b1\EClaimsWeb\CustomExceptionMiddleware\ExceptionMiddleware.cs:line 27
+2024-06-03 23:00:33.7787 INFO Returned all HRPVG Claims with details from database.
+2024-06-03 23:00:33.7787 ERROR Something went wrong inside GetAllHRPVGClaimWithDetailsAsync action: String '05/28/2024 17:49:57' was not recognized as a valid DateTime.
+2024-06-03 23:00:33.8144 ERROR Something went wrong: System.NullReferenceException: Object reference not set to an instance of an object.
+   at AspNetCore.Views_FinanceHRPVGClaim_Index.<ExecuteAsync>b__51_2() in C:\Users\Dell\Desktop\UETrack2019-eclaim-1d3df673f4b1\EClaimsWeb\Views\FinanceHRPVGClaim\Index.cshtml:line 77
+   at Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperExecutionContext.GetChildContentAsync(Boolean useCachedResult, HtmlEncoder encoder)
+   at Microsoft.AspNetCore.Mvc.TagHelpers.RenderAtEndOfFormTagHelper.ProcessAsync(TagHelperContext context, TagHelperOutput output)
+   at Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperRunner.<RunAsync>g__Awaited|0_0(Task task, TagHelperExecutionContext executionContext, Int32 i, Int32 count)
+   at AspNetCore.Views_FinanceHRPVGClaim_Index.ExecuteAsync() in C:\Users\Dell\Desktop\UETrack2019-eclaim-1d3df673f4b1\EClaimsWeb\Views\FinanceHRPVGClaim\Index.cshtml:line 61
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageCoreAsync(IRazorPage page, ViewContext context)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageAsync(IRazorPage page, ViewContext context, Boolean invokeViewStarts)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderAsync(ViewContext context)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ActionContext actionContext, IView view, ViewDataDictionary viewData, ITempDataDictionary tempData, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.ExecuteAsync(ActionContext context, ViewResult result)
+   at Microsoft.AspNetCore.Mvc.ViewResult.ExecuteResultAsync(ActionContext context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|29_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|19_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Builder.Extensions.MapMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authorization.Policy.AuthorizationMiddlewareResultHandler.HandleAsync(RequestDelegate next, HttpContext context, AuthorizationPolicy policy, PolicyAuthorizationResult authorizeResult)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at EClaimsWeb.CustomExceptionMiddleware.ExceptionMiddleware.InvokeAsync(HttpContext httpContext) in C:\Users\Dell\Desktop\UETrack2019-eclaim-1d3df673f4b1\EClaimsWeb\CustomExceptionMiddleware\ExceptionMiddleware.cs:line 27
+2024-06-03 23:00:35.3653 INFO Returned all HRPVG Claims with details from database.
+2024-06-03 23:00:35.3653 ERROR Something went wrong inside GetAllHRPVGClaimWithDetailsAsync action: String '05/28/2024 17:49:57' was not recognized as a valid DateTime.
+2024-06-03 23:00:35.3759 ERROR Something went wrong: System.NullReferenceException: Object reference not set to an instance of an object.
+   at AspNetCore.Views_FinanceHRPVGClaim_Index.<ExecuteAsync>b__51_2() in C:\Users\Dell\Desktop\UETrack2019-eclaim-1d3df673f4b1\EClaimsWeb\Views\FinanceHRPVGClaim\Index.cshtml:line 77
+   at Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperExecutionContext.GetChildContentAsync(Boolean useCachedResult, HtmlEncoder encoder)
+   at Microsoft.AspNetCore.Mvc.TagHelpers.RenderAtEndOfFormTagHelper.ProcessAsync(TagHelperContext context, TagHelperOutput output)
+   at Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperRunner.<RunAsync>g__Awaited|0_0(Task task, TagHelperExecutionContext executionContext, Int32 i, Int32 count)
+   at AspNetCore.Views_FinanceHRPVGClaim_Index.ExecuteAsync() in C:\Users\Dell\Desktop\UETrack2019-eclaim-1d3df673f4b1\EClaimsWeb\Views\FinanceHRPVGClaim\Index.cshtml:line 61
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageCoreAsync(IRazorPage page, ViewContext context)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageAsync(IRazorPage page, ViewContext context, Boolean invokeViewStarts)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderAsync(ViewContext context)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ActionContext actionContext, IView view, ViewDataDictionary viewData, ITempDataDictionary tempData, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.ExecuteAsync(ActionContext context, ViewResult result)
+   at Microsoft.AspNetCore.Mvc.ViewResult.ExecuteResultAsync(ActionContext context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|29_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|19_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Builder.Extensions.MapMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authorization.Policy.AuthorizationMiddlewareResultHandler.HandleAsync(RequestDelegate next, HttpContext context, AuthorizationPolicy policy, PolicyAuthorizationResult authorizeResult)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at EClaimsWeb.CustomExceptionMiddleware.ExceptionMiddleware.InvokeAsync(HttpContext httpContext) in C:\Users\Dell\Desktop\UETrack2019-eclaim-1d3df673f4b1\EClaimsWeb\CustomExceptionMiddleware\ExceptionMiddleware.cs:line 27
+2024-06-03 23:36:26.5930 INFO Start installing Hangfire SQL objects...
+2024-06-03 23:36:29.2200 WARN An exception occurred while trying to perform the migration. Retrying...
+2024-06-03 23:36:30.3686 WARN An exception occurred while trying to perform the migration. Retrying...
+2024-06-03 23:36:31.3169 WARN An exception occurred while trying to perform the migration.
+2024-06-03 23:36:31.3169 WARN Was unable to perform the Hangfire schema migration due to an exception. Ignore this message unless you've just installed or upgraded Hangfire.
+2024-06-03 23:37:32.6973 INFO Returned all HRPVG Claims with details from database.
+2024-06-03 23:37:32.7288 ERROR Something went wrong inside GetAllHRPVGClaimWithDetailsAsync action: String '05/28/2024 17:49:57' was not recognized as a valid DateTime.
+2024-06-03 23:37:42.5610 ERROR Something went wrong: System.NullReferenceException: Object reference not set to an instance of an object.
+   at AspNetCore.Views_FinanceHRPVGClaim_Index.<ExecuteAsync>b__51_2() in C:\Users\Dell\Desktop\UETrack2019-eclaim-1d3df673f4b1\EClaimsWeb\Views\FinanceHRPVGClaim\Index.cshtml:line 77
+   at Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperExecutionContext.GetChildContentAsync(Boolean useCachedResult, HtmlEncoder encoder)
+   at Microsoft.AspNetCore.Mvc.TagHelpers.RenderAtEndOfFormTagHelper.ProcessAsync(TagHelperContext context, TagHelperOutput output)
+   at Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperRunner.<RunAsync>g__Awaited|0_0(Task task, TagHelperExecutionContext executionContext, Int32 i, Int32 count)
+   at AspNetCore.Views_FinanceHRPVGClaim_Index.ExecuteAsync() in C:\Users\Dell\Desktop\UETrack2019-eclaim-1d3df673f4b1\EClaimsWeb\Views\FinanceHRPVGClaim\Index.cshtml:line 61
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageCoreAsync(IRazorPage page, ViewContext context)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageAsync(IRazorPage page, ViewContext context, Boolean invokeViewStarts)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderAsync(ViewContext context)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ActionContext actionContext, IView view, ViewDataDictionary viewData, ITempDataDictionary tempData, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.ExecuteAsync(ActionContext context, ViewResult result)
+   at Microsoft.AspNetCore.Mvc.ViewResult.ExecuteResultAsync(ActionContext context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|29_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|19_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Builder.Extensions.MapMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authorization.Policy.AuthorizationMiddlewareResultHandler.HandleAsync(RequestDelegate next, HttpContext context, AuthorizationPolicy policy, PolicyAuthorizationResult authorizeResult)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at EClaimsWeb.CustomExceptionMiddleware.ExceptionMiddleware.InvokeAsync(HttpContext httpContext) in C:\Users\Dell\Desktop\UETrack2019-eclaim-1d3df673f4b1\EClaimsWeb\CustomExceptionMiddleware\ExceptionMiddleware.cs:line 27
+2024-06-03 23:40:21.4629 INFO Returned all HRPVG Claims with details from database.
+2024-06-03 23:40:21.7615 ERROR Something went wrong inside GetAllHRPVGClaimWithDetailsAsync action: String '05/28/2024 17:49:57' was not recognized as a valid DateTime.
+2024-06-03 23:40:37.1029 ERROR Something went wrong: System.NullReferenceException: Object reference not set to an instance of an object.
+   at AspNetCore.Views_FinanceHRPVGClaim_Index.<ExecuteAsync>b__51_2() in C:\Users\Dell\Desktop\UETrack2019-eclaim-1d3df673f4b1\EClaimsWeb\Views\FinanceHRPVGClaim\Index.cshtml:line 77
+   at Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperExecutionContext.GetChildContentAsync(Boolean useCachedResult, HtmlEncoder encoder)
+   at Microsoft.AspNetCore.Mvc.TagHelpers.RenderAtEndOfFormTagHelper.ProcessAsync(TagHelperContext context, TagHelperOutput output)
+   at Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperRunner.<RunAsync>g__Awaited|0_0(Task task, TagHelperExecutionContext executionContext, Int32 i, Int32 count)
+   at AspNetCore.Views_FinanceHRPVGClaim_Index.ExecuteAsync() in C:\Users\Dell\Desktop\UETrack2019-eclaim-1d3df673f4b1\EClaimsWeb\Views\FinanceHRPVGClaim\Index.cshtml:line 61
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageCoreAsync(IRazorPage page, ViewContext context)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageAsync(IRazorPage page, ViewContext context, Boolean invokeViewStarts)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderAsync(ViewContext context)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ActionContext actionContext, IView view, ViewDataDictionary viewData, ITempDataDictionary tempData, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.ExecuteAsync(ActionContext context, ViewResult result)
+   at Microsoft.AspNetCore.Mvc.ViewResult.ExecuteResultAsync(ActionContext context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|29_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|19_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Builder.Extensions.MapMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authorization.Policy.AuthorizationMiddlewareResultHandler.HandleAsync(RequestDelegate next, HttpContext context, AuthorizationPolicy policy, PolicyAuthorizationResult authorizeResult)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at EClaimsWeb.CustomExceptionMiddleware.ExceptionMiddleware.InvokeAsync(HttpContext httpContext) in C:\Users\Dell\Desktop\UETrack2019-eclaim-1d3df673f4b1\EClaimsWeb\CustomExceptionMiddleware\ExceptionMiddleware.cs:line 27
+2024-06-03 23:40:53.5154 INFO Returned all Mileage Claims with details from database.

@@ -1,0 +1,1575 @@
+2024-06-04 10:35:12.9209 INFO Start installing Hangfire SQL objects...
+2024-06-04 10:36:01.4378 WARN An exception occurred while trying to perform the migration. Retrying...
+2024-06-04 10:36:01.4706 WARN An exception occurred while trying to perform the migration. Retrying...
+2024-06-04 10:36:01.4706 WARN An exception occurred while trying to perform the migration.
+2024-06-04 10:36:01.4706 WARN Was unable to perform the Hangfire schema migration due to an exception. Ignore this message unless you've just installed or upgraded Hangfire.
+2024-06-04 10:45:16.3940 INFO Start installing Hangfire SQL objects...
+2024-06-04 10:45:17.2565 WARN An exception occurred while trying to perform the migration. Retrying...
+2024-06-04 10:45:17.4105 WARN An exception occurred while trying to perform the migration. Retrying...
+2024-06-04 10:45:17.5659 WARN An exception occurred while trying to perform the migration.
+2024-06-04 10:45:17.5659 WARN Was unable to perform the Hangfire schema migration due to an exception. Ignore this message unless you've just installed or upgraded Hangfire.
+2024-06-04 10:50:19.1286 INFO Returned all HRPVG Claims with details from database.
+2024-06-04 10:50:19.4082 ERROR Something went wrong inside GetAllHRPVGClaimWithDetailsAsync action: String '05/28/2024 17:49:57' was not recognized as a valid DateTime.
+2024-06-04 10:50:38.7655 ERROR Something went wrong: System.NullReferenceException: Object reference not set to an instance of an object.
+   at AspNetCore.Views_FinanceHRPVGClaim_Index.<ExecuteAsync>b__51_2() in C:\Users\Dell\Desktop\UETrack2019-eclaim-1d3df673f4b1\EClaimsWeb\Views\FinanceHRPVGClaim\Index.cshtml:line 77
+   at Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperExecutionContext.GetChildContentAsync(Boolean useCachedResult, HtmlEncoder encoder)
+   at Microsoft.AspNetCore.Mvc.TagHelpers.RenderAtEndOfFormTagHelper.ProcessAsync(TagHelperContext context, TagHelperOutput output)
+   at Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperRunner.<RunAsync>g__Awaited|0_0(Task task, TagHelperExecutionContext executionContext, Int32 i, Int32 count)
+   at AspNetCore.Views_FinanceHRPVGClaim_Index.ExecuteAsync() in C:\Users\Dell\Desktop\UETrack2019-eclaim-1d3df673f4b1\EClaimsWeb\Views\FinanceHRPVGClaim\Index.cshtml:line 61
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageCoreAsync(IRazorPage page, ViewContext context)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageAsync(IRazorPage page, ViewContext context, Boolean invokeViewStarts)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderAsync(ViewContext context)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ActionContext actionContext, IView view, ViewDataDictionary viewData, ITempDataDictionary tempData, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.ExecuteAsync(ActionContext context, ViewResult result)
+   at Microsoft.AspNetCore.Mvc.ViewResult.ExecuteResultAsync(ActionContext context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|29_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|19_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Builder.Extensions.MapMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authorization.Policy.AuthorizationMiddlewareResultHandler.HandleAsync(RequestDelegate next, HttpContext context, AuthorizationPolicy policy, PolicyAuthorizationResult authorizeResult)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at EClaimsWeb.CustomExceptionMiddleware.ExceptionMiddleware.InvokeAsync(HttpContext httpContext) in C:\Users\Dell\Desktop\UETrack2019-eclaim-1d3df673f4b1\EClaimsWeb\CustomExceptionMiddleware\ExceptionMiddleware.cs:line 27
+2024-06-04 11:09:44.5989 ERROR Something went wrong inside GetAllPVGClaimWithDetailsAsync action: String '02/27/2024 14:50:19' was not recognized as a valid DateTime.
+2024-06-04 11:10:33.3756 ERROR Something went wrong: System.NullReferenceException: Object reference not set to an instance of an object.
+   at AspNetCore.Views_PVGIROClaim_Index.ExecuteAsync() in C:\Users\Dell\Desktop\UETrack2019-eclaim-1d3df673f4b1\EClaimsWeb\Views\PVGIROClaim\Index.cshtml:line 143
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageCoreAsync(IRazorPage page, ViewContext context)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageAsync(IRazorPage page, ViewContext context, Boolean invokeViewStarts)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderAsync(ViewContext context)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ActionContext actionContext, IView view, ViewDataDictionary viewData, ITempDataDictionary tempData, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.ExecuteAsync(ActionContext context, ViewResult result)
+   at Microsoft.AspNetCore.Mvc.ViewResult.ExecuteResultAsync(ActionContext context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|29_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|19_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Builder.Extensions.MapMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authorization.Policy.AuthorizationMiddlewareResultHandler.HandleAsync(RequestDelegate next, HttpContext context, AuthorizationPolicy policy, PolicyAuthorizationResult authorizeResult)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at EClaimsWeb.CustomExceptionMiddleware.ExceptionMiddleware.InvokeAsync(HttpContext httpContext) in C:\Users\Dell\Desktop\UETrack2019-eclaim-1d3df673f4b1\EClaimsWeb\CustomExceptionMiddleware\ExceptionMiddleware.cs:line 27
+2024-06-04 11:10:44.6177 INFO Returned all Mileage Claims with details from database.
+2024-06-04 11:10:52.2088 INFO Returned all Mileage Claims with details from database.
+2024-06-04 11:10:57.7746 INFO Returned all Mileage Claims with details from database.
+2024-06-04 11:11:03.5448 INFO Returned all Expense Claims with details from database.
+2024-06-04 11:11:03.5448 ERROR Something went wrong inside GetAllExpenseClaimWithDetailsAsync action: String '05/29/2024 17:20:36' was not recognized as a valid DateTime.
+2024-06-04 11:11:05.2185 ERROR Something went wrong: System.NullReferenceException: Object reference not set to an instance of an object.
+   at AspNetCore.Views_FinanceExpenseClaim_Index.<ExecuteAsync>b__53_2() in C:\Users\Dell\Desktop\UETrack2019-eclaim-1d3df673f4b1\EClaimsWeb\Views\FinanceExpenseClaim\Index.cshtml:line 77
+   at Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperExecutionContext.GetChildContentAsync(Boolean useCachedResult, HtmlEncoder encoder)
+   at Microsoft.AspNetCore.Mvc.TagHelpers.RenderAtEndOfFormTagHelper.ProcessAsync(TagHelperContext context, TagHelperOutput output)
+   at Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperRunner.<RunAsync>g__Awaited|0_0(Task task, TagHelperExecutionContext executionContext, Int32 i, Int32 count)
+   at AspNetCore.Views_FinanceExpenseClaim_Index.ExecuteAsync() in C:\Users\Dell\Desktop\UETrack2019-eclaim-1d3df673f4b1\EClaimsWeb\Views\FinanceExpenseClaim\Index.cshtml:line 61
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageCoreAsync(IRazorPage page, ViewContext context)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageAsync(IRazorPage page, ViewContext context, Boolean invokeViewStarts)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderAsync(ViewContext context)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ActionContext actionContext, IView view, ViewDataDictionary viewData, ITempDataDictionary tempData, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.ExecuteAsync(ActionContext context, ViewResult result)
+   at Microsoft.AspNetCore.Mvc.ViewResult.ExecuteResultAsync(ActionContext context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|29_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|19_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Builder.Extensions.MapMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authorization.Policy.AuthorizationMiddlewareResultHandler.HandleAsync(RequestDelegate next, HttpContext context, AuthorizationPolicy policy, PolicyAuthorizationResult authorizeResult)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at EClaimsWeb.CustomExceptionMiddleware.ExceptionMiddleware.InvokeAsync(HttpContext httpContext) in C:\Users\Dell\Desktop\UETrack2019-eclaim-1d3df673f4b1\EClaimsWeb\CustomExceptionMiddleware\ExceptionMiddleware.cs:line 27
+2024-06-04 11:11:12.5397 ERROR Something went wrong inside GetAllMileageClaimWithDetailsAsync action: String '05/29/2024 17:20:36' was not recognized as a valid DateTime.
+2024-06-04 11:11:13.8351 ERROR Something went wrong: System.NullReferenceException: Object reference not set to an instance of an object.
+   at AspNetCore.Views_FinanceUserClaimsReport_Index.<ExecuteAsync>b__48_1() in C:\Users\Dell\Desktop\UETrack2019-eclaim-1d3df673f4b1\EClaimsWeb\Views\FinanceUserClaimsReport\Index.cshtml:line 49
+   at Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperExecutionContext.GetChildContentAsync(Boolean useCachedResult, HtmlEncoder encoder)
+   at Microsoft.AspNetCore.Mvc.TagHelpers.RenderAtEndOfFormTagHelper.ProcessAsync(TagHelperContext context, TagHelperOutput output)
+   at Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperRunner.<RunAsync>g__Awaited|0_0(Task task, TagHelperExecutionContext executionContext, Int32 i, Int32 count)
+   at AspNetCore.Views_FinanceUserClaimsReport_Index.ExecuteAsync() in C:\Users\Dell\Desktop\UETrack2019-eclaim-1d3df673f4b1\EClaimsWeb\Views\FinanceUserClaimsReport\Index.cshtml:line 4
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageCoreAsync(IRazorPage page, ViewContext context)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageAsync(IRazorPage page, ViewContext context, Boolean invokeViewStarts)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderAsync(ViewContext context)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ActionContext actionContext, IView view, ViewDataDictionary viewData, ITempDataDictionary tempData, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.ExecuteAsync(ActionContext context, ViewResult result)
+   at Microsoft.AspNetCore.Mvc.ViewResult.ExecuteResultAsync(ActionContext context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|29_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|19_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Builder.Extensions.MapMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at EClaimsWeb.CustomExceptionMiddleware.ExceptionMiddleware.InvokeAsync(HttpContext httpContext) in C:\Users\Dell\Desktop\UETrack2019-eclaim-1d3df673f4b1\EClaimsWeb\CustomExceptionMiddleware\ExceptionMiddleware.cs:line 27
+2024-06-04 11:11:56.2841 INFO Returned all PVC Claims with details from database.
+2024-06-04 11:12:02.3958 ERROR Something went wrong inside GetAllMileageClaimWithDetailsAsync action: String '05/29/2024 17:20:36' was not recognized as a valid DateTime.
+2024-06-04 11:12:02.4524 ERROR Something went wrong: System.NullReferenceException: Object reference not set to an instance of an object.
+   at AspNetCore.Views_FinanceUserClaimsReport_Index.<ExecuteAsync>b__48_1() in C:\Users\Dell\Desktop\UETrack2019-eclaim-1d3df673f4b1\EClaimsWeb\Views\FinanceUserClaimsReport\Index.cshtml:line 49
+   at Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperExecutionContext.GetChildContentAsync(Boolean useCachedResult, HtmlEncoder encoder)
+   at Microsoft.AspNetCore.Mvc.TagHelpers.RenderAtEndOfFormTagHelper.ProcessAsync(TagHelperContext context, TagHelperOutput output)
+   at Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperRunner.<RunAsync>g__Awaited|0_0(Task task, TagHelperExecutionContext executionContext, Int32 i, Int32 count)
+   at AspNetCore.Views_FinanceUserClaimsReport_Index.ExecuteAsync() in C:\Users\Dell\Desktop\UETrack2019-eclaim-1d3df673f4b1\EClaimsWeb\Views\FinanceUserClaimsReport\Index.cshtml:line 4
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageCoreAsync(IRazorPage page, ViewContext context)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageAsync(IRazorPage page, ViewContext context, Boolean invokeViewStarts)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderAsync(ViewContext context)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ActionContext actionContext, IView view, ViewDataDictionary viewData, ITempDataDictionary tempData, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.ExecuteAsync(ActionContext context, ViewResult result)
+   at Microsoft.AspNetCore.Mvc.ViewResult.ExecuteResultAsync(ActionContext context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|29_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|19_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Builder.Extensions.MapMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at EClaimsWeb.CustomExceptionMiddleware.ExceptionMiddleware.InvokeAsync(HttpContext httpContext) in C:\Users\Dell\Desktop\UETrack2019-eclaim-1d3df673f4b1\EClaimsWeb\CustomExceptionMiddleware\ExceptionMiddleware.cs:line 27
+2024-06-04 11:12:08.4582 ERROR Something went wrong inside GetAllMileageClaimWithDetailsAsync action: String '05/29/2024 17:36:16' was not recognized as a valid DateTime.
+2024-06-04 11:12:09.6751 ERROR Something went wrong: System.NullReferenceException: Object reference not set to an instance of an object.
+   at AspNetCore.Views_FinancePVGClaimsReport_Index.<ExecuteAsync>b__47_1() in C:\Users\Dell\Desktop\UETrack2019-eclaim-1d3df673f4b1\EClaimsWeb\Views\FinancePVGClaimsReport\Index.cshtml:line 49
+   at Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperExecutionContext.GetChildContentAsync(Boolean useCachedResult, HtmlEncoder encoder)
+   at Microsoft.AspNetCore.Mvc.TagHelpers.RenderAtEndOfFormTagHelper.ProcessAsync(TagHelperContext context, TagHelperOutput output)
+   at Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperRunner.<RunAsync>g__Awaited|0_0(Task task, TagHelperExecutionContext executionContext, Int32 i, Int32 count)
+   at AspNetCore.Views_FinancePVGClaimsReport_Index.ExecuteAsync() in C:\Users\Dell\Desktop\UETrack2019-eclaim-1d3df673f4b1\EClaimsWeb\Views\FinancePVGClaimsReport\Index.cshtml:line 4
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageCoreAsync(IRazorPage page, ViewContext context)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageAsync(IRazorPage page, ViewContext context, Boolean invokeViewStarts)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderAsync(ViewContext context)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ActionContext actionContext, IView view, ViewDataDictionary viewData, ITempDataDictionary tempData, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.ExecuteAsync(ActionContext context, ViewResult result)
+   at Microsoft.AspNetCore.Mvc.ViewResult.ExecuteResultAsync(ActionContext context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|29_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|19_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Builder.Extensions.MapMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at EClaimsWeb.CustomExceptionMiddleware.ExceptionMiddleware.InvokeAsync(HttpContext httpContext) in C:\Users\Dell\Desktop\UETrack2019-eclaim-1d3df673f4b1\EClaimsWeb\CustomExceptionMiddleware\ExceptionMiddleware.cs:line 27
+2024-06-04 11:12:15.7550 ERROR Something went wrong inside GetAllMileageClaimWithDetailsAsync action: String '05/28/2024 17:49:57' was not recognized as a valid DateTime.
+2024-06-04 11:12:16.7790 ERROR Something went wrong: System.NullReferenceException: Object reference not set to an instance of an object.
+   at AspNetCore.Views_FinanceHRPVGClaimsReport_Index.<ExecuteAsync>b__47_1() in C:\Users\Dell\Desktop\UETrack2019-eclaim-1d3df673f4b1\EClaimsWeb\Views\FinanceHRPVGClaimsReport\Index.cshtml:line 49
+   at Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperExecutionContext.GetChildContentAsync(Boolean useCachedResult, HtmlEncoder encoder)
+   at Microsoft.AspNetCore.Mvc.TagHelpers.RenderAtEndOfFormTagHelper.ProcessAsync(TagHelperContext context, TagHelperOutput output)
+   at Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperRunner.<RunAsync>g__Awaited|0_0(Task task, TagHelperExecutionContext executionContext, Int32 i, Int32 count)
+   at AspNetCore.Views_FinanceHRPVGClaimsReport_Index.ExecuteAsync() in C:\Users\Dell\Desktop\UETrack2019-eclaim-1d3df673f4b1\EClaimsWeb\Views\FinanceHRPVGClaimsReport\Index.cshtml:line 4
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageCoreAsync(IRazorPage page, ViewContext context)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageAsync(IRazorPage page, ViewContext context, Boolean invokeViewStarts)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderAsync(ViewContext context)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ActionContext actionContext, IView view, ViewDataDictionary viewData, ITempDataDictionary tempData, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.ExecuteAsync(ActionContext context, ViewResult result)
+   at Microsoft.AspNetCore.Mvc.ViewResult.ExecuteResultAsync(ActionContext context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|29_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|19_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Builder.Extensions.MapMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at EClaimsWeb.CustomExceptionMiddleware.ExceptionMiddleware.InvokeAsync(HttpContext httpContext) in C:\Users\Dell\Desktop\UETrack2019-eclaim-1d3df673f4b1\EClaimsWeb\CustomExceptionMiddleware\ExceptionMiddleware.cs:line 27
+2024-06-04 11:12:22.3415 ERROR Something went wrong inside GetAllMileageClaimWithDetailsAsync action: String '05/28/2024 17:49:57' was not recognized as a valid DateTime.
+2024-06-04 11:12:22.3715 ERROR Something went wrong: System.NullReferenceException: Object reference not set to an instance of an object.
+   at AspNetCore.Views_FinanceHRPVGClaimsReport_Index.<ExecuteAsync>b__47_1() in C:\Users\Dell\Desktop\UETrack2019-eclaim-1d3df673f4b1\EClaimsWeb\Views\FinanceHRPVGClaimsReport\Index.cshtml:line 49
+   at Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperExecutionContext.GetChildContentAsync(Boolean useCachedResult, HtmlEncoder encoder)
+   at Microsoft.AspNetCore.Mvc.TagHelpers.RenderAtEndOfFormTagHelper.ProcessAsync(TagHelperContext context, TagHelperOutput output)
+   at Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperRunner.<RunAsync>g__Awaited|0_0(Task task, TagHelperExecutionContext executionContext, Int32 i, Int32 count)
+   at AspNetCore.Views_FinanceHRPVGClaimsReport_Index.ExecuteAsync() in C:\Users\Dell\Desktop\UETrack2019-eclaim-1d3df673f4b1\EClaimsWeb\Views\FinanceHRPVGClaimsReport\Index.cshtml:line 4
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageCoreAsync(IRazorPage page, ViewContext context)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageAsync(IRazorPage page, ViewContext context, Boolean invokeViewStarts)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderAsync(ViewContext context)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ActionContext actionContext, IView view, ViewDataDictionary viewData, ITempDataDictionary tempData, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.ExecuteAsync(ActionContext context, ViewResult result)
+   at Microsoft.AspNetCore.Mvc.ViewResult.ExecuteResultAsync(ActionContext context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|29_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|19_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Builder.Extensions.MapMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at EClaimsWeb.CustomExceptionMiddleware.ExceptionMiddleware.InvokeAsync(HttpContext httpContext) in C:\Users\Dell\Desktop\UETrack2019-eclaim-1d3df673f4b1\EClaimsWeb\CustomExceptionMiddleware\ExceptionMiddleware.cs:line 27
+2024-06-04 11:13:15.6428 ERROR Something went wrong inside GetAllMileageClaimWithDetailsAsync action: String '05/28/2024 17:49:57' was not recognized as a valid DateTime.
+2024-06-04 11:13:15.6428 ERROR Something went wrong: System.NullReferenceException: Object reference not set to an instance of an object.
+   at AspNetCore.Views_FinanceHRPVGClaimsReport_Index.<ExecuteAsync>b__47_1() in C:\Users\Dell\Desktop\UETrack2019-eclaim-1d3df673f4b1\EClaimsWeb\Views\FinanceHRPVGClaimsReport\Index.cshtml:line 49
+   at Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperExecutionContext.GetChildContentAsync(Boolean useCachedResult, HtmlEncoder encoder)
+   at Microsoft.AspNetCore.Mvc.TagHelpers.RenderAtEndOfFormTagHelper.ProcessAsync(TagHelperContext context, TagHelperOutput output)
+   at Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperRunner.<RunAsync>g__Awaited|0_0(Task task, TagHelperExecutionContext executionContext, Int32 i, Int32 count)
+   at AspNetCore.Views_FinanceHRPVGClaimsReport_Index.ExecuteAsync() in C:\Users\Dell\Desktop\UETrack2019-eclaim-1d3df673f4b1\EClaimsWeb\Views\FinanceHRPVGClaimsReport\Index.cshtml:line 4
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageCoreAsync(IRazorPage page, ViewContext context)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageAsync(IRazorPage page, ViewContext context, Boolean invokeViewStarts)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderAsync(ViewContext context)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ActionContext actionContext, IView view, ViewDataDictionary viewData, ITempDataDictionary tempData, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.ExecuteAsync(ActionContext context, ViewResult result)
+   at Microsoft.AspNetCore.Mvc.ViewResult.ExecuteResultAsync(ActionContext context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|29_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|19_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Builder.Extensions.MapMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at EClaimsWeb.CustomExceptionMiddleware.ExceptionMiddleware.InvokeAsync(HttpContext httpContext) in C:\Users\Dell\Desktop\UETrack2019-eclaim-1d3df673f4b1\EClaimsWeb\CustomExceptionMiddleware\ExceptionMiddleware.cs:line 27
+2024-06-04 11:13:20.7357 ERROR Something went wrong inside GetAllMileageClaimWithDetailsAsync action: String '05/28/2024 17:49:57' was not recognized as a valid DateTime.
+2024-06-04 11:13:20.7357 ERROR Something went wrong: System.NullReferenceException: Object reference not set to an instance of an object.
+   at AspNetCore.Views_FinanceHRPVGClaimsReport_Index.<ExecuteAsync>b__47_1() in C:\Users\Dell\Desktop\UETrack2019-eclaim-1d3df673f4b1\EClaimsWeb\Views\FinanceHRPVGClaimsReport\Index.cshtml:line 49
+   at Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperExecutionContext.GetChildContentAsync(Boolean useCachedResult, HtmlEncoder encoder)
+   at Microsoft.AspNetCore.Mvc.TagHelpers.RenderAtEndOfFormTagHelper.ProcessAsync(TagHelperContext context, TagHelperOutput output)
+   at Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperRunner.<RunAsync>g__Awaited|0_0(Task task, TagHelperExecutionContext executionContext, Int32 i, Int32 count)
+   at AspNetCore.Views_FinanceHRPVGClaimsReport_Index.ExecuteAsync() in C:\Users\Dell\Desktop\UETrack2019-eclaim-1d3df673f4b1\EClaimsWeb\Views\FinanceHRPVGClaimsReport\Index.cshtml:line 4
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageCoreAsync(IRazorPage page, ViewContext context)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageAsync(IRazorPage page, ViewContext context, Boolean invokeViewStarts)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderAsync(ViewContext context)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ActionContext actionContext, IView view, ViewDataDictionary viewData, ITempDataDictionary tempData, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.ExecuteAsync(ActionContext context, ViewResult result)
+   at Microsoft.AspNetCore.Mvc.ViewResult.ExecuteResultAsync(ActionContext context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|29_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|19_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Builder.Extensions.MapMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at EClaimsWeb.CustomExceptionMiddleware.ExceptionMiddleware.InvokeAsync(HttpContext httpContext) in C:\Users\Dell\Desktop\UETrack2019-eclaim-1d3df673f4b1\EClaimsWeb\CustomExceptionMiddleware\ExceptionMiddleware.cs:line 27
+2024-06-04 11:16:22.0157 ERROR Something went wrong inside GetAllMileageClaimWithDetailsAsync action: String '05/28/2024 17:49:57' was not recognized as a valid DateTime.
+2024-06-04 11:16:29.5837 ERROR Something went wrong: System.NullReferenceException: Object reference not set to an instance of an object.
+   at AspNetCore.Views_FinanceHRPVGClaimsReport_Index.<ExecuteAsync>b__47_1() in C:\Users\Dell\Desktop\UETrack2019-eclaim-1d3df673f4b1\EClaimsWeb\Views\FinanceHRPVGClaimsReport\Index.cshtml:line 49
+   at Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperExecutionContext.GetChildContentAsync(Boolean useCachedResult, HtmlEncoder encoder)
+   at Microsoft.AspNetCore.Mvc.TagHelpers.RenderAtEndOfFormTagHelper.ProcessAsync(TagHelperContext context, TagHelperOutput output)
+   at Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperRunner.<RunAsync>g__Awaited|0_0(Task task, TagHelperExecutionContext executionContext, Int32 i, Int32 count)
+   at AspNetCore.Views_FinanceHRPVGClaimsReport_Index.ExecuteAsync() in C:\Users\Dell\Desktop\UETrack2019-eclaim-1d3df673f4b1\EClaimsWeb\Views\FinanceHRPVGClaimsReport\Index.cshtml:line 4
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageCoreAsync(IRazorPage page, ViewContext context)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageAsync(IRazorPage page, ViewContext context, Boolean invokeViewStarts)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderAsync(ViewContext context)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ActionContext actionContext, IView view, ViewDataDictionary viewData, ITempDataDictionary tempData, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.ExecuteAsync(ActionContext context, ViewResult result)
+   at Microsoft.AspNetCore.Mvc.ViewResult.ExecuteResultAsync(ActionContext context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|29_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|19_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Builder.Extensions.MapMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at EClaimsWeb.CustomExceptionMiddleware.ExceptionMiddleware.InvokeAsync(HttpContext httpContext) in C:\Users\Dell\Desktop\UETrack2019-eclaim-1d3df673f4b1\EClaimsWeb\CustomExceptionMiddleware\ExceptionMiddleware.cs:line 27
+2024-06-04 11:23:38.7719 ERROR Something went wrong inside GetAllMileageClaimWithDetailsAsync action: String '05/28/2024 17:49:57' was not recognized as a valid DateTime.
+2024-06-04 11:24:01.0832 ERROR Something went wrong: System.NullReferenceException: Object reference not set to an instance of an object.
+   at AspNetCore.Views_FinanceHRPVGClaimsReport_Index.<ExecuteAsync>b__47_1() in C:\Users\Dell\Desktop\UETrack2019-eclaim-1d3df673f4b1\EClaimsWeb\Views\FinanceHRPVGClaimsReport\Index.cshtml:line 49
+   at Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperExecutionContext.GetChildContentAsync(Boolean useCachedResult, HtmlEncoder encoder)
+   at Microsoft.AspNetCore.Mvc.TagHelpers.RenderAtEndOfFormTagHelper.ProcessAsync(TagHelperContext context, TagHelperOutput output)
+   at Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperRunner.<RunAsync>g__Awaited|0_0(Task task, TagHelperExecutionContext executionContext, Int32 i, Int32 count)
+   at AspNetCore.Views_FinanceHRPVGClaimsReport_Index.ExecuteAsync() in C:\Users\Dell\Desktop\UETrack2019-eclaim-1d3df673f4b1\EClaimsWeb\Views\FinanceHRPVGClaimsReport\Index.cshtml:line 4
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageCoreAsync(IRazorPage page, ViewContext context)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageAsync(IRazorPage page, ViewContext context, Boolean invokeViewStarts)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderAsync(ViewContext context)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ActionContext actionContext, IView view, ViewDataDictionary viewData, ITempDataDictionary tempData, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.ExecuteAsync(ActionContext context, ViewResult result)
+   at Microsoft.AspNetCore.Mvc.ViewResult.ExecuteResultAsync(ActionContext context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|29_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|19_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Builder.Extensions.MapMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at EClaimsWeb.CustomExceptionMiddleware.ExceptionMiddleware.InvokeAsync(HttpContext httpContext) in C:\Users\Dell\Desktop\UETrack2019-eclaim-1d3df673f4b1\EClaimsWeb\CustomExceptionMiddleware\ExceptionMiddleware.cs:line 27
+2024-06-04 11:27:21.4435 ERROR Something went wrong inside GetAllMileageClaimWithDetailsAsync action: String '05/28/2024 17:49:57' was not recognized as a valid DateTime.
+2024-06-04 11:27:22.6868 ERROR Something went wrong: System.NullReferenceException: Object reference not set to an instance of an object.
+   at AspNetCore.Views_FinanceHRPVGClaimsReport_Index.<ExecuteAsync>b__47_1() in C:\Users\Dell\Desktop\UETrack2019-eclaim-1d3df673f4b1\EClaimsWeb\Views\FinanceHRPVGClaimsReport\Index.cshtml:line 49
+   at Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperExecutionContext.GetChildContentAsync(Boolean useCachedResult, HtmlEncoder encoder)
+   at Microsoft.AspNetCore.Mvc.TagHelpers.RenderAtEndOfFormTagHelper.ProcessAsync(TagHelperContext context, TagHelperOutput output)
+   at Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperRunner.<RunAsync>g__Awaited|0_0(Task task, TagHelperExecutionContext executionContext, Int32 i, Int32 count)
+   at AspNetCore.Views_FinanceHRPVGClaimsReport_Index.ExecuteAsync() in C:\Users\Dell\Desktop\UETrack2019-eclaim-1d3df673f4b1\EClaimsWeb\Views\FinanceHRPVGClaimsReport\Index.cshtml:line 4
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageCoreAsync(IRazorPage page, ViewContext context)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageAsync(IRazorPage page, ViewContext context, Boolean invokeViewStarts)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderAsync(ViewContext context)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ActionContext actionContext, IView view, ViewDataDictionary viewData, ITempDataDictionary tempData, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.ExecuteAsync(ActionContext context, ViewResult result)
+   at Microsoft.AspNetCore.Mvc.ViewResult.ExecuteResultAsync(ActionContext context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|29_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|19_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Builder.Extensions.MapMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at EClaimsWeb.CustomExceptionMiddleware.ExceptionMiddleware.InvokeAsync(HttpContext httpContext) in C:\Users\Dell\Desktop\UETrack2019-eclaim-1d3df673f4b1\EClaimsWeb\CustomExceptionMiddleware\ExceptionMiddleware.cs:line 27
+2024-06-04 11:33:26.5703 INFO Start installing Hangfire SQL objects...
+2024-06-04 11:33:28.1390 WARN An exception occurred while trying to perform the migration. Retrying...
+2024-06-04 11:33:28.2933 WARN An exception occurred while trying to perform the migration. Retrying...
+2024-06-04 11:33:28.4487 WARN An exception occurred while trying to perform the migration.
+2024-06-04 11:33:28.4487 WARN Was unable to perform the Hangfire schema migration due to an exception. Ignore this message unless you've just installed or upgraded Hangfire.
+2024-06-04 11:33:48.3254 ERROR Something went wrong inside GetAllMileageClaimWithDetailsAsync action: Value cannot be null. (Parameter 's')
+2024-06-04 11:34:03.5480 ERROR Something went wrong: System.NullReferenceException: Object reference not set to an instance of an object.
+   at AspNetCore.Views_FinanceHRPVGClaimsReport_Index.<ExecuteAsync>b__47_1() in C:\Users\Dell\Desktop\UETrack2019-eclaim-1d3df673f4b1\EClaimsWeb\Views\FinanceHRPVGClaimsReport\Index.cshtml:line 49
+   at Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperExecutionContext.GetChildContentAsync(Boolean useCachedResult, HtmlEncoder encoder)
+   at Microsoft.AspNetCore.Mvc.TagHelpers.RenderAtEndOfFormTagHelper.ProcessAsync(TagHelperContext context, TagHelperOutput output)
+   at Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperRunner.<RunAsync>g__Awaited|0_0(Task task, TagHelperExecutionContext executionContext, Int32 i, Int32 count)
+   at AspNetCore.Views_FinanceHRPVGClaimsReport_Index.ExecuteAsync() in C:\Users\Dell\Desktop\UETrack2019-eclaim-1d3df673f4b1\EClaimsWeb\Views\FinanceHRPVGClaimsReport\Index.cshtml:line 4
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageCoreAsync(IRazorPage page, ViewContext context)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageAsync(IRazorPage page, ViewContext context, Boolean invokeViewStarts)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderAsync(ViewContext context)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ActionContext actionContext, IView view, ViewDataDictionary viewData, ITempDataDictionary tempData, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.ExecuteAsync(ActionContext context, ViewResult result)
+   at Microsoft.AspNetCore.Mvc.ViewResult.ExecuteResultAsync(ActionContext context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|29_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|19_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Builder.Extensions.MapMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at EClaimsWeb.CustomExceptionMiddleware.ExceptionMiddleware.InvokeAsync(HttpContext httpContext) in C:\Users\Dell\Desktop\UETrack2019-eclaim-1d3df673f4b1\EClaimsWeb\CustomExceptionMiddleware\ExceptionMiddleware.cs:line 27
+2024-06-04 11:36:02.6728 ERROR Something went wrong inside GetAllMileageClaimWithDetailsAsync action: Value cannot be null. (Parameter 's')
+2024-06-04 11:36:02.7059 ERROR Something went wrong: System.NullReferenceException: Object reference not set to an instance of an object.
+   at AspNetCore.Views_FinanceHRPVGClaimsReport_Index.<ExecuteAsync>b__47_1() in C:\Users\Dell\Desktop\UETrack2019-eclaim-1d3df673f4b1\EClaimsWeb\Views\FinanceHRPVGClaimsReport\Index.cshtml:line 49
+   at Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperExecutionContext.GetChildContentAsync(Boolean useCachedResult, HtmlEncoder encoder)
+   at Microsoft.AspNetCore.Mvc.TagHelpers.RenderAtEndOfFormTagHelper.ProcessAsync(TagHelperContext context, TagHelperOutput output)
+   at Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperRunner.<RunAsync>g__Awaited|0_0(Task task, TagHelperExecutionContext executionContext, Int32 i, Int32 count)
+   at AspNetCore.Views_FinanceHRPVGClaimsReport_Index.ExecuteAsync() in C:\Users\Dell\Desktop\UETrack2019-eclaim-1d3df673f4b1\EClaimsWeb\Views\FinanceHRPVGClaimsReport\Index.cshtml:line 4
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageCoreAsync(IRazorPage page, ViewContext context)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageAsync(IRazorPage page, ViewContext context, Boolean invokeViewStarts)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderAsync(ViewContext context)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ActionContext actionContext, IView view, ViewDataDictionary viewData, ITempDataDictionary tempData, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.ExecuteAsync(ActionContext context, ViewResult result)
+   at Microsoft.AspNetCore.Mvc.ViewResult.ExecuteResultAsync(ActionContext context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|29_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|19_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Builder.Extensions.MapMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at EClaimsWeb.CustomExceptionMiddleware.ExceptionMiddleware.InvokeAsync(HttpContext httpContext) in C:\Users\Dell\Desktop\UETrack2019-eclaim-1d3df673f4b1\EClaimsWeb\CustomExceptionMiddleware\ExceptionMiddleware.cs:line 27
+2024-06-04 11:36:42.2273 ERROR Something went wrong inside GetAllMileageClaimWithDetailsAsync action: Value cannot be null. (Parameter 's')
+2024-06-04 11:36:49.6621 ERROR Something went wrong: System.NullReferenceException: Object reference not set to an instance of an object.
+   at AspNetCore.Views_FinanceHRPVGClaimsReport_Index.<ExecuteAsync>b__47_1() in C:\Users\Dell\Desktop\UETrack2019-eclaim-1d3df673f4b1\EClaimsWeb\Views\FinanceHRPVGClaimsReport\Index.cshtml:line 49
+   at Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperExecutionContext.GetChildContentAsync(Boolean useCachedResult, HtmlEncoder encoder)
+   at Microsoft.AspNetCore.Mvc.TagHelpers.RenderAtEndOfFormTagHelper.ProcessAsync(TagHelperContext context, TagHelperOutput output)
+   at Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperRunner.<RunAsync>g__Awaited|0_0(Task task, TagHelperExecutionContext executionContext, Int32 i, Int32 count)
+   at AspNetCore.Views_FinanceHRPVGClaimsReport_Index.ExecuteAsync() in C:\Users\Dell\Desktop\UETrack2019-eclaim-1d3df673f4b1\EClaimsWeb\Views\FinanceHRPVGClaimsReport\Index.cshtml:line 4
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageCoreAsync(IRazorPage page, ViewContext context)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageAsync(IRazorPage page, ViewContext context, Boolean invokeViewStarts)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderAsync(ViewContext context)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ActionContext actionContext, IView view, ViewDataDictionary viewData, ITempDataDictionary tempData, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.ExecuteAsync(ActionContext context, ViewResult result)
+   at Microsoft.AspNetCore.Mvc.ViewResult.ExecuteResultAsync(ActionContext context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|29_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|19_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Builder.Extensions.MapMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at EClaimsWeb.CustomExceptionMiddleware.ExceptionMiddleware.InvokeAsync(HttpContext httpContext) in C:\Users\Dell\Desktop\UETrack2019-eclaim-1d3df673f4b1\EClaimsWeb\CustomExceptionMiddleware\ExceptionMiddleware.cs:line 27
+2024-06-04 11:38:44.1661 INFO Start installing Hangfire SQL objects...
+2024-06-04 11:38:45.3117 WARN An exception occurred while trying to perform the migration. Retrying...
+2024-06-04 11:38:45.4748 WARN An exception occurred while trying to perform the migration. Retrying...
+2024-06-04 11:38:45.6234 WARN An exception occurred while trying to perform the migration.
+2024-06-04 11:38:45.6234 WARN Was unable to perform the Hangfire schema migration due to an exception. Ignore this message unless you've just installed or upgraded Hangfire.
+2024-06-04 11:40:41.8254 INFO Returned all Mileage Claims with details from database.
+2024-06-04 11:42:35.8188 INFO Returned all HRPVC Claims with details from database.
+2024-06-04 11:42:36.0743 ERROR Something went wrong inside GetAllHRPVCClaimWithDetailsAsync action: String '05/20/2024 16:59:43' was not recognized as a valid DateTime.
+2024-06-04 11:42:56.6123 ERROR Something went wrong: System.NullReferenceException: Object reference not set to an instance of an object.
+   at AspNetCore.Views_FinanceHRPVCClaim_Index.<ExecuteAsync>b__51_2() in C:\Users\Dell\Desktop\UETrack2019-eclaim-1d3df673f4b1\EClaimsWeb\Views\FinanceHRPVCClaim\Index.cshtml:line 77
+   at Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperExecutionContext.GetChildContentAsync(Boolean useCachedResult, HtmlEncoder encoder)
+   at Microsoft.AspNetCore.Mvc.TagHelpers.RenderAtEndOfFormTagHelper.ProcessAsync(TagHelperContext context, TagHelperOutput output)
+   at Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperRunner.<RunAsync>g__Awaited|0_0(Task task, TagHelperExecutionContext executionContext, Int32 i, Int32 count)
+   at AspNetCore.Views_FinanceHRPVCClaim_Index.ExecuteAsync() in C:\Users\Dell\Desktop\UETrack2019-eclaim-1d3df673f4b1\EClaimsWeb\Views\FinanceHRPVCClaim\Index.cshtml:line 61
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageCoreAsync(IRazorPage page, ViewContext context)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageAsync(IRazorPage page, ViewContext context, Boolean invokeViewStarts)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderAsync(ViewContext context)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ActionContext actionContext, IView view, ViewDataDictionary viewData, ITempDataDictionary tempData, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.ExecuteAsync(ActionContext context, ViewResult result)
+   at Microsoft.AspNetCore.Mvc.ViewResult.ExecuteResultAsync(ActionContext context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|29_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|19_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Builder.Extensions.MapMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authorization.Policy.AuthorizationMiddlewareResultHandler.HandleAsync(RequestDelegate next, HttpContext context, AuthorizationPolicy policy, PolicyAuthorizationResult authorizeResult)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at EClaimsWeb.CustomExceptionMiddleware.ExceptionMiddleware.InvokeAsync(HttpContext httpContext) in C:\Users\Dell\Desktop\UETrack2019-eclaim-1d3df673f4b1\EClaimsWeb\CustomExceptionMiddleware\ExceptionMiddleware.cs:line 27
+2024-06-04 11:42:56.6471 INFO Returned all HRPVG Claims with details from database.
+2024-06-04 11:44:58.8295 ERROR Something went wrong inside GetAllHRPVGClaimWithDetailsAsync action: String '05/28/2024 17:49:57' was not recognized as a valid DateTime.
+2024-06-04 11:44:59.6702 INFO Returned all HRPVC Claims with details from database.
+2024-06-04 11:44:59.7258 ERROR Something went wrong inside GetAllHRPVCClaimWithDetailsAsync action: String '05/20/2024 16:59:43' was not recognized as a valid DateTime.
+2024-06-04 11:45:01.1058 ERROR Something went wrong: System.NullReferenceException: Object reference not set to an instance of an object.
+   at AspNetCore.Views_FinanceHRPVCClaim_Index.<ExecuteAsync>b__51_2() in C:\Users\Dell\Desktop\UETrack2019-eclaim-1d3df673f4b1\EClaimsWeb\Views\FinanceHRPVCClaim\Index.cshtml:line 77
+   at Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperExecutionContext.GetChildContentAsync(Boolean useCachedResult, HtmlEncoder encoder)
+   at Microsoft.AspNetCore.Mvc.TagHelpers.RenderAtEndOfFormTagHelper.ProcessAsync(TagHelperContext context, TagHelperOutput output)
+   at Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperRunner.<RunAsync>g__Awaited|0_0(Task task, TagHelperExecutionContext executionContext, Int32 i, Int32 count)
+   at AspNetCore.Views_FinanceHRPVCClaim_Index.ExecuteAsync() in C:\Users\Dell\Desktop\UETrack2019-eclaim-1d3df673f4b1\EClaimsWeb\Views\FinanceHRPVCClaim\Index.cshtml:line 61
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageCoreAsync(IRazorPage page, ViewContext context)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageAsync(IRazorPage page, ViewContext context, Boolean invokeViewStarts)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderAsync(ViewContext context)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ActionContext actionContext, IView view, ViewDataDictionary viewData, ITempDataDictionary tempData, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.ExecuteAsync(ActionContext context, ViewResult result)
+   at Microsoft.AspNetCore.Mvc.ViewResult.ExecuteResultAsync(ActionContext context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|29_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|19_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Builder.Extensions.MapMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authorization.Policy.AuthorizationMiddlewareResultHandler.HandleAsync(RequestDelegate next, HttpContext context, AuthorizationPolicy policy, PolicyAuthorizationResult authorizeResult)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at EClaimsWeb.CustomExceptionMiddleware.ExceptionMiddleware.InvokeAsync(HttpContext httpContext) in C:\Users\Dell\Desktop\UETrack2019-eclaim-1d3df673f4b1\EClaimsWeb\CustomExceptionMiddleware\ExceptionMiddleware.cs:line 27
+2024-06-04 11:45:01.3790 ERROR Something went wrong: System.NullReferenceException: Object reference not set to an instance of an object.
+   at AspNetCore.Views_FinanceHRPVGClaim_Index.<ExecuteAsync>b__51_2() in C:\Users\Dell\Desktop\UETrack2019-eclaim-1d3df673f4b1\EClaimsWeb\Views\FinanceHRPVGClaim\Index.cshtml:line 77
+   at Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperExecutionContext.GetChildContentAsync(Boolean useCachedResult, HtmlEncoder encoder)
+   at Microsoft.AspNetCore.Mvc.TagHelpers.RenderAtEndOfFormTagHelper.ProcessAsync(TagHelperContext context, TagHelperOutput output)
+   at Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperRunner.<RunAsync>g__Awaited|0_0(Task task, TagHelperExecutionContext executionContext, Int32 i, Int32 count)
+   at AspNetCore.Views_FinanceHRPVGClaim_Index.ExecuteAsync() in C:\Users\Dell\Desktop\UETrack2019-eclaim-1d3df673f4b1\EClaimsWeb\Views\FinanceHRPVGClaim\Index.cshtml:line 61
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageCoreAsync(IRazorPage page, ViewContext context)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageAsync(IRazorPage page, ViewContext context, Boolean invokeViewStarts)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderAsync(ViewContext context)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ActionContext actionContext, IView view, ViewDataDictionary viewData, ITempDataDictionary tempData, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.ExecuteAsync(ActionContext context, ViewResult result)
+   at Microsoft.AspNetCore.Mvc.ViewResult.ExecuteResultAsync(ActionContext context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|29_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|19_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Builder.Extensions.MapMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authorization.Policy.AuthorizationMiddlewareResultHandler.HandleAsync(RequestDelegate next, HttpContext context, AuthorizationPolicy policy, PolicyAuthorizationResult authorizeResult)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at EClaimsWeb.CustomExceptionMiddleware.ExceptionMiddleware.InvokeAsync(HttpContext httpContext) in C:\Users\Dell\Desktop\UETrack2019-eclaim-1d3df673f4b1\EClaimsWeb\CustomExceptionMiddleware\ExceptionMiddleware.cs:line 27
+2024-06-04 11:48:33.5591 INFO Start installing Hangfire SQL objects...
+2024-06-04 11:48:34.4483 WARN An exception occurred while trying to perform the migration. Retrying...
+2024-06-04 11:48:34.6296 WARN An exception occurred while trying to perform the migration. Retrying...
+2024-06-04 11:48:34.7781 WARN An exception occurred while trying to perform the migration.
+2024-06-04 11:48:34.7781 WARN Was unable to perform the Hangfire schema migration due to an exception. Ignore this message unless you've just installed or upgraded Hangfire.
+2024-06-04 11:49:03.9328 INFO Returned all HRPVC Claims with details from database.
+2024-06-04 11:49:04.1597 ERROR Something went wrong inside GetAllHRPVCClaimWithDetailsAsync action: String '05/20/2024 16:59:43' was not recognized as a valid DateTime.
+2024-06-04 11:49:31.8748 ERROR Something went wrong: System.NullReferenceException: Object reference not set to an instance of an object.
+   at AspNetCore.Views_FinanceHRPVCClaim_Index.<ExecuteAsync>b__51_2() in C:\Users\Dell\Desktop\UETrack2019-eclaim-1d3df673f4b1\EClaimsWeb\Views\FinanceHRPVCClaim\Index.cshtml:line 77
+   at Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperExecutionContext.GetChildContentAsync(Boolean useCachedResult, HtmlEncoder encoder)
+   at Microsoft.AspNetCore.Mvc.TagHelpers.RenderAtEndOfFormTagHelper.ProcessAsync(TagHelperContext context, TagHelperOutput output)
+   at Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperRunner.<RunAsync>g__Awaited|0_0(Task task, TagHelperExecutionContext executionContext, Int32 i, Int32 count)
+   at AspNetCore.Views_FinanceHRPVCClaim_Index.ExecuteAsync() in C:\Users\Dell\Desktop\UETrack2019-eclaim-1d3df673f4b1\EClaimsWeb\Views\FinanceHRPVCClaim\Index.cshtml:line 61
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageCoreAsync(IRazorPage page, ViewContext context)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageAsync(IRazorPage page, ViewContext context, Boolean invokeViewStarts)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderAsync(ViewContext context)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ActionContext actionContext, IView view, ViewDataDictionary viewData, ITempDataDictionary tempData, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.ExecuteAsync(ActionContext context, ViewResult result)
+   at Microsoft.AspNetCore.Mvc.ViewResult.ExecuteResultAsync(ActionContext context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|29_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|19_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Builder.Extensions.MapMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authorization.Policy.AuthorizationMiddlewareResultHandler.HandleAsync(RequestDelegate next, HttpContext context, AuthorizationPolicy policy, PolicyAuthorizationResult authorizeResult)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at EClaimsWeb.CustomExceptionMiddleware.ExceptionMiddleware.InvokeAsync(HttpContext httpContext) in C:\Users\Dell\Desktop\UETrack2019-eclaim-1d3df673f4b1\EClaimsWeb\CustomExceptionMiddleware\ExceptionMiddleware.cs:line 27
+2024-06-04 11:50:11.6857 INFO Returned all HRPVC Claims with details from database.
+2024-06-04 11:50:11.8842 ERROR Something went wrong inside GetAllHRPVCClaimWithDetailsAsync action: String '05/20/2024 16:59:43' was not recognized as a valid DateTime.
+2024-06-04 11:51:40.5086 ERROR Something went wrong: System.NullReferenceException: Object reference not set to an instance of an object.
+   at AspNetCore.Views_FinanceHRPVCClaim_Index.<ExecuteAsync>b__51_2() in C:\Users\Dell\Desktop\UETrack2019-eclaim-1d3df673f4b1\EClaimsWeb\Views\FinanceHRPVCClaim\Index.cshtml:line 77
+   at Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperExecutionContext.GetChildContentAsync(Boolean useCachedResult, HtmlEncoder encoder)
+   at Microsoft.AspNetCore.Mvc.TagHelpers.RenderAtEndOfFormTagHelper.ProcessAsync(TagHelperContext context, TagHelperOutput output)
+   at Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperRunner.<RunAsync>g__Awaited|0_0(Task task, TagHelperExecutionContext executionContext, Int32 i, Int32 count)
+   at AspNetCore.Views_FinanceHRPVCClaim_Index.ExecuteAsync() in C:\Users\Dell\Desktop\UETrack2019-eclaim-1d3df673f4b1\EClaimsWeb\Views\FinanceHRPVCClaim\Index.cshtml:line 61
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageCoreAsync(IRazorPage page, ViewContext context)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageAsync(IRazorPage page, ViewContext context, Boolean invokeViewStarts)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderAsync(ViewContext context)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ActionContext actionContext, IView view, ViewDataDictionary viewData, ITempDataDictionary tempData, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.ExecuteAsync(ActionContext context, ViewResult result)
+   at Microsoft.AspNetCore.Mvc.ViewResult.ExecuteResultAsync(ActionContext context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|29_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|19_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Builder.Extensions.MapMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authorization.Policy.AuthorizationMiddlewareResultHandler.HandleAsync(RequestDelegate next, HttpContext context, AuthorizationPolicy policy, PolicyAuthorizationResult authorizeResult)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at EClaimsWeb.CustomExceptionMiddleware.ExceptionMiddleware.InvokeAsync(HttpContext httpContext) in C:\Users\Dell\Desktop\UETrack2019-eclaim-1d3df673f4b1\EClaimsWeb\CustomExceptionMiddleware\ExceptionMiddleware.cs:line 27
+2024-06-04 11:52:31.5271 INFO Start installing Hangfire SQL objects...
+2024-06-04 11:52:32.4870 WARN An exception occurred while trying to perform the migration. Retrying...
+2024-06-04 11:52:32.7630 WARN An exception occurred while trying to perform the migration. Retrying...
+2024-06-04 11:52:32.9847 WARN An exception occurred while trying to perform the migration.
+2024-06-04 11:52:32.9847 WARN Was unable to perform the Hangfire schema migration due to an exception. Ignore this message unless you've just installed or upgraded Hangfire.
+2024-06-04 11:54:06.2087 INFO Returned all HRPVC Claims with details from database.
+2024-06-04 11:54:52.4945 INFO Returned all HRPVG Claims with details from database.
+2024-06-04 11:55:20.9912 INFO Returned all Mileage Claims with details from database.
+2024-06-04 11:55:29.5453 INFO Returned all Mileage Claims with details from database.
+2024-06-04 11:55:34.9466 INFO Returned all Mileage Claims with details from database.
+2024-06-04 11:59:55.5846 INFO Returned all PVC Claims with details from database.
+2024-06-04 12:01:06.2797 INFO Returned all Mileage Claims with details from database.
+2024-06-04 12:01:58.5790 INFO Start installing Hangfire SQL objects...
+2024-06-04 12:02:00.5150 WARN An exception occurred while trying to perform the migration. Retrying...
+2024-06-04 12:02:00.7066 WARN An exception occurred while trying to perform the migration. Retrying...
+2024-06-04 12:02:00.9999 WARN An exception occurred while trying to perform the migration.
+2024-06-04 12:02:01.0442 WARN Was unable to perform the Hangfire schema migration due to an exception. Ignore this message unless you've just installed or upgraded Hangfire.
+2024-06-04 12:03:14.5262 INFO Returned all Mileage Claims with details from database.
+2024-06-04 12:03:44.5577 INFO Returned all PVG Claims with details from database.
+2024-06-04 12:03:45.4158 ERROR Something went wrong inside GetAllPVGClaimWithDetailsAsync action: String '05/29/2024 17:36:16' was not recognized as a valid DateTime.
+2024-06-04 12:04:24.9647 ERROR Something went wrong: System.NullReferenceException: Object reference not set to an instance of an object.
+   at AspNetCore.Views_FinancePVGClaim_Index.<ExecuteAsync>b__51_2() in C:\Users\Dell\Desktop\UETrack2019-eclaim-1d3df673f4b1\EClaimsWeb\Views\FinancePVGClaim\Index.cshtml:line 77
+   at Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperExecutionContext.GetChildContentAsync(Boolean useCachedResult, HtmlEncoder encoder)
+   at Microsoft.AspNetCore.Mvc.TagHelpers.RenderAtEndOfFormTagHelper.ProcessAsync(TagHelperContext context, TagHelperOutput output)
+   at Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperRunner.<RunAsync>g__Awaited|0_0(Task task, TagHelperExecutionContext executionContext, Int32 i, Int32 count)
+   at AspNetCore.Views_FinancePVGClaim_Index.ExecuteAsync() in C:\Users\Dell\Desktop\UETrack2019-eclaim-1d3df673f4b1\EClaimsWeb\Views\FinancePVGClaim\Index.cshtml:line 61
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageCoreAsync(IRazorPage page, ViewContext context)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageAsync(IRazorPage page, ViewContext context, Boolean invokeViewStarts)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderAsync(ViewContext context)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ActionContext actionContext, IView view, ViewDataDictionary viewData, ITempDataDictionary tempData, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.ExecuteAsync(ActionContext context, ViewResult result)
+   at Microsoft.AspNetCore.Mvc.ViewResult.ExecuteResultAsync(ActionContext context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|29_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|19_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Builder.Extensions.MapMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authorization.Policy.AuthorizationMiddlewareResultHandler.HandleAsync(RequestDelegate next, HttpContext context, AuthorizationPolicy policy, PolicyAuthorizationResult authorizeResult)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at EClaimsWeb.CustomExceptionMiddleware.ExceptionMiddleware.InvokeAsync(HttpContext httpContext) in C:\Users\Dell\Desktop\UETrack2019-eclaim-1d3df673f4b1\EClaimsWeb\CustomExceptionMiddleware\ExceptionMiddleware.cs:line 27
+2024-06-04 12:04:31.8307 INFO Returned all PVG Claims with details from database.
+2024-06-04 12:04:31.9947 ERROR Something went wrong inside GetAllPVGClaimWithDetailsAsync action: String '05/29/2024 17:36:16' was not recognized as a valid DateTime.
+2024-06-04 12:06:51.7728 ERROR Something went wrong: System.NullReferenceException: Object reference not set to an instance of an object.
+   at AspNetCore.Views_FinancePVGClaim_Index.<ExecuteAsync>b__51_2() in C:\Users\Dell\Desktop\UETrack2019-eclaim-1d3df673f4b1\EClaimsWeb\Views\FinancePVGClaim\Index.cshtml:line 77
+   at Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperExecutionContext.GetChildContentAsync(Boolean useCachedResult, HtmlEncoder encoder)
+   at Microsoft.AspNetCore.Mvc.TagHelpers.RenderAtEndOfFormTagHelper.ProcessAsync(TagHelperContext context, TagHelperOutput output)
+   at Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperRunner.<RunAsync>g__Awaited|0_0(Task task, TagHelperExecutionContext executionContext, Int32 i, Int32 count)
+   at AspNetCore.Views_FinancePVGClaim_Index.ExecuteAsync() in C:\Users\Dell\Desktop\UETrack2019-eclaim-1d3df673f4b1\EClaimsWeb\Views\FinancePVGClaim\Index.cshtml:line 61
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageCoreAsync(IRazorPage page, ViewContext context)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageAsync(IRazorPage page, ViewContext context, Boolean invokeViewStarts)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderAsync(ViewContext context)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ActionContext actionContext, IView view, ViewDataDictionary viewData, ITempDataDictionary tempData, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.ExecuteAsync(ActionContext context, ViewResult result)
+   at Microsoft.AspNetCore.Mvc.ViewResult.ExecuteResultAsync(ActionContext context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|29_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|19_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Builder.Extensions.MapMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authorization.Policy.AuthorizationMiddlewareResultHandler.HandleAsync(RequestDelegate next, HttpContext context, AuthorizationPolicy policy, PolicyAuthorizationResult authorizeResult)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at EClaimsWeb.CustomExceptionMiddleware.ExceptionMiddleware.InvokeAsync(HttpContext httpContext) in C:\Users\Dell\Desktop\UETrack2019-eclaim-1d3df673f4b1\EClaimsWeb\CustomExceptionMiddleware\ExceptionMiddleware.cs:line 27
+2024-06-04 12:07:38.5469 INFO Start installing Hangfire SQL objects...
+2024-06-04 12:07:39.6209 WARN An exception occurred while trying to perform the migration. Retrying...
+2024-06-04 12:07:39.8181 WARN An exception occurred while trying to perform the migration. Retrying...
+2024-06-04 12:07:40.0074 WARN An exception occurred while trying to perform the migration.
+2024-06-04 12:07:40.0074 WARN Was unable to perform the Hangfire schema migration due to an exception. Ignore this message unless you've just installed or upgraded Hangfire.
+2024-06-04 12:09:09.4008 INFO Returned all PVG Claims with details from database.
+2024-06-04 12:10:11.3600 INFO Returned all PVC Claims with details from database.
+2024-06-04 12:10:33.6440 INFO Returned all HRPVC Claims with details from database.
+2024-06-04 12:11:18.0721 INFO Returned all HRPVG Claims with details from database.
+2024-06-04 12:21:24.8460 INFO Returned all HRPVG Claims with details from database.
+2024-06-04 12:37:22.3555 ERROR Something went wrong inside GetAllPVGClaimWithDetailsAsync action: String '02/27/2024 14:50:19' was not recognized as a valid DateTime.
+2024-06-04 12:37:30.6650 ERROR Something went wrong: System.NullReferenceException: Object reference not set to an instance of an object.
+   at AspNetCore.Views_PVGIROClaim_Index.ExecuteAsync() in C:\Users\Dell\Desktop\UETrack2019-eclaim-1d3df673f4b1\EClaimsWeb\Views\PVGIROClaim\Index.cshtml:line 143
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageCoreAsync(IRazorPage page, ViewContext context)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageAsync(IRazorPage page, ViewContext context, Boolean invokeViewStarts)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderAsync(ViewContext context)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ActionContext actionContext, IView view, ViewDataDictionary viewData, ITempDataDictionary tempData, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.ExecuteAsync(ActionContext context, ViewResult result)
+   at Microsoft.AspNetCore.Mvc.ViewResult.ExecuteResultAsync(ActionContext context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|29_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|19_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Builder.Extensions.MapMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authorization.Policy.AuthorizationMiddlewareResultHandler.HandleAsync(RequestDelegate next, HttpContext context, AuthorizationPolicy policy, PolicyAuthorizationResult authorizeResult)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at EClaimsWeb.CustomExceptionMiddleware.ExceptionMiddleware.InvokeAsync(HttpContext httpContext) in C:\Users\Dell\Desktop\UETrack2019-eclaim-1d3df673f4b1\EClaimsWeb\CustomExceptionMiddleware\ExceptionMiddleware.cs:line 27
+2024-06-04 12:40:11.4970 INFO Start installing Hangfire SQL objects...
+2024-06-04 12:40:12.9129 WARN An exception occurred while trying to perform the migration. Retrying...
+2024-06-04 12:40:13.0589 WARN An exception occurred while trying to perform the migration. Retrying...
+2024-06-04 12:40:13.2469 WARN An exception occurred while trying to perform the migration.
+2024-06-04 12:40:13.2469 WARN Was unable to perform the Hangfire schema migration due to an exception. Ignore this message unless you've just installed or upgraded Hangfire.
+2024-06-04 12:41:24.1513 INFO Returned all PV Cheque Claims with details from database.
+2024-06-04 12:41:24.2227 INFO Returned all PV Cheque Claims with details from database.
+2024-06-04 12:41:24.2227 INFO Returned all PV Cheque Claims with details from database.
+2024-06-04 12:41:24.2227 INFO Returned all PV Cheque Claims with details from database.
+2024-06-04 12:41:24.2328 INFO Returned all PV Cheque Claims with details from database.
+2024-06-04 12:44:19.8687 INFO Inside EMailTemplate
+2024-06-04 12:44:19.8764 INFO Inside SendEmail before calling SendEmailAsync
+2024-06-04 12:44:21.1121 INFO Returned all PV Cheque Claims with details from database.
+2024-06-04 12:44:21.1949 INFO Inside SendEmailAsync: Mail has been sent successfully
+2024-06-04 12:44:21.1973 INFO Kaitlynn.Tan@uemsgroup.com,<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <table>
+
+        <tr>
+            <td>
+                <div style="border-top:3px solid #22BCE5"> </div><br />
+                <span style="font-family:Arial;font-size:10pt">
+                    Dear <b>Kaitlynn Tan Wei Ni</b>,<br /><!--<br />-->
+                    <p style="color:#22BCE5">Approval Request - PV-Cheque Claim</p>
+                    <!--<a style="color:#22BCE5" href="{Url}">PV-Cheque Claim Approval Request</a>--><!--<br /><br />-->
+                    Claim number <b>PVCC000080</b> has been sent to you for Approval Request by <b> Chan Zhi Hao Joseph</b><br /><br />
+                    Kindly click on this link to Approve/Reject the PV-Cheque Claim
+                    <br /><br />
+                          <a style="color:#22BCE5" href="http://localhost:51426/HodSummary/PVCCDetails/82">http://localhost:51426/HodSummary/PVCCDetails/82</a><br /><br />
+                    Thanks<br />
+                </span>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
+,PV-Cheque Claim for Approval PVCC000080,04-06-2024 12:44:21
+2024-06-04 12:44:33.8849 INFO Returned all PV Cheque Claims with details from database.
+2024-06-04 12:44:33.8889 INFO Returned all PV Cheque Claims with details from database.
+2024-06-04 12:44:33.8889 INFO Returned all PV Cheque Claims with details from database.
+2024-06-04 12:44:33.8889 INFO Returned all PV Cheque Claims with details from database.
+2024-06-04 12:44:33.8889 INFO Returned all PV Cheque Claims with details from database.
+2024-06-04 12:45:15.8870 INFO Returned all Mileage Claims with details from database.
+2024-06-04 12:45:23.0322 INFO Returned all HRPVG Claims with details from database.
+2024-06-04 13:20:08.1585 INFO Returned all Expense Categories with types from database.
+2024-06-04 13:20:10.5017 INFO Returned all Expense Categories with types from database.
+2024-06-04 13:29:38.0740 INFO Returned all HRPVG Claims with details from database.
+2024-06-04 15:19:32.4634 INFO Returned all Expense Claims with details from database.
+2024-06-04 15:19:32.4842 INFO Returned all Expense Claims with details from database.
+2024-06-04 15:19:32.4842 INFO Returned all Expense Claims with details from database.
+2024-06-04 15:19:32.4948 INFO Returned all Expense Claims with details from database.
+2024-06-04 15:19:32.6296 INFO Returned all Expense Claims draft with details from database.
+2024-06-04 15:21:34.3173 INFO Returned all Expense Claims with details from database.
+2024-06-04 15:21:34.5313 INFO Returned all Expense Claims with details from database.
+2024-06-04 15:21:34.5525 INFO Returned all Expense Claims with details from database.
+2024-06-04 15:21:34.5525 INFO Returned all Expense Claims with details from database.
+2024-06-04 15:21:34.5525 INFO Returned all Expense Claims with details from database.
+2024-06-04 15:21:34.6109 INFO Returned all Expense Claims draft with details from database.
+2024-06-04 15:21:34.7331 INFO Inside EMailTemplate
+2024-06-04 15:21:34.7331 INFO Inside SendEmail before calling SendEmailAsync
+2024-06-04 15:21:36.3282 INFO Inside SendEmailAsync: Mail has been sent successfully
+2024-06-04 15:21:36.3282 INFO Kaitlynn.Tan@uemsgroup.com,<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <table>
+
+        <tr>
+            <td>
+                <div style="border-top:3px solid #22BCE5"> </div><br />
+                <span style="font-family:Arial;font-size:10pt">
+                    Dear <b>Kaitlynn Tan Wei Ni</b>,<br /><!--<br />-->
+                    <p style="color:#22BCE5">Approval Request - Expense Claim</p>
+                    <!--<a style="color:#22BCE5" href="{Url}">Expense Claim Approval Request</a>--><!--<br /><br />-->
+                    Claim number <b>EC003027</b> has been sent to you for Approval Request by <b> Chan Zhi Hao Joseph</b><br /><br />
+                    Kindly click on this link to Approve/Reject the Expense Claim
+                    <br /><br />
+                          <a style="color:#22BCE5" href="http://localhost:51426/HodSummary/ECDetails/3141">http://localhost:51426/HodSummary/ECDetails/3141</a><br /><br />
+                    Thanks<br />
+                </span>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
+,Expense Claim for Approval EC003027,04-06-2024 15:21:36
+2024-06-04 15:21:58.2195 INFO Returned all Expense Claims with details from database.
+2024-06-04 15:21:58.3352 INFO Returned all Expense Claims with details from database.
+2024-06-04 15:21:58.3472 INFO Returned all Expense Claims with details from database.
+2024-06-04 15:21:58.3472 INFO Returned all Expense Claims with details from database.
+2024-06-04 15:21:58.3632 INFO Returned all Expense Claims with details from database.
+2024-06-04 15:21:58.4186 INFO Returned all Expense Claims draft with details from database.
+2024-06-04 15:22:24.3494 INFO Returned all Expense Claims with details from database.
+2024-06-04 15:22:24.7814 ERROR Something went wrong inside GetAllExpenseClaimWithDetailsAsync action: String '05/29/2024 17:20:36' was not recognized as a valid DateTime.
+2024-06-04 15:22:42.9822 ERROR Something went wrong: System.NullReferenceException: Object reference not set to an instance of an object.
+   at AspNetCore.Views_FinanceExpenseClaim_Index.<ExecuteAsync>b__53_2() in C:\Users\Dell\Desktop\UETrack2019-eclaim-1d3df673f4b1\EClaimsWeb\Views\FinanceExpenseClaim\Index.cshtml:line 77
+   at Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperExecutionContext.GetChildContentAsync(Boolean useCachedResult, HtmlEncoder encoder)
+   at Microsoft.AspNetCore.Mvc.TagHelpers.RenderAtEndOfFormTagHelper.ProcessAsync(TagHelperContext context, TagHelperOutput output)
+   at Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperRunner.<RunAsync>g__Awaited|0_0(Task task, TagHelperExecutionContext executionContext, Int32 i, Int32 count)
+   at AspNetCore.Views_FinanceExpenseClaim_Index.ExecuteAsync() in C:\Users\Dell\Desktop\UETrack2019-eclaim-1d3df673f4b1\EClaimsWeb\Views\FinanceExpenseClaim\Index.cshtml:line 61
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageCoreAsync(IRazorPage page, ViewContext context)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageAsync(IRazorPage page, ViewContext context, Boolean invokeViewStarts)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderAsync(ViewContext context)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ActionContext actionContext, IView view, ViewDataDictionary viewData, ITempDataDictionary tempData, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.ExecuteAsync(ActionContext context, ViewResult result)
+   at Microsoft.AspNetCore.Mvc.ViewResult.ExecuteResultAsync(ActionContext context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|29_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|19_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Builder.Extensions.MapMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authorization.Policy.AuthorizationMiddlewareResultHandler.HandleAsync(RequestDelegate next, HttpContext context, AuthorizationPolicy policy, PolicyAuthorizationResult authorizeResult)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at EClaimsWeb.CustomExceptionMiddleware.ExceptionMiddleware.InvokeAsync(HttpContext httpContext) in C:\Users\Dell\Desktop\UETrack2019-eclaim-1d3df673f4b1\EClaimsWeb\CustomExceptionMiddleware\ExceptionMiddleware.cs:line 27
+2024-06-04 15:22:55.0317 INFO Returned all Expense Claims with details from database.
+2024-06-04 15:22:55.1731 INFO Returned all Expense Claims with details from database.
+2024-06-04 15:22:55.1731 INFO Returned all Expense Claims with details from database.
+2024-06-04 15:22:55.1731 INFO Returned all Expense Claims with details from database.
+2024-06-04 15:22:55.1731 INFO Returned all Expense Claims with details from database.
+2024-06-04 15:22:55.2469 INFO Returned all Expense Claims draft with details from database.
+2024-06-04 15:23:29.3756 INFO Returned all Expense Claims with details from database.
+2024-06-04 15:23:29.5260 INFO Returned all Expense Claims with details from database.
+2024-06-04 15:23:29.5260 INFO Returned all Expense Claims with details from database.
+2024-06-04 15:23:29.5260 INFO Returned all Expense Claims with details from database.
+2024-06-04 15:23:29.5260 INFO Returned all Expense Claims with details from database.
+2024-06-04 15:23:29.5858 INFO Returned all Expense Claims draft with details from database.
+2024-06-04 15:23:55.5226 INFO Returned all Expense Claims with details from database.
+2024-06-04 15:23:56.0297 ERROR Something went wrong inside GetAllExpenseClaimWithDetailsAsync action: String '05/29/2024 17:20:36' was not recognized as a valid DateTime.
+2024-06-04 15:24:11.9607 ERROR Something went wrong: System.NullReferenceException: Object reference not set to an instance of an object.
+   at AspNetCore.Views_FinanceExpenseClaim_Index.<ExecuteAsync>b__53_2() in C:\Users\Dell\Desktop\UETrack2019-eclaim-1d3df673f4b1\EClaimsWeb\Views\FinanceExpenseClaim\Index.cshtml:line 77
+   at Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperExecutionContext.GetChildContentAsync(Boolean useCachedResult, HtmlEncoder encoder)
+   at Microsoft.AspNetCore.Mvc.TagHelpers.RenderAtEndOfFormTagHelper.ProcessAsync(TagHelperContext context, TagHelperOutput output)
+   at Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperRunner.<RunAsync>g__Awaited|0_0(Task task, TagHelperExecutionContext executionContext, Int32 i, Int32 count)
+   at AspNetCore.Views_FinanceExpenseClaim_Index.ExecuteAsync() in C:\Users\Dell\Desktop\UETrack2019-eclaim-1d3df673f4b1\EClaimsWeb\Views\FinanceExpenseClaim\Index.cshtml:line 61
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageCoreAsync(IRazorPage page, ViewContext context)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageAsync(IRazorPage page, ViewContext context, Boolean invokeViewStarts)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderAsync(ViewContext context)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ActionContext actionContext, IView view, ViewDataDictionary viewData, ITempDataDictionary tempData, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.ExecuteAsync(ActionContext context, ViewResult result)
+   at Microsoft.AspNetCore.Mvc.ViewResult.ExecuteResultAsync(ActionContext context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|29_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|19_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Builder.Extensions.MapMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authorization.Policy.AuthorizationMiddlewareResultHandler.HandleAsync(RequestDelegate next, HttpContext context, AuthorizationPolicy policy, PolicyAuthorizationResult authorizeResult)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at EClaimsWeb.CustomExceptionMiddleware.ExceptionMiddleware.InvokeAsync(HttpContext httpContext) in C:\Users\Dell\Desktop\UETrack2019-eclaim-1d3df673f4b1\EClaimsWeb\CustomExceptionMiddleware\ExceptionMiddleware.cs:line 27
+2024-06-04 15:24:27.6854 INFO Returned all Expense Claims with details from database.
+2024-06-04 15:24:27.7992 INFO Returned all Expense Claims with details from database.
+2024-06-04 15:24:27.8445 INFO Returned all Expense Claims with details from database.
+2024-06-04 15:24:27.8445 INFO Returned all Expense Claims with details from database.
+2024-06-04 15:24:27.8445 INFO Returned all Expense Claims with details from database.
+2024-06-04 15:24:27.9114 INFO Returned all Expense Claims draft with details from database.
+2024-06-04 15:24:46.1280 INFO Returned all Expense Categories with types from database.
+2024-06-04 15:27:08.3053 INFO Returned all Expense Claims with details from database.
+2024-06-04 15:27:08.4261 INFO Returned all Expense Claims with details from database.
+2024-06-04 15:27:08.4261 INFO Returned all Expense Claims with details from database.
+2024-06-04 15:27:08.4261 INFO Returned all Expense Claims with details from database.
+2024-06-04 15:27:08.4341 INFO Returned all Expense Claims with details from database.
+2024-06-04 15:27:08.4901 INFO Returned all Expense Claims draft with details from database.
+2024-06-04 15:43:21.1691 INFO Returned all Expense Claims with details from database.
+2024-06-04 15:43:21.4149 INFO Returned all Expense Claims with details from database.
+2024-06-04 15:43:21.4173 INFO Returned all Expense Claims with details from database.
+2024-06-04 15:43:21.4173 INFO Returned all Expense Claims with details from database.
+2024-06-04 15:43:21.4173 INFO Returned all Expense Claims with details from database.
+2024-06-04 15:43:21.4770 INFO Returned all Expense Claims draft with details from database.
+2024-06-04 15:43:58.8578 INFO Returned all Expense Claims with details from database.
+2024-06-04 15:43:58.9767 INFO Returned all Expense Claims with details from database.
+2024-06-04 15:43:59.0008 INFO Returned all Expense Claims with details from database.
+2024-06-04 15:43:59.0008 INFO Returned all Expense Claims with details from database.
+2024-06-04 15:43:59.0008 INFO Returned all Expense Claims with details from database.
+2024-06-04 15:43:59.0587 INFO Returned all Expense Claims draft with details from database.
+2024-06-04 15:46:23.1763 INFO Returned all Expense Claims with details from database.
+2024-06-04 15:46:23.6806 ERROR Something went wrong inside GetAllExpenseClaimWithDetailsAsync action: String '05/29/2024 17:20:36' was not recognized as a valid DateTime.
+2024-06-04 15:48:43.7631 ERROR Something went wrong: System.NullReferenceException: Object reference not set to an instance of an object.
+   at AspNetCore.Views_FinanceExpenseClaim_Index.<ExecuteAsync>b__53_2() in C:\Users\Dell\Desktop\UETrack2019-eclaim-1d3df673f4b1\EClaimsWeb\Views\FinanceExpenseClaim\Index.cshtml:line 77
+   at Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperExecutionContext.GetChildContentAsync(Boolean useCachedResult, HtmlEncoder encoder)
+   at Microsoft.AspNetCore.Mvc.TagHelpers.RenderAtEndOfFormTagHelper.ProcessAsync(TagHelperContext context, TagHelperOutput output)
+   at Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperRunner.<RunAsync>g__Awaited|0_0(Task task, TagHelperExecutionContext executionContext, Int32 i, Int32 count)
+   at AspNetCore.Views_FinanceExpenseClaim_Index.ExecuteAsync() in C:\Users\Dell\Desktop\UETrack2019-eclaim-1d3df673f4b1\EClaimsWeb\Views\FinanceExpenseClaim\Index.cshtml:line 61
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageCoreAsync(IRazorPage page, ViewContext context)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageAsync(IRazorPage page, ViewContext context, Boolean invokeViewStarts)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderAsync(ViewContext context)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ActionContext actionContext, IView view, ViewDataDictionary viewData, ITempDataDictionary tempData, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.ExecuteAsync(ActionContext context, ViewResult result)
+   at Microsoft.AspNetCore.Mvc.ViewResult.ExecuteResultAsync(ActionContext context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|29_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|19_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Builder.Extensions.MapMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authorization.Policy.AuthorizationMiddlewareResultHandler.HandleAsync(RequestDelegate next, HttpContext context, AuthorizationPolicy policy, PolicyAuthorizationResult authorizeResult)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at EClaimsWeb.CustomExceptionMiddleware.ExceptionMiddleware.InvokeAsync(HttpContext httpContext) in C:\Users\Dell\Desktop\UETrack2019-eclaim-1d3df673f4b1\EClaimsWeb\CustomExceptionMiddleware\ExceptionMiddleware.cs:line 27
+2024-06-04 15:51:49.8083 INFO Start installing Hangfire SQL objects...
+2024-06-04 15:51:50.9474 WARN An exception occurred while trying to perform the migration. Retrying...
+2024-06-04 15:51:51.1094 WARN An exception occurred while trying to perform the migration. Retrying...
+2024-06-04 15:51:51.3294 WARN An exception occurred while trying to perform the migration.
+2024-06-04 15:51:51.3294 WARN Was unable to perform the Hangfire schema migration due to an exception. Ignore this message unless you've just installed or upgraded Hangfire.
+2024-06-04 15:53:48.0583 INFO Returned all Expense Claims with details from database.
+2024-06-04 15:53:48.5183 ERROR Something went wrong inside GetAllExpenseClaimWithDetailsAsync action: String '05/29/2024 17:20:36' was not recognized as a valid DateTime.
+2024-06-04 15:54:02.0699 ERROR Something went wrong: System.NullReferenceException: Object reference not set to an instance of an object.
+   at AspNetCore.Views_FinanceExpenseClaim_Index.<ExecuteAsync>b__53_2() in C:\Users\Dell\Desktop\UETrack2019-eclaim-1d3df673f4b1\EClaimsWeb\Views\FinanceExpenseClaim\Index.cshtml:line 77
+   at Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperExecutionContext.GetChildContentAsync(Boolean useCachedResult, HtmlEncoder encoder)
+   at Microsoft.AspNetCore.Mvc.TagHelpers.RenderAtEndOfFormTagHelper.ProcessAsync(TagHelperContext context, TagHelperOutput output)
+   at Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperRunner.<RunAsync>g__Awaited|0_0(Task task, TagHelperExecutionContext executionContext, Int32 i, Int32 count)
+   at AspNetCore.Views_FinanceExpenseClaim_Index.ExecuteAsync() in C:\Users\Dell\Desktop\UETrack2019-eclaim-1d3df673f4b1\EClaimsWeb\Views\FinanceExpenseClaim\Index.cshtml:line 61
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageCoreAsync(IRazorPage page, ViewContext context)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageAsync(IRazorPage page, ViewContext context, Boolean invokeViewStarts)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderAsync(ViewContext context)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ActionContext actionContext, IView view, ViewDataDictionary viewData, ITempDataDictionary tempData, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.ExecuteAsync(ActionContext context, ViewResult result)
+   at Microsoft.AspNetCore.Mvc.ViewResult.ExecuteResultAsync(ActionContext context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|29_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|19_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Builder.Extensions.MapMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authorization.Policy.AuthorizationMiddlewareResultHandler.HandleAsync(RequestDelegate next, HttpContext context, AuthorizationPolicy policy, PolicyAuthorizationResult authorizeResult)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at EClaimsWeb.CustomExceptionMiddleware.ExceptionMiddleware.InvokeAsync(HttpContext httpContext) in C:\Users\Dell\Desktop\UETrack2019-eclaim-1d3df673f4b1\EClaimsWeb\CustomExceptionMiddleware\ExceptionMiddleware.cs:line 27
+2024-06-04 15:54:44.1634 INFO Start installing Hangfire SQL objects...
+2024-06-04 15:54:45.3978 WARN An exception occurred while trying to perform the migration. Retrying...
+2024-06-04 15:54:45.6036 WARN An exception occurred while trying to perform the migration. Retrying...
+2024-06-04 15:54:45.8108 WARN An exception occurred while trying to perform the migration.
+2024-06-04 15:54:45.8108 WARN Was unable to perform the Hangfire schema migration due to an exception. Ignore this message unless you've just installed or upgraded Hangfire.
+2024-06-04 15:55:38.4388 INFO Returned all Expense Claims with details from database.
+2024-06-04 16:04:14.2123 INFO Returned all Expense Categories with types from database.
+2024-06-04 16:04:30.9451 INFO Returned all facilities with departments from database.
+2024-06-04 16:04:40.0247 INFO Returned all Mileage Claims with details from database.
+2024-06-04 16:04:50.0918 INFO Returned all Expense Claims with details from database.
+2024-06-04 16:04:50.2040 INFO Returned all Expense Claims with details from database.
+2024-06-04 16:04:50.2040 INFO Returned all Expense Claims with details from database.
+2024-06-04 16:04:50.2142 INFO Returned all Expense Claims with details from database.
+2024-06-04 16:04:50.2142 INFO Returned all Expense Claims with details from database.
+2024-06-04 16:04:50.4211 INFO Returned all Expense Claims draft with details from database.
+2024-06-04 16:24:26.6807 INFO Returned all Expense Claims with details from database.
+2024-06-04 16:24:26.8107 INFO Returned all Expense Claims with details from database.
+2024-06-04 16:24:26.9398 INFO Returned all Expense Claims with details from database.
+2024-06-04 16:24:26.9398 INFO Returned all Expense Claims with details from database.
+2024-06-04 16:24:26.9398 INFO Returned all Expense Claims with details from database.
+2024-06-04 16:24:26.9398 INFO Returned all Expense Claims with details from database.
+2024-06-04 16:24:27.0133 INFO Returned all Expense Claims draft with details from database.
+2024-06-04 16:24:27.0825 INFO Inside EMailTemplate
+2024-06-04 16:24:27.0881 INFO Inside SendEmail before calling SendEmailAsync
+2024-06-04 16:24:29.0084 INFO Inside SendEmailAsync: Mail has been sent successfully
+2024-06-04 16:24:29.0084 INFO Kaitlynn.Tan@uemsgroup.com,<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <table>
+
+        <tr>
+            <td>
+                <div style="border-top:3px solid #22BCE5"> </div><br />
+                <span style="font-family:Arial;font-size:10pt">
+                    Dear <b>Kaitlynn Tan Wei Ni</b>,<br /><!--<br />-->
+                    <p style="color:#22BCE5">Approval Request - Expense Claim</p>
+                    <!--<a style="color:#22BCE5" href="{Url}">Expense Claim Approval Request</a>--><!--<br /><br />-->
+                    Claim number <b>EC003028</b> has been sent to you for Approval Request by <b> Chan Zhi Hao Joseph</b><br /><br />
+                    Kindly click on this link to Approve/Reject the Expense Claim
+                    <br /><br />
+                          <a style="color:#22BCE5" href="http://localhost:51426/HodSummary/ECDetails/3142">http://localhost:51426/HodSummary/ECDetails/3142</a><br /><br />
+                    Thanks<br />
+                </span>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
+,Expense Claim for Approval EC003028,04-06-2024 16:24:29
+2024-06-04 16:25:55.9884 INFO Returned all HRPVG Claims with details from database.
+2024-06-04 16:34:33.3073 INFO Returned all facilities with departments from database.
+2024-06-04 16:34:40.0028 INFO Returned all Expense Claims with details from database.
+2024-06-04 16:34:40.1314 INFO Returned all Expense Claims with details from database.
+2024-06-04 16:34:40.4213 INFO Returned all Expense Claims with details from database.
+2024-06-04 16:34:40.4463 INFO Returned all Expense Claims with details from database.
+2024-06-04 16:34:40.4474 INFO Returned all Expense Claims with details from database.
+2024-06-04 16:34:40.4474 INFO Returned all Expense Claims with details from database.
+2024-06-04 16:34:40.5133 INFO Returned all Expense Claims draft with details from database.
+2024-06-04 16:40:30.4551 INFO Returned all PVG Claims with details from database.
+2024-06-04 16:40:53.0077 INFO Returned all PVG Claims with details from database.
+2024-06-04 16:43:37.9536 INFO Returned all PVG Claims with details from database.
+2024-06-04 16:43:39.4377 INFO Returned all HRPVG Claims with details from database.
+2024-06-04 16:45:15.9659 INFO Returned all Expense Claims with details from database.
+2024-06-04 16:45:16.1006 INFO Returned all Expense Claims with details from database.
+2024-06-04 16:45:16.2333 INFO Returned all Expense Claims with details from database.
+2024-06-04 16:45:16.2333 INFO Returned all Expense Claims with details from database.
+2024-06-04 16:45:16.2333 INFO Returned all Expense Claims with details from database.
+2024-06-04 16:45:16.2333 INFO Returned all Expense Claims with details from database.
+2024-06-04 16:45:16.3055 INFO Returned all Expense Claims draft with details from database.
+2024-06-04 16:46:08.3304 INFO Returned all Expense Claims with details from database.
+2024-06-04 16:46:08.5332 INFO Returned all Expense Claims with details from database.
+2024-06-04 16:46:08.6906 INFO Returned all Expense Claims with details from database.
+2024-06-04 16:46:08.6906 INFO Returned all Expense Claims with details from database.
+2024-06-04 16:46:08.6906 INFO Returned all Expense Claims with details from database.
+2024-06-04 16:46:08.6906 INFO Returned all Expense Claims with details from database.
+2024-06-04 16:46:08.7607 INFO Returned all Expense Claims draft with details from database.
+2024-06-04 16:46:08.8540 INFO Inside EMailTemplate
+2024-06-04 16:46:08.8540 INFO Inside SendEmail before calling SendEmailAsync
+2024-06-04 16:46:10.0301 INFO Inside SendEmailAsync: Mail has been sent successfully
+2024-06-04 16:46:10.0301 INFO Kaitlynn.Tan@uemsgroup.com,<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <table>
+
+        <tr>
+            <td>
+                <div style="border-top:3px solid #22BCE5"> </div><br />
+                <span style="font-family:Arial;font-size:10pt">
+                    Dear <b>Kaitlynn Tan Wei Ni</b>,<br /><!--<br />-->
+                    <p style="color:#22BCE5">Approval Request - Expense Claim</p>
+                    <!--<a style="color:#22BCE5" href="{Url}">Expense Claim Approval Request</a>--><!--<br /><br />-->
+                    Claim number <b>EC003028</b> has been sent to you for Approval Request by <b> Chan Zhi Hao Joseph</b><br /><br />
+                    Kindly click on this link to Approve/Reject the Expense Claim
+                    <br /><br />
+                          <a style="color:#22BCE5" href="http://localhost:51426/HodSummary/ECDetails/3142">http://localhost:51426/HodSummary/ECDetails/3142</a><br /><br />
+                    Thanks<br />
+                </span>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
+,Expense Claim for Approval EC003028,04-06-2024 16:46:10
+2024-06-04 16:47:13.5869 INFO Returned all Expense Claims with details from database.
+2024-06-04 16:47:13.7288 INFO Returned all Expense Claims with details from database.
+2024-06-04 16:47:13.8604 INFO Returned all Expense Claims with details from database.
+2024-06-04 16:47:13.8604 INFO Returned all Expense Claims with details from database.
+2024-06-04 16:47:13.8604 INFO Returned all Expense Claims with details from database.
+2024-06-04 16:47:13.8604 INFO Returned all Expense Claims with details from database.
+2024-06-04 16:47:13.9352 INFO Returned all Expense Claims draft with details from database.
+2024-06-04 16:47:28.9727 INFO Returned all HRPVG Claims with details from database.
+2024-06-04 16:49:49.5139 INFO Returned all Expense Claims with details from database.
+2024-06-04 16:49:49.6503 INFO Returned all Expense Claims with details from database.
+2024-06-04 16:49:49.8203 INFO Returned all Expense Claims with details from database.
+2024-06-04 16:49:49.8235 INFO Returned all Expense Claims with details from database.
+2024-06-04 16:49:49.8235 INFO Returned all Expense Claims with details from database.
+2024-06-04 16:49:49.8235 INFO Returned all Expense Claims with details from database.
+2024-06-04 16:49:49.9587 INFO Returned all Expense Claims draft with details from database.
+2024-06-04 16:52:22.0391 INFO Returned all Expense Claims with details from database.
+2024-06-04 16:52:22.1684 INFO Returned all Expense Claims with details from database.
+2024-06-04 16:52:22.2982 INFO Returned all Expense Claims with details from database.
+2024-06-04 16:52:22.4401 INFO Returned all Expense Claims with details from database.
+2024-06-04 16:52:22.4401 INFO Inside EMailTemplate
+2024-06-04 16:52:22.4401 INFO Inside SendEmail before calling SendEmailAsync
+2024-06-04 16:52:22.4401 INFO Returned all Expense Claims with details from database.
+2024-06-04 16:52:22.4401 INFO Returned all Expense Claims with details from database.
+2024-06-04 16:52:22.4489 INFO Returned all Expense Claims with details from database.
+2024-06-04 16:52:22.5156 INFO Returned all Expense Claims draft with details from database.
+2024-06-04 16:52:23.4605 INFO Inside SendEmailAsync: Mail has been sent successfully
+2024-06-04 16:52:23.4605 INFO Kaitlynn.Tan@uemsgroup.com,<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <table>
+
+        <tr>
+            <td>
+                <div style="border-top:3px solid #22BCE5"> </div><br />
+                <span style="font-family:Arial;font-size:10pt">
+                    Dear <b>Kaitlynn Tan Wei Ni</b>,<br /><!--<br />-->
+                    <p style="color:#22BCE5">Approval Request - Expense Claim</p>
+                    <!--<a style="color:#22BCE5" href="{Url}">Expense Claim Approval Request</a>--><!--<br /><br />-->
+                    Claim number <b>EC003029</b> has been sent to you for Approval Request by <b> Chan Zhi Hao Joseph</b><br /><br />
+                    Kindly click on this link to Approve/Reject the Expense Claim
+                    <br /><br />
+                          <a style="color:#22BCE5" href="http://localhost:51426/HodSummary/ECDetails/3143">http://localhost:51426/HodSummary/ECDetails/3143</a><br /><br />
+                    Thanks<br />
+                </span>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
+,Expense Claim for Approval EC003029,04-06-2024 16:52:23
+2024-06-04 16:53:04.5358 INFO Returned all Expense Claims with details from database.
+2024-06-04 16:53:04.6673 INFO Returned all Expense Claims with details from database.
+2024-06-04 16:53:04.8041 INFO Returned all Expense Claims with details from database.
+2024-06-04 16:53:04.9434 INFO Returned all Expense Claims with details from database.
+2024-06-04 16:53:04.9434 INFO Returned all Expense Claims with details from database.
+2024-06-04 16:53:04.9490 INFO Returned all Expense Claims with details from database.
+2024-06-04 16:53:04.9490 INFO Returned all Expense Claims with details from database.
+2024-06-04 16:53:05.0230 INFO Returned all Expense Claims draft with details from database.
+2024-06-04 16:53:14.4591 INFO Returned all HRPVG Claims with details from database.
+2024-06-04 16:54:23.0234 INFO Returned all HRPVC Claims with details from database.
+2024-06-04 16:54:39.6323 INFO Returned all PVC Claims with details from database.
+2024-06-04 16:55:18.2875 INFO Returned all Expense Claims with details from database.
+2024-06-04 16:57:30.6191 INFO Returned all Expense Claims with details from database.
+2024-06-04 16:57:38.5035 INFO Returned all Expense Claims with details from database.
+2024-06-04 17:01:35.9721 INFO Returned all Mileage Claims with details from database.
+2024-06-04 17:07:29.1279 INFO Returned all PV Giro Claims with details from database.
+2024-06-04 17:07:29.4410 INFO Inside EMailTemplate
+2024-06-04 17:07:29.4410 INFO Inside SendEmail before calling SendEmailAsync
+2024-06-04 17:07:30.4775 INFO Inside SendEmailAsync: Mail has been sent successfully
+2024-06-04 17:07:30.4787 INFO Kaitlynn.Tan@uemsgroup.com,<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <table>
+
+        <tr>
+            <td>
+                <div style="border-top:3px solid #22BCE5"> </div><br />
+                <span style="font-family:Arial;font-size:10pt">
+                    Dear <b>Kaitlynn Tan Wei Ni</b>,<br /><!--<br />-->
+                    <p style="color:#22BCE5">Approval Request - HR PV-GIRO Claim</p>
+                    <!--<a style="color:#22BCE5" href="{Url}">HR PV-GIRO Claim Approval Request</a>--><!--<br /><br />-->
+                    Claim number <b>HPVG002294</b> has been sent to you for Approval Request by <b> Chan Zhi Hao Joseph</b><br /><br />
+                    Kindly click on this link to Approve/Reject the HR PV-GIRO Claim
+                    <br /><br />
+                          <a style="color:#22BCE5" href="http://localhost:51426/HRSummary/HRPVGCDetails/2335">http://localhost:51426/HRSummary/HRPVGCDetails/2335</a><br /><br />
+                    Thanks<br />
+                </span>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
+,HR PV-GIRO Claim for Approval HPVG002294,04-06-2024 17:07:30
+2024-06-04 17:13:41.3688 INFO Returned all PV Giro Claims with details from database.
+2024-06-04 17:13:45.4385 INFO Returned all Mileage Claims with details from database.
+2024-06-04 17:14:16.8148 INFO Returned all HRPVG Claims with details from database.
+2024-06-04 17:16:40.4007 INFO Returned all HRPVG Claims with details from database.
+2024-06-04 17:18:35.4706 INFO Returned all PV Giro Claims with details from database.
+2024-06-04 17:20:13.2658 INFO Returned all PV Giro Claims with details from database.
+2024-06-04 17:20:13.4683 INFO Returned all PV Giro Claims with details from database.
+2024-06-04 17:20:13.9875 INFO Inside EMailTemplate
+2024-06-04 17:20:13.9875 INFO Inside SendEmail before calling SendEmailAsync
+2024-06-04 17:20:15.1586 INFO Inside SendEmailAsync: Mail has been sent successfully
+2024-06-04 17:20:15.1586 INFO Kaitlynn.Tan@uemsgroup.com,<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <table>
+
+        <tr>
+            <td>
+                <div style="border-top:3px solid #22BCE5"> </div><br />
+                <span style="font-family:Arial;font-size:10pt">
+                    Dear <b>Kaitlynn Tan Wei Ni</b>,<br /><!--<br />-->
+                    <p style="color:#22BCE5">Approval Request - HR PV-GIRO Claim</p>
+                    <!--<a style="color:#22BCE5" href="{Url}">HR PV-GIRO Claim Approval Request</a>--><!--<br /><br />-->
+                    Claim number <b>HPVG002295</b> has been sent to you for Approval Request by <b> Chan Zhi Hao Joseph</b><br /><br />
+                    Kindly click on this link to Approve/Reject the HR PV-GIRO Claim
+                    <br /><br />
+                          <a style="color:#22BCE5" href="http://localhost:51426/HRSummary/HRPVGCDetails/2336">http://localhost:51426/HRSummary/HRPVGCDetails/2336</a><br /><br />
+                    Thanks<br />
+                </span>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
+,HR PV-GIRO Claim for Approval HPVG002295,04-06-2024 17:20:15
+2024-06-04 17:21:02.6474 INFO Returned all PV Giro Claims with details from database.
+2024-06-04 17:21:02.7578 INFO Returned all PV Giro Claims with details from database.
+2024-06-04 17:21:08.4053 INFO Returned all Mileage Claims with details from database.
+2024-06-04 17:21:21.3011 INFO Returned all Expense Claims with details from database.
+2024-06-04 17:21:45.5639 INFO Returned all HRPVG Claims with details from database.
+2024-06-04 17:24:21.5440 INFO Returned all PV Giro Claims with details from database.
+2024-06-04 17:24:21.6502 INFO Returned all PV Giro Claims with details from database.
+2024-06-04 17:25:16.4378 INFO Returned all PV Giro Claims with details from database.
+2024-06-04 17:25:16.6007 INFO Returned all PV Giro Claims with details from database.
+2024-06-04 17:25:16.7500 INFO Returned all PV Giro Claims with details from database.
+2024-06-04 17:25:16.8022 INFO Inside EMailTemplate
+2024-06-04 17:25:16.8022 INFO Inside SendEmail before calling SendEmailAsync
+2024-06-04 17:25:17.9360 INFO Inside SendEmailAsync: Mail has been sent successfully
+2024-06-04 17:25:17.9360 INFO Kaitlynn.Tan@uemsgroup.com,<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <table>
+
+        <tr>
+            <td>
+                <div style="border-top:3px solid #22BCE5"> </div><br />
+                <span style="font-family:Arial;font-size:10pt">
+                    Dear <b>Kaitlynn Tan Wei Ni</b>,<br /><!--<br />-->
+                    <p style="color:#22BCE5">Approval Request - HR PV-GIRO Claim</p>
+                    <!--<a style="color:#22BCE5" href="{Url}">HR PV-GIRO Claim Approval Request</a>--><!--<br /><br />-->
+                    Claim number <b>HPVG002296</b> has been sent to you for Approval Request by <b> Chan Zhi Hao Joseph</b><br /><br />
+                    Kindly click on this link to Approve/Reject the HR PV-GIRO Claim
+                    <br /><br />
+                          <a style="color:#22BCE5" href="http://localhost:51426/HRSummary/HRPVGCDetails/2337">http://localhost:51426/HRSummary/HRPVGCDetails/2337</a><br /><br />
+                    Thanks<br />
+                </span>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
+,HR PV-GIRO Claim for Approval HPVG002296,04-06-2024 17:25:17
+2024-06-04 17:25:21.9487 INFO Returned all Mileage Claims with details from database.
+2024-06-04 17:25:38.3486 INFO Returned all Mileage Claims with details from database.
+2024-06-04 17:25:58.6270 INFO Returned all HRPVG Claims with details from database.
+2024-06-04 17:31:57.9494 INFO Returned all PV Giro Claims with details from database.
+2024-06-04 17:31:58.0745 INFO Returned all PV Giro Claims with details from database.
+2024-06-04 17:31:58.1741 INFO Returned all PV Giro Claims with details from database.
+2024-06-04 17:32:09.9340 INFO Returned all PV Giro Claims with details from database.
+2024-06-04 17:32:10.0415 INFO Returned all PV Giro Claims with details from database.
+2024-06-04 17:32:10.1568 INFO Returned all PV Giro Claims with details from database.
+2024-06-04 17:32:37.6665 INFO Returned all PV Giro Claims with details from database.
+2024-06-04 17:32:37.8291 INFO Returned all PV Giro Claims with details from database.
+2024-06-04 17:32:37.9344 INFO Returned all PV Giro Claims with details from database.
+2024-06-04 17:32:38.1286 INFO Inside EMailTemplate
+2024-06-04 17:32:38.1384 INFO Inside SendEmail before calling SendEmailAsync
+2024-06-04 17:32:38.9813 INFO Inside SendEmailAsync: Mail has been sent successfully
+2024-06-04 17:32:38.9813 INFO teresachai@uemsgroup.com,<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <table>
+
+        <tr>
+            <td>
+                <div style="border-top:3px solid #22BCE5"> </div><br />
+                <span style="font-family:Arial;font-size:10pt">
+                    Dear <b>Chai Poh Lian</b>,<br /><!--<br />-->
+                    <p style="color:#22BCE5">Approval Request - HR PV-GIRO Claim</p>
+                    <!--<a style="color:#22BCE5" href="{Url}">HR PV-GIRO Claim Approval Request</a>--><!--<br /><br />-->
+                    Claim number <b>HPVG002296</b> has been sent to you for Approval Request by <b> Chan Zhi Hao Joseph</b><br /><br />
+                    Kindly click on this link to Approve/Reject the HR PV-GIRO Claim
+                    <br /><br />
+                          <a style="color:#22BCE5" href="http://localhost:51426/FinanceHRPVGClaim/Details/2337">http://localhost:51426/FinanceHRPVGClaim/Details/2337</a><br /><br />
+                    Thanks<br />
+                </span>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
+,HR PV-GIRO Claim for Approval HPVG002296,04-06-2024 17:32:38
+2024-06-04 17:32:58.5886 INFO Returned all HRPVG Claims with details from database.
+2024-06-04 17:33:20.1468 INFO Returned all Mileage Claims with details from database.
+2024-06-04 17:33:23.7027 INFO Returned all PV Giro Claims with details from database.
+2024-06-04 17:33:23.8056 INFO Returned all PV Giro Claims with details from database.
+2024-06-04 17:33:23.9079 INFO Returned all PV Giro Claims with details from database.
+2024-06-04 17:33:59.8544 INFO Returned all PV Giro Claims with details from database.
+2024-06-04 17:33:59.9651 INFO Returned all PV Giro Claims with details from database.
+2024-06-04 17:34:00.0684 INFO Returned all PV Giro Claims with details from database.
+2024-06-04 17:34:00.2344 INFO Inside EMailTemplate
+2024-06-04 17:34:00.2344 INFO Inside SendEmail before calling SendEmailAsync
+2024-06-04 17:34:00.9796 INFO Inside SendEmailAsync: Mail has been sent successfully
+2024-06-04 17:34:00.9796 INFO teresachai@uemsgroup.com,<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <table>
+
+        <tr>
+            <td>
+                <div style="border-top:3px solid #22BCE5"> </div><br />
+                <span style="font-family:Arial;font-size:10pt">
+                    Dear <b>Chai Poh Lian</b>,<br /><!--<br />-->
+                    <p style="color:#22BCE5">Approval Request - HR PV-GIRO Claim</p>
+                    <!--<a style="color:#22BCE5" href="{Url}">HR PV-GIRO Claim Approval Request</a>--><!--<br /><br />-->
+                    Claim number <b>HPVG002296</b> has been sent to you for Approval Request by <b> Chan Zhi Hao Joseph</b><br /><br />
+                    Kindly click on this link to Approve/Reject the HR PV-GIRO Claim
+                    <br /><br />
+                          <a style="color:#22BCE5" href="http://localhost:51426/FinanceHRPVGClaim/Details/2337">http://localhost:51426/FinanceHRPVGClaim/Details/2337</a><br /><br />
+                    Thanks<br />
+                </span>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
+,HR PV-GIRO Claim for Approval HPVG002296,04-06-2024 17:34:00
+2024-06-04 17:42:53.6399 INFO Returned all PV Giro Claims with details from database.
+2024-06-04 17:42:53.8996 INFO Returned all PV Giro Claims with details from database.
+2024-06-04 17:42:54.0131 INFO Returned all PV Giro Claims with details from database.
+2024-06-04 17:43:06.6118 INFO Returned all PV Giro Claims with details from database.
+2024-06-04 17:43:06.7136 INFO Returned all PV Giro Claims with details from database.
+2024-06-04 17:43:06.8168 INFO Returned all PV Giro Claims with details from database.
+2024-06-04 17:43:06.9791 INFO Inside EMailTemplate
+2024-06-04 17:43:06.9791 INFO Inside SendEmail before calling SendEmailAsync
+2024-06-04 17:43:08.0525 INFO Inside SendEmailAsync: Mail has been sent successfully
+2024-06-04 17:43:08.0525 INFO teresachai@uemsgroup.com,<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <table>
+
+        <tr>
+            <td>
+                <div style="border-top:3px solid #22BCE5"> </div><br />
+                <span style="font-family:Arial;font-size:10pt">
+                    Dear <b>Chai Poh Lian</b>,<br /><!--<br />-->
+                    <p style="color:#22BCE5">Approval Request - HR PV-GIRO Claim</p>
+                    <!--<a style="color:#22BCE5" href="{Url}">HR PV-GIRO Claim Approval Request</a>--><!--<br /><br />-->
+                    Claim number <b>HPVG002296</b> has been sent to you for Approval Request by <b> Chan Zhi Hao Joseph</b><br /><br />
+                    Kindly click on this link to Approve/Reject the HR PV-GIRO Claim
+                    <br /><br />
+                          <a style="color:#22BCE5" href="http://localhost:51426/FinanceHRPVGClaim/Details/2337">http://localhost:51426/FinanceHRPVGClaim/Details/2337</a><br /><br />
+                    Thanks<br />
+                </span>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
+,HR PV-GIRO Claim for Approval HPVG002296,04-06-2024 17:43:08
+2024-06-04 17:44:19.1284 INFO Returned all PV Giro Claims with details from database.
+2024-06-04 17:44:19.2348 INFO Returned all PV Giro Claims with details from database.
+2024-06-04 17:44:19.4494 INFO Returned all PV Giro Claims with details from database.
+2024-06-04 17:44:19.5353 INFO Inside EMailTemplate
+2024-06-04 17:44:19.5456 INFO Inside SendEmail before calling SendEmailAsync
+2024-06-04 17:44:20.7556 INFO Inside SendEmailAsync: Mail has been sent successfully
+2024-06-04 17:44:20.7556 INFO teresachai@uemsgroup.com,<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <table>
+
+        <tr>
+            <td>
+                <div style="border-top:3px solid #22BCE5"> </div><br />
+                <span style="font-family:Arial;font-size:10pt">
+                    Dear <b>Chai Poh Lian</b>,<br /><!--<br />-->
+                    <p style="color:#22BCE5">Approval Request - HR PV-GIRO Claim</p>
+                    <!--<a style="color:#22BCE5" href="{Url}">HR PV-GIRO Claim Approval Request</a>--><!--<br /><br />-->
+                    Claim number <b>HPVG002296</b> has been sent to you for Approval Request by <b> Chan Zhi Hao Joseph</b><br /><br />
+                    Kindly click on this link to Approve/Reject the HR PV-GIRO Claim
+                    <br /><br />
+                          <a style="color:#22BCE5" href="http://localhost:51426/FinanceHRPVGClaim/Details/2337">http://localhost:51426/FinanceHRPVGClaim/Details/2337</a><br /><br />
+                    Thanks<br />
+                </span>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
+,HR PV-GIRO Claim for Approval HPVG002296,04-06-2024 17:44:20
+2024-06-04 17:45:33.5185 INFO Returned all PV Giro Claims with details from database.
+2024-06-04 17:45:33.6622 INFO Returned all PV Giro Claims with details from database.
+2024-06-04 17:45:33.7740 INFO Returned all PV Giro Claims with details from database.
+2024-06-04 17:45:33.8774 INFO Returned all PV Giro Claims with details from database.
+2024-06-04 17:45:33.8915 INFO Inside EMailTemplate
+2024-06-04 17:45:33.8915 INFO Inside SendEmail before calling SendEmailAsync
+2024-06-04 17:45:34.6658 INFO Inside SendEmailAsync: Mail has been sent successfully
+2024-06-04 17:45:34.7555 INFO Kaitlynn.Tan@uemsgroup.com,<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <table>
+
+        <tr>
+            <td>
+                <div style="border-top:3px solid #22BCE5"> </div><br />
+                <span style="font-family:Arial;font-size:10pt">
+                    Dear <b>Kaitlynn Tan Wei Ni</b>,<br /><!--<br />-->
+                    <p style="color:#22BCE5">Approval Request - HR PV-GIRO Claim</p>
+                    <!--<a style="color:#22BCE5" href="{Url}">HR PV-GIRO Claim Approval Request</a>--><!--<br /><br />-->
+                    Claim number <b>HPVG002297</b> has been sent to you for Approval Request by <b> Chan Zhi Hao Joseph</b><br /><br />
+                    Kindly click on this link to Approve/Reject the HR PV-GIRO Claim
+                    <br /><br />
+                          <a style="color:#22BCE5" href="http://localhost:51426/HRSummary/HRPVGCDetails/2338">http://localhost:51426/HRSummary/HRPVGCDetails/2338</a><br /><br />
+                    Thanks<br />
+                </span>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
+,HR PV-GIRO Claim for Approval HPVG002297,04-06-2024 17:45:34
+2024-06-04 17:58:34.6245 INFO Returned all Expense Claims with details from database.
+2024-06-04 17:58:36.3137 INFO Returned all Expense Claims with details from database.
+2024-06-04 17:58:45.6500 INFO Returned all Expense Claims with details from database.
+2024-06-04 17:58:45.7707 INFO Returned all Expense Claims with details from database.
+2024-06-04 17:58:45.9109 INFO Returned all Expense Claims with details from database.
+2024-06-04 17:58:46.0140 INFO Returned all Expense Claims with details from database.
+2024-06-04 17:58:46.0140 INFO Returned all Expense Claims with details from database.
+2024-06-04 17:58:46.0140 INFO Returned all Expense Claims with details from database.
+2024-06-04 17:58:46.0140 INFO Returned all Expense Claims with details from database.
+2024-06-04 17:58:46.1069 INFO Returned all Expense Claims draft with details from database.
+2024-06-04 17:59:24.7589 INFO Returned all Expense Claims with details from database.
+2024-06-04 17:59:24.9000 INFO Inside EMailTemplate
+2024-06-04 17:59:24.9014 INFO Inside SendEmail before calling SendEmailAsync
+2024-06-04 17:59:24.9014 INFO Returned all Expense Claims with details from database.
+2024-06-04 17:59:25.0329 INFO Returned all Expense Claims with details from database.
+2024-06-04 17:59:25.1416 INFO Returned all Expense Claims with details from database.
+2024-06-04 17:59:25.3554 INFO Returned all Expense Claims with details from database.
+2024-06-04 17:59:25.3554 INFO Returned all Expense Claims with details from database.
+2024-06-04 17:59:25.3554 INFO Returned all Expense Claims with details from database.
+2024-06-04 17:59:25.3554 INFO Returned all Expense Claims with details from database.
+2024-06-04 17:59:25.4172 INFO Returned all Expense Claims draft with details from database.
+2024-06-04 17:59:26.5823 INFO Inside SendEmailAsync: Mail has been sent successfully
+2024-06-04 17:59:26.5823 INFO Kaitlynn.Tan@uemsgroup.com,<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <table>
+
+        <tr>
+            <td>
+                <div style="border-top:3px solid #22BCE5"> </div><br />
+                <span style="font-family:Arial;font-size:10pt">
+                    Dear <b>Kaitlynn Tan Wei Ni</b>,<br /><!--<br />-->
+                    <p style="color:#22BCE5">Approval Request - Expense Claim</p>
+                    <!--<a style="color:#22BCE5" href="{Url}">Expense Claim Approval Request</a>--><!--<br /><br />-->
+                    Claim number <b>EC003030</b> has been sent to you for Approval Request by <b> Chan Zhi Hao Joseph</b><br /><br />
+                    Kindly click on this link to Approve/Reject the Expense Claim
+                    <br /><br />
+                          <a style="color:#22BCE5" href="http://localhost:51426/HodSummary/ECDetails/3144">http://localhost:51426/HodSummary/ECDetails/3144</a><br /><br />
+                    Thanks<br />
+                </span>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
+,Expense Claim for Approval EC003030,04-06-2024 17:59:26

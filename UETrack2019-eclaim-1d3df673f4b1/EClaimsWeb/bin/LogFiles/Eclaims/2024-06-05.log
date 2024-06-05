@@ -1,0 +1,569 @@
+2024-06-05 10:53:36.4383 INFO Start installing Hangfire SQL objects...
+2024-06-05 10:54:24.8324 WARN An exception occurred while trying to perform the migration. Retrying...
+2024-06-05 10:54:24.8563 WARN An exception occurred while trying to perform the migration. Retrying...
+2024-06-05 10:54:24.8630 WARN An exception occurred while trying to perform the migration.
+2024-06-05 10:54:24.8630 WARN Was unable to perform the Hangfire schema migration due to an exception. Ignore this message unless you've just installed or upgraded Hangfire.
+2024-06-05 10:56:25.0292 INFO Start installing Hangfire SQL objects...
+2024-06-05 10:56:26.3571 WARN An exception occurred while trying to perform the migration. Retrying...
+2024-06-05 10:56:26.6872 WARN An exception occurred while trying to perform the migration. Retrying...
+2024-06-05 10:56:26.8389 WARN An exception occurred while trying to perform the migration.
+2024-06-05 10:56:26.8389 WARN Was unable to perform the Hangfire schema migration due to an exception. Ignore this message unless you've just installed or upgraded Hangfire.
+2024-06-05 10:57:52.2913 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 10:57:52.2913 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 10:57:52.2913 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 10:57:52.2913 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 10:57:52.2913 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:00:19.0690 INFO Start installing Hangfire SQL objects...
+2024-06-05 11:00:23.3960 WARN An exception occurred while trying to perform the migration. Retrying...
+2024-06-05 11:00:24.0273 WARN An exception occurred while trying to perform the migration. Retrying...
+2024-06-05 11:00:24.6427 WARN An exception occurred while trying to perform the migration.
+2024-06-05 11:00:24.6521 WARN Was unable to perform the Hangfire schema migration due to an exception. Ignore this message unless you've just installed or upgraded Hangfire.
+2024-06-05 11:00:48.4966 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:00:49.2225 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:00:49.8394 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:00:50.5769 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:00:51.1712 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:00:51.7777 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:00:52.3912 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:00:53.0188 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:00:53.6507 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:00:54.3091 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:00:55.6699 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:00:56.2868 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:00:56.9007 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:00:57.5148 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:00:58.1108 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:00:58.7456 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:00:59.4382 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:01:00.0707 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:01:00.6906 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:01:01.2999 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:01:01.9167 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:01:02.5345 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:01:02.5345 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:01:02.5345 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:01:02.5425 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:01:02.5425 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:01:02.5425 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:01:27.4994 ERROR Something went wrong: System.Data.SqlTypes.SqlNullValueException: Data is Null. This method or property cannot be called on Null values.
+   at Microsoft.Data.SqlClient.SqlBuffer.get_Decimal()
+   at lambda_method411(Closure , QueryContext , DbDataReader , ResultContext , SingleQueryResultCoordinator )
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at EClaimsRepository.Repository.DtPVGClaimRepository.GetDtPVGClaimByIdAsync(Nullable`1 pVGCID) in C:\Users\Dell\Desktop\UETrack2019-eclaim-1d3df673f4b1\EClaimsRepository\Repository\DtPVGClaimRepository.cs:line 54
+   at EClaimsWeb.Controllers.PVGIROClaimController.Create(String id, String Updatestatus) in C:\Users\Dell\Desktop\UETrack2019-eclaim-1d3df673f4b1\EClaimsWeb\Controllers\PVGIROClaimController.cs:line 579
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|19_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Builder.Extensions.MapMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authorization.Policy.AuthorizationMiddlewareResultHandler.HandleAsync(RequestDelegate next, HttpContext context, AuthorizationPolicy policy, PolicyAuthorizationResult authorizeResult)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at EClaimsWeb.CustomExceptionMiddleware.ExceptionMiddleware.InvokeAsync(HttpContext httpContext) in C:\Users\Dell\Desktop\UETrack2019-eclaim-1d3df673f4b1\EClaimsWeb\CustomExceptionMiddleware\ExceptionMiddleware.cs:line 27
+2024-06-05 11:01:31.3049 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:01:32.9466 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:01:33.5419 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:01:34.1207 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:01:34.7729 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:01:35.4061 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:01:36.0054 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:01:36.6332 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:01:37.2542 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:01:37.8569 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:01:38.4619 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:01:38.5113 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:01:39.0470 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:01:39.0897 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:01:39.6352 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:01:39.6656 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:01:40.2623 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:01:40.2623 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:01:40.8508 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:01:40.8508 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:01:41.4491 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:01:41.4491 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:01:42.0518 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:01:42.0518 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:01:42.6713 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:01:42.6713 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:01:43.2886 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:01:43.2886 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:01:43.9024 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:01:43.9024 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:01:44.5554 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:01:44.5600 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:01:45.1916 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:01:45.1916 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:01:45.1916 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:01:45.1980 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:01:45.1980 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:01:45.1980 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:01:45.1980 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:01:45.8442 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:01:46.4732 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:01:47.0549 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:01:47.6897 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:01:48.3069 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:01:48.9761 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:01:49.6285 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:01:50.2311 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:01:50.8753 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:01:51.5546 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:01:51.5577 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:01:51.5577 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:01:51.5577 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:01:51.5577 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:01:51.5577 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:02:12.8823 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:02:13.4651 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:02:14.1087 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:02:14.6900 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:02:15.2676 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:02:15.8785 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:02:17.3900 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:02:18.1078 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:02:18.7171 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:02:19.4229 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:02:20.0017 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:02:20.5914 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:02:21.2774 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:02:21.8553 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:02:22.5164 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:02:23.1062 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:02:23.7333 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:02:24.3505 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:02:24.9655 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:02:25.6431 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:02:26.2373 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:02:26.8440 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:02:26.8440 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:02:26.8572 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:02:26.8572 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:02:26.8572 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:02:26.8697 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:02:32.2974 ERROR Something went wrong: System.Data.SqlTypes.SqlNullValueException: Data is Null. This method or property cannot be called on Null values.
+   at Microsoft.Data.SqlClient.SqlBuffer.get_Decimal()
+   at lambda_method411(Closure , QueryContext , DbDataReader , ResultContext , SingleQueryResultCoordinator )
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at EClaimsRepository.Repository.DtPVGClaimRepository.GetDtPVGClaimByIdAsync(Nullable`1 pVGCID) in C:\Users\Dell\Desktop\UETrack2019-eclaim-1d3df673f4b1\EClaimsRepository\Repository\DtPVGClaimRepository.cs:line 54
+   at EClaimsWeb.Controllers.PVGIROClaimController.Create(String id, String Updatestatus) in C:\Users\Dell\Desktop\UETrack2019-eclaim-1d3df673f4b1\EClaimsWeb\Controllers\PVGIROClaimController.cs:line 579
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|19_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Builder.Extensions.MapMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authorization.Policy.AuthorizationMiddlewareResultHandler.HandleAsync(RequestDelegate next, HttpContext context, AuthorizationPolicy policy, PolicyAuthorizationResult authorizeResult)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at EClaimsWeb.CustomExceptionMiddleware.ExceptionMiddleware.InvokeAsync(HttpContext httpContext) in C:\Users\Dell\Desktop\UETrack2019-eclaim-1d3df673f4b1\EClaimsWeb\CustomExceptionMiddleware\ExceptionMiddleware.cs:line 27
+2024-06-05 11:02:43.3420 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:02:43.9204 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:02:44.5121 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:02:45.1010 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:02:45.7237 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:02:46.3520 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:02:46.9904 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:02:47.5938 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:02:48.2012 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:02:48.8221 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:02:49.4778 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:02:50.0992 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:02:50.6859 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:02:51.3614 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:02:51.9753 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:02:52.6105 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:02:53.8564 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:02:54.4823 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:02:55.1521 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:02:55.7893 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:02:56.4671 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:02:57.1252 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:02:57.1252 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:02:57.1252 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:02:57.1369 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:02:57.1369 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:02:57.1369 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:05:57.4544 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:05:58.1680 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:05:58.7872 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:05:59.3772 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:06:00.0074 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:06:00.5995 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:06:01.2433 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:06:01.8293 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:06:02.4445 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:06:03.0815 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:06:04.1079 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:06:04.6973 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:06:05.2760 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:06:05.8494 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:06:06.4646 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:06:07.0836 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:06:07.6890 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:06:08.2957 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:06:08.9247 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:06:09.5390 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:06:10.1454 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:06:10.7532 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:06:10.7604 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:06:10.7604 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:06:10.7604 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:06:10.7792 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:06:10.7792 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:07:51.4054 ERROR Something went wrong: System.Data.SqlTypes.SqlNullValueException: Data is Null. This method or property cannot be called on Null values.
+   at Microsoft.Data.SqlClient.SqlBuffer.get_Decimal()
+   at lambda_method411(Closure , QueryContext , DbDataReader , ResultContext , SingleQueryResultCoordinator )
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at EClaimsRepository.Repository.DtPVGClaimRepository.GetDtPVGClaimByIdAsync(Nullable`1 pVGCID) in C:\Users\Dell\Desktop\UETrack2019-eclaim-1d3df673f4b1\EClaimsRepository\Repository\DtPVGClaimRepository.cs:line 54
+   at EClaimsWeb.Controllers.PVGIROClaimController.Create(String id, String Updatestatus) in C:\Users\Dell\Desktop\UETrack2019-eclaim-1d3df673f4b1\EClaimsWeb\Controllers\PVGIROClaimController.cs:line 579
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|19_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Builder.Extensions.MapMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authorization.Policy.AuthorizationMiddlewareResultHandler.HandleAsync(RequestDelegate next, HttpContext context, AuthorizationPolicy policy, PolicyAuthorizationResult authorizeResult)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at EClaimsWeb.CustomExceptionMiddleware.ExceptionMiddleware.InvokeAsync(HttpContext httpContext) in C:\Users\Dell\Desktop\UETrack2019-eclaim-1d3df673f4b1\EClaimsWeb\CustomExceptionMiddleware\ExceptionMiddleware.cs:line 27
+2024-06-05 11:08:05.2419 ERROR Something went wrong: System.Data.SqlTypes.SqlNullValueException: Data is Null. This method or property cannot be called on Null values.
+   at Microsoft.Data.SqlClient.SqlBuffer.get_Decimal()
+   at lambda_method411(Closure , QueryContext , DbDataReader , ResultContext , SingleQueryResultCoordinator )
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at EClaimsRepository.Repository.DtPVGClaimRepository.GetDtPVGClaimByIdAsync(Nullable`1 pVGCID) in C:\Users\Dell\Desktop\UETrack2019-eclaim-1d3df673f4b1\EClaimsRepository\Repository\DtPVGClaimRepository.cs:line 54
+   at EClaimsWeb.Controllers.PVGIROClaimController.Create(String id, String Updatestatus) in C:\Users\Dell\Desktop\UETrack2019-eclaim-1d3df673f4b1\EClaimsWeb\Controllers\PVGIROClaimController.cs:line 579
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|19_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Builder.Extensions.MapMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authorization.Policy.AuthorizationMiddlewareResultHandler.HandleAsync(RequestDelegate next, HttpContext context, AuthorizationPolicy policy, PolicyAuthorizationResult authorizeResult)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at EClaimsWeb.CustomExceptionMiddleware.ExceptionMiddleware.InvokeAsync(HttpContext httpContext) in C:\Users\Dell\Desktop\UETrack2019-eclaim-1d3df673f4b1\EClaimsWeb\CustomExceptionMiddleware\ExceptionMiddleware.cs:line 27
+2024-06-05 11:10:29.3656 ERROR Something went wrong: System.Data.SqlTypes.SqlNullValueException: Data is Null. This method or property cannot be called on Null values.
+   at Microsoft.Data.SqlClient.SqlBuffer.get_Decimal()
+   at lambda_method411(Closure , QueryContext , DbDataReader , ResultContext , SingleQueryResultCoordinator )
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at EClaimsRepository.Repository.DtPVGClaimRepository.GetDtPVGClaimByIdAsync(Nullable`1 pVGCID) in C:\Users\Dell\Desktop\UETrack2019-eclaim-1d3df673f4b1\EClaimsRepository\Repository\DtPVGClaimRepository.cs:line 54
+   at EClaimsWeb.Controllers.PVGIROClaimController.Create(String id, String Updatestatus) in C:\Users\Dell\Desktop\UETrack2019-eclaim-1d3df673f4b1\EClaimsWeb\Controllers\PVGIROClaimController.cs:line 579
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|19_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Builder.Extensions.MapMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authorization.Policy.AuthorizationMiddlewareResultHandler.HandleAsync(RequestDelegate next, HttpContext context, AuthorizationPolicy policy, PolicyAuthorizationResult authorizeResult)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at EClaimsWeb.CustomExceptionMiddleware.ExceptionMiddleware.InvokeAsync(HttpContext httpContext) in C:\Users\Dell\Desktop\UETrack2019-eclaim-1d3df673f4b1\EClaimsWeb\CustomExceptionMiddleware\ExceptionMiddleware.cs:line 27
+2024-06-05 11:22:51.4095 ERROR Something went wrong: System.Data.SqlTypes.SqlNullValueException: Data is Null. This method or property cannot be called on Null values.
+   at Microsoft.Data.SqlClient.SqlBuffer.get_Decimal()
+   at lambda_method411(Closure , QueryContext , DbDataReader , ResultContext , SingleQueryResultCoordinator )
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at EClaimsRepository.Repository.DtPVGClaimRepository.GetDtPVGClaimByIdAsync(Nullable`1 pVGCID) in C:\Users\Dell\Desktop\UETrack2019-eclaim-1d3df673f4b1\EClaimsRepository\Repository\DtPVGClaimRepository.cs:line 54
+   at EClaimsWeb.Controllers.PVGIROClaimController.Create(String id, String Updatestatus) in C:\Users\Dell\Desktop\UETrack2019-eclaim-1d3df673f4b1\EClaimsWeb\Controllers\PVGIROClaimController.cs:line 579
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|19_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Builder.Extensions.MapMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authorization.Policy.AuthorizationMiddlewareResultHandler.HandleAsync(RequestDelegate next, HttpContext context, AuthorizationPolicy policy, PolicyAuthorizationResult authorizeResult)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at EClaimsWeb.CustomExceptionMiddleware.ExceptionMiddleware.InvokeAsync(HttpContext httpContext) in C:\Users\Dell\Desktop\UETrack2019-eclaim-1d3df673f4b1\EClaimsWeb\CustomExceptionMiddleware\ExceptionMiddleware.cs:line 27
+2024-06-05 11:23:00.4562 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:23:01.0881 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:23:01.7801 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:23:02.4046 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:23:03.0129 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:23:03.7261 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:23:04.3381 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:23:04.9289 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:23:05.5672 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:23:06.1954 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:23:06.8021 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:23:07.5137 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:23:08.1190 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:23:08.7129 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:23:09.2882 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:23:09.9744 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:23:10.6487 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:23:12.1218 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:23:12.7406 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:23:13.3523 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:23:13.9448 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:23:14.5793 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:23:14.5793 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:23:14.5793 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:23:14.5793 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:23:14.5793 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:23:14.5925 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:23:25.5779 ERROR Something went wrong: System.Data.SqlTypes.SqlNullValueException: Data is Null. This method or property cannot be called on Null values.
+   at Microsoft.Data.SqlClient.SqlBuffer.get_Decimal()
+   at lambda_method411(Closure , QueryContext , DbDataReader , ResultContext , SingleQueryResultCoordinator )
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at EClaimsRepository.Repository.DtPVGClaimRepository.GetDtPVGClaimByIdAsync(Nullable`1 pVGCID) in C:\Users\Dell\Desktop\UETrack2019-eclaim-1d3df673f4b1\EClaimsRepository\Repository\DtPVGClaimRepository.cs:line 54
+   at EClaimsWeb.Controllers.PVGIROClaimController.Create(String id, String Updatestatus) in C:\Users\Dell\Desktop\UETrack2019-eclaim-1d3df673f4b1\EClaimsWeb\Controllers\PVGIROClaimController.cs:line 579
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|19_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Builder.Extensions.MapMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authorization.Policy.AuthorizationMiddlewareResultHandler.HandleAsync(RequestDelegate next, HttpContext context, AuthorizationPolicy policy, PolicyAuthorizationResult authorizeResult)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at EClaimsWeb.CustomExceptionMiddleware.ExceptionMiddleware.InvokeAsync(HttpContext httpContext) in C:\Users\Dell\Desktop\UETrack2019-eclaim-1d3df673f4b1\EClaimsWeb\CustomExceptionMiddleware\ExceptionMiddleware.cs:line 27
+2024-06-05 11:24:36.7407 INFO Start installing Hangfire SQL objects...
+2024-06-05 11:24:37.8480 WARN An exception occurred while trying to perform the migration. Retrying...
+2024-06-05 11:24:37.9959 WARN An exception occurred while trying to perform the migration. Retrying...
+2024-06-05 11:24:38.1823 WARN An exception occurred while trying to perform the migration.
+2024-06-05 11:24:38.1823 WARN Was unable to perform the Hangfire schema migration due to an exception. Ignore this message unless you've just installed or upgraded Hangfire.
+2024-06-05 11:25:17.7609 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:25:17.7609 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:25:17.7793 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:25:17.7793 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:25:17.7793 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:26:19.7894 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:26:19.8153 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:26:19.8153 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:26:19.8237 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:26:19.8237 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:27:40.9382 ERROR Something went wrong while uploading file: Input string was not in a correct format.
+2024-06-05 11:27:41.1004 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:27:41.1004 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:27:41.1050 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:27:41.1050 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:27:41.1050 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:27:55.5461 ERROR Something went wrong while uploading file: Input string was not in a correct format.
+2024-06-05 11:27:55.6670 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:27:55.6670 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:27:55.6670 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:27:55.6670 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:27:55.6670 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:28:24.1879 ERROR Something went wrong while uploading file: Input string was not in a correct format.
+2024-06-05 11:28:24.3101 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:28:24.3101 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:28:24.3101 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:28:24.3101 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:28:24.3101 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:28:42.6041 ERROR Something went wrong while uploading file: Input string was not in a correct format.
+2024-06-05 11:28:42.7316 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:28:42.7316 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:28:42.7316 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:28:42.7316 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:28:42.7316 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:29:50.0323 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:29:50.0323 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:29:50.2264 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:29:50.2264 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:29:50.2321 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:29:50.2321 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:29:50.3435 INFO Inside EMailTemplate
+2024-06-05 11:29:50.3759 INFO Inside SendEmail before calling SendEmailAsync
+2024-06-05 11:29:51.3008 INFO Inside SendEmailAsync: Mail has been sent successfully
+2024-06-05 11:29:51.3008 INFO Kaitlynn.Tan@uemsgroup.com,<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <table>
+
+        <tr>
+            <td>
+                <div style="border-top:3px solid #22BCE5"> </div><br />
+                <span style="font-family:Arial;font-size:10pt">
+                    Dear <b>Kaitlynn Tan Wei Ni</b>,<br /><!--<br />-->
+                    <p style="color:#22BCE5">Approval Request - PV-GIRO Claim</p>
+                    <!--<a style="color:#22BCE5" href="{Url}">PV-GIRO Claim Approval Request</a>--><!--<br /><br />-->
+                    Claim number <b>PVGC002307</b> has been sent to you for Approval Request by <b> Chan Zhi Hao Joseph</b><br /><br />
+                    Kindly click on this link to Approve/Reject the PV-GIRO Claim
+                    <br /><br />
+                          <a style="color:#22BCE5" href="http://localhost:51426/HodSummary/PVGCDetails/2388">http://localhost:51426/HodSummary/PVGCDetails/2388</a><br /><br />
+                    Thanks<br />
+                </span>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
+,PV-GIRO Claim for Approval PVGC002307,05-06-2024 11:29:51
+2024-06-05 11:30:47.0461 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:30:47.0856 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:30:47.0943 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:30:47.0943 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:30:47.0943 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:30:47.0943 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:31:20.2709 ERROR Something went wrong while uploading file: Input string was not in a correct format.
+2024-06-05 11:31:20.4980 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:31:20.4980 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:31:20.4980 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:31:20.4980 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:31:20.4980 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:31:20.4980 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:33:50.4407 ERROR Something went wrong while uploading file: Input string was not in a correct format.
+2024-06-05 11:33:50.7679 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:33:50.7679 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:33:50.7679 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:33:50.7679 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:33:50.7773 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:33:50.7773 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:34:02.5056 ERROR Something went wrong while uploading file: Input string was not in a correct format.
+2024-06-05 11:34:02.7622 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:34:02.7798 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:34:02.7798 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:34:02.7923 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:34:02.7923 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:34:02.7923 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:36:12.2252 ERROR Something went wrong while uploading file: Input string was not in a correct format.
+2024-06-05 11:36:12.6168 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:36:12.6168 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:36:12.6204 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:36:12.6204 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:36:12.6204 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:36:12.6204 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:38:56.2344 ERROR Something went wrong while uploading file: Input string was not in a correct format.
+2024-06-05 11:38:56.4856 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:38:56.4856 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:38:56.4856 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:38:56.4952 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:38:56.5109 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:38:56.5109 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:41:11.5176 INFO Returned all PVG Claims with details from database.
+2024-06-05 11:42:36.4051 ERROR Something went wrong inside GetAllMileageClaimWithDetailsAsync action: String '05/29/2024 17:36:16' was not recognized as a valid DateTime.
+2024-06-05 11:42:49.4476 ERROR Something went wrong: System.NullReferenceException: Object reference not set to an instance of an object.
+   at AspNetCore.Views_FinancePVGClaimsReport_Index.<ExecuteAsync>b__47_1() in C:\Users\Dell\Desktop\UETrack2019-eclaim-1d3df673f4b1\EClaimsWeb\Views\FinancePVGClaimsReport\Index.cshtml:line 49
+   at Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperExecutionContext.GetChildContentAsync(Boolean useCachedResult, HtmlEncoder encoder)
+   at Microsoft.AspNetCore.Mvc.TagHelpers.RenderAtEndOfFormTagHelper.ProcessAsync(TagHelperContext context, TagHelperOutput output)
+   at Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperRunner.<RunAsync>g__Awaited|0_0(Task task, TagHelperExecutionContext executionContext, Int32 i, Int32 count)
+   at AspNetCore.Views_FinancePVGClaimsReport_Index.ExecuteAsync() in C:\Users\Dell\Desktop\UETrack2019-eclaim-1d3df673f4b1\EClaimsWeb\Views\FinancePVGClaimsReport\Index.cshtml:line 4
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageCoreAsync(IRazorPage page, ViewContext context)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageAsync(IRazorPage page, ViewContext context, Boolean invokeViewStarts)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderAsync(ViewContext context)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ActionContext actionContext, IView view, ViewDataDictionary viewData, ITempDataDictionary tempData, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.ExecuteAsync(ActionContext context, ViewResult result)
+   at Microsoft.AspNetCore.Mvc.ViewResult.ExecuteResultAsync(ActionContext context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|29_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|19_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Builder.Extensions.MapMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at EClaimsWeb.CustomExceptionMiddleware.ExceptionMiddleware.InvokeAsync(HttpContext httpContext) in C:\Users\Dell\Desktop\UETrack2019-eclaim-1d3df673f4b1\EClaimsWeb\CustomExceptionMiddleware\ExceptionMiddleware.cs:line 27
+2024-06-05 11:43:13.4440 INFO Returned all Mileage Claims with details from database.
+2024-06-05 11:43:32.0439 INFO Returned all facilities with departments from database.
+2024-06-05 11:43:50.2913 ERROR Something went wrong inside GetAllMileageClaimWithDetailsAsync action: String '05/29/2024 17:36:16' was not recognized as a valid DateTime.
+2024-06-05 11:44:07.0074 ERROR Something went wrong: System.NullReferenceException: Object reference not set to an instance of an object.
+   at AspNetCore.Views_FinancePVGClaimsReport_Index.<ExecuteAsync>b__47_1() in C:\Users\Dell\Desktop\UETrack2019-eclaim-1d3df673f4b1\EClaimsWeb\Views\FinancePVGClaimsReport\Index.cshtml:line 49
+   at Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperExecutionContext.GetChildContentAsync(Boolean useCachedResult, HtmlEncoder encoder)
+   at Microsoft.AspNetCore.Mvc.TagHelpers.RenderAtEndOfFormTagHelper.ProcessAsync(TagHelperContext context, TagHelperOutput output)
+   at Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperRunner.<RunAsync>g__Awaited|0_0(Task task, TagHelperExecutionContext executionContext, Int32 i, Int32 count)
+   at AspNetCore.Views_FinancePVGClaimsReport_Index.ExecuteAsync() in C:\Users\Dell\Desktop\UETrack2019-eclaim-1d3df673f4b1\EClaimsWeb\Views\FinancePVGClaimsReport\Index.cshtml:line 4
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageCoreAsync(IRazorPage page, ViewContext context)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageAsync(IRazorPage page, ViewContext context, Boolean invokeViewStarts)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderAsync(ViewContext context)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ActionContext actionContext, IView view, ViewDataDictionary viewData, ITempDataDictionary tempData, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.ExecuteAsync(ActionContext context, ViewResult result)
+   at Microsoft.AspNetCore.Mvc.ViewResult.ExecuteResultAsync(ActionContext context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|29_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|19_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Builder.Extensions.MapMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at EClaimsWeb.CustomExceptionMiddleware.ExceptionMiddleware.InvokeAsync(HttpContext httpContext) in C:\Users\Dell\Desktop\UETrack2019-eclaim-1d3df673f4b1\EClaimsWeb\CustomExceptionMiddleware\ExceptionMiddleware.cs:line 27
+2024-06-05 11:59:02.2213 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:59:02.3428 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:59:02.3647 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:59:02.4321 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:59:02.4321 INFO Returned all PV Cheque Claims with details from database.
+2024-06-05 11:59:02.4321 INFO Returned all PV Cheque Claims with details from database.

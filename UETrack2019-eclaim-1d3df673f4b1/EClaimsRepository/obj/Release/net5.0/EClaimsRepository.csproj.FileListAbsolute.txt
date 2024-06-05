@@ -1,0 +1,30 @@
+D:\Subash\EClaims 27Aug2021\Eclaims\EClaimsRepository\bin\Release\net5.0\EClaimsRepository.deps.json
+D:\Subash\EClaims 27Aug2021\Eclaims\EClaimsRepository\bin\Release\net5.0\EClaimsRepository.dll
+D:\Subash\EClaims 27Aug2021\Eclaims\EClaimsRepository\bin\Release\net5.0\ref\EClaimsRepository.dll
+D:\Subash\EClaims 27Aug2021\Eclaims\EClaimsRepository\bin\Release\net5.0\EClaimsRepository.pdb
+D:\Subash\EClaims 27Aug2021\Eclaims\EClaimsRepository\bin\Release\net5.0\EClaimsEntities.dll
+D:\Subash\EClaims 27Aug2021\Eclaims\EClaimsRepository\bin\Release\net5.0\EClaimsEntities.pdb
+D:\Subash\EClaims 27Aug2021\Eclaims\EClaimsRepository\obj\Release\net5.0\EClaimsRepository.csproj.AssemblyReference.cache
+D:\Subash\EClaims 27Aug2021\Eclaims\EClaimsRepository\obj\Release\net5.0\EClaimsRepository.GeneratedMSBuildEditorConfig.editorconfig
+D:\Subash\EClaims 27Aug2021\Eclaims\EClaimsRepository\obj\Release\net5.0\EClaimsRepository.AssemblyInfoInputs.cache
+D:\Subash\EClaims 27Aug2021\Eclaims\EClaimsRepository\obj\Release\net5.0\EClaimsRepository.AssemblyInfo.cs
+D:\Subash\EClaims 27Aug2021\Eclaims\EClaimsRepository\obj\Release\net5.0\EClaimsRepository.csproj.CoreCompileInputs.cache
+D:\Subash\EClaims 27Aug2021\Eclaims\EClaimsRepository\obj\Release\net5.0\EClaimsRepository.csproj.CopyComplete
+D:\Subash\EClaims 27Aug2021\Eclaims\EClaimsRepository\obj\Release\net5.0\EClaimsRepository.dll
+D:\Subash\EClaims 27Aug2021\Eclaims\EClaimsRepository\obj\Release\net5.0\ref\EClaimsRepository.dll
+D:\Subash\EClaims 27Aug2021\Eclaims\EClaimsRepository\obj\Release\net5.0\EClaimsRepository.pdb
+D:\EClaims\SourceCode\EClaims\EClaimsRepository\bin\Release\net5.0\EClaimsRepository.deps.json
+D:\EClaims\SourceCode\EClaims\EClaimsRepository\bin\Release\net5.0\EClaimsRepository.dll
+D:\EClaims\SourceCode\EClaims\EClaimsRepository\bin\Release\net5.0\ref\EClaimsRepository.dll
+D:\EClaims\SourceCode\EClaims\EClaimsRepository\bin\Release\net5.0\EClaimsRepository.pdb
+D:\EClaims\SourceCode\EClaims\EClaimsRepository\bin\Release\net5.0\EClaimsEntities.dll
+D:\EClaims\SourceCode\EClaims\EClaimsRepository\bin\Release\net5.0\EClaimsEntities.pdb
+D:\EClaims\SourceCode\EClaims\EClaimsRepository\obj\Release\net5.0\EClaimsRepository.csproj.AssemblyReference.cache
+D:\EClaims\SourceCode\EClaims\EClaimsRepository\obj\Release\net5.0\EClaimsRepository.GeneratedMSBuildEditorConfig.editorconfig
+D:\EClaims\SourceCode\EClaims\EClaimsRepository\obj\Release\net5.0\EClaimsRepository.AssemblyInfoInputs.cache
+D:\EClaims\SourceCode\EClaims\EClaimsRepository\obj\Release\net5.0\EClaimsRepository.AssemblyInfo.cs
+D:\EClaims\SourceCode\EClaims\EClaimsRepository\obj\Release\net5.0\EClaimsRepository.csproj.CoreCompileInputs.cache
+D:\EClaims\SourceCode\EClaims\EClaimsRepository\obj\Release\net5.0\EClaimsRepository.csproj.CopyComplete
+D:\EClaims\SourceCode\EClaims\EClaimsRepository\obj\Release\net5.0\EClaimsRepository.dll
+D:\EClaims\SourceCode\EClaims\EClaimsRepository\obj\Release\net5.0\ref\EClaimsRepository.dll
+D:\EClaims\SourceCode\EClaims\EClaimsRepository\obj\Release\net5.0\EClaimsRepository.pdb

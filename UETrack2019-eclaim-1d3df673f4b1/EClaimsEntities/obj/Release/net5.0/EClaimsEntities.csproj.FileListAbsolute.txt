@@ -1,0 +1,24 @@
+D:\Subash\EClaims 27Aug2021\Eclaims\EClaimsEntities\bin\Release\net5.0\EClaimsEntities.deps.json
+D:\Subash\EClaims 27Aug2021\Eclaims\EClaimsEntities\bin\Release\net5.0\EClaimsEntities.dll
+D:\Subash\EClaims 27Aug2021\Eclaims\EClaimsEntities\bin\Release\net5.0\ref\EClaimsEntities.dll
+D:\Subash\EClaims 27Aug2021\Eclaims\EClaimsEntities\bin\Release\net5.0\EClaimsEntities.pdb
+D:\Subash\EClaims 27Aug2021\Eclaims\EClaimsEntities\obj\Release\net5.0\EClaimsEntities.csproj.AssemblyReference.cache
+D:\Subash\EClaims 27Aug2021\Eclaims\EClaimsEntities\obj\Release\net5.0\EClaimsEntities.GeneratedMSBuildEditorConfig.editorconfig
+D:\Subash\EClaims 27Aug2021\Eclaims\EClaimsEntities\obj\Release\net5.0\EClaimsEntities.AssemblyInfoInputs.cache
+D:\Subash\EClaims 27Aug2021\Eclaims\EClaimsEntities\obj\Release\net5.0\EClaimsEntities.AssemblyInfo.cs
+D:\Subash\EClaims 27Aug2021\Eclaims\EClaimsEntities\obj\Release\net5.0\EClaimsEntities.csproj.CoreCompileInputs.cache
+D:\Subash\EClaims 27Aug2021\Eclaims\EClaimsEntities\obj\Release\net5.0\EClaimsEntities.dll
+D:\Subash\EClaims 27Aug2021\Eclaims\EClaimsEntities\obj\Release\net5.0\ref\EClaimsEntities.dll
+D:\Subash\EClaims 27Aug2021\Eclaims\EClaimsEntities\obj\Release\net5.0\EClaimsEntities.pdb
+D:\EClaims\SourceCode\EClaims\EClaimsEntities\bin\Release\net5.0\EClaimsEntities.deps.json
+D:\EClaims\SourceCode\EClaims\EClaimsEntities\bin\Release\net5.0\EClaimsEntities.dll
+D:\EClaims\SourceCode\EClaims\EClaimsEntities\bin\Release\net5.0\ref\EClaimsEntities.dll
+D:\EClaims\SourceCode\EClaims\EClaimsEntities\bin\Release\net5.0\EClaimsEntities.pdb
+D:\EClaims\SourceCode\EClaims\EClaimsEntities\obj\Release\net5.0\EClaimsEntities.csproj.AssemblyReference.cache
+D:\EClaims\SourceCode\EClaims\EClaimsEntities\obj\Release\net5.0\EClaimsEntities.GeneratedMSBuildEditorConfig.editorconfig
+D:\EClaims\SourceCode\EClaims\EClaimsEntities\obj\Release\net5.0\EClaimsEntities.AssemblyInfoInputs.cache
+D:\EClaims\SourceCode\EClaims\EClaimsEntities\obj\Release\net5.0\EClaimsEntities.AssemblyInfo.cs
+D:\EClaims\SourceCode\EClaims\EClaimsEntities\obj\Release\net5.0\EClaimsEntities.csproj.CoreCompileInputs.cache
+D:\EClaims\SourceCode\EClaims\EClaimsEntities\obj\Release\net5.0\EClaimsEntities.dll
+D:\EClaims\SourceCode\EClaims\EClaimsEntities\obj\Release\net5.0\ref\EClaimsEntities.dll
+D:\EClaims\SourceCode\EClaims\EClaimsEntities\obj\Release\net5.0\EClaimsEntities.pdb
